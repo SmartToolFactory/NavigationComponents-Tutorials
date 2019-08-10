@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2018 The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            app:startDestination="@+id/title_screen">
+
+    <fragment
+            android:id="@+id/title_screen"
+            android:name="com.example.android.navigationsample.TitleScreen"
+            android:label="fragment_title_screen"
+            tools:layout="@layout/fragment_title_screen">
+        <action
+                android:id="@+id/action_title_screen_to_register"
+                app:destination="@id/register"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"/>
+        <action
+                android:id="@+id/action_title_screen_to_leaderboard"
+                app:destination="@id/leaderboard"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <fragment
+            android:id="@+id/register"
+            android:name="com.example.android.navigationsample.Register"
+            android:label="fragment_register"
+            tools:layout="@layout/fragment_register">
+        <action
+                android:id="@+id/action_register_to_match"
+                app:destination="@id/match"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <fragment
+            android:id="@+id/leaderboard"
+            android:name="com.example.android.navigationsample.Leaderboard"
+            android:label="fragment_leaderboard"
+            tools:layout="@layout/fragment_leaderboard">
+        <action
+                android:id="@+id/action_leaderboard_to_userProfile"
+                app:destination="@id/user_profile"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <fragment
+            android:id="@+id/match"
+            android:name="com.example.android.navigationsample.Match"
+            android:label="fragment_match"
+            tools:layout="@layout/fragment_match">
+        <action
+                android:id="@+id/action_match_to_in_game"
+                app:destination="@id/in_game"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <fragment
+            android:id="@+id/user_profile"
+            android:name="com.example.android.navigationsample.UserProfile"
+            android:label="fragment_user_profile"
+            tools:layout="@layout/fragment_user_profile">
+        <argument android:name="userName"
+                  android:defaultValue="name"/>
+        <deepLink app:uri="www.example.com/user/{userName}" />
+    </fragment>
+    <fragment
+            android:id="@+id/in_game"
+            android:name="com.example.android.navigationsample.InGame"
+            android:label="Game"
+            tools:layout="@layout/fragment_in_game">
+        <action
+                android:id="@+id/action_in_game_to_resultsWinner"
+                app:destination="@id/results_winner"
+                app:popUpTo="@+id/match"
+                app:popUpToInclusive="false"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"
+                app:enterAnim="@anim/fade_in"
+                app:exitAnim="@anim/fade_out"/>
+        <action
+                android:id="@+id/action_in_game_to_gameOver"
+                app:destination="@id/game_over"
+                app:popUpTo="@id/match"
+                app:popUpToInclusive="false"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"
+                app:enterAnim="@anim/fade_in"
+                app:exitAnim="@anim/fade_out"/>
+    </fragment>
+    <fragment
+            android:id="@+id/results_winner"
+            android:name="com.example.android.navigationsample.ResultsWinner"
+            tools:layout="@layout/fragment_results_winner">
+        <action android:id="@+id/action_results_winner_to_leaderboard"
+                app:destination="@id/leaderboard"
+                app:popUpTo="@id/title_screen"/>
+        <action android:id="@+id/action_results_winner_to_match"
+                app:popUpTo="@id/match"/>
+    </fragment>
+    <fragment
+            android:id="@+id/game_over"
+            android:name="com.example.android.navigationsample.GameOver"
+            android:label="fragment_game_over"
+            tools:layout="@layout/fragment_game_over">
+        <action android:id="@+id/action_game_over_to_match"
+                app:popUpTo="@id/match"/>
+    </fragment>
+</navigation>

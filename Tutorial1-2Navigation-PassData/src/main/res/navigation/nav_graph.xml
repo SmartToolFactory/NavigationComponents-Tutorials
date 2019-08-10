@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph"
+            app:startDestination="@id/mainFragment">
+
+    <fragment android:id="@+id/mainFragment"
+              android:name="com.smarttoolfactory.tutorial1_2navigationpassdata.MainFragment"
+              android:label="MainFragment">
+        <!-- Action Top -->
+        <action android:id="@+id/action_mainFragment_to_topFragment" app:destination="@id/top_dest"/>
+        <!-- Action Bottom -->
+        <action android:id="@+id/action_mainFragment_to_bottomFragment" app:destination="@id/bottom_dest"/>
+
+    </fragment>
+
+    <fragment android:id="@+id/top_dest"
+              android:name="com.smarttoolfactory.tutorial1_2navigationpassdata.TopFragment" android:label="fragment_top"
+              tools:layout="@layout/fragment_top">
+
+        <argument android:name="myArg"
+                  app:argType="integer"
+                  android:defaultValue="0"/>
+    </fragment>
+
+    <fragment android:id="@+id/bottom_dest"
+              android:name="com.smarttoolfactory.tutorial1_2navigationpassdata.BottomFragment"
+              android:label="fragment_bottom" tools:layout="@layout/fragment_bottom">
+
+        <argument android:name="myData"
+                  app:argType="com.smarttoolfactory.tutorial1_2navigationpassdata.model.Data"/>
+    </fragment>
+</navigation>
