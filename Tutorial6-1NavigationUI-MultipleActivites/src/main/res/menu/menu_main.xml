@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+            android:id="@+id/detail_dest"
+            android:icon="@drawable/ic_details"
+            android:title="@string/details"
+            app:showAsAction="ifRoom"/>
+
+    <item
+            android:id="@+id/settings_dest"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/settings"
+            app:showAsAction="ifRoom"/>
+
+
+    <item
+            android:id="@+id/camera_dest"
+            android:icon="@drawable/ic_camera"
+            android:title="@string/camera"
+            app:showAsAction="ifRoom"/>
+</menu>

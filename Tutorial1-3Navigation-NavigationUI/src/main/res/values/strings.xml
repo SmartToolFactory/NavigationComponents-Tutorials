@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">Tutorial1-3-Navigation-NavigationUI</string>
-    <string name="details">Details</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="settings">Settings</string>
-</resources>

@@ -7,7 +7,7 @@
 
     <!-- MainFragment -->
     <fragment android:id="@+id/mainFragment"
-              android:name="com.smarttoolfactory.tutorial1_2navigationpassdata.MainFragment"
+              android:name="com.smarttoolfactory.tutorial2_1navigationpassdata.MainFragment"
               android:label="fragment_main"
               tools:layout="@layout/fragment_main">
         <action android:id="@+id/action_mainFragment_to_chooseRecipientFragment"

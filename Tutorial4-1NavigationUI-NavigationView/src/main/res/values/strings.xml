@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Tutorial4-1NavigationUI-AppBar</string>
+
+    <string name="details">Details</string>
+    <string name="settings">Settings</string>
+    <string name="camera">Camera</string>
+
+    <string name="shopping">Shopping</string>
+
+</resources>

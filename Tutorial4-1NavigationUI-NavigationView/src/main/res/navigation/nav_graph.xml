@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph"
+            app:startDestination="@id/mainFragment">
+
+    <fragment android:id="@+id/mainFragment"
+              android:name="com.smarttoolfactory.tutorial4_1navigationui_navigationview.MainFragment"
+              android:label="fragment_main" tools:layout="@layout/fragment_main"/>
+
+    <!-- Camera Fragment -->
+    <fragment android:id="@+id/detail_dest"
+              android:name="com.smarttoolfactory.tutorial4_1navigationui_navigationview.blankfragments.DetailFragment"
+              android:label="fragment_detail" tools:layout="@layout/fragment_detail"/>
+
+    <!-- Detail Fragment -->
+    <fragment android:id="@+id/camera_dest"
+              android:name="com.smarttoolfactory.tutorial4_1navigationui_navigationview.blankfragments.CameraFragment"
+              android:label="fragment_camera" tools:layout="@layout/fragment_camera"/>
+
+    <!-- Settings Fragment -->
+    <fragment android:id="@+id/settings_dest"
+              android:name="com.smarttoolfactory.tutorial4_1navigationui_navigationview.blankfragments.SettingsFragment"
+              android:label="fragment_settings" tools:layout="@layout/fragment_settings"/>
+
+    <fragment android:id="@+id/shopping_dest"
+              android:name="com.smarttoolfactory.tutorial4_1navigationui_navigationview.blankfragments.ShoppingFragment"
+              android:label="fragment_shopping" tools:layout="@layout/fragment_shopping"/>
+</navigation>

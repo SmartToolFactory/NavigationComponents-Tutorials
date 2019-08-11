@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="#8BC34A"
+             tools:context="com.smarttoolfactory.tutorial2_1navigationpassdata.BottomFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="#fff"
+            android:id="@+id/tvBottom"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:text="Destination C" android:gravity="center"/>
+
+</FrameLayout>

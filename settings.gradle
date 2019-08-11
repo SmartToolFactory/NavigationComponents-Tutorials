@@ -1,1 +1,5 @@
-include ':Tutorial1-1Navigation-NavGraph', ':External-Tutorial-Navigation-Codelab', ':External-Tutorial-Navigation-Components-Example-CodingWithMicth', ':External-Tutorial-NavigationBasicSample', ':Tutorial1-2Navigation-PassData', ':Tutorial1-3Navigation-NavigationUI'
+include ':External-Tutorial-Navigation-Codelab', ':External-Tutorial-Navigation-Components-Example-CodingWithMicth', ':External-Tutorial-NavigationBasicSample', ':Tutorial3-1NavigationUI-MenuButtons', ':Tutorial4-1NavigationUI-NavigationView'
+
+include '::Tutorial1-1Navigation-NavGraph'
+include ':Tutorial2-1Navigation-PassData'
+include ':Tutorial6-1NavigationUI-MultipleActivites'
