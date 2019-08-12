@@ -12,6 +12,11 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.*
 import com.google.android.material.navigation.NavigationView
 
+/**
+ * This example shows how to set appbar, set top-destination level fragments
+ * which display hamburger button, and listening when user navigates to a fragment
+ * to set set desired properties
+ */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -33,27 +38,27 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
 
         // Get App Configuration from nav graph
-        appBarConfiguration = AppBarConfiguration(navController.graph)
+//        appBarConfiguration = AppBarConfiguration(navController.graph)
 
-        // 🔥 This configuration is for top-level destinations, but don't know what this is?
-        // Used set of only 2 items to test but 3 of navigation items work
-//        appBarConfiguration = AppBarConfiguration(
-//            setOf(R.id.detail_dest, R.id.settings_dest),
-//            drawerLayout
-//        )
+        // TODO Alternative 2 This appBarConfiguration for top-level destinations
+        // 🔥🔥🔥 This configuration is for top-level destinations means
+        // which fragments should display hamburger button and which ones back arrow
+        appBarConfiguration = AppBarConfiguration(
+            setOf(R.id.mainFragment, R.id.settings_dest),
+            drawerLayout
+        )
 
         setupNavigationMenu(navController)
 
-        // TODO Alternative 1 Appbar to set back and hamburger
+        // TODO Alternative 1 Toolbar to set back and hamburger
+        toolbar.setupWithNavController(navController, appBarConfiguration)
+
+        // TODO Alternative 2 Appbar to set back and hamburger
 //        setupActionBar(navController, appBarConfiguration)
 
-        // TODO Alternative 2 Toolbar to set back and hamburger
-        toolbar.setupWithNavController(navController, drawerLayout)
-
         // This is for listening when a transition happens to a fragment and, change some features
-        // Here, i set visibility of toolber when it's Camera fragment to simulate cam layout
+        // Set visibility of toolbar for instance when it's Camera fragment to simulate cam layout
         listenForNavigationEvents(navController, toolbar)
-
 
     }
 
@@ -63,13 +68,13 @@ class MainActivity : AppCompatActivity() {
      */
     private fun setupNavigationMenu(navController: NavController) {
         // TODO Use NavigationUI to set up a Navigation View
-        // ⚠️ This does NOT modify the actionbar
+        // ⚠️ This does NOT modify the appBar
         val sideNavView = findViewById<NavigationView>(R.id.nav_view)
         sideNavView?.setupWithNavController(navController)
     }
 
 
-    //    *** ACTION BAR ***
+    //    *** APPBAR ***
 
     // Alternative to set Appbar, if toolbar is not available for instance
     private fun setupActionBar(
@@ -85,11 +90,11 @@ class MainActivity : AppCompatActivity() {
 
     // This method used with seupActionBar method, setting with toolBar handles back arrow and
     // hamburger button changes
-    override fun onSupportNavigateUp(): Boolean {
-        // Allows NavigationUI to support proper up navigation or the drawer layout
-        // drawer menu, depending on the situation
-        return findNavController(R.id.nav_host_fragment).navigateUp(appBarConfiguration)
-    }
+//    override fun onSupportNavigateUp(): Boolean {
+//        // Allows NavigationUI to support proper up navigation or the drawer layout
+//        // drawer menu, depending on the situation
+//        return findNavController(R.id.nav_host_fragment).navigateUp(appBarConfiguration)
+//    }
 
 
     //    *** LISTENING NAVIGATION CHANGES ***

@@ -12,15 +12,15 @@
 
     <!-- Detail Fragment -->
     <fragment android:id="@+id/detail_dest"
-              android:name="com.smarttoolfactory.tutorial4_1navigationui_navigationview.blankfragments.DetailFragment"
+              android:name="com.smarttoolfactory.tutorial5_2navigationui_bottomnavigation_advanced.blankfragments.DetailFragment"
               android:label="fragment_detail" tools:layout="@layout/fragment_detail"/>
 
     <!-- Settings Fragment -->
     <fragment android:id="@+id/settings_dest"
-              android:name="com.smarttoolfactory.tutorial4_1navigationui_navigationview.blankfragments.SettingsFragment"
+              android:name="com.smarttoolfactory.tutorial5_2navigationui_bottomnavigation_advanced.blankfragments.SettingsFragment"
               android:label="fragment_settings" tools:layout="@layout/fragment_settings"/>
 
     <fragment android:id="@+id/camera_dest"
-              android:name="com.smarttoolfactory.tutorial4_1navigationui_navigationview.blankfragments.CameraFragment"
+              android:name="com.smarttoolfactory.tutorial5_2navigationui_bottomnavigation_advanced.blankfragments.CameraFragment"
               android:label="fragment_camera" tools:layout="@layout/fragment_camera"/>
 </navigation>

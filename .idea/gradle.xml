@@ -11,10 +11,13 @@
             <option value="$PROJECT_DIR$/External-Tutorial-Navigation-Codelab" />
             <option value="$PROJECT_DIR$/External-Tutorial-Navigation-Components-Example-CodingWithMicth" />
             <option value="$PROJECT_DIR$/External-Tutorial-NavigationBasicSample" />
+            <option value="$PROJECT_DIR$/Tutorial0-MaterialDesign" />
             <option value="$PROJECT_DIR$/Tutorial1-1Navigation-NavGraph" />
             <option value="$PROJECT_DIR$/Tutorial2-1Navigation-PassData" />
             <option value="$PROJECT_DIR$/Tutorial3-1NavigationUI-MenuButtons" />
             <option value="$PROJECT_DIR$/Tutorial4-1NavigationUI-NavigationView" />
+            <option value="$PROJECT_DIR$/Tutorial5-1NavigationUI-BottomNavigation" />
+            <option value="$PROJECT_DIR$/Tutorial5-2NavigationUI-BottomNavigation-Advanced" />
             <option value="$PROJECT_DIR$/Tutorial6-1NavigationUI-MultipleActivites" />
           </set>
         </option>
