@@ -1,0 +1,235 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:17:1-54:12
+INJECTED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:17:1-54:12
+INJECTED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:17:1-54:12
+INJECTED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:17:1-54:12
+MERGED from [androidx.databinding:databinding-adapters:3.4.2] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/d98653762e48fd1a13249087663a3736/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.databinding:databinding-runtime:3.4.2] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/764b07173e9577c6c8f83383792ad355/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-ui-ktx:2.1.0-beta02] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/e1430cb622ccc99df67f3485e4b9da79/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-ui:2.1.0-beta02] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/a65b61cd7b70886ff2a48d3cd8de3a89/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.material:material:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/027840f0021e1934bd2b9c00b66ae349/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat:1.0.2] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/acbafd31bc0a876445869afdbd8edb74/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/42abd53fb38d351c8319d4044fada191/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/58e20bc569d229457eb292d47c3676cf/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.1.0-beta02] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/196ea6a76c8af93cd8565bf19bdc6326/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/726bfdc96ce9265942aa9320627e85d9/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/d22b38c0c1e142514a5dbe9b5c0326f5/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/2a919d5773bfc0db50829695ce8f859b/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.1] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/3ae5f4c7d25b3e54c7b456e5446b7ea2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-fragment:2.1.0-beta02] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/c5bd43bd6d461c061d780e0ed7f33e8a/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment-ktx:1.1.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/3216e53bd6d963d0453cb1fedb11afb2/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.1.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/9a1b937ca56c07803d40b3d6818ff106/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/661c57f729f5a5c7834b721e9f68f886/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/7d7818b15d80c8a16fe4d440d1a0196e/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/52ccf503f25e9b3f97a4e7867186b782/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/7dc1f266946709eb24eb8d4c18b59f14/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/81e6e792846dbe88f7945f3a7ea0f2b5/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/ea521e87485db54018ec350cba89cbfe/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/5f40a04dd8cce09c194c04e67dbee988/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/d032bcc7c1deb994814722077dbef488/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.0.1] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/05cb04753771c96aef20c574cd5d444b/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.1.0-beta02] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/706c7967ccdcfeda4f3708d4ca0715a6/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-runtime:2.1.0-beta02] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/c052780de121358be1311a2264f1963f/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity-ktx:1.0.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/aa568912401218ecb4a200df0de238a3/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.0.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/4e1855e1d63c166ef58282b364ec4c34/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-common-ktx:2.1.0-beta02] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/84855d457c046ec5e5cbed047db14788/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-common:2.1.0-beta02] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/682001635fd1183f8ae110d1b063ea73/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.1.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/f114c65fe49e0cadb505a83003aa0c68/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/ab1c7bf1e642dabcdeed6aba20ef46bf/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/ce2cbbfcbb9e3c77c8a5cbd6afbfb924/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/21e5e27065df7c5d9afae0a3b63658d1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/886a1e6a8972b7ec24a23238d108225e/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/9e8ce7be2d707bc153e85124bcf47471/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/97cbfd01386d65886816ab663e1160a7/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/49acac0b6075244ea56610145f17cce9/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/26ebe62951515482e2272f3124da8b6e/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/84169db2e3f27880222e68130b18e945/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/5f60570656de56d8b5234c18bb8b3c6e/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/edb1b41fd4e198aa61cf1e01a5880b3a/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/5fbc1c7926abed6d07e16adc68914d45/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/17d6a1331946a16ad6b1cf0e15870886/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.0.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/b62a6aa268c5f5e25c2e72a6b84a941c/AndroidManifest.xml:17:1-24:12
+INJECTED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:17:1-54:12
+INJECTED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:17:1-54:12
+INJECTED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:17:1-54:12
+	package
+		ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:19:11-60
+		INJECTED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml
+		INJECTED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml
+		ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:17:1-54:12
+		INJECTED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:18:11-57
+	android:versionCode
+		INJECTED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml
+		ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:17:1-54:12
+		INJECTED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:17:11-69
+application
+ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:21:5-52:19
+MERGED from [com.google.android.material:material:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/027840f0021e1934bd2b9c00b66ae349/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/027840f0021e1934bd2b9c00b66ae349/AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/58e20bc569d229457eb292d47c3676cf/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/58e20bc569d229457eb292d47c3676cf/AndroidManifest.xml:9:5-20
+MERGED from [androidx.core:core:1.1.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/f114c65fe49e0cadb505a83003aa0c68/AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.1.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/f114c65fe49e0cadb505a83003aa0c68/AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/ce2cbbfcbb9e3c77c8a5cbd6afbfb924/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/ce2cbbfcbb9e3c77c8a5cbd6afbfb924/AndroidManifest.xml:24:5-25:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.1.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/f114c65fe49e0cadb505a83003aa0c68/AndroidManifest.xml:24:18-86
+	android:supportsRtl
+		ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:25:9-35
+	android:label
+		ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:24:9-41
+	tools:ignore
+		ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:27:9-48
+	android:icon
+		ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:23:9-43
+	android:allowBackup
+		ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:22:9-36
+	android:theme
+		ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:26:9-40
+activity#com.example.android.codelabs.navigation.MainActivity
+ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:28:9-40:20
+	android:name
+		ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:28:19-47
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.DEFAULT+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:29:13-34:29
+action#android.intent.action.MAIN
+ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:30:17-69
+	android:name
+		ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:30:25-66
+category#android.intent.category.DEFAULT
+ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:32:17-76
+	android:name
+		ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:32:27-73
+category#android.intent.category.LAUNCHER
+ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:33:17-77
+	android:name
+		ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:33:27-74
+receiver#com.example.android.codelabs.navigation.DeepLinkAppWidgetProvider
+ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:42:9-50:20
+	android:name
+		ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:42:19-60
+intent-filter#action:name:android.appwidget.action.APPWIDGET_UPDATE
+ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:43:13-45:29
+action#android.appwidget.action.APPWIDGET_UPDATE
+ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:44:17-84
+	android:name
+		ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:44:25-81
+meta-data#android.appwidget.provider
+ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:47:13-49:68
+	android:resource
+		ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:49:17-65
+	android:name
+		ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml:48:17-58
+uses-sdk
+INJECTED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml
+INJECTED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml
+MERGED from [androidx.databinding:databinding-adapters:3.4.2] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/d98653762e48fd1a13249087663a3736/AndroidManifest.xml:22:5-44
+MERGED from [androidx.databinding:databinding-adapters:3.4.2] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/d98653762e48fd1a13249087663a3736/AndroidManifest.xml:22:5-44
+MERGED from [androidx.databinding:databinding-runtime:3.4.2] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/764b07173e9577c6c8f83383792ad355/AndroidManifest.xml:22:5-44
+MERGED from [androidx.databinding:databinding-runtime:3.4.2] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/764b07173e9577c6c8f83383792ad355/AndroidManifest.xml:22:5-44
+MERGED from [androidx.navigation:navigation-ui-ktx:2.1.0-beta02] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/e1430cb622ccc99df67f3485e4b9da79/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui-ktx:2.1.0-beta02] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/e1430cb622ccc99df67f3485e4b9da79/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui:2.1.0-beta02] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/a65b61cd7b70886ff2a48d3cd8de3a89/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui:2.1.0-beta02] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/a65b61cd7b70886ff2a48d3cd8de3a89/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.material:material:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/027840f0021e1934bd2b9c00b66ae349/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/027840f0021e1934bd2b9c00b66ae349/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.0.2] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/acbafd31bc0a876445869afdbd8edb74/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.0.2] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/acbafd31bc0a876445869afdbd8edb74/AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/42abd53fb38d351c8319d4044fada191/AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/42abd53fb38d351c8319d4044fada191/AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/58e20bc569d229457eb292d47c3676cf/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/58e20bc569d229457eb292d47c3676cf/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.1.0-beta02] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/196ea6a76c8af93cd8565bf19bdc6326/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.1.0-beta02] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/196ea6a76c8af93cd8565bf19bdc6326/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/726bfdc96ce9265942aa9320627e85d9/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/726bfdc96ce9265942aa9320627e85d9/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/d22b38c0c1e142514a5dbe9b5c0326f5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/d22b38c0c1e142514a5dbe9b5c0326f5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/2a919d5773bfc0db50829695ce8f859b/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/2a919d5773bfc0db50829695ce8f859b/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.1] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/3ae5f4c7d25b3e54c7b456e5446b7ea2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.1] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/3ae5f4c7d25b3e54c7b456e5446b7ea2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-fragment:2.1.0-beta02] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/c5bd43bd6d461c061d780e0ed7f33e8a/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-fragment:2.1.0-beta02] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/c5bd43bd6d461c061d780e0ed7f33e8a/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment-ktx:1.1.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/3216e53bd6d963d0453cb1fedb11afb2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment-ktx:1.1.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/3216e53bd6d963d0453cb1fedb11afb2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/9a1b937ca56c07803d40b3d6818ff106/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/9a1b937ca56c07803d40b3d6818ff106/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/661c57f729f5a5c7834b721e9f68f886/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/661c57f729f5a5c7834b721e9f68f886/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/7d7818b15d80c8a16fe4d440d1a0196e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/7d7818b15d80c8a16fe4d440d1a0196e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/52ccf503f25e9b3f97a4e7867186b782/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/52ccf503f25e9b3f97a4e7867186b782/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/7dc1f266946709eb24eb8d4c18b59f14/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/7dc1f266946709eb24eb8d4c18b59f14/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/81e6e792846dbe88f7945f3a7ea0f2b5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/81e6e792846dbe88f7945f3a7ea0f2b5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/ea521e87485db54018ec350cba89cbfe/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/ea521e87485db54018ec350cba89cbfe/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/5f40a04dd8cce09c194c04e67dbee988/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/5f40a04dd8cce09c194c04e67dbee988/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/d032bcc7c1deb994814722077dbef488/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/d032bcc7c1deb994814722077dbef488/AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.0.1] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/05cb04753771c96aef20c574cd5d444b/AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.0.1] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/05cb04753771c96aef20c574cd5d444b/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.1.0-beta02] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/706c7967ccdcfeda4f3708d4ca0715a6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.1.0-beta02] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/706c7967ccdcfeda4f3708d4ca0715a6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime:2.1.0-beta02] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/c052780de121358be1311a2264f1963f/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime:2.1.0-beta02] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/c052780de121358be1311a2264f1963f/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity-ktx:1.0.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/aa568912401218ecb4a200df0de238a3/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity-ktx:1.0.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/aa568912401218ecb4a200df0de238a3/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.0.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/4e1855e1d63c166ef58282b364ec4c34/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.0.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/4e1855e1d63c166ef58282b364ec4c34/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common-ktx:2.1.0-beta02] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/84855d457c046ec5e5cbed047db14788/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common-ktx:2.1.0-beta02] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/84855d457c046ec5e5cbed047db14788/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common:2.1.0-beta02] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/682001635fd1183f8ae110d1b063ea73/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common:2.1.0-beta02] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/682001635fd1183f8ae110d1b063ea73/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.1.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/f114c65fe49e0cadb505a83003aa0c68/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.1.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/f114c65fe49e0cadb505a83003aa0c68/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/ab1c7bf1e642dabcdeed6aba20ef46bf/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/ab1c7bf1e642dabcdeed6aba20ef46bf/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/ce2cbbfcbb9e3c77c8a5cbd6afbfb924/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/ce2cbbfcbb9e3c77c8a5cbd6afbfb924/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/21e5e27065df7c5d9afae0a3b63658d1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/21e5e27065df7c5d9afae0a3b63658d1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/886a1e6a8972b7ec24a23238d108225e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/886a1e6a8972b7ec24a23238d108225e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/9e8ce7be2d707bc153e85124bcf47471/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/9e8ce7be2d707bc153e85124bcf47471/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/97cbfd01386d65886816ab663e1160a7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/97cbfd01386d65886816ab663e1160a7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/49acac0b6075244ea56610145f17cce9/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/49acac0b6075244ea56610145f17cce9/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/26ebe62951515482e2272f3124da8b6e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/26ebe62951515482e2272f3124da8b6e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/84169db2e3f27880222e68130b18e945/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/84169db2e3f27880222e68130b18e945/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/5f60570656de56d8b5234c18bb8b3c6e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/5f60570656de56d8b5234c18bb8b3c6e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/edb1b41fd4e198aa61cf1e01a5880b3a/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/edb1b41fd4e198aa61cf1e01a5880b3a/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/5fbc1c7926abed6d07e16adc68914d45/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/5fbc1c7926abed6d07e16adc68914d45/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/17d6a1331946a16ad6b1cf0e15870886/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/17d6a1331946a16ad6b1cf0e15870886/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.0.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/b62a6aa268c5f5e25c2e72a6b84a941c/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0-rc01] /Users/smarttoolfactory/.gradle/caches/transforms-2/files-2.1/b62a6aa268c5f5e25c2e72a6b84a941c/AndroidManifest.xml:20:5-22:41
+INJECTED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml
+INJECTED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml
+		ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml
+		INJECTED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml
+		ADDED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml
+		INJECTED from /Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/src/main/AndroidManifest.xml

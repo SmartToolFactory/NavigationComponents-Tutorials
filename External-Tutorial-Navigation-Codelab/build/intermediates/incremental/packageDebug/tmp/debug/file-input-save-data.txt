@@ -1,0 +1,7 @@
+#Internal package file, do not edit.
+#Tue Aug 13 12:26:24 EET 2019
+0.baseType=DIRECTORY
+0.base=/Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/build/intermediates/transforms/dexMerger/debug/0
+0.path=classes.dex
+0.set=DEX
+count=1

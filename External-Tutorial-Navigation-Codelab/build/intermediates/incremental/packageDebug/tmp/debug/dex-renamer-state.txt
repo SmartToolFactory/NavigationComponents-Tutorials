@@ -1,0 +1,4 @@
+#Tue Aug 13 12:26:24 EET 2019
+base.0=/Users/smarttoolfactory/ANDROID/ANDROID WORKSPACE/Android Studio/Study Case Codes/Architecture/NavigationComponents/External-Tutorial-Navigation-Codelab/build/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex

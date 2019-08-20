@@ -40,11 +40,9 @@ class MainActivity : AppCompatActivity() {
         val navGraphIds = listOf(
             R.navigation.home_dest,
             R.navigation.detail_dest,
-            R.navigation.settings_dest,
+            R.navigation.map_dest,
             R.navigation.camera_dest
-
         )
-
 
         // Setup the bottom navigation view with a list of navigation graphs
         val controller = bottomNavigationView.setupWithNavController(

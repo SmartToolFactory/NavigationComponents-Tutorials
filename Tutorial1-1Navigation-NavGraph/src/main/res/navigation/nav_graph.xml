@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            app:startDestination="@id/mainFragment">
+
+    <!-- MainFragment-->
+    <fragment android:id="@+id/mainFragment"
+              android:name="com.smarttoolfactory.navigation1navgraph.MainFragment"
+              android:label="fragment_main" tools:layout="@layout/fragment_main">
+        <action android:id="@+id/action_mainFragment_to_topFragment" app:destination="@id/top_dest"/>
+        <action android:id="@+id/action_mainFragment_to_middleFirstFragment" app:destination="@id/middle1_dest"/>
+        <action android:id="@+id/action_mainFragment_to_bottomFragment" app:destination="@id/bottom_dest"/>
+    </fragment>
+
+    <!-- Top Fragment -->
+    <fragment android:id="@+id/top_dest"
+              android:name="com.smarttoolfactory.navigation1navgraph.TopFragment"
+              android:label="fragment_top" tools:layout="@layout/fragment_top">
+    </fragment>
+
+    <!-- Middle First Fragment -->
+    <fragment android:id="@+id/middle1_dest"
+              android:name="com.smarttoolfactory.navigation1navgraph.MiddleFirstFragment"
+              android:label="fragment_middle_1" tools:layout="@layout/fragment_middle_1">
+
+        <action android:id="@+id/action_middleFirstFragment_to_middleSecondFragment"
+                app:destination="@id/middle2_dest"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <!-- Middle Second Fragment -->
+    <fragment android:id="@+id/middle2_dest"
+              android:name="com.smarttoolfactory.navigation1navgraph.MiddleSecondFragment"
+              android:label="fragment_middle_2" tools:layout="@layout/fragment_middle_2">
+
+        <action android:id="@+id/action_middleSecondFragment_to_middleThirdFragment"
+                app:destination="@id/middle3_dest"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <!-- Middle Third Fragment -->
+    <fragment android:id="@+id/middle3_dest"
+              android:name="com.smarttoolfactory.navigation1navgraph.MiddleThirdFragment"
+              android:label="fragment_middle_3" tools:layout="@layout/fragment_middle_3">
+
+        <!-- 🔥 This is a popUp action -->
+        <action android:id="@+id/action_middle3_dest_to_mainFragment"
+                app:destination="@id/mainFragment"
+
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"
+
+                app:popUpTo="@+id/mainFragment"
+                app:popUpToInclusive="true"/>
+
+    </fragment>
+
+    <!-- Bottom Fragment -->
+    <fragment android:id="@+id/bottom_dest"
+              android:name="com.smarttoolfactory.navigation1navgraph.BottomFragment"
+              android:label="fragment_bottom" tools:layout="@layout/fragment_bottom"/>
+
+
+</navigation>
