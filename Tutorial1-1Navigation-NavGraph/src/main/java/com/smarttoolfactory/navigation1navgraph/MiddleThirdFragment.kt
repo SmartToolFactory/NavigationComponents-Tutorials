@@ -27,8 +27,14 @@ class MiddleThirdFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         view.findViewById<Button>(R.id.btnNavigateHome).setOnClickListener {
+
+            // Navigates to MainFragment
             findNavController().navigate(R.id.action_middle3_dest_to_mainFragment)
+
+
+
         }
     }
 

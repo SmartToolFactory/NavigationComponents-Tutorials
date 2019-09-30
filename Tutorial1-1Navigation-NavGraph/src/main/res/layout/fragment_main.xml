@@ -3,40 +3,43 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/parentLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.smarttoolfactory.navigation1navgraph.MainFragment"
-        android:id="@+id/parentLayout">
+        tools:context="com.smarttoolfactory.navigation1navgraph.MainFragment">
 
     <Button
-            android:text="Destination A"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/btn_destA"
-            app:layout_constraintRight_toLeftOf="parent"
-            app:layout_constraintLeft_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintBottom_toTopOf="@+id/btn_destB"/>
-
-    <Button
-            android:text="Destination B"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Destination A"
+            app:layout_constraintBottom_toTopOf="@+id/btn_destB"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toRightOf="parent"
+            app:layout_constraintRight_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
             android:id="@+id/btn_destB"
-            app:layout_constraintRight_toLeftOf="parent"
-            app:layout_constraintLeft_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_destA" app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintBottom_toTopOf="@+id/btn_destC"/>
-
-    <Button
-            android:text="Destination C"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btn_destC"
-            app:layout_constraintRight_toLeftOf="parent"
+            android:text="Destination B"
+            app:layout_constraintBottom_toTopOf="@+id/btn_destC"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintLeft_toRightOf="parent"
+            app:layout_constraintRight_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_destA" />
+
+    <Button
+            android:id="@+id/btn_destC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Destination C"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_destB" app:layout_constraintHorizontal_bias="0.5"/>
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toRightOf="parent"
+            app:layout_constraintRight_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_destB" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

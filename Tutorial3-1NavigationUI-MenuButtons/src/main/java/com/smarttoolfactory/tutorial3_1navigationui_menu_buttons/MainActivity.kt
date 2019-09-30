@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
             Handles arrow back button
           */
 
-        // TODO Alternarive 1 Handle with Toolbar
+        // TODO Alternative 1 Handle with Toolbar
         // 🔥 Original NavigationUI to set up with Toolbar
         //        setupActionBarWithNavController(navController, appBarConfiguration)
         // 🔥 Extension Function to set up with Toolbar

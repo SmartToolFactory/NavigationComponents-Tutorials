@@ -17,12 +17,17 @@ import com.smarttoolfactory.navigationworkmanagerpagination.R
  *
  * Steps to follow:
  *
- * * 1 Create a fragment in activity_main.xml, set  app:navGraph="@navigation/nav_graph" to set graph for navigation
- *   and app:defaultNavHost="true" to be able to intercept back button.
+ * * 1 Create a fragment in activity_main.xml, set  app:navGraph="@navigation/nav_graph"
+ * to set graph for navigation and app:defaultNavHost="true" to be able to intercept back button.
+ *
  * * 2 Create navigation folder in res and create a nav_graph_xml file
+ *
  * * 3 Set where to navigate by setting actions and destinations.
+ *
  * * 4 Add transition animation by setting in actions
- * * 5 to Pop back to fraom any fragment to any point by poping fragment back stack use popTo and popUpToInclusive properties of actions
+ *
+ * * 5 to Pop back to from any fragment to any point by popping fragment back stack use popTo
+ * and popUpToInclusive properties of actions
  */
 class MainActivity : AppCompatActivity() {
 

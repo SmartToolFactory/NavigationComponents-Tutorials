@@ -8,6 +8,7 @@ import android.widget.TextView
 class MainActivity : AppCompatActivity() {
 
     private lateinit var textMessage: TextView
+
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {

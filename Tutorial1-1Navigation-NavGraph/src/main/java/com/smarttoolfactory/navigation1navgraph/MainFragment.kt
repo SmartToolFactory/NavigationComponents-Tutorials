@@ -31,6 +31,9 @@ class MainFragment : Fragment() {
 
         val buttonTop = view.findViewById<Button>(R.id.btn_destA)
 
+        /*
+            Navigation to Destinations which are specified with app:destination in <action/> tag
+         */
         // 🔥 Alternative 1 Only works this way not with LAMBDA
         buttonTop?.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.top_dest, null))
 
@@ -42,8 +45,8 @@ class MainFragment : Fragment() {
 //        }
 
         val buttonCenter = view.findViewById<Button>(R.id.btn_destB)
-        // 🔥 Alternative 2
 
+        // 🔥 Alternative 2
         buttonCenter?.setOnClickListener {
 
             val options = navOptions {
