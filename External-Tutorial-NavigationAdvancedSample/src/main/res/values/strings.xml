@@ -1,0 +1,49 @@
+<!--
+  ~ Copyright 2019, The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <string name="app_name">Navigation Sample</string>
+    <string name="select_an_avatar">Select an Avatar</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_up">sign up</string>
+    <string name="profile_name_1">Ali Connors</string>
+    <string name="profile_image">Profile image</string>
+    <string name="user_points">10,000 pts</string>
+    <string name="user_rank">#1</string>
+    <string name="rank">Rank</string>
+    <string name="rank_1">#1</string>
+    <string name="wins">Wins</string>
+    <string name="wins_amount">42</string>
+    <string name="losses">Losses</string>
+    <string name="losses_amount">03</string>
+    <string name="about">About</string>
+    <string name="welcome">Welcome!</string>
+    <string name="about_description">This sample showcases navigation using a Bottom Navigation
+    View. The state and back stack of the three different screens are persisted.
+    </string>
+    <string name="done">Done</string>
+    <string name="title_about">About</string>
+    <string name="title_home">Home</string>
+    <string name="title_register">Register</string>
+    <string name="title_registered">Registered</string>
+    <string name="title_list">Leaderboard</string>
+    <string name="title_detail">Profile</string>
+    <string name="cd_home">Home</string>
+    <string name="cd_list">List</string>
+    <string name="cd_form">Form</string>
+</resources>

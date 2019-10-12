@@ -50,6 +50,7 @@ class DeepLinkFragment : Fragment() {
         textView.text = arguments?.getString("myarg")
 
         val notificationButton = view.findViewById<Button>(R.id.send_notification_button)
+
         notificationButton.setOnClickListener {
             val editArgs = view.findViewById<EditText>(R.id.args_edit_text)
             val args = Bundle()
@@ -62,6 +63,7 @@ class DeepLinkFragment : Fragment() {
 
             val notificationManager =
                     context?.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 notificationManager.createNotificationChannel(NotificationChannel(
                         "deeplink", "Deep Links", NotificationManager.IMPORTANCE_HIGH))

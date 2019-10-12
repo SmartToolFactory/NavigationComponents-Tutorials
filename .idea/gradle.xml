@@ -10,6 +10,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/External-Tutorial-Navigation-Codelab" />
             <option value="$PROJECT_DIR$/External-Tutorial-Navigation-Components-Example-CodingWithMicth" />
+            <option value="$PROJECT_DIR$/External-Tutorial-NavigationAdvancedSample" />
             <option value="$PROJECT_DIR$/External-Tutorial-NavigationBasicSample" />
             <option value="$PROJECT_DIR$/Tutorial0-MaterialDesign" />
             <option value="$PROJECT_DIR$/Tutorial1-1Navigation-NavGraph" />
@@ -22,6 +23,7 @@
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
+        <option name="testRunner" value="PLATFORM" />
       </GradleProjectSettings>
     </option>
   </component>
