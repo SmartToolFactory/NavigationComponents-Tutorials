@@ -7,7 +7,7 @@
 
     <!-- MainFragment -->
     <fragment android:id="@+id/mainFragment"
-              android:name="com.smarttoolfactory.tutorial2_1navigationpassdata.MainFragment"
+              android:name="com.codingwithmitch.navigationcomponentsexample.MainFragment"
               android:label="fragment_main"
               tools:layout="@layout/fragment_main">
         <action android:id="@+id/action_mainFragment_to_chooseRecipientFragment"
@@ -37,14 +37,14 @@
 
     <!-- ViewTransactionFragment -->
     <fragment android:id="@+id/viewTransactionFragment"
-              android:name="com.smarttoolfactory.navigationworkmanagerpagination.ViewTransactionFragment"
+              android:name="com.codingwithmitch.navigationcomponentsexample.ViewTransactionFragment"
               android:label="fragment_view_transaction"
               tools:layout="@layout/fragment_view_transaction"/>
 
 
     <!-- ChooseRecipientFragment -->
     <fragment android:id="@+id/chooseRecipientFragment"
-              android:name="com.smarttoolfactory.navigationworkmanagerpagination.ChooseRecipientFragment"
+              android:name="com.codingwithmitch.navigationcomponentsexample.ChooseRecipientFragment"
               android:label="fragment_choose_recipient"
               tools:layout="@layout/fragment_choose_recipient">
 
@@ -61,14 +61,14 @@
 
     <!-- ViewBalanceFragment -->
     <fragment android:id="@+id/viewBalanceFragment"
-              android:name="com.smarttoolfactory.navigationworkmanagerpagination.ViewBalanceFragment"
+              android:name="com.codingwithmitch.navigationcomponentsexample.ViewBalanceFragment"
               android:label="fragment_view_balance"
               tools:layout="@layout/fragment_view_balance"/>
 
 
     <!-- SpecifyAmountFragment -->
     <fragment android:id="@+id/specifyAmountFragment"
-              android:name="com.smarttoolfactory.navigationworkmanagerpagination.SpecifyAmountFragment"
+              android:name="com.codingwithmitch.navigationcomponentsexample.SpecifyAmountFragment"
               android:label="fragment_specify_amount"
               tools:layout="@layout/fragment_specify_amount">
 
@@ -88,7 +88,7 @@
 
     <!-- ConfirmationFragment -->
     <fragment android:id="@+id/confirmationFragment"
-              android:name="com.smarttoolfactory.navigationworkmanagerpagination.ConfirmationFragment"
+              android:name="com.codingwithmitch.navigationcomponentsexample.ConfirmationFragment"
               android:label="fragment_confirmation"
               tools:layout="@layout/fragment_confirmation">
 
