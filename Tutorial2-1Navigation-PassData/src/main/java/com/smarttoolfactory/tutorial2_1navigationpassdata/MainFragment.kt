@@ -15,8 +15,6 @@ import com.smarttoolfactory.tutorial2_1navigationpassdata.model.Data
 
 class MainFragment : Fragment() {
 
-    lateinit var navController: NavController
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
