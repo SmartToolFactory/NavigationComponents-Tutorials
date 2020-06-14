@@ -10,7 +10,7 @@
         android:id="@+id/fragment_layout">
 
     <TextView
-            android:text="Settings Fragment"
+            android:text="Shopping Fragment"
             android:textSize="32sp"
             android:textColor="#fff"
             android:layout_width="wrap_content"
