@@ -87,14 +87,7 @@ class Activity2_1ViewPagerFragmentAdapter : AppCompatActivity() {
 //                position: Int,
 //                positionOffset: Float,
 //                positionOffsetPixels: Int
-//            ) {
-//                println(
-//                    "🤪 ViewPager2.OnPageChangeCallback() onPageScrolled() position: $position, " +
-//                            "positionOffset: $positionOffset, " +
-//                            "positionOffsetPixels: $positionOffsetPixels"
-//                )
-//
-//            }
+//            ) {}
 //
 //            override fun onPageScrollStateChanged(state: Int) {}
 

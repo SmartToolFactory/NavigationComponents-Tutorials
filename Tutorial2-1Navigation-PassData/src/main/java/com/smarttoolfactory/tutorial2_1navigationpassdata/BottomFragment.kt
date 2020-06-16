@@ -16,7 +16,7 @@ import androidx.navigation.fragment.navArgs
  */
 class BottomFragment : Fragment() {
 
-    val safeArgs: BottomFragmentArgs by navArgs()
+    private val safeArgs: BottomFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

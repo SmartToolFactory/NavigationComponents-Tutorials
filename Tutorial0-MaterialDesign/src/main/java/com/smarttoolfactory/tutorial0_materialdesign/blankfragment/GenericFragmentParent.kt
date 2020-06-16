@@ -1,10 +1,11 @@
 package com.smarttoolfactory.tutorial0_materialdesign.blankfragment
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.add
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import com.smarttoolfactory.tutorial0_materialdesign.R
@@ -60,6 +61,24 @@ class GenericFragmentParent(private val fragID: Int) :
             }
         }
 
+    }
+
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+
+    }
+
+    override fun onAttachFragment(childFragment: Fragment) {
+        super.onAttachFragment(childFragment)
+    }
+
+    override fun onDetach() {
+        super.onDetach()
     }
 
     override fun onDestroyView() {

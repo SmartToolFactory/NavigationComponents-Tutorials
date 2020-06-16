@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
         // TODO Alternative 2 This appBarConfiguration for top-level destinations
         // 🔥🔥🔥 This configuration is for top-level destinations means
-        // which fragments should display hamburger button and which ones back arrow
+        // which fragments should display hamburger button and the ones not included back arrow
         appBarConfiguration = AppBarConfiguration(
             setOf(R.id.mainFragment, R.id.settings_dest),
             drawerLayout
@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfig)
     }
 
-    // This method used with seupActionBar method, setting with toolBar handles back arrow and
+    // This method used with setupActionBar method, setting with toolBar handles back arrow and
     // hamburger button changes
 //    override fun onSupportNavigateUp(): Boolean {
 //        // Allows NavigationUI to support proper up navigation or the drawer layout

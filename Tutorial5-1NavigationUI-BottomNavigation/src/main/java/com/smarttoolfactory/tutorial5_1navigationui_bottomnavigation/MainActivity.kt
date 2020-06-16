@@ -16,7 +16,12 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
 
         val bottomNav = findViewById<BottomNavigationView>(R.id.nav_view)
+
+        // TODO Alternative 1 to set bottom navigation
         bottomNav?.setupWithNavController(navController)
+
+        // TODO Alternative 2 to set bottom navigation
+//        NavigationUI.setupWithNavController(bottomNav, navController)
 
         bottomNav.setOnNavigationItemSelectedListener {
             NavigationUI.onNavDestinationSelected(it, navController)

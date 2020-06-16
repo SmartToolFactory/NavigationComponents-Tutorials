@@ -55,6 +55,7 @@ class GenericFragment : BaseDataBindingFragment<FragmentGenericBinding>() {
         println("💀 $fragmentName onDestroy() id: $fragID, this: $this")
     }
 
+
     companion object {
 
         const val ARG_POSITION = "position"

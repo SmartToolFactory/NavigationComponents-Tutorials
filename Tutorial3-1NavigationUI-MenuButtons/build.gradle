@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 29
 
 
     defaultConfig {
-        applicationId "com.smarttoolfactory.tutorial3_1navigationui_menu_buttons"
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 1

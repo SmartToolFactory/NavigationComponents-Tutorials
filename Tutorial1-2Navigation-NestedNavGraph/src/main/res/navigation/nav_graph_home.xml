@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/nav_graph_home"
+        app:startDestination="@id/home_dest">
+
+    <fragment
+            android:id="@+id/home_dest"
+            android:name="com.smarttoolfactory.tutorial1_2navigation_nestednavgraph.blankfragment.HomeFragment1"
+            android:label="HomeFragment1"
+            tools:layout="@layout/fragment_home1">
+        <action
+                android:id="@+id/action_homeFragment1_to_homeFragment2"
+                app:destination="@id/homeFragment2" />
+    </fragment>
+
+    <fragment
+            android:id="@+id/homeFragment2"
+            android:name="com.smarttoolfactory.tutorial1_2navigation_nestednavgraph.blankfragment.HomeFragment2"
+            android:label="HomeFragment2"
+            tools:layout="@layout/fragment_home2">
+    </fragment>
+
+
+    <!-- Global action destination should be startDestination of this graph-->
+    <action
+            android:id="@+id/action_global_home_fragment"
+            app:destination="@id/homeFragment2" />
+
+</navigation>

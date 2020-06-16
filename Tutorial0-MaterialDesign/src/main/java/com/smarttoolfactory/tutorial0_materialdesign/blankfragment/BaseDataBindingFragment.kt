@@ -22,6 +22,7 @@ abstract class BaseDataBindingFragment<ViewBinding : ViewDataBinding> : Fragment
     ): View? {
         // Inflate the layout for this fragment
         dataBinding = DataBindingUtil.inflate(inflater, getLayoutRes(), container, false)
+
         return dataBinding.root
     }
 

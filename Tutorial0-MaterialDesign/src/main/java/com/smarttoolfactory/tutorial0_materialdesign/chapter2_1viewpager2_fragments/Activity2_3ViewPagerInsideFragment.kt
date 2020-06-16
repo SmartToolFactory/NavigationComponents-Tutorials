@@ -31,7 +31,7 @@ class Activity2_3ViewPagerInsideFragment : AppCompatActivity() {
 
         setSupportActionBar(dataBinding.toolbar)
 
-        createFragment()
+        createRootFragment()
 
         /*
             Add a back stack listener to check number of fragments to display top back button
@@ -56,7 +56,10 @@ class Activity2_3ViewPagerInsideFragment : AppCompatActivity() {
         }
     }
 
-    private fun createFragment() {
+    /**
+     * Create root fragment for this Activity
+     */
+    private fun createRootFragment() {
 
         // ✅ Replace Fragment with Java Style
         //        supportFragmentManager.beginTransaction()
