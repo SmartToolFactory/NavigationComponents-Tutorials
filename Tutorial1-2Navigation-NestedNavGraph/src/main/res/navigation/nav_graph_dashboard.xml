@@ -7,7 +7,7 @@
 
     <fragment
             android:id="@+id/dashboard_dest"
-            android:name="com.smarttoolfactory.tutorial1_3navigation_nestednavhost.blankfragment.DashboardFragment1"
+            android:name="com.smarttoolfactory.tutorial1_2navigation_nestednavgraph.blankfragment.DashboardFragment1"
             android:label="DashboardFragment1"
             tools:layout="@layout/fragment_dashboard1">
         <action
@@ -17,7 +17,7 @@
 
     <fragment
             android:id="@+id/dashboardFragment2"
-            android:name="com.smarttoolfactory.tutorial1_3navigation_nestednavhost.blankfragment.DashboardFragment2"
+            android:name="com.smarttoolfactory.tutorial1_2navigation_nestednavgraph.blankfragment.DashboardFragment2"
             android:label="DashboardFragment2"
             tools:layout="@layout/fragment_dashboard2">
     </fragment>

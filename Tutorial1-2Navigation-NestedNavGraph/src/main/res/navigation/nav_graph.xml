@@ -8,7 +8,7 @@
     <!-- MainFragment-->
     <fragment
             android:id="@+id/main_dest"
-            android:name="com.smarttoolfactory.tutorial1_3navigation_nestednavhost.blankfragment.MainFragment"
+            android:name="com.smarttoolfactory.tutorial1_2navigation_nestednavgraph.blankfragment.MainFragment"
             android:label="MainFragment"
             tools:layout="@layout/fragment_main">
 
@@ -32,7 +32,7 @@
     <!-- Camera -->
     <fragment
             android:id="@+id/cameraFragment"
-            android:name="com.smarttoolfactory.tutorial1_3navigation_nestednavhost.blankfragment.CameraFragment"
+            android:name="com.smarttoolfactory.tutorial1_2navigation_nestednavgraph.blankfragment.CameraFragment"
             android:label="CameraFragment" />
 
 

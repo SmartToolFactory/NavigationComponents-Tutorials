@@ -61,7 +61,7 @@ class HomeNavHostFragment : BaseDataBindingFragment<FragmentHomeNavhostBinding>(
                 ).show()
 
                 if (backStackEntryCount == 1) {
-                    // We are the root of nested navigation, remove this callback
+                    // We are at the root of nested navigation, remove this callback
                     remove()
                     requireActivity().onBackPressed()
                 } else {
