@@ -19,13 +19,9 @@ class HomeNavHostFragment : BaseDataBindingFragment<FragmentHomeNavhostBinding>(
 
         val nestedNavHostFragment =
             childFragmentManager.findFragmentById(R.id.nested_nav_host_fragment) as? NavHostFragment
-
         navController = nestedNavHostFragment?.navController
 
-
-        println("🥰 HomeNavHostFragment navController: $navController")
         navController?.navigate(R.id.homeFragment1)
-
 
         listenBackStack()
     }
@@ -46,31 +42,30 @@ class HomeNavHostFragment : BaseDataBindingFragment<FragmentHomeNavhostBinding>(
 
             Toast.makeText(
                 requireContext(),
-                "HomeNavHost backStackEntryCount: $backStackEntryCount, fragments: $fragments",
+                "😛 ChildFragmentManager backStackEntryCount: $backStackEntryCount",
                 Toast.LENGTH_SHORT
             ).show()
         }
 
 
         val callback = object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
 
-                navController?.navigateUp()
+            override fun handleOnBackPressed() {
 
                 val backStackEntryCount = navHostChildFragmentManager!!.backStackEntryCount
 
                 Toast.makeText(
                     requireContext(),
-                    "HomeNavHost backStackEntryCount: $backStackEntryCount",
+                    "🤨 HomeNavHost backStackEntryCount: $backStackEntryCount",
                     Toast.LENGTH_SHORT
                 ).show()
 
-
-                if (backStackEntryCount > 1) {
-//                    navController?.navigateUp()
+                if (backStackEntryCount == 1) {
+                    // We are the root of nested navigation, remove this callback
+                    remove()
+                    requireActivity().onBackPressed()
                 } else {
-//                    requireActivity().onBackPressedDispatcher.onBackPressed()
-                    OnBackPressedCallback@ this.isEnabled = false
+                    navController?.navigateUp()
                 }
             }
         }

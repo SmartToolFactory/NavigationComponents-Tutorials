@@ -16,8 +16,10 @@ class DashboardFragment1 : BaseDataBindingFragment<FragmentDashboard1Binding>() 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        dataBinding.tvTitle.text = "${this.javaClass.simpleName} Count: $count"
+
         dataBinding.btnIncrease.setOnClickListener {
-            dataBinding.tvTitle.text = "Count: ${count++}"
+            dataBinding.tvTitle.text = "${this.javaClass.simpleName} Count: ${count++}"
         }
 
         dataBinding.btnNextPage.setOnClickListener {

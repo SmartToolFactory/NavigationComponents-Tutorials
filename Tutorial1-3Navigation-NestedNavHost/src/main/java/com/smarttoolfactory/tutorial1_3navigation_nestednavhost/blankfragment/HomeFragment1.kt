@@ -33,8 +33,10 @@ class HomeFragment1 : BaseDataBindingFragment<FragmentHome1Binding>() {
         )
 
 
+        dataBinding.tvTitle.text = "${this.javaClass.simpleName} Count: $count"
+
         dataBinding.btnIncrease.setOnClickListener {
-            dataBinding.tvTitle.text = "Count: ${count++}"
+            dataBinding.tvTitle.text = "${this.javaClass.simpleName} Count: ${count++}"
         }
 
         dataBinding.btnNextPage.setOnClickListener {

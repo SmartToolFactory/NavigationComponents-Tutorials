@@ -15,10 +15,11 @@ class HomeFragment3 : BaseDataBindingFragment<FragmentHome3Binding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        dataBinding.btnIncrease.setOnClickListener {
-            dataBinding.tvTitle.text = "Count: ${count++}"
-        }
+        dataBinding.tvTitle.text = "${this.javaClass.simpleName} Count: $count"
 
+        dataBinding.btnIncrease.setOnClickListener {
+            dataBinding.tvTitle.text = "${this.javaClass.simpleName} Count: ${count++}"
+        }
 
         val mainNavController =
             Navigation.findNavController(requireActivity(), R.id.main_nav_host_fragment)
