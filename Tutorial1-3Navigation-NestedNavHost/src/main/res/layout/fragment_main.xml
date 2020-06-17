@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/parentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <Button
+                android:id="@+id/btnDestCam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Destination Camera"
+                app:layout_constraintBottom_toTopOf="@+id/btnNavGraphHome"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+                android:id="@+id/btnNavGraphHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nested NavHost Graph Home"
+                app:layout_constraintBottom_toTopOf="@+id/btnNavGraphDashboard"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnDestCam" />
+
+        <Button
+                android:id="@+id/btnNavGraphDashboard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nested Graph Dashboard"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnNavGraphHome" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

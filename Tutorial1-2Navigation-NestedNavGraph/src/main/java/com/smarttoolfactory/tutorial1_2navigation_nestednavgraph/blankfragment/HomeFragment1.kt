@@ -22,6 +22,9 @@ class HomeFragment1 : BaseDataBindingFragment<FragmentHome1Binding>() {
         dataBinding.btnNextPage.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment1_to_homeFragment2)
         }
+
+        println("🔥 HomeFragment1 navController: ${findNavController()}")
+
     }
 
 }

@@ -31,6 +31,7 @@
             android:label="HomeFragment3"
             tools:layout="@layout/fragment_home3" />
 
+
     <!-- Global action destination should be startDestination of this graph-->
     <action
             android:id="@+id/action_global_home_fragment"

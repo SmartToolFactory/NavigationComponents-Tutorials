@@ -2,6 +2,7 @@ package com.smarttoolfactory.tutorial1_2navigation_nestednavgraph.blankfragment
 
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import com.smarttoolfactory.tutorial1_2navigation_nestednavgraph.R
 import com.smarttoolfactory.tutorial1_2navigation_nestednavgraph.databinding.FragmentHome2Binding
 
@@ -17,6 +18,11 @@ class HomeFragment2 : BaseDataBindingFragment<FragmentHome2Binding>() {
             dataBinding.tvTitle.text = "Count: ${count++}"
         }
 
+        dataBinding.btnGoToStart.setOnClickListener {
+            findNavController().navigate(R.id.action_global_start)
+        }
+
+        println("🔥 HomeFragment2 navController: ${findNavController()}")
 
     }
 

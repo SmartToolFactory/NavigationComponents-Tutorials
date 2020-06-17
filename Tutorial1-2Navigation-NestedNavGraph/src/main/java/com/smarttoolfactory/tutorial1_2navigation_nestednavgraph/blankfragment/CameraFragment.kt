@@ -3,6 +3,7 @@ package com.smarttoolfactory.tutorial1_2navigation_nestednavgraph.blankfragment
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.smarttoolfactory.tutorial1_2navigation_nestednavgraph.R
 import com.smarttoolfactory.tutorial1_2navigation_nestednavgraph.databinding.FragmentCameraBinding
 
@@ -12,6 +13,9 @@ class CameraFragment : BaseDataBindingFragment<FragmentCameraBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        println("🔥 Camera navController: ${findNavController()}")
 
         Toast.makeText(activity, "CameraFragment onViewCreated() this: $this", Toast.LENGTH_SHORT)
             .show()

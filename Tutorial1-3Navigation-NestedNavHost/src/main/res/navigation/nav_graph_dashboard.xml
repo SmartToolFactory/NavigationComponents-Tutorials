@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/nav_graph_dashboard"
+        app:startDestination="@id/dashboard_dest">
+
+    <fragment
+            android:id="@+id/dashboard_dest"
+            android:name="com.smarttoolfactory.tutorial1_3navigation_nestednavhost.blankfragment.DashboardFragment1"
+            android:label="DashboardFragment1"
+            tools:layout="@layout/fragment_dashboard1">
+        <action
+                android:id="@+id/action_dashboardFragment1_to_dashboardFragment2"
+                app:destination="@id/dashboardFragment2" />
+    </fragment>
+
+    <fragment
+            android:id="@+id/dashboardFragment2"
+            android:name="com.smarttoolfactory.tutorial1_3navigation_nestednavhost.blankfragment.DashboardFragment2"
+            android:label="DashboardFragment2"
+            tools:layout="@layout/fragment_dashboard2">
+    </fragment>
+
+</navigation>

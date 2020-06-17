@@ -2,30 +2,23 @@ package com.smarttoolfactory.tutorial1_2navigation_nestednavgraph.blankfragment
 
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
-import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.smarttoolfactory.tutorial1_2navigation_nestednavgraph.R
+import com.smarttoolfactory.tutorial1_2navigation_nestednavgraph.databinding.FragmentMainBinding
 
 
-class MainFragment : Fragment() {
+class MainFragment : BaseDataBindingFragment<FragmentMainBinding>() {
 
-    lateinit var navController: NavController
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_main, container, false)
-    }
+    override fun getLayoutRes(): Int = R.layout.fragment_main
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        println("🔥 MainFragment navController: ${findNavController()}")
 
         val buttonDestCamera = view.findViewById<Button>(R.id.btnDestCam)
 
@@ -54,9 +47,5 @@ class MainFragment : Fragment() {
                 null
             )
         )
-
-
     }
-
-
 }

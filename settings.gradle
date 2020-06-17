@@ -1,3 +1,4 @@
+include ':Tutorial1-3Navigation-NestedNavHost'
 include ':Tutorial1-2Navigation-NestedNavGraph'
 include ':External-Tutorial-Navigation-Codelab'
 include ':External-Tutorial-NavigationBasicSample'
