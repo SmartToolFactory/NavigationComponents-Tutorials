@@ -11,7 +11,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 
 /**
- *
+ * Base fragment with data binding and prints lifecycle events
  */
 abstract class BaseDataBindingFragment<ViewBinding : ViewDataBinding> : Fragment() {
 
@@ -22,12 +22,12 @@ abstract class BaseDataBindingFragment<ViewBinding : ViewDataBinding> : Fragment
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-//        println("🥰 BaseDataBindingFragment onAttach() $this")
+        println("🥰 BaseDataBindingFragment onAttach() $this")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        println("😀 BaseDataBindingFragment onCreate() $this")
+        println("😀 BaseDataBindingFragment onCreate() $this")
     }
 
     override fun onCreateView(
@@ -35,31 +35,37 @@ abstract class BaseDataBindingFragment<ViewBinding : ViewDataBinding> : Fragment
         savedInstanceState: Bundle?
     ): View? {
 
-//        println("🤣 BaseDataBindingFragment onCreateView() $this")
+        println("🤣 BaseDataBindingFragment onCreateView() $this")
         // Inflate the layout for this fragment
         dataBinding = DataBindingUtil.inflate(inflater, getLayoutRes(), container, false)
         return dataBinding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        println("🤩 BaseDataBindingFragment onViewCreated() view: $view,  $this")
+    }
+
 
     override fun onAttachFragment(childFragment: Fragment) {
         super.onAttachFragment(childFragment)
-//        println("😱 BaseDataBindingFragment onAttachFragment() $this, CHILD: $childFragment")
+        println("😱 BaseDataBindingFragment onAttachFragment() $this, CHILD: $childFragment")
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-//        println("🥵 BaseDataBindingFragment onDestroyView() $this")
+        println("🥵 BaseDataBindingFragment onDestroyView() $this")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-//        println("🥶 BaseDataBindingFragment onDestroy() $this")
+        println("🥶 BaseDataBindingFragment onDestroy() $this")
     }
 
     override fun onDetach() {
         super.onDetach()
-//        println("💀 BaseDataBindingFragment onDetach() $this")
+        println("💀 BaseDataBindingFragment onDetach() $this")
     }
 
 }

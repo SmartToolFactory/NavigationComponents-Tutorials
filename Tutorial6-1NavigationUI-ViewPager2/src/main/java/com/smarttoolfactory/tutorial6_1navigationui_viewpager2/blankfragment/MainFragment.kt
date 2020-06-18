@@ -10,7 +10,7 @@ import com.smarttoolfactory.tutorial6_1navigationui_viewpager2.adapter.ChildFrag
 import com.smarttoolfactory.tutorial6_1navigationui_viewpager2.databinding.FragmentMainBinding
 
 
-class MainHostFragment : BaseDataBindingFragment<FragmentMainBinding>() {
+class MainFragment : BaseDataBindingFragment<FragmentMainBinding>() {
 
     lateinit var navController: NavController
 

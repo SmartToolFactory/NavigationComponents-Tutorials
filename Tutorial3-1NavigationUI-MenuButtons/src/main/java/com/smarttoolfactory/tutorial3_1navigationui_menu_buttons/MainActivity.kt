@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        // TODO This shows back arrow even on main fragment use setupWithNavController for correct behaviour
+        // TODO Shows back arrow even on main fragment use setupWithNavController for correct behaviour
 //        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         // Get NavController

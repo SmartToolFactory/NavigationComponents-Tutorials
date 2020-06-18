@@ -6,8 +6,8 @@ import androidx.navigation.fragment.findNavController
 import com.smarttoolfactory.tutorial6_1navigationui_viewpager2.R
 import com.smarttoolfactory.tutorial6_1navigationui_viewpager2.databinding.FragmentHome2Binding
 
-
 class HomeFragment2 : BaseDataBindingFragment<FragmentHome2Binding>() {
+
     override fun getLayoutRes(): Int = R.layout.fragment_home2
 
     var count = 0
@@ -22,6 +22,8 @@ class HomeFragment2 : BaseDataBindingFragment<FragmentHome2Binding>() {
         dataBinding.btnNextPage.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment2_to_homeFragment3)
         }
+
+        println("🔥 HomeFragment1 navController: ${findNavController()}")
 
     }
 
