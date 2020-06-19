@@ -6,7 +6,7 @@
             app:startDestination="@id/settings_dest">
 
     <fragment android:id="@+id/settings_dest"
-              android:name="com.smarttoolfactory.tutorial5_2navigationui_bottomnavigation_advanced.blankfragments.SettingsFragment"
+              android:name="com.smarttoolfactory.tutorial5_2navigationui_bottomnavigation_advanced.blankfragment.SettingsFragment"
               android:label="fragment_settings" tools:layout="@layout/fragment_settings"/>
 
 </navigation>

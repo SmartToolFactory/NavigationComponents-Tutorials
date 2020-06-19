@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:background="#DCE775"
         android:layout_height="match_parent"
-        tools:context=".blankfragments.DetailFragment"
+        tools:context=".blankfragment.DetailFragment"
         android:id="@+id/fragment_layout">
 
     <TextView

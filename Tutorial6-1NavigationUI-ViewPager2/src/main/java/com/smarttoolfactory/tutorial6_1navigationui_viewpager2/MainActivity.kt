@@ -1,13 +1,22 @@
 package com.smarttoolfactory.tutorial6_1navigationui_viewpager2
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.viewpager2.widget.ViewPager2
 
+
+/**
+ * Example to use [ViewPager2] with navigation components.
+ *
+ * * In this example navigation is done between main NavHost and main back stack,
+ * every page/fragment in [ViewPager2] added main back stack.
+ */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -28,6 +37,8 @@ class MainActivity : AppCompatActivity() {
 
         // Handles arrow back button
         setupActionBarWithNavController(navController, appBarConfiguration)
+
+        listenBackStackChange()
     }
 
 
@@ -35,6 +46,30 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+
+    private fun listenBackStackChange() {
+        // Get NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
+
+        // ChildFragmentManager of NavHostFragment
+        val navHostChildFragmentManager = navHostFragment?.childFragmentManager
+
+        navHostChildFragmentManager?.addOnBackStackChangedListener {
+
+            val backStackEntryCount = navHostChildFragmentManager.backStackEntryCount
+            val fragments = navHostChildFragmentManager.fragments
+
+            println("🎃 Main graph backStackEntryCount: $backStackEntryCount, fragments: $fragments")
+
+            Toast.makeText(
+                this,
+                "🎃 Main graph backStackEntryCount: $backStackEntryCount, fragments: $fragments",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
     }
 }
 

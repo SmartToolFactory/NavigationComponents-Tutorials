@@ -1,4 +1,4 @@
-package com.smarttoolfactory.tutorial5_2navigationui_bottomnavigation_advanced.blankfragments
+package com.smarttoolfactory.tutorial5_2navigationui_bottomnavigation_advanced.blankfragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

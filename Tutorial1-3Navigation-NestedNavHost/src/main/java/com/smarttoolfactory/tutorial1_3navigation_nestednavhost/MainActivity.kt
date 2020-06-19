@@ -25,6 +25,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        listenBackStackChange()
+    }
+
+    private fun listenBackStackChange() {
         // Get NavHostFragment
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.main_nav_host_fragment)
@@ -37,11 +41,11 @@ class MainActivity : AppCompatActivity() {
             val backStackEntryCount = navHostChildFragmentManager.backStackEntryCount
             val fragments = navHostChildFragmentManager.fragments
 
-            println("Main graph backStackEntryCount: $backStackEntryCount, fragments: $fragments")
+            println("🎃 Main graph backStackEntryCount: $backStackEntryCount, fragments: $fragments")
 
             Toast.makeText(
                 this,
-                "Main graph backStackEntryCount: $backStackEntryCount, fragments: $fragments",
+                "🎃 Main graph backStackEntryCount: $backStackEntryCount, fragments: $fragments",
                 Toast.LENGTH_SHORT
             ).show()
         }

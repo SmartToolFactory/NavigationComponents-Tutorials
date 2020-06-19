@@ -19,6 +19,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        listenBackStackChange()
+    }
+
+    private fun listenBackStackChange() {
         // Get NavHostFragment
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.main_nav_host_fragment)

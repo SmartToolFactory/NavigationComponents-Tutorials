@@ -7,7 +7,7 @@
 
     <fragment
             android:id="@+id/camera_dest"
-            android:name="com.smarttoolfactory.tutorial5_2navigationui_bottomnavigation_advanced.blankfragments.CameraFragment"
+            android:name="com.smarttoolfactory.tutorial5_2navigationui_bottomnavigation_advanced.blankfragment.CameraFragment"
             android:label="fragment_camera"
             tools:layout="@layout/fragment_camera" />
 

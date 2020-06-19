@@ -6,7 +6,7 @@
             app:startDestination="@id/map_dest">
 
     <fragment android:id="@+id/map_dest"
-              android:name="com.smarttoolfactory.tutorial5_2navigationui_bottomnavigation_advanced.blankfragments.MapFragment"
+              android:name="com.smarttoolfactory.tutorial5_2navigationui_bottomnavigation_advanced.blankfragment.MapFragment"
               android:label="@string/map" tools:layout="@layout/fragment_map"/>
 
 </navigation>

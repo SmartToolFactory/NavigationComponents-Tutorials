@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/nav_graph_home"
+        app:startDestination="@id/home_dest">
+
+    <fragment
+            android:id="@+id/home_dest"
+            android:name="com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.navhost.HomeNavHostFragment"
+            android:label="HomeHost"
+            tools:layout="@layout/fragment_navhost_home" />
+
+    <fragment
+            android:id="@+id/homeFragment1"
+            android:name="com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.blankfragment.HomeFragment1"
+            android:label="HomeFragment1"
+            tools:layout="@layout/fragment_home1">
+        <action
+                android:id="@+id/action_homeFragment1_to_homeFragment2"
+                app:destination="@id/homeFragment2" />
+    </fragment>
+
+    <fragment
+            android:id="@+id/homeFragment2"
+            android:name="com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.blankfragment.HomeFragment2"
+            android:label="HomeFragment2"
+            tools:layout="@layout/fragment_home2">
+        <action
+                android:id="@+id/action_homeFragment2_to_homeFragment3"
+                app:destination="@id/homeFragment3" />
+    </fragment>
+
+    <fragment
+            android:id="@+id/homeFragment3"
+            android:name="com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.blankfragment.HomeFragment3"
+            android:label="HomeFragment3"
+            tools:layout="@layout/fragment_home3" />
+
+</navigation>

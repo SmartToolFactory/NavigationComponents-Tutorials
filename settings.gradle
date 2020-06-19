@@ -1,15 +1,16 @@
-include ':Tutorial1-3Navigation-NestedNavHost'
-include ':Tutorial1-2Navigation-NestedNavGraph'
+
 include ':External-Tutorial-Navigation-Codelab'
 include ':External-Tutorial-NavigationBasicSample'
 include ':External-Tutorial-NavigationAdvancedSample'
 
 include ':Tutorial0-MaterialDesign'
 include ':Tutorial1-1Navigation-NavGraph'
+include ':Tutorial1-2Navigation-NestedNavGraph'
+include ':Tutorial1-3Navigation-NestedNavHost'
 include ':Tutorial2-1Navigation-PassData'
 include ':Tutorial3-1NavigationUI-MenuButtons'
 include ':Tutorial4-1NavigationUI-NavigationView'
 include ':Tutorial5-1NavigationUI-BottomNavigation'
 include ':Tutorial5-2NavigationUI-BottomNavigation-Advanced'
 include ':Tutorial6-1NavigationUI-ViewPager2'
-
+include ':Tutorial6-2NavigationUI-ViewPager2-NestedNavHost'

@@ -5,7 +5,7 @@
             app:startDestination="@id/detail_dest">
 
     <fragment android:id="@+id/detail_dest"
-              android:name="com.smarttoolfactory.tutorial5_2navigationui_bottomnavigation_advanced.blankfragments.DetailFragment"
+              android:name="com.smarttoolfactory.tutorial5_2navigationui_bottomnavigation_advanced.blankfragment.DetailFragment"
               android:label="fragment_detail" tools:layout="@layout/fragment_detail"/>
 
 </navigation>

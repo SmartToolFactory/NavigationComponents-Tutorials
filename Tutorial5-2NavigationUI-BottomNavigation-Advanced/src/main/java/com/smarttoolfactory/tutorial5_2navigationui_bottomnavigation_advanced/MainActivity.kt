@@ -51,7 +51,6 @@ class MainActivity : AppCompatActivity() {
             containerId = R.id.nav_host_container,
             intent = intent
         )
-
         // Whenever the selected controller changes, setup the action bar.
         controller.observe(this, Observer { navController ->
             setupActionBarWithNavController(navController)

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/nav_graph"
+        app:startDestination="@id/main_dest">
+
+    <!-- MainFragment-->
+    <fragment
+            android:id="@+id/main_dest"
+            android:name="com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.blankfragment.MainFragment"
+            android:label="MainFragment"
+            tools:layout="@layout/fragment_main">
+
+        <!-- Camera -->
+        <action
+                android:id="@+id/action_main_dest_to_cameraFragment"
+                app:destination="@id/cameraFragment" />
+
+        <!-- Home NavGraph -->
+        <action
+                android:id="@+id/action_main_dest_to_nav_graph_home"
+                app:destination="@id/nav_graph_home" />
+
+        <!-- Dashboard  NavGraph-->
+        <action
+                android:id="@+id/action_main_dest_to_nav_graph_dashboard"
+                app:destination="@id/nav_graph_dashboard" />
+
+    </fragment>
+
+    <!-- Camera -->
+    <fragment
+            android:id="@+id/cameraFragment"
+            android:name="com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.blankfragment.CameraFragment"
+            android:label="CameraFragment" />
+
+
+<!--    &lt;!&ndash; Home&ndash;&gt;-->
+<!--    <include app:graph="@navigation/nav_graph_home" />-->
+
+<!--    &lt;!&ndash; Dashboard&ndash;&gt;-->
+<!--    <include app:graph="@navigation/nav_graph_dashboard" />-->
+
+
+    <!-- Global Action Start -->
+    <action
+            android:id="@+id/action_global_start"
+            app:destination="@id/main_dest"
+            app:popUpTo="@id/main_dest"
+            app:popUpToInclusive="true" />
+
+
+</navigation>

@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:background="#A1887F"
         android:layout_height="match_parent"
-        tools:context=".blankfragments.CameraFragment"
+        tools:context=".blankfragment.CameraFragment"
         android:id="@+id/fragment_layout">
 
     <TextView
