@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
+import com.smarttoolfactory.tutorial1_3navigation_nestednavhost.navhost.HomeNavHostFragment
 
 
 /**
@@ -18,6 +19,9 @@ import androidx.navigation.fragment.NavHostFragment
  * * When on nested graph back button navigates from that back stack to current entry position on
  * main graph.
  *
+ * ### [HomeNavHostFragment] should be created, in this tutorial we create it by setting it by
+ * initial destination
+ *
  */
 class MainActivity : AppCompatActivity() {
 
@@ -26,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         listenBackStackChange()
+
     }
 
     private fun listenBackStackChange() {

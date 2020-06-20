@@ -23,11 +23,5 @@ class DashboardFragment1 : BaseDataBindingFragment<FragmentDashboard1Binding>() 
         dataBinding.btnNextPage.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_dashboardFragment2)
         }
-
-        println("🔥 DashboardFragment1 navController: ${findNavController()}")
-
-
     }
-
-
 }

@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import com.smarttoolfactory.tutorial1_3navigation_nestednavhost.R
 
 
@@ -23,8 +22,6 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        println("🔥 MainFragment navController: ${findNavController()}")
 
         val buttonDestCamera = view.findViewById<Button>(R.id.btnDestCam)
 

@@ -11,7 +11,7 @@ import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.nav
 class ChildFragmentStateAdapter(private val fragment: Fragment) :
     FragmentStateAdapter(fragment) {
 
-    override fun getItemCount(): Int = 2
+    override fun getItemCount(): Int = 1
 
     override fun createFragment(position: Int): Fragment {
 

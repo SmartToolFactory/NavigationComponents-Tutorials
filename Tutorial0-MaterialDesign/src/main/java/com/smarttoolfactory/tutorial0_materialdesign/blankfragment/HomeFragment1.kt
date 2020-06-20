@@ -20,7 +20,6 @@ class HomeFragment1 : BaseDataBindingFragment<FragmentHome1Binding>() {
 
         Toast.makeText(activity, "HomeFragment1 onViewCreated() this: $this", Toast.LENGTH_SHORT)
             .show()
-        println("🔥 HomeFragment1 onViewCreated() this: $this")
 
         dataBinding.btnNextPage.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction()

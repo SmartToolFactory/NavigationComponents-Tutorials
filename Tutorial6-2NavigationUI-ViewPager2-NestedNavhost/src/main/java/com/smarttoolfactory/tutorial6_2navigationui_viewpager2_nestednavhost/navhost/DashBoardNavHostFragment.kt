@@ -54,8 +54,12 @@ class DashBoardNavHostFragment : BaseDataBindingFragment<FragmentNavhostDashboar
 
         navHostChildFragmentManager?.addOnBackStackChangedListener {
 
-            val backStackEntryCount = navHostChildFragmentManager!!.backStackEntryCount
-            val fragments = navHostChildFragmentManager!!.fragments
+            val backStackEntryCount = navHostChildFragmentManager.backStackEntryCount
+            val fragments = navHostChildFragmentManager.fragments
+
+            fragments.forEach {
+                println(" ⏱ DashBoardNavHost addOnBackStackChangedListener() fragment: ${it.javaClass.simpleName}, isVisible: ${it.isVisible}, isResumed: ${it.isResumed}")
+            }
 
             val currentFragment =
                 navHostChildFragmentManager.findFragmentById(R.id.nested_nav_host_fragment_dashboard)
@@ -88,20 +92,30 @@ class DashBoardNavHostFragment : BaseDataBindingFragment<FragmentNavhostDashboar
 
                 Toast.makeText(
                     requireContext(),
-                    "🤨 DashBoardNavHostFragment backStackEntryCount: $backStackEntryCount",
+                    "💀  DashBoardNavHostFragment backStackEntryCount: $backStackEntryCount",
                     Toast.LENGTH_SHORT
                 ).show()
 
-                if (backStackEntryCount == 1) {
-                    // We are at the root of nested navigation, remove this callback
-                    remove()
-                    requireActivity().onBackPressed()
-                } else {
-                    navController?.navigateUp()
+                val currentDestination = navController?.currentDestination
+                fragments.forEach {
+                    println(" ⏱ DashBoardNavHost handleOnBackPressed() fragment: ${it.javaClass.simpleName}, " +
+                            "isVisible: ${it.isVisible}, " +
+                            "isResumed: ${it.isResumed}, " +
+                            "currentDestination: ${currentDestination!!.id}, " +
+                            "startDestination: $startDestination")
                 }
+
+//                if (backStackEntryCount == 1) {
+//                    // We are at the root of nested navigation, remove this callback
+//                    remove()
+//                    requireActivity().onBackPressed()
+//                } else {
+//                    navController?.navigateUp()
+//                }
+//                navController?.navigateUp()
             }
         }
 
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+//        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 }

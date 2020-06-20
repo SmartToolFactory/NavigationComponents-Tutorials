@@ -3,7 +3,6 @@ package com.smarttoolfactory.tutorial1_3navigation_nestednavhost.blankfragment
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import com.smarttoolfactory.tutorial1_3navigation_nestednavhost.R
 import com.smarttoolfactory.tutorial1_3navigation_nestednavhost.databinding.FragmentHome3Binding
 
@@ -32,9 +31,6 @@ class HomeFragment3 : BaseDataBindingFragment<FragmentHome3Binding>() {
             mainNavController.navigate(R.id.action_global_start)/**/
         }
 
-        println("🔥 HomeFragment2 navController: ${findNavController()}")
-
     }
-
 
 }

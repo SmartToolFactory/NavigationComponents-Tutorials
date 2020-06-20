@@ -24,9 +24,6 @@ class DashboardFragment1 : BaseDataBindingFragment<FragmentDashboard1Binding>() 
             findNavController().navigate(R.id.action_dashboardFragment1_to_dashboardFragment2)
         }
 
-        println("🔥 DashboardFragment1 navController: ${findNavController()}")
-
-
     }
 
 

@@ -36,12 +36,12 @@ abstract class BaseDataBindingFragment<ViewBinding : ViewDataBinding> : Fragment
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        println("🥰 BaseDataBindingFragment onAttach() $this")
+//        println("🥰 BaseDataBindingFragment onAttach() $this")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        println("😀 BaseDataBindingFragment onCreate() $this")
+//        println("😀 BaseDataBindingFragment onCreate() $this")
     }
 
     override fun onCreateView(
@@ -49,7 +49,7 @@ abstract class BaseDataBindingFragment<ViewBinding : ViewDataBinding> : Fragment
         savedInstanceState: Bundle?
     ): View? {
 
-        println("🤣 BaseDataBindingFragment onCreateView() $this")
+        println("🤣 BaseDataBindingFragment onCreateView() ${this.javaClass.simpleName} #${this.hashCode()}")
         // Inflate the layout for this fragment
         dataBinding = DataBindingUtil.inflate(inflater, getLayoutRes(), container, false)
         return dataBinding.root

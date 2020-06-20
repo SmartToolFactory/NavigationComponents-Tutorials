@@ -23,8 +23,6 @@ class HomeFragment2 : BaseDataBindingFragment<FragmentHome2Binding>() {
             findNavController().navigate(R.id.action_homeFragment2_to_homeFragment3)
         }
 
-        println("🔥 HomeFragment1 navController: ${findNavController()}")
-
     }
 
 }

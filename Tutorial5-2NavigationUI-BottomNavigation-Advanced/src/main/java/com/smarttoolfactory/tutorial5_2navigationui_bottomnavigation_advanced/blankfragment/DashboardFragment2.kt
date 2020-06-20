@@ -2,7 +2,6 @@ package com.smarttoolfactory.tutorial5_2navigationui_bottomnavigation_advanced.b
 
 import android.os.Bundle
 import android.view.View
-import androidx.navigation.fragment.findNavController
 import com.smarttoolfactory.tutorial5_2navigationui_bottomnavigation_advanced.R
 import com.smarttoolfactory.tutorial5_2navigationui_bottomnavigation_advanced.databinding.FragmentDashboard2Binding
 
@@ -22,9 +21,6 @@ class DashboardFragment2 : BaseDataBindingFragment<FragmentDashboard2Binding>() 
         dataBinding.btnNextPage.setOnClickListener {
 //            findNavController().navigate(R.id.dashboardFragment3)
         }
-
-        println("🔥 DashboardFragment1 navController: ${findNavController()}")
-
 
     }
 

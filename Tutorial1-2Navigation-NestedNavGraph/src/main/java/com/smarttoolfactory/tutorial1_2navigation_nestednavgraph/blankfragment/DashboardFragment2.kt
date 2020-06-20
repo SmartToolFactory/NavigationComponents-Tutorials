@@ -19,9 +19,6 @@ class DashboardFragment2 : BaseDataBindingFragment<FragmentDashboard2Binding>() 
             dataBinding.tvTitle.text = "Count: ${count++}"
         }
 
-        println("🔥 DashboardFragment2 navController: ${findNavController()}")
-
-
         dataBinding.btnGoToStart.setOnClickListener {
             findNavController().navigate(R.id.action_global_start)
         }

@@ -21,9 +21,6 @@ class HomeFragment2 : BaseDataBindingFragment<FragmentHome2Binding>() {
         dataBinding.btnGoToStart.setOnClickListener {
             findNavController().navigate(R.id.action_global_start)
         }
-
-        println("🔥 HomeFragment2 navController: ${findNavController()}")
-
     }
 
 }

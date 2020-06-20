@@ -2,7 +2,6 @@ package com.smarttoolfactory.tutorial5_2navigationui_bottomnavigation_advanced.b
 
 import android.os.Bundle
 import android.view.View
-import androidx.navigation.fragment.findNavController
 import com.smarttoolfactory.tutorial5_2navigationui_bottomnavigation_advanced.R
 import com.smarttoolfactory.tutorial5_2navigationui_bottomnavigation_advanced.databinding.FragmentHome3Binding
 
@@ -22,8 +21,6 @@ class HomeFragment3 : BaseDataBindingFragment<FragmentHome3Binding>() {
         dataBinding.btnGoToStart.setOnClickListener {
 //            findNavController().navigate(R.id.action_global_start)
         }
-
-        println("🔥 HomeFragment2 navController: ${findNavController()}")
 
     }
 
