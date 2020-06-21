@@ -3,7 +3,6 @@ package com.smarttoolfactory.tutorial6_1navigationui_viewpager2.blankfragment
 
 import android.os.Bundle
 import android.view.View
-import androidx.navigation.NavController
 import com.google.android.material.tabs.TabLayoutMediator
 import com.smarttoolfactory.tutorial6_1navigationui_viewpager2.R
 import com.smarttoolfactory.tutorial6_1navigationui_viewpager2.adapter.ChildFragmentStateAdapter
@@ -11,9 +10,6 @@ import com.smarttoolfactory.tutorial6_1navigationui_viewpager2.databinding.Fragm
 
 
 class MainFragment : BaseDataBindingFragment<FragmentMainBinding>() {
-
-    lateinit var navController: NavController
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

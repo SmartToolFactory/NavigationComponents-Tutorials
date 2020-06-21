@@ -16,7 +16,7 @@ import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.bla
 class NotificationHostFragment : BaseDataBindingFragment<FragmentNavhostHomeBinding>() {
     override fun getLayoutRes(): Int = R.layout.fragment_navhost_notification
 
-    private var navController: NavController? = null
+     var navController: NavController? = null
 
     private val nestedNavHostFragmentId = R.id.nested_nav_host_fragment_notification
     private val navGraphId = R.navigation.nav_graph_notification

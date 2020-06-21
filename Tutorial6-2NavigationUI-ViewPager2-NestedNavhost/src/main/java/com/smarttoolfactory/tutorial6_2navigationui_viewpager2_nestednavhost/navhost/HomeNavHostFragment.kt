@@ -1,5 +1,6 @@
 package com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.navhost
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -29,10 +30,22 @@ import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.bla
 class HomeNavHostFragment : BaseDataBindingFragment<FragmentNavhostHomeBinding>() {
     override fun getLayoutRes(): Int = R.layout.fragment_navhost_home
 
-    private var navController: NavController? = null
+     var navController: NavController? = null
 
     private val nestedNavHostFragmentId = R.id.nested_nav_host_fragment_home
     private val navGraphId = R.navigation.nav_graph_home
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        println("🏠 ${this.javaClass.simpleName} onAttach() ${this.javaClass.simpleName} #${this.hashCode()}")
+
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        println("🏠 ${this.javaClass.simpleName} onCreate() ${this.javaClass.simpleName} #${this.hashCode()}")
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -101,7 +114,7 @@ class HomeNavHostFragment : BaseDataBindingFragment<FragmentNavhostHomeBinding>(
 //        listenBackStack()
 
         // Listen on back press
-        listenOnBackPressed()
+//        listenOnBackPressed()
 
     }
 

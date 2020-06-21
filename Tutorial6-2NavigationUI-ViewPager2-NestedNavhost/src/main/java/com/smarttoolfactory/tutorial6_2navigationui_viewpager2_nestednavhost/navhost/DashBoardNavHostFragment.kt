@@ -28,7 +28,7 @@ import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.bla
 class DashBoardNavHostFragment : BaseDataBindingFragment<FragmentNavhostDashboardBinding>() {
     override fun getLayoutRes(): Int = R.layout.fragment_navhost_dashboard
 
-    private var navController: NavController? = null
+     var navController: NavController? = null
 
     private val nestedNavHostFragmentId = R.id.nested_nav_host_fragment_dashboard
     private val navGraphId = R.navigation.nav_graph_dashboard
