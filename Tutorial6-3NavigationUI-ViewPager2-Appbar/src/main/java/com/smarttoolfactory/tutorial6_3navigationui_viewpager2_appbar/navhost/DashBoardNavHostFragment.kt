@@ -1,4 +1,4 @@
-package com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.navhost
+package com.smarttoolfactory.tutorial6_3navigationui_viewpager2_appbar.navhost
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,27 +6,38 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.smarttoolfactory.tutorial6_2naigationui_viewpager2_nestednavhost.R
-import com.smarttoolfactory.tutorial6_2naigationui_viewpager2_nestednavhost.databinding.FragmentNavhostHomeBinding
-import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.blankfragment.BaseDataBindingFragment
+import androidx.navigation.fragment.findNavController
+import com.smarttoolfactory.tutorial6_3navigationui_viewpager2_appbar.blankfragment.BaseDataBindingFragment
+import com.smarttoolfactory.tutorial6_3navigationui_viewpager2_appbar.R
+import com.smarttoolfactory.tutorial6_3navigationui_viewpager2_appbar.databinding.FragmentNavhostDashboardBinding
 
 
-class NotificationHostFragment : BaseDataBindingFragment<FragmentNavhostHomeBinding>() {
-    override fun getLayoutRes(): Int = R.layout.fragment_navhost_notification
+/**
+ * Navigation host fragment for the Home tab.
+ *
+ * * [findNavController] returns the main navController, not the one required for navigating
+ * nested [Fragment]s. That navController is retrieved from [NavHostFragment] of this fragment.
+ *
+ * * [DashBoardNavHostFragment] graph uses [DashBoardNavHostFragment] as start destination
+ * so it should **navigate to next destination** to not get stuck.
+ */
+class DashBoardNavHostFragment : BaseDataBindingFragment<FragmentNavhostDashboardBinding>() {
+    override fun getLayoutRes(): Int = R.layout.fragment_navhost_dashboard
 
     var navController: NavController? = null
 
-    private val nestedNavHostFragmentId = R.id.nested_nav_host_fragment_notification
-    private val navGraphId = R.navigation.nav_graph_notification
+    private val nestedNavHostFragmentId = R.id.nested_nav_host_fragment_dashboard
+    private val navGraphId = R.navigation.nav_graph_dashboard
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        println("⏰ ${this.javaClass.simpleName} onCreateView() ${this.javaClass.simpleName} #${this.hashCode()}")
+        println("🏂  ${this.javaClass.simpleName} onCreateView() ${this.javaClass.simpleName} #${this.hashCode()}")
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
@@ -37,36 +48,6 @@ class NotificationHostFragment : BaseDataBindingFragment<FragmentNavhostHomeBind
             childFragmentManager.findFragmentById(nestedNavHostFragmentId) as? NavHostFragment
         navController = nestedNavHostFragment?.navController
 
-        println(
-            "⏰ ${this.javaClass.simpleName} onViewCreated(): ${this.javaClass.simpleName} #${this.hashCode()}\n" +
-                    "navController currentBackStackEntry: ${navController!!.currentBackStackEntry!!.destination}\n" +
-                    "currentDestination: ${navController!!.currentDestination}\n" +
-                    "current dest id: ${navController!!.currentDestination!!.id}, " +
-                    "startDestination: ${navController!!.graph.startDestination}, " +
-                    "graph start dest: ${navController!!.navInflater.inflate(navGraphId).startDestination}"
-        )
-
-        /*
-            🔥 Alternative 1
-            Navigate to HomeFragment1 if there is no current destination and current destination
-            is start destination. Set start destination as this fragment so it needs to
-            navigate next destination.
-
-            If start destination is NavHostFragment it's required to navigate to first
-         */
-//        if (navController!!.currentDestination == null || navController!!.currentDestination!!.id == navController!!.graph.startDestination) {
-//            navController?.navigate(R.id.homeFragment1)
-//        }
-
-        /*
-            🔥 Alternative 2 Reset graph to default status every time this fragment's view is created
-            ❌ This does not work if initial destination if this fragment because it repeats
-            creating this fragment in an infinite loop since graph is created every time
-         */
-//        val navInflater = navController!!.navInflater
-//        nestedNavHostFragment!!.navController.graph = graph
-//        val graph = navController!!.navInflater.inflate(navGraphId)
-//        nestedNavHostFragment!!.navController.graph = graph
 
         // listen back stack changes for this NavHost
 //        listenBackStack()
@@ -87,29 +68,10 @@ class NotificationHostFragment : BaseDataBindingFragment<FragmentNavhostHomeBind
         navHostChildFragmentManager?.addOnBackStackChangedListener {
 
             val backStackEntryCount = navHostChildFragmentManager.backStackEntryCount
-            val fragments = navHostChildFragmentManager.fragments
-            val currentDestination = navController?.currentDestination
 
-            fragments.forEach {
+            if (backStackEntryCount > 0)
+                callback.isEnabled = true
 
-                println(
-                    " ⏰ ${this.javaClass.simpleName} handleOnBackPressed() " +
-                            "fragment: ${it.javaClass.simpleName} #${it.hashCode()}," +
-                            "backStackEntryCount: $backStackEntryCount, " +
-                            " isVisible: ${it.isVisible}, " +
-                            " isVisible: ${it.isVisible}, " +
-                            ", isResumed: ${it.isResumed}, " +
-                            "currentDestination: ${currentDestination!!}, DEST ID: ${currentDestination.id}, " +
-                            "startDestination: ${navController!!.graph.startDestination}"
-                )
-            }
-
-
-            Toast.makeText(
-                requireContext(),
-                "⏰ ${this.javaClass.simpleName} ChildFragmentManager backStackEntryCount: $backStackEntryCount",
-                Toast.LENGTH_SHORT
-            ).show()
         }
 
     }
@@ -118,22 +80,21 @@ class NotificationHostFragment : BaseDataBindingFragment<FragmentNavhostHomeBind
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
-
     override fun onResume() {
         super.onResume()
-        println("⏰ ${this.javaClass.simpleName} onResume()")
+        println("🏂 ${this.javaClass.simpleName} onResume()")
         callback.isEnabled = true
     }
 
     override fun onPause() {
         super.onPause()
-        println("⏰ ${this.javaClass.simpleName} onPause()")
+        println("🏂 ${this.javaClass.simpleName} onPause()")
         callback.isEnabled = false
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        println("⏰ ${this.javaClass.simpleName} onDestroyView()")
+        println("🏂 ${this.javaClass.simpleName} onDestroyView()")
     }
 
     val callback = object : OnBackPressedCallback(true) {
@@ -156,7 +117,7 @@ class NotificationHostFragment : BaseDataBindingFragment<FragmentNavhostHomeBind
             val fragments = navHostChildFragmentManager.fragments
             fragments.forEach {
                 println(
-                    "⏰ ${this.javaClass.simpleName} handleOnBackPressed() " +
+                    "🏂 ${this.javaClass.simpleName} handleOnBackPressed() " +
                             "fragment: ${it.javaClass.simpleName} #${it.hashCode()}," +
                             "backStackEntryCount: $backStackEntryCount, " +
                             " isVisible: ${it.isVisible}, " +
@@ -168,10 +129,10 @@ class NotificationHostFragment : BaseDataBindingFragment<FragmentNavhostHomeBind
                 )
             }
 
-            // Check if it's the root of nested fragmnents in this navhost
+            // Check if it's the root of nested fragments in this navhosts
             if (navController?.currentDestination?.id == navController?.graph?.startDestination) {
 
-                Toast.makeText(requireContext(), "⏰ AT START DESTINATION ", Toast.LENGTH_SHORT)
+                Toast.makeText(requireContext(), "🏂 AT START DESTINATION ", Toast.LENGTH_SHORT)
                     .show()
 
                 remove()
@@ -182,7 +143,7 @@ class NotificationHostFragment : BaseDataBindingFragment<FragmentNavhostHomeBind
 
             Toast.makeText(
                 requireContext(),
-                "⏰ ${this.javaClass.simpleName} backStackEntryCount: $backStackEntryCount\n" +
+                "🏂 ${this.javaClass.simpleName} backStackEntryCount: $backStackEntryCount\n" +
                         "isAtStartDestination:  $isAtStartDestination, \n" +
                         "isVisible:  $isVisible, \n" +
                         "CURRENT DEST:  ${currentDestination!!.id}, " +

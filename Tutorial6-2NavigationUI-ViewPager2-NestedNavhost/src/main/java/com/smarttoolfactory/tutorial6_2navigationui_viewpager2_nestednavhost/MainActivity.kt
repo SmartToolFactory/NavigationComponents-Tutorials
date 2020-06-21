@@ -3,17 +3,67 @@ package com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.viewpager2.widget.ViewPager2
 import com.smarttoolfactory.tutorial6_2naigationui_viewpager2_nestednavhost.R
+import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.blankfragment.LoginFragment1
+import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.blankfragment.MainFragment
+import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.navhost.DashBoardNavHostFragment
+import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.navhost.HomeNavHostFragment
 
+
+/**
+ * Example that uses [ViewPager2] with tabs and each page with it's own back stack
+ * and navigation.
+ *
+ * * [NavHostFragment] containers like [HomeNavHostFragment] creates their child fragments
+ * and can navigate in them
+ *
+ * * [HomeNavHostFragment] uses graph with fragment that is displayed
+ * * [DashBoardNavHostFragment] uses graph with itself as start destination so it should
+ * check for the [NavController.getCurrentDestination] to navigate to it when device rotated
+ *
+ * * [LoginFragment1] is added to main graph, because of that appbar back navigation only works
+ * with the [MainFragment]'s [NavController]
+ *
+ */
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        listenBackStackChange()
+        // Create Toolbar and set support action bar
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
 
+        // Get NavController
+        val navController = findNavController(R.id.nav_host_fragment)
+
+        // Get App Configuration from nav graph
+        appBarConfiguration = AppBarConfiguration(navController.graph)
+
+        // Handles arrow back button
+        setupActionBarWithNavController(navController, appBarConfiguration)
+
+        listenBackStackChange()
     }
+
+
+    // This function is required with appbar to handle back button
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment)
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
 
     private fun listenBackStackChange() {
         // Get NavHostFragment

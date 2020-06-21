@@ -1,4 +1,4 @@
-package com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.navhost
+package com.smarttoolfactory.tutorial6_3navigationui_viewpager2_appbar.navhost
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,15 +8,15 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.smarttoolfactory.tutorial6_2naigationui_viewpager2_nestednavhost.R
-import com.smarttoolfactory.tutorial6_2naigationui_viewpager2_nestednavhost.databinding.FragmentNavhostHomeBinding
-import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.blankfragment.BaseDataBindingFragment
+import com.smarttoolfactory.tutorial6_3navigationui_viewpager2_appbar.blankfragment.BaseDataBindingFragment
+import com.smarttoolfactory.tutorial6_3navigationui_viewpager2_appbar.R
+import com.smarttoolfactory.tutorial6_3navigationui_viewpager2_appbar.databinding.FragmentNavhostHomeBinding
 
 
 class NotificationHostFragment : BaseDataBindingFragment<FragmentNavhostHomeBinding>() {
     override fun getLayoutRes(): Int = R.layout.fragment_navhost_notification
 
-    var navController: NavController? = null
+     var navController: NavController? = null
 
     private val nestedNavHostFragmentId = R.id.nested_nav_host_fragment_notification
     private val navGraphId = R.navigation.nav_graph_notification
@@ -46,27 +46,6 @@ class NotificationHostFragment : BaseDataBindingFragment<FragmentNavhostHomeBind
                     "graph start dest: ${navController!!.navInflater.inflate(navGraphId).startDestination}"
         )
 
-        /*
-            🔥 Alternative 1
-            Navigate to HomeFragment1 if there is no current destination and current destination
-            is start destination. Set start destination as this fragment so it needs to
-            navigate next destination.
-
-            If start destination is NavHostFragment it's required to navigate to first
-         */
-//        if (navController!!.currentDestination == null || navController!!.currentDestination!!.id == navController!!.graph.startDestination) {
-//            navController?.navigate(R.id.homeFragment1)
-//        }
-
-        /*
-            🔥 Alternative 2 Reset graph to default status every time this fragment's view is created
-            ❌ This does not work if initial destination if this fragment because it repeats
-            creating this fragment in an infinite loop since graph is created every time
-         */
-//        val navInflater = navController!!.navInflater
-//        nestedNavHostFragment!!.navController.graph = graph
-//        val graph = navController!!.navInflater.inflate(navGraphId)
-//        nestedNavHostFragment!!.navController.graph = graph
 
         // listen back stack changes for this NavHost
 //        listenBackStack()
@@ -152,28 +131,9 @@ class NotificationHostFragment : BaseDataBindingFragment<FragmentNavhostHomeBind
             val isAtStartDestination =
                 (navController?.currentDestination?.id == navController?.graph?.startDestination)
 
-            // Returns only the fragment on top
-            val fragments = navHostChildFragmentManager.fragments
-            fragments.forEach {
-                println(
-                    "⏰ ${this.javaClass.simpleName} handleOnBackPressed() " +
-                            "fragment: ${it.javaClass.simpleName} #${it.hashCode()}," +
-                            "backStackEntryCount: $backStackEntryCount, " +
-                            " isVisible: ${it.isVisible}, " +
-                            ", isResumed: ${it.isResumed}, " +
-                            ", isAtStartDestination: ${isAtStartDestination}, " +
-                            "navController currentBackStackEntry: ${navController!!.currentBackStackEntry!!.destination}\n" +
-                            "CURRENT DEST: ${currentDestination!!},  CURRENT DEST ID: ${currentDestination.id}, " +
-                            "START DEST: ${navController!!.graph.startDestination}"
-                )
-            }
-
             // Check if it's the root of nested fragmnents in this navhost
             if (navController?.currentDestination?.id == navController?.graph?.startDestination) {
-
-                Toast.makeText(requireContext(), "⏰ AT START DESTINATION ", Toast.LENGTH_SHORT)
-                    .show()
-
+                Toast.makeText(requireContext(), "⏰ AT START DESTINATION ", Toast.LENGTH_SHORT).show()
                 remove()
                 requireActivity().onBackPressed()
             } else if (isVisible) {

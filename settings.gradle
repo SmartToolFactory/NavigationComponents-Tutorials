@@ -1,3 +1,4 @@
+include ':Tutorial6-3NavigationUI-ViewPager2-Appbar'
 include ':External-Tutorial-Navigation-Codelab'
 include ':External-Tutorial-NavigationBasicSample'
 include ':External-Tutorial-NavigationAdvancedSample'

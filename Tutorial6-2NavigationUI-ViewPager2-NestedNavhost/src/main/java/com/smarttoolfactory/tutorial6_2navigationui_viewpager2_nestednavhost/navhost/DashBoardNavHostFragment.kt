@@ -28,7 +28,7 @@ import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.bla
 class DashBoardNavHostFragment : BaseDataBindingFragment<FragmentNavhostDashboardBinding>() {
     override fun getLayoutRes(): Int = R.layout.fragment_navhost_dashboard
 
-     var navController: NavController? = null
+    var navController: NavController? = null
 
     private val nestedNavHostFragmentId = R.id.nested_nav_host_fragment_dashboard
     private val navGraphId = R.navigation.nav_graph_dashboard
@@ -183,10 +183,11 @@ class DashBoardNavHostFragment : BaseDataBindingFragment<FragmentNavhostDashboar
                 )
             }
 
-            // Ist it the root of nested
+            // Check if it's the root of nested fragmnents in this navhost
             if (navController?.currentDestination?.id == navController?.graph?.startDestination) {
 
-                Toast.makeText(requireContext(), "🏂 AT START DESTINATION ", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "🏂 AT START DESTINATION ", Toast.LENGTH_SHORT)
+                    .show()
 
                 remove()
                 requireActivity().onBackPressed()
