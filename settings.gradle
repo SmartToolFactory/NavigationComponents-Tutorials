@@ -1,4 +1,3 @@
-
 include ':External-Tutorial-Navigation-Codelab'
 include ':External-Tutorial-NavigationBasicSample'
 include ':External-Tutorial-NavigationAdvancedSample'

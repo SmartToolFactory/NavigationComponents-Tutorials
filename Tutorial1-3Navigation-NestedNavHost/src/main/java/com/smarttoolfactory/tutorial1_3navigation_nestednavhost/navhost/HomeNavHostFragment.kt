@@ -14,9 +14,9 @@ import com.smarttoolfactory.tutorial1_3navigation_nestednavhost.databinding.Frag
 
 
 /*
+    Creation of this Fragment  -> Navigating Fragment 3
 
     Prints:
-    From Creation to Navigate fragment 3
     I: 😱 HomeNavHostFragment onCreateView() this: 201156203
     I: 🤣 BaseDataBindingFragment onCreateView() HomeNavHostFragment #201156203
     I: ✅️ HomeNavHostFragment onViewCreated(): HomeNavHostFragment #201156203

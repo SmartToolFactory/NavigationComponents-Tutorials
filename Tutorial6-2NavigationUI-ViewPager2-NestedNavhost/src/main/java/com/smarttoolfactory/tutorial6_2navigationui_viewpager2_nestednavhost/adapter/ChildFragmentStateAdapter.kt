@@ -2,8 +2,10 @@ package com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.ad
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.blankfragment.CameraFragment
 import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.navhost.DashBoardNavHostFragment
 import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.navhost.HomeNavHostFragment
+import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.navhost.NotificationHostFragment
 
 /**
  *  Passing [Fragment] as parameter let's this adapter to use childFragmentManager
@@ -11,13 +13,15 @@ import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.nav
 class ChildFragmentStateAdapter(private val fragment: Fragment) :
     FragmentStateAdapter(fragment) {
 
-    override fun getItemCount(): Int = 1
+    override fun getItemCount(): Int = 3
 
     override fun createFragment(position: Int): Fragment {
 
         return when (position) {
             0 -> HomeNavHostFragment()
-            else -> DashBoardNavHostFragment()
+            1 -> DashBoardNavHostFragment()
+            2 -> NotificationHostFragment()
+            else -> CameraFragment()
         }
     }
 
