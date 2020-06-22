@@ -2,6 +2,7 @@ package com.smarttoolfactory.tutorial6_3navigationui_viewpager2_appbar.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.LiveData
 import androidx.navigation.NavController
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.smarttoolfactory.tutorial6_3navigationui_viewpager2_appbar.blankfragment.LoginFragment1
@@ -13,9 +14,7 @@ import com.smarttoolfactory.tutorial6_3navigationui_viewpager2_appbar.navhost.No
 class ChildFragmentStateAdapter(private val fragmentActivity: FragmentActivity) :
     FragmentStateAdapter(fragmentActivity) {
 
-    val navControllerList = ArrayList<NavController?>(3).apply {
-    }
-
+    val navControllerList = ArrayList<LiveData<NavController>>(3)
 
     override fun getItemCount(): Int = 3
 
@@ -24,9 +23,9 @@ class ChildFragmentStateAdapter(private val fragmentActivity: FragmentActivity) 
         println("ChildFragmentStateAdapter createFragment() position: $position")
 
         return when (position) {
-            0 -> HomeNavHostFragment().apply { navControllerList.add(navController) }
-            1 -> DashBoardNavHostFragment().apply { navControllerList.add(navController) }
-            2 -> NotificationHostFragment().apply { navControllerList.add(navController) }
+            0 -> HomeNavHostFragment().apply { navControllerList.add(homeNavController) }
+            1 -> DashBoardNavHostFragment().apply { navControllerList.add(dashboardNavController) }
+            2 -> NotificationHostFragment().apply { navControllerList.add(notificationNavController) }
             else -> LoginFragment1()
         }
     }

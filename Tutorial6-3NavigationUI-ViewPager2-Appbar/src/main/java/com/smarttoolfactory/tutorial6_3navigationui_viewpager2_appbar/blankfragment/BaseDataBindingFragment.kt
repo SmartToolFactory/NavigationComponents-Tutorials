@@ -34,6 +34,12 @@ abstract class BaseDataBindingFragment<ViewBinding : ViewDataBinding> : Fragment
     @LayoutRes
     abstract fun getLayoutRes(): Int
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+                println("🔥 BaseDataBindingFragment onActivityCreated() $this")
+
+    }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
 //        println("🥰 BaseDataBindingFragment onAttach() $this")

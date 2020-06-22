@@ -3,6 +3,7 @@ package com.smarttoolfactory.tutorial6_3navigationui_viewpager2_appbar
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -12,7 +13,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.smarttoolfactory.tutorial6_3navigationui_viewpager2_appbar.adapter.ChildFragmentStateAdapter
 import com.smarttoolfactory.tutorial6_3navigationui_viewpager2_appbar.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), Observer<NavController> {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
@@ -25,9 +26,6 @@ class MainActivity : AppCompatActivity() {
         val dataBinding: ActivityMainBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-
-        // TabLayout
-        val tabLayout = dataBinding.tabLayout
         // ViewPager2
         val viewPager = dataBinding.viewPager
 
@@ -39,6 +37,10 @@ class MainActivity : AppCompatActivity() {
         val adapter = ChildFragmentStateAdapter(this)
         viewPager.adapter = adapter
 
+        // TabLayout
+        val tabLayout = dataBinding.tabLayout
+
+
         // Bind tabs and viewpager
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = "Tab $position"
@@ -47,21 +49,31 @@ class MainActivity : AppCompatActivity() {
         // Set support action bar
         setSupportActionBar(dataBinding.toolbar)
 
-
-        currentNavController = adapter.navControllerList.firstOrNull()
-
-        viewPager.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback() {
+        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                currentNavController = adapter.navControllerList[position]
-                setAppbarNavigation()
+
+                try {
+
+                    adapter.navControllerList?.forEach {
+                        it.removeObserver(this@MainActivity)
+                    }
+
+                    adapter.navControllerList[position].observe(
+                        this@MainActivity,
+                        this@MainActivity
+                    )
+
+                } catch (e: IndexOutOfBoundsException) {
+                    e.printStackTrace()
+                }
             }
         })
 
     }
 
     private fun setAppbarNavigation() {
-        
+
         currentNavController?.let {
             // Get App Configuration from nav graph
             appBarConfiguration = AppBarConfiguration(it.graph)
@@ -75,6 +87,11 @@ class MainActivity : AppCompatActivity() {
     // This function is required with appbar to handle back button
     override fun onSupportNavigateUp(): Boolean {
         return currentNavController?.navigateUp(appBarConfiguration) ?: false || super.onSupportNavigateUp()
+    }
+
+    override fun onChanged(navController: NavController?) {
+        currentNavController = navController
+        setAppbarNavigation()
     }
 
 }
