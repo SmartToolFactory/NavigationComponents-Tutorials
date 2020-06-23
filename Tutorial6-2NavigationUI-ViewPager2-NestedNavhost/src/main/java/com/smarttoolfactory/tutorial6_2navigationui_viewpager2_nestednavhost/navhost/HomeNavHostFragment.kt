@@ -207,7 +207,7 @@ class HomeNavHostFragment : BaseDataBindingFragment<FragmentNavhostHomeBinding>(
                 )
             }
 
-            // Check if it's the root of nested fragmnents in this navhost
+            // Check if it's the root of nested fragments in this navhost
             if (navController?.currentDestination?.id == navController?.graph?.startDestination) {
 
                 Toast.makeText(requireContext(), "🏠 AT START DESTINATION ", Toast.LENGTH_SHORT)
