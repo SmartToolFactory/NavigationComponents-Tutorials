@@ -174,8 +174,13 @@ class NotificationHostFragment : BaseDataBindingFragment<FragmentNavhostHomeBind
                 Toast.makeText(requireContext(), "⏰ AT START DESTINATION ", Toast.LENGTH_SHORT)
                     .show()
 
-                remove()
+                /*
+                    Disable this callback because calls OnBackPressedDispatcher
+                     gets invoked  calls this callback  gets stuck in a loop
+                 */
+                isEnabled = false
                 requireActivity().onBackPressed()
+                isEnabled = true
             } else if (isVisible) {
                 navController?.navigateUp()
             }

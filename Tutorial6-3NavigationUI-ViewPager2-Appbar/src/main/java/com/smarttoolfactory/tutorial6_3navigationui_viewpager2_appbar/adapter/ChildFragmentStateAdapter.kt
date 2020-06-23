@@ -14,20 +14,25 @@ import com.smarttoolfactory.tutorial6_3navigationui_viewpager2_appbar.navhost.No
 class ChildFragmentStateAdapter(private val fragmentActivity: FragmentActivity) :
     FragmentStateAdapter(fragmentActivity) {
 
-    val navControllerList = ArrayList<LiveData<NavController>>(3)
+    val navControllerMap = HashMap<Int, LiveData<NavController>>()
 
     override fun getItemCount(): Int = 3
 
     override fun createFragment(position: Int): Fragment {
 
-        println("ChildFragmentStateAdapter createFragment() position: $position")
-
         return when (position) {
-            0 -> HomeNavHostFragment().apply { navControllerList.add(homeNavController) }
-            1 -> DashBoardNavHostFragment().apply { navControllerList.add(dashboardNavController) }
-            2 -> NotificationHostFragment().apply { navControllerList.add(notificationNavController) }
+            0 -> HomeNavHostFragment().apply {
+                navControllerMap[position] = homeNavController
+            }
+            1 -> DashBoardNavHostFragment().apply {
+                navControllerMap[position] = dashboardNavController
+            }
+            2 -> NotificationHostFragment().apply {
+                navControllerMap[position] = notificationNavController
+            }
             else -> LoginFragment1()
         }
     }
+
 
 }

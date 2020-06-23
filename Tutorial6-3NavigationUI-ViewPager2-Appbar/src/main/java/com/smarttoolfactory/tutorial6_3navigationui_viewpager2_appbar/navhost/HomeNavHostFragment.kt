@@ -17,6 +17,10 @@ class HomeNavHostFragment : BaseDataBindingFragment<FragmentNavhostHomeBinding>(
 
     var homeNavController = MutableLiveData<NavController>()
 
+    init {
+        println("🏠 HOME INIT")
+    }
+
     private var navController: NavController? = null
 
     private val nestedNavHostFragmentId = R.id.nested_nav_host_fragment_home
@@ -59,8 +63,15 @@ class HomeNavHostFragment : BaseDataBindingFragment<FragmentNavhostHomeBinding>(
 
                 Toast.makeText(requireContext(), "🏠 AT START DESTINATION ", Toast.LENGTH_SHORT)
                     .show()
-                remove()
+
+                /*
+                    Disable this callback because calls OnBackPressedDispatcher
+                     gets invoked  calls this callback  gets stuck in a loop
+                 */
+                isEnabled = false
                 requireActivity().onBackPressed()
+                isEnabled = true
+
             } else {
                 navController?.navigateUp()
             }

@@ -54,12 +54,6 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:$rootProject.recyclerViewVersion"
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
 
-    // Location
-    implementation 'com.google.android.gms:play-services-location:' + rootProject.locationVersion
-
-    // Map
-    implementation 'com.google.android.gms:play-services-maps:' + rootProject.mapsVersion
-
     //Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.navigationVersion"
     implementation "androidx.navigation:navigation-ui-ktx:$rootProject.navigationVersion"

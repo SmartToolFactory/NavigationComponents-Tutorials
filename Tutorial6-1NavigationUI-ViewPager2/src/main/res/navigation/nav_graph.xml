@@ -30,7 +30,7 @@
 
     <fragment
             android:id="@+id/homeFragment2"
-            android:name="com.smarttoolfactory.tutorial6_1navigationui_viewpager2.blankfragment.HomeFragment2"
+            android:name="com.smarttoolfactory.tutorial0_1viewpager2.blankfragment.HomeFragment2"
             android:label="HomeFragment2">
         <action
                 android:id="@+id/action_homeFragment2_to_homeFragment3"
@@ -45,7 +45,7 @@
     <!-- Dashboard -->
     <fragment
             android:id="@+id/dashboardFragment2"
-            android:name="com.smarttoolfactory.tutorial6_1navigationui_viewpager2.blankfragment.DashboardFragment2"
+            android:name="com.smarttoolfactory.tutorial0_1viewpager2.blankfragment.DashboardFragment2"
             android:label="DashboardFragment2">
         <action
                 android:id="@+id/action_dashboardFragment2_to_dashboardFragment3"
