@@ -7,7 +7,7 @@
 
     <fragment
             android:id="@+id/mainFragment"
-            android:name="com.smarttoolfactory.tutorial6_1navigationui_viewpager2.blankfragment.MainFragment"
+            android:name="com.smarttoolfactory.tutorial6_1navigationui_viewpager2.mainfragment.MainFragment"
             android:label="MainFragment"
             tools:layout="@layout/fragment_main">
         <action

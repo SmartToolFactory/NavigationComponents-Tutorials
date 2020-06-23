@@ -8,7 +8,7 @@
     <!-- MainFragment-->
     <fragment
             android:id="@+id/main_dest"
-            android:name="com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.blankfragment.MainFragment"
+            android:name="com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.mainfragment.MainFragment"
             android:label="MainFragment"
             tools:layout="@layout/fragment_main">
 

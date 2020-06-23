@@ -1,4 +1,4 @@
-package com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.blankfragment
+package com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.mainfragment
 
 
 import android.os.Bundle
@@ -7,6 +7,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.smarttoolfactory.tutorial6_2naigationui_viewpager2_nestednavhost.R
 import com.smarttoolfactory.tutorial6_2naigationui_viewpager2_nestednavhost.databinding.FragmentMainBinding
 import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.adapter.ChildFragmentStateAdapter
+import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.blankfragment.BaseDataBindingFragment
 
 
 class MainFragment : BaseDataBindingFragment<FragmentMainBinding>() {
