@@ -52,7 +52,12 @@ class MainActivity : AppCompatActivity(), Observer<NavController> {
 
         // Bind tabs and viewpager
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-            tab.text = "Tab $position"
+            when(position) {
+                0->  tab.text = "Home"
+                1->  tab.text = "Dashboard"
+                2->  tab.text = "Notification"
+
+            }
         }.attach()
 
         // Set support action bar

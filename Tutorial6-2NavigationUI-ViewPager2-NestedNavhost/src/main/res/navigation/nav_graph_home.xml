@@ -7,7 +7,7 @@
 
     <fragment
             android:id="@+id/home_dest"
-            android:name="com.smarttoolfactory.tutorial6_3navigationui_viewpager2_appbar.navhost.HomeNavHostFragment"
+            android:name="com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.navhost.HomeNavHostFragment"
             android:label="HomeHost"
             tools:layout="@layout/fragment_navhost_home" />
 

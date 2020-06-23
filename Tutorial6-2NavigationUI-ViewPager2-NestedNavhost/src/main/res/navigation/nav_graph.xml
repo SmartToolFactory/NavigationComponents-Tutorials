@@ -13,21 +13,9 @@
             tools:layout="@layout/fragment_main">
 
         <!-- Login -->
-
-        <!-- Home NavGraph -->
-        <action
-                android:id="@+id/action_main_dest_to_nav_graph_home"
-                app:destination="@id/nav_graph_home" />
-
-        <!-- Dashboard  NavGraph-->
-        <action
-                android:id="@+id/action_main_dest_to_nav_graph_dashboard"
-                app:destination="@id/nav_graph_dashboard" />
         <action
                 android:id="@+id/action_main_dest_to_loginFragment2"
                 app:destination="@id/loginFragment2" />
-
-
     </fragment>
 
 
@@ -37,9 +25,11 @@
             app:destination="@id/main_dest"
             app:popUpTo="@id/main_dest"
             app:popUpToInclusive="true" />
+
+    <!-- Login -->
     <fragment
             android:id="@+id/loginFragment2"
-            android:name="com.smarttoolfactory.tutorial6_3navigationui_viewpager2_appbar.blankfragment.LoginFragment2"
+            android:name="com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.blankfragment.LoginFragment2"
             android:label="LoginFragment2" />
 
 

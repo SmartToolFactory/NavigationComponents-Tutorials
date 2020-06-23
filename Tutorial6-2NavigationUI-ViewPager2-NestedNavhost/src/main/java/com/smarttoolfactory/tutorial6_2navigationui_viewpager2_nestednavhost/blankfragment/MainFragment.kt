@@ -27,7 +27,12 @@ class MainFragment : BaseDataBindingFragment<FragmentMainBinding>() {
 
         // Bind tabs and viewpager
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-            tab.text = "Tab $position"
+           when(position) {
+               0->  tab.text = "Home"
+               1->  tab.text = "Notification"
+               2->  tab.text = "Dashboard"
+               3->  tab.text = "Login"
+           }
         }.attach()
 
     }
