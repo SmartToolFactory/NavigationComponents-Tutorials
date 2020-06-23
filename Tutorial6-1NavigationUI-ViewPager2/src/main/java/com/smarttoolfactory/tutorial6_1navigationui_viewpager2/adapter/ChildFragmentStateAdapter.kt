@@ -8,7 +8,7 @@ import com.smarttoolfactory.tutorial6_1navigationui_viewpager2.blankfragment.Hom
 /**
  *  Passing [Fragment] as parameter let's this adapter to use childFragmentManager
  */
-class ChildFragmentStateAdapter(private val fragment: Fragment) :
+class ChildFragmentStateAdapter(fragment: Fragment) :
     FragmentStateAdapter(fragment) {
 
     override fun getItemCount(): Int = 2

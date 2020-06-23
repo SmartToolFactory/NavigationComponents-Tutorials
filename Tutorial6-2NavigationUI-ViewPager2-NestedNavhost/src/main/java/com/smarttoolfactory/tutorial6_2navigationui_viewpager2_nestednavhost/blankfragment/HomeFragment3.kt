@@ -20,7 +20,7 @@ class HomeFragment3 : BaseDataBindingFragment<FragmentHome3Binding>() {
         }
 
         dataBinding.btnGoToStart.setOnClickListener {
-//            findNavController().navigate(R.id.action_global_start)
+            findNavController().navigate(R.id.action_homeFragment3_to_homeFragment1)
         }
     }
 }

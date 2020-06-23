@@ -20,7 +20,7 @@ class DashboardFragment3 : BaseDataBindingFragment<FragmentDashboard3Binding>() 
         }
 
         dataBinding.btnGoToStart.setOnClickListener {
-//            findNavController().navigate(R.id.action_global_start)
+            findNavController().navigate(R.id.action_dashboardFragment3_to_dashboardFragment1)
         }
 
     }

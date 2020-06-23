@@ -2,6 +2,7 @@ package com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.bl
 
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import com.smarttoolfactory.tutorial6_2naigationui_viewpager2_nestednavhost.R
 import com.smarttoolfactory.tutorial6_2naigationui_viewpager2_nestednavhost.databinding.FragmentNotification3Binding
 
@@ -19,7 +20,7 @@ class NotificationFragment3 : BaseDataBindingFragment<FragmentNotification3Bindi
         }
 
         dataBinding.btnGoToStart.setOnClickListener {
-//            findNavController().navigate(R.id.action_global_start)
+            findNavController().navigate(R.id.action_notificationFragment3_to_notificationFragment1)
         }
     }
 }
