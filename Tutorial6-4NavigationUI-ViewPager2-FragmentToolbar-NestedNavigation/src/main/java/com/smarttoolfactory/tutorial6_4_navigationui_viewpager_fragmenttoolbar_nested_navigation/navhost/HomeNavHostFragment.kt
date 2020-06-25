@@ -42,6 +42,7 @@ class HomeNavHostFragment : BaseDataBindingFragment<FragmentNavhostHomeBinding>(
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
+
     override fun onResume() {
         super.onResume()
         callback.isEnabled = true

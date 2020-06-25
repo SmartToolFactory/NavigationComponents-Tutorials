@@ -61,12 +61,13 @@ class MainActivity : AppCompatActivity() {
 
             val backStackEntryCount = navHostChildFragmentManager.backStackEntryCount
             val fragments = navHostChildFragmentManager.fragments
+            val fragmentCount = fragments.size
 
-            println("🎃 Main graph backStackEntryCount: $backStackEntryCount, fragments: $fragments")
+            println("🎃 Main graph backStackEntryCount: $backStackEntryCount, fragmentCount: $fragmentCount, fragments: $fragments")
 
             Toast.makeText(
                 this,
-                "🎃 Main graph backStackEntryCount: $backStackEntryCount, fragments: $fragments",
+                "🎃 Main graph backStackEntryCount: $backStackEntryCount, fragmentCount: $fragmentCount, fragments: $fragments",
                 Toast.LENGTH_SHORT
             ).show()
         }

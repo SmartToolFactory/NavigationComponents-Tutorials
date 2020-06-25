@@ -12,16 +12,7 @@
         android:label="MainFragment"
         tools:layout="@layout/fragment_main">
 
-        <!-- Login -->
-        <action
-            android:id="@+id/action_main_dest_to_loginFragment2"
-            app:destination="@id/loginFragment2" />
     </fragment>
 
-    <!-- Login -->
-    <fragment
-        android:id="@+id/loginFragment2"
-        android:name="com.smarttoolfactory.tutorial6_4_navigationui_viewpager_fragmenttoolbar_nested_navigation.blankfragment.LoginFragment2"
-        android:label="LoginFragment2" />
 
 </navigation>
