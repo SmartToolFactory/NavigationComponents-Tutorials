@@ -7,18 +7,31 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.NavHostFragment
 import com.smarttoolfactory.tutorial6_4_navigationui_viewpager_fragmenttoolbar.R
 import com.smarttoolfactory.tutorial6_4_navigationui_viewpager_fragmenttoolbar.databinding.ActivityMainBinding
-import com.smarttoolfactory.tutorial6_4_navigationui_viewpager_fragmenttoolbar_nested_navigation.mainfragment.MainFragment
+import com.smarttoolfactory.tutorial6_4_navigationui_viewpager_fragmenttoolbar_nested_navigation.viewpagerfragment.ViewPagerContainerFragment
+
+
+/*
+   *** Navigation Architecture ***
+
+     MainActivity
+        |- MainNavHost
+           |
+           |- ViewPagerContainerFragment(ViewPager)
+               |
+               |- HomeNavHostFragment(Appbar + Toolbar)
+               |  |- HF1 -> HF2 -> HF3
+               |
+               |- DashboardNavHostFragment(Appbar Toolbar)
+               |  |- DF1 -> DF2 -> DF3
+               |
+               |- NotificationHostFragment(Appbar Toolbar)
+                  |- NF1 -> NF2 -> NF3
+
+ */
 
 /**
- *  In this example each [NavHostFragment] has it's own toolbar, also activity has
- *  it's own toolbar either.
- *
- *  * [LoginFragment2] in this example is added to main back stack instead of Navhost,
- *  because of that it does not have any association with toolbar in  [MainFragment]
- *
- *  * It creates a navigation with back arrow but since it's in [MainFragment] it's
- *  displayed for a moment(This is not a correct implementation only for demonstration)
- *  and [LoginFragment2] is opened afterwards with no toolbar
+ *  In this example each [NavHostFragment] has it's own toolbar
+ *  They can navigate back with back arrow when navigated to an inner fragment of ViewPager
  *
  */
 class MainActivity : AppCompatActivity() {

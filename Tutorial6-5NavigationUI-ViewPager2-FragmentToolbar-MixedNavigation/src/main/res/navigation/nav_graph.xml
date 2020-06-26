@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/start_dest">
 
     <fragment
         android:id="@+id/start_dest"
         android:name="com.smarttoolfactory.tutorial6_5navigationui_viewpager2_fragmenttoolbar_mixednavigation.navhost.ParentNavHostFragment"
-        android:label="MainNavHostFragment" />
+        android:label="MainNavHostFragment"
+        tools:layout="@layout/fragment_navhost_parent"/>
 </navigation>

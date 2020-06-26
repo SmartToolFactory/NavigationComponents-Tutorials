@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_parent"
+    app:startDestination="@id/parent_dest">
+
+    <!-- MainFragment-->
+    <fragment
+        android:id="@+id/parent_dest"
+        android:name="com.smarttoolfactory.tutorial6_6navigationui_viewpager2_appbar_mixednavigation_viewmodel.viewpagerfragment.ViewPagerContainerFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_viewpager_container">
+
+        <!-- Login -->
+        <action
+            android:id="@+id/action_main_dest_to_loginFragment2"
+            app:destination="@id/loginFragment2" />
+    </fragment>
+
+    <!-- Login -->
+    <fragment
+        android:id="@+id/loginFragment2"
+        android:name="com.smarttoolfactory.tutorial6_6navigationui_viewpager2_appbar_mixednavigation_viewmodel.blankfragment.LoginFragment2"
+        android:label="LoginFragment2"
+        tools:layout="@layout/fragment_login2"/>
+
+</navigation>

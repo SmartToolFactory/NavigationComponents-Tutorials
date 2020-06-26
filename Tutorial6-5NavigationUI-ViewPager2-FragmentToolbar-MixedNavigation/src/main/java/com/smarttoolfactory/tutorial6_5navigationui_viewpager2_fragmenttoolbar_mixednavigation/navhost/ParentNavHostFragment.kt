@@ -8,7 +8,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.navGraphViewModels
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.smarttoolfactory.tutorial6_5navigationui_viewpager2_fragmenttoolbar_mixednavigation.R
@@ -22,9 +21,9 @@ class ParentNavHostFragment : BaseDataBindingFragment<FragmentNavhostParentBindi
 
     private var navController: NavController? = null
 
-    private val nestedNavHostFragmentId = R.id.nested_nav_host_fragment_main
+    private val nestedNavHostFragmentId = R.id.nested_nav_host_fragment_parent
 
-    val viewModel by activityViewModels<AppbarViewModel>()
+    private val appbarViewModel by activityViewModels<AppbarViewModel>()
 
 //    private val viewModel:AppbarViewModel by navGraphViewModels(R.id.parent_dest)
 
@@ -45,7 +44,7 @@ class ParentNavHostFragment : BaseDataBindingFragment<FragmentNavhostParentBindi
         dataBinding.toolbar.setupWithNavController(navController!!, appBarConfig)
 
 
-        viewModel.appbarParentVisibility.observe(viewLifecycleOwner, Observer { visible ->
+        appbarViewModel.appbarParentVisibility.observe(viewLifecycleOwner, Observer { visible ->
             if (visible) {
                 dataBinding.appbar.visibility = View.VISIBLE
             } else {

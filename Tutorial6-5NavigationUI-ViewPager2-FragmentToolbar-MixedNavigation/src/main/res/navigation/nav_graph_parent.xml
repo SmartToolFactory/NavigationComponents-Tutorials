@@ -8,9 +8,9 @@
     <!-- MainFragment-->
     <fragment
         android:id="@+id/parent_dest"
-        android:name="com.smarttoolfactory.tutorial6_5navigationui_viewpager2_fragmenttoolbar_mixednavigation.mainfragment.MainFragment"
+        android:name="com.smarttoolfactory.tutorial6_5navigationui_viewpager2_fragmenttoolbar_mixednavigation.viewpagerfragment.ViewPagerContainerFragment"
         android:label="MainFragment"
-        tools:layout="@layout/fragment_main">
+        tools:layout="@layout/fragment_viewpager_container">
 
         <!-- Login -->
         <action
@@ -22,6 +22,7 @@
     <fragment
         android:id="@+id/loginFragment2"
         android:name="com.smarttoolfactory.tutorial6_5navigationui_viewpager2_fragmenttoolbar_mixednavigation.blankfragment.LoginFragment2"
-        android:label="LoginFragment2" />
+        android:label="LoginFragment2"
+        tools:layout="@layout/fragment_login2"/>
 
 </navigation>

@@ -13,9 +13,32 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.smarttoolfactory.tutorial6_2naigationui_viewpager2_nestednavhost.R
 import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.blankfragment.LoginFragment1
-import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.mainfragment.MainFragment
+import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.viewpagerfragment.ViewPagerContainerFragment
 import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.navhost.DashBoardNavHostFragment
 import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.navhost.HomeNavHostFragment
+
+
+/*
+   *** Navigation Architecture ***
+
+     MainActivity (Appbar + Toolbar)
+        |- MainNavHost
+           |
+           |- ViewPagerContainerFragment(ViewPager2 + TabLayout)
+           |   |- HomeNavHostFragment
+           |   |  |- HF1 -> HF2 -> HF3
+           |   |
+           |   |- DashboardNavHostFragment
+           |   |  |- DF1 -> DF2 -> DF3
+           |   |
+           |   |- NotificationHostFragment
+           |   |  |- NF1 -> NF2 -> NF3
+           |   |
+           |   |-LoginFragment1
+           |
+           |- LoginFragment1 -> LoginFragment2
+
+ */
 
 
 /**
@@ -30,7 +53,7 @@ import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.nav
  * check for the [NavController.getCurrentDestination] to navigate to it when device rotated
  *
  * * [LoginFragment1] is added to main graph, because of that appbar back navigation only works
- * with the [MainFragment]'s [NavController]
+ * with the [ViewPagerContainerFragment]'s [NavController]
  *
  */
 class MainActivity : AppCompatActivity() {

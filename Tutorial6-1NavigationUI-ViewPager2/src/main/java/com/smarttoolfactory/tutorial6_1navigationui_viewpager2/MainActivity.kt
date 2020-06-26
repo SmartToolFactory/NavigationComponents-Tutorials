@@ -11,6 +11,17 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.viewpager2.widget.ViewPager2
 
 
+/*
+   *** Navigation Architecture ***
+
+     MainActivity (Appbar + Toolbar)
+        |- MainNavHost
+            |
+            | FragmentViewPagerContainer(ViewPager2 + TabLayout)
+                |- HomeFragment1 -> HomeFragment2 -> HomeFragment3
+                |- DashboardFragment1 -> DashboardFragment2 -> DashboardFragment3
+ */
+
 /**
  * Example to use [ViewPager2] with navigation components.
  *

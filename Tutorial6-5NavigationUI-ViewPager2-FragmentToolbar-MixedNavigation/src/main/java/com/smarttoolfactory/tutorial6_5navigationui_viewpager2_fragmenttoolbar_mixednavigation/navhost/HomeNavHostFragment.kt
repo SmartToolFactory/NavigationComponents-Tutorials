@@ -14,7 +14,6 @@ import com.smarttoolfactory.tutorial6_5navigationui_viewpager2_fragmenttoolbar_m
 
 
 class HomeNavHostFragment : BaseDataBindingFragment<FragmentNavhostHomeBinding>() {
-
     override fun getLayoutRes(): Int = R.layout.fragment_navhost_home
 
     private var navController: NavController? = null

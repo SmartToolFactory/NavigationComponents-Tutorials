@@ -15,6 +15,23 @@ import com.smarttoolfactory.tutorial6_3navigationui_viewpager2_appbar.R
 import com.smarttoolfactory.tutorial6_3navigationui_viewpager2_appbar.databinding.ActivityMainBinding
 import com.smarttoolfactory.tutorial6_3navigationui_viewpager2_appbar_nested_navigation.adapter.ActivityFragmentStateAdapter
 
+
+/*
+   *** Navigation Architecture ***
+
+     MainActivity(Appbar + Toolbar + TabLayout + ViewPager2)
+       |
+       |- HomeNavHostFragment
+       |  |- HF1 -> HF2 -> HF3
+       |
+       |- DashboardNavHostFragment
+       |  |- DF1 -> DF2 -> DF3
+       |
+       |- NotificationHostFragment
+          |- NF1 -> NF2 -> NF3
+
+ */
+
 /**
  * MainActivity has it's appbar that navigation is controlled using the [NavController]
  * retrieved from [NavHostFragment] via [LiveData]

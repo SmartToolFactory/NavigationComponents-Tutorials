@@ -3,14 +3,14 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/nav_graph"
-        app:startDestination="@id/main_dest">
+        app:startDestination="@id/start_dest">
 
     <!-- MainFragment-->
     <fragment
-            android:id="@+id/main_dest"
-            android:name="com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.mainfragment.MainFragment"
+            android:id="@+id/start_dest"
+            android:name="com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.viewpagerfragment.ViewPagerContainerFragment"
             android:label="MainFragment"
-            tools:layout="@layout/fragment_main">
+            tools:layout="@layout/fragment_viewpager_container">
 
         <!-- Login -->
         <action
@@ -22,8 +22,8 @@
     <!-- Global Action Start -->
     <action
             android:id="@+id/action_global_start"
-            app:destination="@id/main_dest"
-            app:popUpTo="@id/main_dest"
+            app:destination="@id/start_dest"
+            app:popUpTo="@id/start_dest"
             app:popUpToInclusive="true" />
 
     <!-- Login -->
