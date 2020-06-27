@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_dashboard"
+    app:startDestination="@id/dashboardFragment1">
+
+
+    <fragment
+        android:id="@+id/dashboardFragment1"
+        android:name="com.smarttoolfactory.tutorial5_3navigationui_bottomnavigation_nestednavigation.blankfragment.DashboardFragment1"
+        android:label="DashboardFragment1"
+        tools:layout="@layout/fragment_dashboard1">
+        <action
+            android:id="@+id/action_dashboardFragment1_to_dashboardFragment2"
+            app:destination="@id/dashboardFragment2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/dashboardFragment2"
+        android:name="com.smarttoolfactory.tutorial5_3navigationui_bottomnavigation_nestednavigation.blankfragment.DashboardFragment2"
+        android:label="DashboardFragment2"
+        tools:layout="@layout/fragment_dashboard2">
+        <action
+            android:id="@+id/action_dashboardFragment2_to_dashboardFragment3"
+            app:destination="@id/dashboardFragment3" />
+    </fragment>
+    <fragment
+        android:id="@+id/dashboardFragment3"
+        android:name="com.smarttoolfactory.tutorial5_3navigationui_bottomnavigation_nestednavigation.blankfragment.DashboardFragment3"
+        android:label="DashboardFragment3"
+        tools:layout="@layout/fragment_dashboard3" >
+        <action
+            android:id="@+id/action_dashboardFragment3_to_dashboardFragment1"
+            app:destination="@id/dashboardFragment1"
+            app:popUpTo="@id/dashboardFragment1"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+</navigation>

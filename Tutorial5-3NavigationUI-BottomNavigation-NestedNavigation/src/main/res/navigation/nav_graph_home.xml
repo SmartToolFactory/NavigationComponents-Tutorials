@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_home"
+    app:startDestination="@id/homeFragment1">
+
+
+    <fragment
+        android:id="@+id/homeFragment1"
+        android:name="com.smarttoolfactory.tutorial5_3navigationui_bottomnavigation_nestednavigation.blankfragment.HomeFragment1"
+        android:label="HomeFragment1"
+        tools:layout="@layout/fragment_home1">
+        <action
+            android:id="@+id/action_homeFragment1_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment2"
+        android:name="com.smarttoolfactory.tutorial5_3navigationui_bottomnavigation_nestednavigation.blankfragment.HomeFragment2"
+        android:label="HomeFragment2"
+        tools:layout="@layout/fragment_home2">
+        <action
+            android:id="@+id/action_homeFragment2_to_homeFragment3"
+            app:destination="@id/homeFragment3" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment3"
+        android:name="com.smarttoolfactory.tutorial5_3navigationui_bottomnavigation_nestednavigation.blankfragment.HomeFragment3"
+        android:label="HomeFragment3"
+        tools:layout="@layout/fragment_home3" >
+        <action
+            android:id="@+id/action_homeFragment3_to_homeFragment1"
+            app:destination="@id/homeFragment1"
+            app:popUpTo="@id/homeFragment1"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+</navigation>

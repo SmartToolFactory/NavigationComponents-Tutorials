@@ -16,7 +16,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.smarttoolfactory.tutorial5_2navigationui_bottomnavigation_advanced.R
 
 
-class MapFragment() : Fragment(), OnMapReadyCallback {
+class MapFragment : Fragment(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap

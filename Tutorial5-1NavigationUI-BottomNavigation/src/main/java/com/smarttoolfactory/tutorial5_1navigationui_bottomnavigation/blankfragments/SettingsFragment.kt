@@ -22,7 +22,7 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        Toast.makeText(activity!!,"SettingsFragment onViewCreated() this: $this", Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(),"SettingsFragment onViewCreated() this: $this", Toast.LENGTH_SHORT).show()
         println("🔥 SettingsFragment onViewCreated() this: $this")
     }
 

@@ -1,6 +1,7 @@
 package com.smarttoolfactory.tutorial5_2navigationui_bottomnavigation_advanced
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
@@ -18,6 +19,21 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        supportFragmentManager.addOnBackStackChangedListener {
+            val backStackEntryCount = supportFragmentManager.backStackEntryCount
+            val fragments = supportFragmentManager.fragments
+            val fragmentCount = fragments.size
+
+
+            Toast.makeText(
+                this,
+                "MainActivity backStackEntryCount: $backStackEntryCount, fragmentCount: $fragmentCount, fragments: $fragments",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+
+
         if (savedInstanceState == null) {
             setupBottomNavigationBar()
         } // Else, need to wait for onRestoreInstanceState
@@ -38,10 +54,10 @@ class MainActivity : AppCompatActivity() {
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_nav)
 
         val navGraphIds = listOf(
-            R.navigation.home_dest,
-            R.navigation.detail_dest,
-            R.navigation.map_dest,
-            R.navigation.camera_dest
+            R.navigation.nav_graph_home,
+            R.navigation.nav_graph_detail,
+            R.navigation.nav_graph_map,
+            R.navigation.nav_graph_camera
         )
 
         // Setup the bottom navigation view with a list of navigation graphs

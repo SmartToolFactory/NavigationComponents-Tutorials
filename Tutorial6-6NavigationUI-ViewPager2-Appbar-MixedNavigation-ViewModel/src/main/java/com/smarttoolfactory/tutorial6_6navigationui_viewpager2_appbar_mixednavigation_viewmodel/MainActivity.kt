@@ -17,7 +17,7 @@ import com.smarttoolfactory.tutorial6_6navigationui_viewpager2_appbar_mixednavig
      MainActivity
         |- MainNavHost
            |
-           |- ParenNavHost((Appbar + Toolbar)
+           |- ParenNavHost(Appbar + Toolbar) Here because we wish to have toolbar inside Fragment
                |
                |- ViewPagerContainerFragment(TabLayout + ViewPager2)
                |   |
@@ -33,7 +33,6 @@ import com.smarttoolfactory.tutorial6_6navigationui_viewpager2_appbar_mixednavig
                |   |-LoginFragment1
                |
                |- LoginFragment1 -> LoginFragment2
-
 
  */
 
