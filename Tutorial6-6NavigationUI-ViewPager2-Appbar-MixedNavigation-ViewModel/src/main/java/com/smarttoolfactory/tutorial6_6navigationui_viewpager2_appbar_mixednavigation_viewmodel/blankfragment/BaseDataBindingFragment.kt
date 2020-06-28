@@ -36,7 +36,7 @@ abstract class BaseDataBindingFragment<ViewBinding : ViewDataBinding> : Fragment
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-                println("🔥 BaseDataBindingFragment onActivityCreated() $this")
+//                println("🔥 BaseDataBindingFragment onActivityCreated() $this")
 
     }
 

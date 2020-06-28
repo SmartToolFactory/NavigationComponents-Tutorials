@@ -40,6 +40,8 @@ class NotificationHostFragment : BaseDataBindingFragment<FragmentNavhostNotifica
 
     private fun listenOnBackPressed() {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+
+        requireActivity().onBackPressedDispatcher.onBackPressed()
     }
 
 
@@ -53,7 +55,15 @@ class NotificationHostFragment : BaseDataBindingFragment<FragmentNavhostNotifica
         callback.isEnabled = false
     }
 
-    val callback = object : OnBackPressedCallback(true) {
+
+    /**
+     * This callback should be created with Disabled because on rotation ViewPager creates
+     * NavHost fragments that are not on screen, destroys them afterwards but it might take
+     * up to 5 seconds.
+     *
+     * ### Note: During that interval touching back button sometimes call incorrect [OnBackPressedCallback.handleOnBackPressed] instead of this one if callback is **ENABLED**
+     */
+    val callback = object : OnBackPressedCallback(false) {
 
         override fun handleOnBackPressed() {
 

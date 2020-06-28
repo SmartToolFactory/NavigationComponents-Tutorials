@@ -34,6 +34,12 @@ abstract class BaseDataBindingFragment<ViewBinding : ViewDataBinding> : Fragment
     @LayoutRes
     abstract fun getLayoutRes(): Int
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        println("🔥 ${this.javaClass.simpleName} #${this.hashCode()}  onActivityCreated()")
+
+    }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
 //        println("🥰 BaseDataBindingFragment onAttach() $this")
@@ -41,7 +47,7 @@ abstract class BaseDataBindingFragment<ViewBinding : ViewDataBinding> : Fragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        println("😀 BaseDataBindingFragment onCreate() $this")
+        println("😀 ${this.javaClass.simpleName} #${this.hashCode()}  onCreate()")
     }
 
     override fun onCreateView(
@@ -49,7 +55,8 @@ abstract class BaseDataBindingFragment<ViewBinding : ViewDataBinding> : Fragment
         savedInstanceState: Bundle?
     ): View? {
 
-        println("🤣 BaseDataBindingFragment onCreateView() ${this.javaClass.simpleName} #${this.hashCode()}")
+        println("🤣 ${this.javaClass.simpleName} #${this.hashCode()} onCreateView()")
+
         // Inflate the layout for this fragment
         dataBinding = DataBindingUtil.inflate(inflater, getLayoutRes(), container, false)
         return dataBinding.root
@@ -57,28 +64,38 @@ abstract class BaseDataBindingFragment<ViewBinding : ViewDataBinding> : Fragment
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        println("🤩 BaseDataBindingFragment onViewCreated() view: $view,  $this")
+//        println("🤩 ${this.javaClass.simpleName} #${this.hashCode() onViewCreated() view: $view")
     }
 
 
     override fun onAttachFragment(childFragment: Fragment) {
         super.onAttachFragment(childFragment)
-//        println("😱 BaseDataBindingFragment onAttachFragment() $this, CHILD: $childFragment")
+//        println("😱✅ ${this.javaClass.simpleName} #${this.hashCode()}  onAttachFragment(), CHILD: $childFragment")
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-//        println("🥵 BaseDataBindingFragment onDestroyView() $this")
+        println("🥵 ${this.javaClass.simpleName} #${this.hashCode()}  onDestroyView()")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-//        println("🥶 BaseDataBindingFragment onDestroy() $this")
+        println("🥶 ${this.javaClass.simpleName} #${this.hashCode()}  onDestroy()")
     }
 
     override fun onDetach() {
         super.onDetach()
-//        println("💀 BaseDataBindingFragment onDetach() $this")
+//        println("💀 ${this.javaClass.simpleName} #${this.hashCode() onDetach() $this")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        println("🎃 ${this.javaClass.simpleName} #${this.hashCode()} onResume()")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        println("😱 ${this.javaClass.simpleName} #${this.hashCode()} onPause()")
     }
 
 }

@@ -21,14 +21,6 @@ class NotificationHostFragment : BaseDataBindingFragment<FragmentNavhostHomeBind
     private val nestedNavHostFragmentId = R.id.nested_nav_host_fragment_notification
     private val navGraphId = R.navigation.nav_graph_notification
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        println("⏰ ${this.javaClass.simpleName} onCreateView() ${this.javaClass.simpleName} #${this.hashCode()}")
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -121,24 +113,26 @@ class NotificationHostFragment : BaseDataBindingFragment<FragmentNavhostHomeBind
 
     override fun onResume() {
         super.onResume()
-        println("⏰ ${this.javaClass.simpleName} onResume()")
         callback.isEnabled = true
     }
 
     override fun onPause() {
         super.onPause()
-        println("⏰ ${this.javaClass.simpleName} onPause()")
         callback.isEnabled = false
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        println("⏰ ${this.javaClass.simpleName} onDestroyView()")
-    }
-
-    val callback = object : OnBackPressedCallback(true) {
+    /**
+     * This callback should be created with Disabled because on rotation ViewPager creates
+     * NavHost fragments that are not on screen, destroys them afterwards but it might take
+     * up to 5 seconds.
+     *
+     * ### Note: During that interval touching back button sometimes call incorrect [OnBackPressedCallback.handleOnBackPressed] instead of this one if callback is **ENABLED**
+     */
+    val callback = object : OnBackPressedCallback(false) {
 
         override fun handleOnBackPressed() {
+
+            println("⏰ ${this@NotificationHostFragment.javaClass.simpleName} #${this@NotificationHostFragment.hashCode()} handleOnBackPressed()")
 
             // Get NavHostFragment
             val navHostFragment =
@@ -152,20 +146,20 @@ class NotificationHostFragment : BaseDataBindingFragment<FragmentNavhostHomeBind
             val isAtStartDestination =
                 (navController?.currentDestination?.id == navController?.graph?.startDestination)
 
-            // Returns only the fragment on top
+            // 🔥 Returns only the fragment on top, fragmentManager uses REPLACE
             val fragments = navHostChildFragmentManager.fragments
             fragments.forEach {
-                println(
-                    "⏰ ${this.javaClass.simpleName} handleOnBackPressed() " +
-                            "fragment: ${it.javaClass.simpleName} #${it.hashCode()}," +
-                            "backStackEntryCount: $backStackEntryCount, " +
-                            " isVisible: ${it.isVisible}, " +
-                            ", isResumed: ${it.isResumed}, " +
-                            ", isAtStartDestination: ${isAtStartDestination}, " +
-                            "navController currentBackStackEntry: ${navController!!.currentBackStackEntry!!.destination}\n" +
-                            "CURRENT DEST: ${currentDestination!!},  CURRENT DEST ID: ${currentDestination.id}, " +
-                            "START DEST: ${navController!!.graph.startDestination}"
-                )
+//                println(
+//                    "⏰ ${this.javaClass.simpleName} handleOnBackPressed() " +
+//                            "fragment: ${it.javaClass.simpleName} #${it.hashCode()}," +
+//                            "backStackEntryCount: $backStackEntryCount, " +
+//                            " isVisible: ${it.isVisible}, " +
+//                            ", isResumed: ${it.isResumed}, " +
+//                            ", isAtStartDestination: ${isAtStartDestination}, " +
+//                            "navController currentBackStackEntry: ${navController!!.currentBackStackEntry!!.destination}\n" +
+//                            "CURRENT DEST: ${currentDestination!!},  CURRENT DEST ID: ${currentDestination.id}, " +
+//                            "START DEST: ${navController!!.graph.startDestination}"
+//                )
             }
 
             // Check if it's the root of nested fragments in this navhost

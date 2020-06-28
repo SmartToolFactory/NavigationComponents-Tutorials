@@ -7,10 +7,9 @@ import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
 import com.smarttoolfactory.tutorial6_6navigationui_viewpager2_appbar_mixednavigation_viewmodel.R
-import com.smarttoolfactory.tutorial6_6navigationui_viewpager2_appbar_mixednavigation_viewmodel.databinding.FragmentNavhostDashboardBinding
 import com.smarttoolfactory.tutorial6_6navigationui_viewpager2_appbar_mixednavigation_viewmodel.blankfragment.BaseDataBindingFragment
+import com.smarttoolfactory.tutorial6_6navigationui_viewpager2_appbar_mixednavigation_viewmodel.databinding.FragmentNavhostDashboardBinding
 import com.smarttoolfactory.tutorial6_6navigationui_viewpager2_appbar_mixednavigation_viewmodel.viewmodel.AppbarViewModel
 
 
@@ -31,15 +30,10 @@ class DashBoardNavHostFragment : BaseDataBindingFragment<FragmentNavhostDashboar
             childFragmentManager.findFragmentById(nestedNavHostFragmentId) as? NavHostFragment
         navController = nestedNavHostFragment?.navController
 
-
-
         // Listen on back press
         listenOnBackPressed()
 
-
     }
-
-
 
     private fun listenOnBackPressed() {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
@@ -47,7 +41,6 @@ class DashBoardNavHostFragment : BaseDataBindingFragment<FragmentNavhostDashboar
 
     override fun onResume() {
         super.onResume()
-        println("🏂 ${this.javaClass.simpleName} onResume()")
         callback.isEnabled = true
 
         // Set this navController as ViewModel's navController
@@ -56,11 +49,17 @@ class DashBoardNavHostFragment : BaseDataBindingFragment<FragmentNavhostDashboar
 
     override fun onPause() {
         super.onPause()
-        println("🏂 ${this.javaClass.simpleName} onPause()")
         callback.isEnabled = false
     }
 
-    val callback = object : OnBackPressedCallback(true) {
+    /**
+     * This callback should be created with Disabled because on rotation ViewPager creates
+     * NavHost fragments that are not on screen, destroys them afterwards but it might take
+     * up to 5 seconds.
+     *
+     * ### Note: During that interval touching back button sometimes call incorrect [OnBackPressedCallback.handleOnBackPressed] instead of this one if callback is **ENABLED**
+     */
+    val callback = object : OnBackPressedCallback(false) {
 
         override fun handleOnBackPressed() {
 
@@ -84,7 +83,5 @@ class DashBoardNavHostFragment : BaseDataBindingFragment<FragmentNavhostDashboar
 
         }
     }
-
-
 
 }
