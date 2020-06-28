@@ -88,6 +88,7 @@ class HomeNavHostFragment : BaseDataBindingFragment<FragmentNavhostHomeBinding>(
             Toast.makeText(requireContext(), "🏠 handleOnBackPressed() ", Toast.LENGTH_SHORT)
                 .show()
 
+            println("🏠 ${this@HomeNavHostFragment.javaClass.simpleName} #${this@HomeNavHostFragment.hashCode()} handleOnBackPressed()")
 
             // Check if it's the root of nested fragments in this navhost
             if (navController?.currentDestination?.id == navController?.graph?.startDestination) {

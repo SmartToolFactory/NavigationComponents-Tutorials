@@ -33,22 +33,6 @@ class MainActivity : AppCompatActivity() {
         // Set viewpager adapter
         viewPager2.adapter = ActivityFragmentStateAdapter(this)
 
-        // If device is rotate get las open tab  before rotation
-//        savedInstanceState?.let {
-//
-//            Toast.makeText(
-//                this,
-//                "Before rotation viewPager item: ${viewPager2.currentItem}",
-//                Toast.LENGTH_SHORT
-//            ).show()
-//
-//            when (viewPager2.currentItem) {
-//                0 -> bottomNavigationView.selectedItemId = R.id.nav_graph_home
-//                1 -> bottomNavigationView.selectedItemId = R.id.nav_graph_dashboard
-//                2 -> bottomNavigationView.selectedItemId = R.id.nav_graph_notification
-//            }
-//        }
-
         // Listen bottom navigation tabs change
         bottomNavigationView.setOnNavigationItemSelectedListener {
 

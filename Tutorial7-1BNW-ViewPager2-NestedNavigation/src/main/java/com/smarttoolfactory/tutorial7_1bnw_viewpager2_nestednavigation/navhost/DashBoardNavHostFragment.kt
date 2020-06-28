@@ -84,6 +84,8 @@ class DashBoardNavHostFragment : BaseDataBindingFragment<FragmentNavhostDashboar
 
         override fun handleOnBackPressed() {
 
+            println("🏂 ${this@DashBoardNavHostFragment.javaClass.simpleName} #${this@DashBoardNavHostFragment.hashCode()} handleOnBackPressed()")
+
             // Check if it's the root of nested fragments in this navhosts
             if (navController?.currentDestination?.id == navController?.graph?.startDestination) {
 

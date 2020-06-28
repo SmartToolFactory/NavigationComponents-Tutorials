@@ -17,7 +17,6 @@ import com.smarttoolfactory.tutorial7_1bnw_viewpager2_nestednavigation.navhost.N
 class ActivityFragmentStateAdapter(fragmentActivity: FragmentActivity) :
     FragmentStateAdapter(fragmentActivity) {
 
-
     override fun getItemCount(): Int = 3
 
     override fun createFragment(position: Int): Fragment {

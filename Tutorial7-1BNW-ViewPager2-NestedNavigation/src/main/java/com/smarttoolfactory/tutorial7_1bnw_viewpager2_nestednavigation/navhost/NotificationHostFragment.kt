@@ -86,6 +86,8 @@ class NotificationHostFragment : BaseDataBindingFragment<FragmentNavhostNotifica
 
         override fun handleOnBackPressed() {
 
+            println("⏰ ${this@NotificationHostFragment.javaClass.simpleName} #${this@NotificationHostFragment.hashCode()} handleOnBackPressed()")
+
             // Check if it's the root of nested fragments in this navhost
             if (navController?.currentDestination?.id == navController?.graph?.startDestination) {
                 Toast.makeText(requireContext(), "⏰ AT START DESTINATION ", Toast.LENGTH_SHORT)

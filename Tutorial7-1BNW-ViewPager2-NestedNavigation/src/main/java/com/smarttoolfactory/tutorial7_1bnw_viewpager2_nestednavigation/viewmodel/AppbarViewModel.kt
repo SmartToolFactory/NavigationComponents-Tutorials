@@ -6,5 +6,4 @@ import androidx.navigation.NavController
 
 class AppbarViewModel : ViewModel() {
     val currentNavController = MutableLiveData<NavController?>()
-
 }
