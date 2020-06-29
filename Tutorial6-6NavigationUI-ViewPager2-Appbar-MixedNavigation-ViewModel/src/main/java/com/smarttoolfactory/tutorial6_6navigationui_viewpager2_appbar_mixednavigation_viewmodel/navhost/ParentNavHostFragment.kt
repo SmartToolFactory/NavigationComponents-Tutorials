@@ -36,9 +36,9 @@ class ParentNavHostFragment : BaseDataBindingFragment<FragmentNavhostParentBindi
         navController = nestedNavHostFragment?.navController
 
         // Listen on back press
-        listenOnBackPressed()
-
-        listenBackStack()
+//        listenOnBackPressed()
+//
+//        listenBackStack()
 
         val appBarConfig = AppBarConfiguration(navController!!.graph)
         dataBinding.toolbar.setupWithNavController(navController!!, appBarConfig)
@@ -55,20 +55,20 @@ class ParentNavHostFragment : BaseDataBindingFragment<FragmentNavhostParentBindi
     }
 
 
-    private fun listenOnBackPressed() {
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
-    }
+//    private fun listenOnBackPressed() {
+//        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+//    }
 
     override fun onResume() {
         super.onResume()
         println("🏰 ${this.javaClass.simpleName} onResume()")
-        callback.isEnabled = true
+//        callback.isEnabled = true
     }
 
     override fun onPause() {
         super.onPause()
         println("🏰 ${this.javaClass.simpleName} onPause()")
-        callback.isEnabled = false
+//        callback.isEnabled = false
     }
 
     /**
@@ -78,70 +78,70 @@ class ParentNavHostFragment : BaseDataBindingFragment<FragmentNavhostParentBindi
      *
      * ### Note: During that interval touching back button sometimes call incorrect [OnBackPressedCallback.handleOnBackPressed] instead of this one if callback is **ENABLED**
      */
-    val callback = object : OnBackPressedCallback(false) {
-
-        override fun handleOnBackPressed() {
-
-            // Check if it's the root of nested fragments in this navhosts
-            if (navController?.currentDestination?.id == navController?.graph?.startDestination) {
-
-                Toast.makeText(requireContext(), "🏂 AT START DESTINATION ", Toast.LENGTH_SHORT)
-                    .show()
-
-                /*
-                    Disable this callback because calls OnBackPressedDispatcher
-                     gets invoked  calls this callback  gets stuck in a loop
-                 */
-                isEnabled = false
-                requireActivity().onBackPressed()
-                isEnabled = true
-
-            } else if (isVisible) {
-                navController?.navigateUp()
-            }
-
-        }
-
-    }
-
-
-    private fun listenBackStack() {
-
-        // Get NavHostFragment
-        val navHostFragment =
-            childFragmentManager.findFragmentById(nestedNavHostFragmentId)
-        // ChildFragmentManager of the current NavHostFragment
-        val navHostChildFragmentManager = navHostFragment?.childFragmentManager
-
-        navHostChildFragmentManager?.addOnBackStackChangedListener {
-
-            val backStackEntryCount = navHostChildFragmentManager.backStackEntryCount
-            val fragments = navHostChildFragmentManager.fragments
-            val currentDestination = navController?.currentDestination
-
-            fragments.forEach {
-
-                println(
-                    " 🏠 ${this.javaClass.simpleName} handleOnBackPressed() " +
-                            "fragment: ${it.javaClass.simpleName} #${it.hashCode()}," +
-                            "backStackEntryCount: $backStackEntryCount, " +
-                            " isVisible: ${it.isVisible}, " +
-                            " isVisible: ${it.isVisible}, " +
-                            ", isResumed: ${it.isResumed}, " +
-                            "currentDestination: ${currentDestination!!}, DEST ID: ${currentDestination.id}, " +
-                            "startDestination: ${navController!!.graph.startDestination}"
-                )
-            }
+//    val callback = object : OnBackPressedCallback(false) {
+//
+//        override fun handleOnBackPressed() {
+//
+//            // Check if it's the root of nested fragments in this navhosts
+//            if (navController?.currentDestination?.id == navController?.graph?.startDestination) {
+//
+//                Toast.makeText(requireContext(), "🏂 AT START DESTINATION ", Toast.LENGTH_SHORT)
+//                    .show()
+//
+//                /*
+//                    Disable this callback because calls OnBackPressedDispatcher
+//                     gets invoked  calls this callback  gets stuck in a loop
+//                 */
+//                isEnabled = false
+//                requireActivity().onBackPressed()
+//                isEnabled = true
+//
+//            } else if (isVisible) {
+//                navController?.navigateUp()
+//            }
+//
+//        }
+//
+//    }
 
 
-            Toast.makeText(
-                requireContext(),
-                "🏠 ${this.javaClass.simpleName} ChildFragmentManager backStackEntryCount: $backStackEntryCount",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
-
-    }
+//    private fun listenBackStack() {
+//
+//        // Get NavHostFragment
+//        val navHostFragment =
+//            childFragmentManager.findFragmentById(nestedNavHostFragmentId)
+//        // ChildFragmentManager of the current NavHostFragment
+//        val navHostChildFragmentManager = navHostFragment?.childFragmentManager
+//
+//        navHostChildFragmentManager?.addOnBackStackChangedListener {
+//
+//            val backStackEntryCount = navHostChildFragmentManager.backStackEntryCount
+//            val fragments = navHostChildFragmentManager.fragments
+//            val currentDestination = navController?.currentDestination
+//
+//            fragments.forEach {
+//
+//                println(
+//                    " 🏠 ${this.javaClass.simpleName} handleOnBackPressed() " +
+//                            "fragment: ${it.javaClass.simpleName} #${it.hashCode()}," +
+//                            "backStackEntryCount: $backStackEntryCount, " +
+//                            " isVisible: ${it.isVisible}, " +
+//                            " isVisible: ${it.isVisible}, " +
+//                            ", isResumed: ${it.isResumed}, " +
+//                            "currentDestination: ${currentDestination!!}, DEST ID: ${currentDestination.id}, " +
+//                            "startDestination: ${navController!!.graph.startDestination}"
+//                )
+//            }
+//
+//
+//            Toast.makeText(
+//                requireContext(),
+//                "🏠 ${this.javaClass.simpleName} ChildFragmentManager backStackEntryCount: $backStackEntryCount",
+//                Toast.LENGTH_SHORT
+//            ).show()
+//        }
+//
+//    }
 
 
 }

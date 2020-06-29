@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/homeFragment1"
-        android:name="com.smarttoolfactory.tutorial7_1bnw_viewpager2_nestednavigation.blankfragment.HomeFragment1"
+        android:name="com.smarttoolfactory.tutorial5_3navigationui_bottomnavigation_nestednavigation.blankfragment.HomeFragment1"
         android:label="HomeFragment1"
         tools:layout="@layout/fragment_home1">
         <action

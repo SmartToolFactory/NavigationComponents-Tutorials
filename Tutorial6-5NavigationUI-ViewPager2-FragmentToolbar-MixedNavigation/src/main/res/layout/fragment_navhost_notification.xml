@@ -33,7 +33,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/appbar"
 
-            app:defaultNavHost="false"
+            app:defaultNavHost="true"
             app:navGraph="@navigation/nav_graph_notification" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

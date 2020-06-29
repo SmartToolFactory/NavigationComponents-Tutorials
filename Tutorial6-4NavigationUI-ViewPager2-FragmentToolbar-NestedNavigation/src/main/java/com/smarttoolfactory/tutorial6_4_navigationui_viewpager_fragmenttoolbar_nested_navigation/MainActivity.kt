@@ -2,9 +2,11 @@ package com.smarttoolfactory.tutorial6_4_navigationui_viewpager_fragmenttoolbar_
 
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.NavHostFragment
+import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.smarttoolfactory.tutorial6_4_navigationui_viewpager_fragmenttoolbar.R
 import com.smarttoolfactory.tutorial6_4_navigationui_viewpager_fragmenttoolbar.databinding.ActivityMainBinding
 import com.smarttoolfactory.tutorial6_4_navigationui_viewpager_fragmenttoolbar_nested_navigation.viewpagerfragment.ViewPagerContainerFragment
@@ -33,6 +35,9 @@ import com.smarttoolfactory.tutorial6_4_navigationui_viewpager_fragmenttoolbar_n
  *  In this example each [NavHostFragment] has it's own toolbar
  *  They can navigate back with back arrow when navigated to an inner fragment of ViewPager
  *
+ *  ### Using [FragmentStateAdapter.registerFragmentTransactionCallback] with [FragmentStateAdapter] solves back navigation instead of using [OnBackPressedCallback.handleOnBackPressed] in every [NavHostFragment]
+ * ### Should set app:defaultNavHost="true" for [NavHostFragment] for this to work
+
  */
 class MainActivity : AppCompatActivity() {
 

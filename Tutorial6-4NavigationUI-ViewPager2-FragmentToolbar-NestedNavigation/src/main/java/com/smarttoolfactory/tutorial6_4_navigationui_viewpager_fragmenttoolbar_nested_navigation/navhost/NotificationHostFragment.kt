@@ -8,11 +8,16 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.smarttoolfactory.tutorial6_4_navigationui_viewpager_fragmenttoolbar.R
 import com.smarttoolfactory.tutorial6_4_navigationui_viewpager_fragmenttoolbar.databinding.FragmentNavhostNotificationBinding
 import com.smarttoolfactory.tutorial6_4_navigationui_viewpager_fragmenttoolbar_nested_navigation.blankfragment.BaseDataBindingFragment
 
 
+/**
+ * Using [FragmentStateAdapter.registerFragmentTransactionCallback] with [FragmentStateAdapter] solves back navigation instead of using [OnBackPressedCallback.handleOnBackPressed] in every [NavHostFragment]
+ * ### Should set app:defaultNavHost="true" for [NavHostFragment] for this to work
+ */
 class NotificationHostFragment : BaseDataBindingFragment<FragmentNavhostNotificationBinding>() {
     override fun getLayoutRes(): Int = R.layout.fragment_navhost_notification
 
@@ -33,25 +38,25 @@ class NotificationHostFragment : BaseDataBindingFragment<FragmentNavhostNotifica
         dataBinding.toolbar.setupWithNavController(navController!!, appBarConfig)
 
         // Listen on back press
-        listenOnBackPressed()
+//        listenOnBackPressed()
 
     }
 
 
-    private fun listenOnBackPressed() {
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
-    }
-
-
-    override fun onResume() {
-        super.onResume()
-        callback.isEnabled = true
-    }
-
-    override fun onPause() {
-        super.onPause()
-        callback.isEnabled = false
-    }
+//    private fun listenOnBackPressed() {
+//        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+//    }
+//
+//
+//    override fun onResume() {
+//        super.onResume()
+//        callback.isEnabled = true
+//    }
+//
+//    override fun onPause() {
+//        super.onPause()
+//        callback.isEnabled = false
+//    }
 
     /**
      * This callback should be created with Disabled because on rotation ViewPager creates
@@ -60,28 +65,28 @@ class NotificationHostFragment : BaseDataBindingFragment<FragmentNavhostNotifica
      *
      * ### Note: During that interval touching back button sometimes call incorrect [OnBackPressedCallback.handleOnBackPressed] instead of this one if callback is **ENABLED**
      */
-    val callback = object : OnBackPressedCallback(false) {
-
-        override fun handleOnBackPressed() {
-
-            // Check if it's the root of nested fragments in this navhost
-            if (navController?.currentDestination?.id == navController?.graph?.startDestination) {
-                Toast.makeText(requireContext(), "⏰ AT START DESTINATION ", Toast.LENGTH_SHORT)
-                    .show()
-
-                /*
-                    Disable this callback because calls OnBackPressedDispatcher
-                     gets invoked  calls this callback  gets stuck in a loop
-                 */
-                isEnabled = false
-                requireActivity().onBackPressed()
-                isEnabled = true
-
-            } else if (isVisible) {
-                navController?.navigateUp()
-            }
-
-        }
-    }
+//    val callback = object : OnBackPressedCallback(false) {
+//
+//        override fun handleOnBackPressed() {
+//
+//            // Check if it's the root of nested fragments in this navhost
+//            if (navController?.currentDestination?.id == navController?.graph?.startDestination) {
+//                Toast.makeText(requireContext(), "⏰ AT START DESTINATION ", Toast.LENGTH_SHORT)
+//                    .show()
+//
+//                /*
+//                    Disable this callback because calls OnBackPressedDispatcher
+//                     gets invoked  calls this callback  gets stuck in a loop
+//                 */
+//                isEnabled = false
+//                requireActivity().onBackPressed()
+//                isEnabled = true
+//
+//            } else if (isVisible) {
+//                navController?.navigateUp()
+//            }
+//
+//        }
+//    }
 
 }

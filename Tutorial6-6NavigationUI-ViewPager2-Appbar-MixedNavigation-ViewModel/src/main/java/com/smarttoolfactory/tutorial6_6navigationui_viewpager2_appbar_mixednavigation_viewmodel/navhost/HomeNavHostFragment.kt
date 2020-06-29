@@ -33,18 +33,18 @@ class HomeNavHostFragment : BaseDataBindingFragment<FragmentNavhostHomeBinding>(
         navController = nestedNavHostFragment?.navController
 
         // Listen on back press
-        listenOnBackPressed()
+//        listenOnBackPressed()
 
     }
 
-    private fun listenOnBackPressed() {
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
-    }
+//    private fun listenOnBackPressed() {
+//        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+//    }
 
 
     override fun onResume() {
         super.onResume()
-        callback.isEnabled = true
+//        callback.isEnabled = true
 
         // Set this navController as ViewModel's navController
         appbarViewModel.currentNavController.value = navController
@@ -52,7 +52,7 @@ class HomeNavHostFragment : BaseDataBindingFragment<FragmentNavhostHomeBinding>(
 
     override fun onPause() {
         super.onPause()
-        callback.isEnabled = false
+//        callback.isEnabled = false
     }
 
     /**
@@ -62,29 +62,29 @@ class HomeNavHostFragment : BaseDataBindingFragment<FragmentNavhostHomeBinding>(
      *
      * ### Note: During that interval touching back button sometimes call incorrect [OnBackPressedCallback.handleOnBackPressed] instead of this one if callback is **ENABLED**
      */
-    val callback = object : OnBackPressedCallback(false) {
-
-        override fun handleOnBackPressed() {
-
-            // Check if it's the root of nested fragments in this navhost
-            if (navController?.currentDestination?.id == navController?.graph?.startDestination) {
-
-                Toast.makeText(requireContext(), "🏠 AT START DESTINATION ", Toast.LENGTH_SHORT)
-                    .show()
-
-                /*
-                    Disable this callback because calls OnBackPressedDispatcher
-                     gets invoked  calls this callback  gets stuck in a loop
-                 */
-                isEnabled = false
-                requireActivity().onBackPressed()
-                isEnabled = true
-
-            } else {
-                navController?.navigateUp()
-            }
-
-        }
-    }
+//    val callback = object : OnBackPressedCallback(false) {
+//
+//        override fun handleOnBackPressed() {
+//
+//            // Check if it's the root of nested fragments in this navhost
+//            if (navController?.currentDestination?.id == navController?.graph?.startDestination) {
+//
+//                Toast.makeText(requireContext(), "🏠 AT START DESTINATION ", Toast.LENGTH_SHORT)
+//                    .show()
+//
+//                /*
+//                    Disable this callback because calls OnBackPressedDispatcher
+//                     gets invoked  calls this callback  gets stuck in a loop
+//                 */
+//                isEnabled = false
+//                requireActivity().onBackPressed()
+//                isEnabled = true
+//
+//            } else {
+//                navController?.navigateUp()
+//            }
+//
+//        }
+//    }
 
 }
