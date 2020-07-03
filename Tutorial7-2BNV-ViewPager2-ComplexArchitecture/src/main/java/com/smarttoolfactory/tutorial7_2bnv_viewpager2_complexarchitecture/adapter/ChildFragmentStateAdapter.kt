@@ -5,6 +5,7 @@ import androidx.fragment.app.commitNow
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.adapter.FragmentStateAdapter.FragmentTransactionCallback.OnPostEventListener
 import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.blankfragment.LoginFragment1
@@ -13,10 +14,8 @@ import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.navhos
 import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.navhost.NotificationHostFragment
 
 
-class ChildFragmentStateAdapter(fragment: Fragment) :
+class ChildFragmentStateAdapter(private val fragment: Fragment) :
     FragmentStateAdapter(fragment) {
-
-    val currentNavController = MutableLiveData<NavController?>()
 
     init {
         // Add a FragmentTransactionCallback to handle changing
@@ -27,6 +26,10 @@ class ChildFragmentStateAdapter(fragment: Fragment) :
                 fragment: Fragment,
                 maxLifecycleState: Lifecycle.State
             ) = if (maxLifecycleState == Lifecycle.State.RESUMED) {
+
+                if(fragment is NavHostFragment) {
+
+                }
 
                 // This fragment is becoming the active Fragment - set it to
                 // the primary navigation fragment in the OnPostEventListener

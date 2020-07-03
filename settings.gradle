@@ -1,3 +1,6 @@
+include ':features:favorites'
+include ':Tutorial8-1DynamicFeatures-Navigation'
+include ':Tutorial7-3BNV-ViewPager2-FragmentToolbar-MixedNavigation'
 include ':External-Tutorial-Navigation-Codelab'
 include ':External-Tutorial-NavigationBasicSample'
 include ':External-Tutorial-NavigationAdvancedSample'

@@ -2,24 +2,25 @@ package com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture
 
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
-import androidx.navigation.NavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.databinding.ActivityMainBinding
+import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.factory.NavHostFragmentFactory
+import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.viewmodel.AppbarViewModel
 
 class MainActivity : AppCompatActivity() {
 
-    private var currentNavController: LiveData<NavController>? = null
+    private val appbarViewModel by viewModels<AppbarViewModel>()
 
     private lateinit var dataBinding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         dataBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
@@ -75,7 +76,14 @@ class MainActivity : AppCompatActivity() {
             val appBarConfig = AppBarConfiguration(navController.graph)
             dataBinding.toolbar.setupWithNavController(navController, appBarConfig)
         })
-        currentNavController = controller
+
+        appbarViewModel.currentNavController.observe(this, Observer { navController ->
+
+            navController?.let {
+                val appBarConfig = AppBarConfiguration(navController.graph)
+                dataBinding.toolbar.setupWithNavController(navController, appBarConfig)
+            }
+        })
     }
 
 }

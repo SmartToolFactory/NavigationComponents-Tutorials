@@ -8,7 +8,7 @@
     <!-- MainFragment-->
     <fragment
         android:id="@+id/view_pager_dest"
-        android:name="com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.viewpagerfragment.ViewPagerContainerFragment"
+        android:name="com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.viewpagerfragment.ViewPagerContainerFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_viewpager_container">
 

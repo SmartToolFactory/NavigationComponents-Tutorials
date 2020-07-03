@@ -1,11 +1,10 @@
 package com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.factory
 
-import android.os.Bundle
 import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
-import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.navhost.BaseDataBindingNavHostFragment
+import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.navhost.GenericNavHostFragment
 
 class NavHostFragmentFactory private constructor() : FragmentFactory() {
 
@@ -15,23 +14,28 @@ class NavHostFragmentFactory private constructor() : FragmentFactory() {
     @IdRes
     private var navHostFragmentId: Int = -1
 
-
     fun createNavHostFragment(
         classLoader: ClassLoader,
         className: String,
-        bundle: Bundle
+        @LayoutRes layoutRes: Int,
+        @IdRes navHostFragmentId: Int
     ): Fragment {
 
-        layoutRes = bundle.getInt(KEY_RES_ID)
-        navHostFragmentId = bundle.getInt(KEY_NAV_HOST_ID)
+        this.layoutRes = layoutRes
+        this.navHostFragmentId = navHostFragmentId
+
+//        println("🔥🔥 NavHostFragment creteNavHostFragment() layoutRes: ${this.layoutRes}, navHostFragmentId: ${this.navHostFragmentId}")
 
         return instantiate(classLoader, className)
     }
 
+
     override fun instantiate(classLoader: ClassLoader, className: String): Fragment {
 
+//        println("⚠️😱 NavHostFragment instantiate() layoutRes: ${this.layoutRes}, navHostFragmentId: ${this.navHostFragmentId}")
+
         return when (className) {
-            BaseDataBindingNavHostFragment::class.java.name -> BaseDataBindingNavHostFragment(
+            GenericNavHostFragment::class.java.name -> GenericNavHostFragment(
                 layoutRes,
                 navHostFragmentId
             )
@@ -42,12 +46,16 @@ class NavHostFragmentFactory private constructor() : FragmentFactory() {
 
     companion object {
 
+        private val navHostFragmentFactory: NavHostFragmentFactory by lazy {
+            NavHostFragmentFactory()
+        }
+
         const val KEY_RES_ID = "key-res-id"
         const val KEY_NAV_HOST_ID = "key-nav-host-id"
 
         @JvmStatic
         fun create(): NavHostFragmentFactory {
-            return NavHostFragmentFactory()
+            return navHostFragmentFactory
         }
 
     }

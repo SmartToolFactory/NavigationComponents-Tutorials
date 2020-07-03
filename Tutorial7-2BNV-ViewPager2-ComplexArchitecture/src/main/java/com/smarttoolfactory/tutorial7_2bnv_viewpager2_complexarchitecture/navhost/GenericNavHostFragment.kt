@@ -15,7 +15,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.viewmodel.AppbarViewModel
 
 
-class BaseDataBindingNavHostFragment(
+class GenericNavHostFragment(
     @LayoutRes private val layoutRes: Int,
     @IdRes private val navHostFragmentId: Int
 ) : Fragment() {
@@ -62,3 +62,4 @@ class BaseDataBindingNavHostFragment(
 
 
 }
+

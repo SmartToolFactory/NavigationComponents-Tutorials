@@ -41,21 +41,16 @@ class ViewPagerContainerFragment : BaseDataBindingFragment<FragmentViewpagerCont
             }
         }.attach()
 
+        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
 
-//        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-//
-//            override fun onPageSelected(position: Int) {
-//                super.onPageSelected(position)
-//                appbarViewModel.currentNavController.value =
-//                    appbarViewModel.currentNavController.value
-//
-//
-//            }
-//        })
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                appbarViewModel.currentNavController.value =
+                    appbarViewModel.currentNavController.value
+            }
+        })
 
     }
 
     override fun getLayoutRes(): Int = R.layout.fragment_viewpager_container
-
-
 }
