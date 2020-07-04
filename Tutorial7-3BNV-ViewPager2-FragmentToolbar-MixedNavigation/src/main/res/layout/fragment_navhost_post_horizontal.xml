@@ -7,7 +7,7 @@
         android:layout_height="match_parent">
 
         <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/nested_nav_host_fragment_home"
+            android:id="@+id/nested_nav_host_fragment_post_horizontal"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -17,7 +17,7 @@
             app:layout_constraintTop_toTopOf="parent"
 
             app:defaultNavHost="true"
-            app:navGraph="@navigation/nav_graph_home"/>
+            app:navGraph="@navigation/nav_graph_post_horizontal"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

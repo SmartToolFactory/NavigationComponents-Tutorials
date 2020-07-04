@@ -51,32 +51,43 @@ ext {
     fragmentVersion = '1.1.0-alpha07'
     fragmentKtxVersion = '1.1.0-rc01'
 
+    // ConstraintLayout
+    constraintLayoutVersion = '1.1.3'
     recyclerViewVersion = '1.1.0'
     cardVersion = '1.0.0'
     viewPager2Version = '1.1.0-alpha01'
+
+    // Architecture MVVM & LiveData
+    archLifecycleVersion = '2.1.0-rc01'
+
+    // Room
+    roomVersion = '2.2.3'
 
     // Navigation Component
     navigationVersion = '2.3.0'
 
     // Coroutines
-    coroutinesVersion = '1.2.1'
-    // ConstraintLayout
-    constraintLayoutVersion = '1.1.3'
+    coroutinesVersion = '1.3.7'
+
+    // Retrofit
+    retrofitVersion = '2.8.1'
+
+    //Gson
+    gsonVersion = '2.8.4'
+
+    // Glide
+    glideVersion = '4.9.0'
+
+    // Dagger
+    daggerVersion = '2.25.2'
+
+    // RxAndroid
+    rxjavaVersion = '2.1.3'
+    rxandroidVersion = '2.1.1'
+
     // Google
     locationVersion = '17.0.0'
     mapsVersion = '17.0.0'
-    // Architecture MVVM & LiveData
-    archLifecycleVersion = '2.1.0-rc01'
-    // Retrofit
-    retrofitVersion = '2.3.0'
-    //Gson
-    gsonVersion = '2.8.4'
-    // Room
-    roomVersion = '2.1.0'
-    // Dagger
-    daggerVersion = '2.23.2'
-    // RxAndroid
-    rxjavaVersion = '2.1.3'
-    rxandroidVersion = '2.0.1'
+
 
 }

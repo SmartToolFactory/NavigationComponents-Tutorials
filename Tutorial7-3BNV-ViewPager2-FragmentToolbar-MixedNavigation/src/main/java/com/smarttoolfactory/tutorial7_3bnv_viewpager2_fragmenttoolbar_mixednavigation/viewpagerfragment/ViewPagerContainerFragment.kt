@@ -34,10 +34,10 @@ class ViewPagerContainerFragment : BaseDataBindingFragment<FragmentViewpagerCont
         // Bind tabs and viewpager
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             when (position) {
-                0 -> tab.text = "Home"
-                1 -> tab.text = "Dashboard"
-                2 -> tab.text = "Notification"
-                3 -> tab.text = "Login"
+                0 -> tab.text = "Vertical"
+                1 -> tab.text = "Horizontal"
+                2-> tab.text = "Notification"
+                else -> tab.text = "Login"
             }
         }.attach()
 

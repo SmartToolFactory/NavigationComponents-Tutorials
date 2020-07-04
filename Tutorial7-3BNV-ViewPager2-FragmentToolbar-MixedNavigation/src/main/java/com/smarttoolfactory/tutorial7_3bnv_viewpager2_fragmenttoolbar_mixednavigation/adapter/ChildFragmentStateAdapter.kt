@@ -5,10 +5,10 @@ import androidx.fragment.app.commitNow
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.adapter.FragmentStateAdapter.FragmentTransactionCallback.OnPostEventListener
-import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.navhost.HomeNavHostFragment
-import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.navhost.NotificationHostFragment
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.blankfragment.LoginFragment1
-import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.navhost.DashBoardNavHostFragment
+import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.navhost.NotificationHostFragment
+import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.navhost.PostHorizontalNavHostFragment
+import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.navhost.PostVerticalNavHostFragment
 
 
 class ChildFragmentStateAdapter(private val fragment: Fragment) :
@@ -43,10 +43,11 @@ class ChildFragmentStateAdapter(private val fragment: Fragment) :
     override fun createFragment(position: Int): Fragment {
 
         return when (position) {
-            0 -> HomeNavHostFragment()
-            1 -> DashBoardNavHostFragment()
-            2 -> NotificationHostFragment()
+            0 -> PostVerticalNavHostFragment()
+            1 -> PostHorizontalNavHostFragment()
+            2-> NotificationHostFragment()
             else -> LoginFragment1()
+
         }
     }
 

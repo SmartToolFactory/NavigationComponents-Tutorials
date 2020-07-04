@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_post_vertical"
+    app:startDestination="@id/verticalPostFragment">
+
+    <fragment
+        android:id="@+id/verticalPostFragment"
+        android:name="com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.blankfragment.VerticalPostFragment"
+        android:label="VerticalPostFragment"
+        tools:layout="@layout/fragment_post_list_vertical"/>
+</navigation>

@@ -1,0 +1,8 @@
+package com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.blankfragment
+
+import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.R
+import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.databinding.FragmentNotificationDetailBinding
+
+class NotificationDetailFragment : BaseDataBindingFragment<FragmentNotificationDetailBinding>() {
+    override fun getLayoutRes(): Int = R.layout.fragment_notification_detail
+}
