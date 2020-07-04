@@ -7,7 +7,17 @@
 
     <fragment
         android:id="@+id/horizontalPostFragment"
-        android:name="com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.blankfragment.HorizontalPostFragment"
+        android:name="com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.blankfragment.PostHorizontalFragment"
         android:label="HorizontalPostFragment"
-        tools:layout="@layout/fragment_post_list_horizontal"/>
+        tools:layout="@layout/fragment_post_list_horizontal">
+        <action
+            android:id="@+id/action_horizontalPostFragment_to_postDetailFragment"
+            app:destination="@id/postDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/postDetailFragment"
+        android:name="com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.blankfragment.PostDetailFragment"
+        android:label="PostDetailFragment"
+        tools:layout="@layout/fragment_post_detail"/>
+
 </navigation>

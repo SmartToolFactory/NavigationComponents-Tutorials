@@ -3,16 +3,13 @@ package com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavi
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.R
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.adapter.PostListAdapter
-import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.api.Status
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.databinding.FragmentPostListVerticalBinding
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.viewmodel.PostsCoroutineViewModel
 
-class VerticalPostFragment : BaseDataBindingFragment<FragmentPostListVerticalBinding>() {
+class PostVerticalFragment : BaseDataBindingFragment<FragmentPostListVerticalBinding>() {
 
 
     override fun getLayoutRes(): Int = R.layout.fragment_post_list_vertical
@@ -46,7 +43,7 @@ class VerticalPostFragment : BaseDataBindingFragment<FragmentPostListVerticalBin
 
             // Set RecyclerViewAdapter
             this.adapter =
-                PostListAdapter(R.layout.row_post, viewModel::onClick)
+                PostListAdapter(R.layout.row_post_vertical, viewModel::onClick)
         }
 
         subscribeGoToDetailScreen()

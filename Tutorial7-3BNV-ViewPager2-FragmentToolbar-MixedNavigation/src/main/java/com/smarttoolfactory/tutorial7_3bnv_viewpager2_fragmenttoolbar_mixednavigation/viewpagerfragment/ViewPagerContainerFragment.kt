@@ -36,7 +36,8 @@ class ViewPagerContainerFragment : BaseDataBindingFragment<FragmentViewpagerCont
             when (position) {
                 0 -> tab.text = "Vertical"
                 1 -> tab.text = "Horizontal"
-                2-> tab.text = "Notification"
+                2 -> tab.text = "Grid"
+                3-> tab.text = "Notification"
                 else -> tab.text = "Login"
             }
         }.attach()

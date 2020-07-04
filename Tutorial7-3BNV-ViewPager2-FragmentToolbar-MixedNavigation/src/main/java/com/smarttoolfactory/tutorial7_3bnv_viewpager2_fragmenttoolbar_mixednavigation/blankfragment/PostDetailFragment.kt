@@ -1,0 +1,8 @@
+package com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.blankfragment
+
+import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.R
+import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.databinding.FragmentPostDetailBinding
+
+class PostDetailFragment : BaseDataBindingFragment<FragmentPostDetailBinding>() {
+    override fun getLayoutRes(): Int = R.layout.fragment_post_detail
+}

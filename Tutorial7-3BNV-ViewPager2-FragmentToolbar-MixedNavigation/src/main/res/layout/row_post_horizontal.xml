@@ -11,23 +11,22 @@
     </data>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="140dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         app:cardCornerRadius="2dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="140dp">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/ivAvatar"
                 imageSrc="@{item.userId}"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_marginTop="2dp"
                 android:src="@drawable/avatar_1_raster"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="parent"
@@ -37,12 +36,15 @@
                 android:id="@+id/tvTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:maxLines="2"
                 android:text="@{item.title}"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@+id/ivAvatar"
-                app:layout_constraintStart_toEndOf="@+id/ivAvatar"
-                app:layout_constraintTop_toTopOf="@+id/ivAvatar"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/ivAvatar"
+                app:layout_constraintStart_toStartOf="@id/ivAvatar"
+                app:layout_constraintTop_toBottomOf="@id/ivAvatar"
                 tools:text="Sample Title" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

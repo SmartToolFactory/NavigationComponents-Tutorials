@@ -7,6 +7,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.adapter.FragmentStateAdapter.FragmentTransactionCallback.OnPostEventListener
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.blankfragment.LoginFragment1
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.navhost.NotificationHostFragment
+import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.navhost.PostGridNavHostFragment
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.navhost.PostHorizontalNavHostFragment
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.navhost.PostVerticalNavHostFragment
 
@@ -38,14 +39,15 @@ class ChildFragmentStateAdapter(private val fragment: Fragment) :
         })
     }
 
-    override fun getItemCount(): Int = 4
+    override fun getItemCount(): Int = 5
 
     override fun createFragment(position: Int): Fragment {
 
         return when (position) {
             0 -> PostVerticalNavHostFragment()
             1 -> PostHorizontalNavHostFragment()
-            2-> NotificationHostFragment()
+            2 -> PostGridNavHostFragment()
+            3-> NotificationHostFragment()
             else -> LoginFragment1()
 
         }

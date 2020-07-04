@@ -11,27 +11,23 @@
     </data>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
-        app:cardCornerRadius="2dp">
+        app:cardCornerRadius="5dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:padding="2dp">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/ivAvatar"
                 imageSrc="@{item.userId}"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:src="@drawable/avatar_1_raster"
+                app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -40,12 +36,17 @@
                 android:id="@+id/tvTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:background="#fff"
+                android:gravity="center"
+                android:maxLines="1"
+                android:paddingTop="2dp"
                 android:text="@{item.title}"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@+id/ivAvatar"
-                app:layout_constraintStart_toEndOf="@+id/ivAvatar"
-                app:layout_constraintTop_toTopOf="@+id/ivAvatar"
+                android:textColor="@color/teal_200"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/ivAvatar"
+                app:layout_constraintStart_toStartOf="@id/ivAvatar"
                 tools:text="Sample Title" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
