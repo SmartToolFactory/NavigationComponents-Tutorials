@@ -36,7 +36,7 @@ abstract class BaseDataBindingFragment<ViewBinding : ViewDataBinding> : Fragment
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-//        println("🔥 ${this.javaClass.simpleName} #${this.hashCode()}  onActivityCreated()")
+        println("🔥 ${this.javaClass.simpleName} #${this.hashCode()}  onActivityCreated()")
 
     }
 
@@ -47,7 +47,7 @@ abstract class BaseDataBindingFragment<ViewBinding : ViewDataBinding> : Fragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        println("😀 ${this.javaClass.simpleName} #${this.hashCode()}  onCreate()")
+        println("😀 ${this.javaClass.simpleName} #${this.hashCode()}  onCreate()")
     }
 
     override fun onCreateView(
@@ -55,7 +55,7 @@ abstract class BaseDataBindingFragment<ViewBinding : ViewDataBinding> : Fragment
         savedInstanceState: Bundle?
     ): View? {
 
-//        println("🤣 ${this.javaClass.simpleName} #${this.hashCode()} onCreateView()")
+        println("🤣 ${this.javaClass.simpleName} #${this.hashCode()} onCreateView()")
 
         // Inflate the layout for this fragment
         dataBinding = DataBindingUtil.inflate(inflater, getLayoutRes(), container, false)
@@ -90,12 +90,12 @@ abstract class BaseDataBindingFragment<ViewBinding : ViewDataBinding> : Fragment
 
     override fun onResume() {
         super.onResume()
-//        println("🎃 ${this.javaClass.simpleName} #${this.hashCode()} onResume()")
+        println("🎃 ${this.javaClass.simpleName} #${this.hashCode()} onResume()")
     }
 
     override fun onPause() {
         super.onPause()
-//        println("😱 ${this.javaClass.simpleName} #${this.hashCode()} onPause()")
+        println("😱 ${this.javaClass.simpleName} #${this.hashCode()} onPause()")
     }
 
 }

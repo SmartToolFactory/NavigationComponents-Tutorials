@@ -6,11 +6,12 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.navigation.NavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.databinding.ActivityMainBinding
-import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.factory.NavHostFragmentFactory
+import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.util.Event
 import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.viewmodel.AppbarViewModel
 
 class MainActivity : AppCompatActivity() {
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     private val appbarViewModel by viewModels<AppbarViewModel>()
 
     private lateinit var dataBinding: ActivityMainBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -70,18 +72,20 @@ class MainActivity : AppCompatActivity() {
             containerId = R.id.nav_host_container,
             intent = intent
         )
+
         // Whenever the selected controller changes, setup the action bar.
         controller.observe(this, Observer { navController ->
-
             val appBarConfig = AppBarConfiguration(navController.graph)
             dataBinding.toolbar.setupWithNavController(navController, appBarConfig)
         })
 
-        appbarViewModel.currentNavController.observe(this, Observer { navController ->
+        appbarViewModel.currentNavController.observe(this, Observer { it ->
 
-            navController?.let {
-                val appBarConfig = AppBarConfiguration(navController.graph)
-                dataBinding.toolbar.setupWithNavController(navController, appBarConfig)
+            it?.let { event: Event<NavController> ->
+                event.getContentIfNotHandled()?.let { navController ->
+                    val appBarConfig = AppBarConfiguration(navController.graph)
+                    dataBinding.toolbar.setupWithNavController(navController, appBarConfig)
+                }
             }
         })
     }

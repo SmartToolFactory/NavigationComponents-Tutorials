@@ -1,15 +1,17 @@
-package com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.main
+package com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.main
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.NavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.R
-import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.blankfragment.BaseDataBindingFragment
+import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.blankfragment.BaseDataBindingFragment
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.databinding.FragmentMainBinding
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.setupWithNavController
+import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.util.Event
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.viewmodel.AppbarViewModel
 
 class MainFragment : BaseDataBindingFragment<FragmentMainBinding>() {
@@ -60,11 +62,13 @@ class MainFragment : BaseDataBindingFragment<FragmentMainBinding>() {
             dataBinding.toolbar.setupWithNavController(navController, appBarConfig)
         })
 
-        appbarViewModel.currentNavController.observe(viewLifecycleOwner, Observer { navController ->
+        appbarViewModel.currentNavController.observe(viewLifecycleOwner, Observer { it ->
 
-            navController?.let {
-                val appBarConfig = AppBarConfiguration(navController.graph)
-                dataBinding.toolbar.setupWithNavController(navController, appBarConfig)
+            it?.let { event: Event<NavController> ->
+                event.getContentIfNotHandled()?.let { navController ->
+                    val appBarConfig = AppBarConfiguration(navController.graph)
+                    dataBinding.toolbar.setupWithNavController(navController, appBarConfig)
+                }
             }
         })
     }

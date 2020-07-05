@@ -1,18 +1,18 @@
-package com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.blankfragment
+package com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.blankfragment
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.R
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.adapter.PostListAdapter
-import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.databinding.FragmentPostListVerticalBinding
+import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.databinding.FragmentPostListGridBinding
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.viewmodel.PostsCoroutineViewModel
 
-class PostVerticalFragment : BaseDataBindingFragment<FragmentPostListVerticalBinding>() {
+class PostGridFragment : BaseDataBindingFragment<FragmentPostListGridBinding>() {
 
 
-    override fun getLayoutRes(): Int = R.layout.fragment_post_list_vertical
+    override fun getLayoutRes(): Int = R.layout.fragment_post_list_grid
 
     private val viewModel by viewModels<PostsCoroutineViewModel>()
 
@@ -39,11 +39,11 @@ class PostVerticalFragment : BaseDataBindingFragment<FragmentPostListVerticalBin
 
             // Set Layout manager
             this.layoutManager =
-                LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+                GridLayoutManager(requireContext(), 3)
 
             // Set RecyclerViewAdapter
             this.adapter =
-                PostListAdapter(R.layout.row_post_vertical, viewModel::onClick)
+                PostListAdapter(R.layout.row_post_grid, viewModel::onClick)
         }
 
         subscribeGoToDetailScreen()

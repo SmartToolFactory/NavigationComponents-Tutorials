@@ -8,7 +8,7 @@
     <!-- ViewPagerContainer -->
     <fragment
         android:id="@+id/view_pager_dest"
-        android:name="com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.viewpagerfragment.ViewPagerContainerFragment"
+        android:name="com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.viewpagerfragment.ViewPagerContainerFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_viewpager_container">
 
@@ -21,7 +21,7 @@
     <!-- Login -->
     <fragment
         android:id="@+id/loginFragment2"
-        android:name="com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.blankfragment.LoginFragment2"
+        android:name="com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.blankfragment.LoginFragment2"
         android:label="LoginFragment2"
         tools:layout="@layout/fragment_login2"/>
 

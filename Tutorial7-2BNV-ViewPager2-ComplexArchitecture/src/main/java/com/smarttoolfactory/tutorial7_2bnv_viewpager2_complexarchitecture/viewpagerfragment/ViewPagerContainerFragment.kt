@@ -3,10 +3,9 @@ package com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.viewp
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
-import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
-import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.adapter.ChildFragmentStateAdapter
 import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.R
+import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.adapter.ChildFragmentStateAdapter
 import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.blankfragment.BaseDataBindingFragment
 import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.databinding.FragmentViewpagerContainerBinding
 import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.viewmodel.AppbarViewModel
@@ -41,14 +40,14 @@ class ViewPagerContainerFragment : BaseDataBindingFragment<FragmentViewpagerCont
             }
         }.attach()
 
-        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-
-            override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
-                appbarViewModel.currentNavController.value =
-                    appbarViewModel.currentNavController.value
-            }
-        })
+//        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+//
+//            override fun onPageSelected(position: Int) {
+//                super.onPageSelected(position)
+//                appbarViewModel.currentNavController.value =
+//                    appbarViewModel.currentNavController.value
+//            }
+//        })
 
     }
 

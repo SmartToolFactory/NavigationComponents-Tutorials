@@ -3,8 +3,6 @@ package com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.adapt
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commitNow
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.MutableLiveData
-import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.adapter.FragmentStateAdapter.FragmentTransactionCallback.OnPostEventListener
@@ -26,10 +24,6 @@ class ChildFragmentStateAdapter(private val fragment: Fragment) :
                 fragment: Fragment,
                 maxLifecycleState: Lifecycle.State
             ) = if (maxLifecycleState == Lifecycle.State.RESUMED) {
-
-                if(fragment is NavHostFragment) {
-
-                }
 
                 // This fragment is becoming the active Fragment - set it to
                 // the primary navigation fragment in the OnPostEventListener

@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.util.Event
 import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.viewmodel.AppbarViewModel
 
 
@@ -56,8 +57,11 @@ class GenericNavHostFragment(
 
     override fun onResume() {
         super.onResume()
+
         // Set this navController as ViewModel's navController
-        appbarViewModel.currentNavController.value = navController
+        navController?.let {
+            appbarViewModel.currentNavController.value = Event(it)
+        }
     }
 
 

@@ -5,11 +5,11 @@
     android:id="@+id/nav_graph_view_pager"
     app:startDestination="@id/view_pager_dest">
 
-    <!-- MainFragment-->
+    <!-- ViewPagerContainerFragment-->
     <fragment
         android:id="@+id/view_pager_dest"
-        android:name="com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.viewpagerfragment.ViewPagerContainerFragment"
-        android:label="MainFragment"
+        android:name="com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.viewpagerfragment.ViewPagerContainerFragment"
+        android:label="ViewPagerContainerFragment"
         tools:layout="@layout/fragment_viewpager_container">
 
         <!-- Login -->

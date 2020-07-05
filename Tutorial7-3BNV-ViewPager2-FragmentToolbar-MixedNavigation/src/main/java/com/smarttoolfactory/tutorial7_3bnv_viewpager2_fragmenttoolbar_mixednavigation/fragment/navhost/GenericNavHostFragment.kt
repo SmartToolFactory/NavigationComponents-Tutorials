@@ -1,4 +1,4 @@
-package com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.navhost
+package com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.navhost
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.util.Event
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.viewmodel.AppbarViewModel
 
 
@@ -56,10 +57,12 @@ class GenericNavHostFragment(
 
     override fun onResume() {
         super.onResume()
-        // Set this navController as ViewModel's navController
-        appbarViewModel.currentNavController.value = navController
-    }
 
+        // Set this navController as ViewModel's navController
+        navController?.let {
+            appbarViewModel.currentNavController.value = Event(it)
+        }
+    }
 
 }
 

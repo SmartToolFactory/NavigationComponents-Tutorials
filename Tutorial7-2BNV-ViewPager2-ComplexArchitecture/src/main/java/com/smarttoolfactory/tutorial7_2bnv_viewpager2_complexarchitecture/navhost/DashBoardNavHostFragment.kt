@@ -8,6 +8,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.R
 import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.blankfragment.BaseDataBindingFragment
 import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.databinding.FragmentNavhostDashboardBinding
+import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.util.Event
 import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.viewmodel.AppbarViewModel
 
 
@@ -30,8 +31,11 @@ class DashBoardNavHostFragment : BaseDataBindingFragment<FragmentNavhostDashboar
 
     override fun onResume() {
         super.onResume()
+
         // Set this navController as ViewModel's navController
-        appbarViewModel.currentNavController.value = navController
+        navController?.let {
+            appbarViewModel.currentNavController.value = Event(it)
+        }
     }
 
 }

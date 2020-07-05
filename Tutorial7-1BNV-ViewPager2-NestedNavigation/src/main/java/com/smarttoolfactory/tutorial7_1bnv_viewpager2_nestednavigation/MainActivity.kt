@@ -5,11 +5,13 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.navigation.NavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.smarttoolfactory.tutorial7_1bnv_viewpager2_nestednavigation.adapter.ActivityFragmentStateAdapter
 import com.smarttoolfactory.tutorial7_1bnv_viewpager2_nestednavigation.databinding.ActivityMainBinding
 import com.smarttoolfactory.tutorial7_1bnv_viewpager2_nestednavigation.viewmodel.AppbarViewModel
+import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.util.Event
 
 class MainActivity : AppCompatActivity() {
 
@@ -55,10 +57,13 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        appbarViewModel.currentNavController.observe(this, Observer { navController ->
-            navController?.let {
-                val appBarConfig = AppBarConfiguration(it.graph)
-                dataBinding.toolbar.setupWithNavController(it, appBarConfig)
+        appbarViewModel.currentNavController.observe(this, Observer { it ->
+
+            it?.let { event: Event<NavController> ->
+                event.getContentIfNotHandled()?.let { navController ->
+                    val appBarConfig = AppBarConfiguration(navController.graph)
+                    dataBinding.toolbar.setupWithNavController(navController, appBarConfig)
+                }
             }
         })
 

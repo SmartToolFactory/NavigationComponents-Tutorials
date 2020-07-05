@@ -1,30 +1,29 @@
-package com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.blankfragment
+package com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.blankfragment
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.R
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.adapter.PostListAdapter
-import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.databinding.FragmentPostListGridBinding
+import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.databinding.FragmentPostListHorizontalBinding
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.viewmodel.PostsCoroutineViewModel
 
-class PostGridFragment : BaseDataBindingFragment<FragmentPostListGridBinding>() {
+class PostHorizontalFragment : BaseDataBindingFragment<FragmentPostListHorizontalBinding>() {
+    override fun getLayoutRes(): Int = R.layout.fragment_post_list_horizontal
 
-
-    override fun getLayoutRes(): Int = R.layout.fragment_post_list_grid
 
     private val viewModel by viewModels<PostsCoroutineViewModel>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        viewModel.getPosts()
-
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        dataBinding.recyclerView1.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+        }
+
+
         bindViews()
     }
 
@@ -35,19 +34,33 @@ class PostGridFragment : BaseDataBindingFragment<FragmentPostListGridBinding>() 
 
         dataBinding.viewModel = viewModel
 
-        dataBinding.recyclerView.apply {
+        dataBinding.recyclerView1.apply {
 
             // Set Layout manager
             this.layoutManager =
-                GridLayoutManager(requireContext(), 3)
+                LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
 
             // Set RecyclerViewAdapter
             this.adapter =
-                PostListAdapter(R.layout.row_post_grid, viewModel::onClick)
+                PostListAdapter(R.layout.row_post_horizontal, viewModel::onClick)
         }
 
-        subscribeGoToDetailScreen()
 
+        dataBinding.recyclerView2.apply {
+
+            // Set Layout manager
+            this.layoutManager =
+                LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+
+            // Set RecyclerViewAdapter
+            this.adapter =
+                PostListAdapter(R.layout.row_post_horizontal, viewModel::onClick)
+        }
+
+
+        viewModel.getPosts()
+
+        subscribeGoToDetailScreen()
 
     }
 

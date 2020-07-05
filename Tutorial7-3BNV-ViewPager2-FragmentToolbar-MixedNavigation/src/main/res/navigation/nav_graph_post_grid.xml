@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/postGridFragment"
-        android:name="com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.blankfragment.PostGridFragment"
+        android:name="com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.blankfragment.PostGridFragment"
         android:label="PostGridFragment"
         tools:layout="@layout/fragment_post_list_grid">
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/postDetailFragment2"
-        android:name="com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.blankfragment.PostDetailFragment"
+        android:name="com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.blankfragment.PostDetailFragment"
         android:label="PostDetailFragment"
         tools:layout="@layout/fragment_post_detail" />
 

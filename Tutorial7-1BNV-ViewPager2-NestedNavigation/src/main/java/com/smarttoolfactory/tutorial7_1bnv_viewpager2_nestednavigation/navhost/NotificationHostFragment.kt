@@ -10,6 +10,7 @@ import com.smarttoolfactory.tutorial7_1bnv_viewpager2_nestednavigation.R
 import com.smarttoolfactory.tutorial7_1bnv_viewpager2_nestednavigation.blankfragment.BaseDataBindingFragment
 import com.smarttoolfactory.tutorial7_1bnv_viewpager2_nestednavigation.databinding.FragmentNavhostNotificationBinding
 import com.smarttoolfactory.tutorial7_1bnv_viewpager2_nestednavigation.viewmodel.AppbarViewModel
+import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.util.Event
 
 
 class NotificationHostFragment : BaseDataBindingFragment<FragmentNavhostNotificationBinding>() {
@@ -55,7 +56,9 @@ class NotificationHostFragment : BaseDataBindingFragment<FragmentNavhostNotifica
 //        callback.isEnabled = true
 
         // Set this navController as ViewModel's navController
-        appbarViewModel.currentNavController.value = navController
+        navController?.let {
+            appbarViewModel.currentNavController.value = Event(it)
+        }
     }
 
     override fun onPause() {
