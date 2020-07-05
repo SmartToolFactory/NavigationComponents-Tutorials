@@ -7,11 +7,13 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.R
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.databinding.FragmentLogin1Binding
+import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.main.MainFragment
+import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.viewpagerfragment.ViewPagerContainerFragment
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.util.Event
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.viewmodel.AppbarViewModel
 
 /**
- * This fragment is added to main graph via [MainFragment]'s  [NavHostFragment]
+ * This fragment is added to graph via [ViewPagerContainerFragment]'s  [NavHostFragment]
  */
 class LoginFragment1 : BaseDataBindingFragment<FragmentLogin1Binding>() {
 
@@ -22,8 +24,9 @@ class LoginFragment1 : BaseDataBindingFragment<FragmentLogin1Binding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         dataBinding.buttonLogin.setOnClickListener {
-            findNavController().navigate(R.id.action_main_dest_to_loginFragment2)
+            findNavController().navigate(R.id.action_view_pager_dest_to_loginFragment2)
         }
 
     }

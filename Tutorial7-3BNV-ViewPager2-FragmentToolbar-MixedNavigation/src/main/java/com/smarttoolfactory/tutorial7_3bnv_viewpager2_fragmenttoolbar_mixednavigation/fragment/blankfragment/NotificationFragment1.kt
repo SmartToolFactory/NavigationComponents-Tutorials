@@ -28,7 +28,8 @@ class NotificationFragment1 : BaseDataBindingFragment<FragmentNotification1Bindi
         dataBinding.btnDetail.setOnClickListener {
 
             // 🔥🔥 This is the main controller that belong to Activity
-            requireActivity().findNavController(R.id.main_nav_host_fragment).navigate(R.id.action_mainFragment_to_detailFragment)
+            requireActivity().findNavController(R.id.main_nav_host_fragment)
+                .navigate(R.id.action_mainFragment_to_notificationDetailFragment)
         }
 
     }

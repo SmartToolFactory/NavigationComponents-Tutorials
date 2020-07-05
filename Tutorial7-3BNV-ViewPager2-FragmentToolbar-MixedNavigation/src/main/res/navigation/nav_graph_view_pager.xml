@@ -9,13 +9,16 @@
     <fragment
         android:id="@+id/view_pager_dest"
         android:name="com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.viewpagerfragment.ViewPagerContainerFragment"
-        android:label="MainFragment"
+        android:label="ViewPagerFragment"
         tools:layout="@layout/fragment_viewpager_container">
 
         <!-- Login -->
         <action
-            android:id="@+id/action_main_dest_to_loginFragment2"
+            android:id="@+id/action_view_pager_dest_to_loginFragment2"
             app:destination="@id/loginFragment2" />
+        <action
+            android:id="@+id/action_view_pager_dest_to_postDetailFragment"
+            app:destination="@id/postDetailFragment" />
     </fragment>
 
     <!-- Login -->
@@ -24,5 +27,17 @@
         android:name="com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.blankfragment.LoginFragment2"
         android:label="LoginFragment2"
         tools:layout="@layout/fragment_login2"/>
+
+    <!-- Post Detail -->
+    <fragment
+        android:id="@+id/postDetailFragment"
+        android:name="com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.blankfragment.PostDetailFragment"
+        android:label="PostDetailFragment"
+        tools:layout="@layout/fragment_post_detail">
+
+        <argument android:name="post"
+            app:argType="com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.api.Post"/>
+
+    </fragment>
 
 </navigation>

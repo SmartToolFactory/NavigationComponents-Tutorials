@@ -2,7 +2,10 @@ package com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavi
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.R
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.adapter.PostListAdapter
@@ -66,20 +69,13 @@ class PostHorizontalFragment : BaseDataBindingFragment<FragmentPostListHorizonta
 
     private fun subscribeGoToDetailScreen() {
 
-//        viewModel.goToDetailScreen.observe(this, Observer {
-//
-//            // Create Action
-////            val action = RepoListFragmentDirections
-////                .actionRepoListFragmentToRepoDetailFragment(it)
-////
-////            findNavController().navigate(action)
-//
-//            val bundle = bundleOf("repoItem" to it)
-////            findNavController().navigate(R.id.action_repoListFragment_to_repoDetailFragment, bundle)
-//        })
-//
-//    }
+        viewModel.goToDetailScreen.observe(viewLifecycleOwner, Observer {
 
+            it.getContentIfNotHandled()?.let { post ->
+                val bundle = bundleOf("post" to post)
+                findNavController().navigate(R.id.action_horizontalPostFragment_to_postDetailFragment, bundle)
+            }
+        })
 
     }
 }

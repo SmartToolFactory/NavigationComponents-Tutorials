@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/horizontalPostFragment"
         android:name="com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.blankfragment.PostHorizontalFragment"
-        android:label="HorizontalPostFragment"
+        android:label="Horizontal Post Fragment"
         tools:layout="@layout/fragment_post_list_horizontal">
         <action
             android:id="@+id/action_horizontalPostFragment_to_postDetailFragment"
@@ -18,6 +18,11 @@
         android:id="@+id/postDetailFragment"
         android:name="com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.blankfragment.PostDetailFragment"
         android:label="PostDetailFragment"
-        tools:layout="@layout/fragment_post_detail"/>
+        tools:layout="@layout/fragment_post_detail">
+
+        <argument android:name="post"
+            app:argType="com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.api.Post"/>
+
+    </fragment>
 
 </navigation>

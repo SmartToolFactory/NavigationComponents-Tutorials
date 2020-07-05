@@ -1,12 +1,12 @@
 package com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.api
 
-import androidx.annotation.IdRes
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
-data class Post(val id:Int,
-                val userId:Int,
-                val title:String,
-                val body:String) {
-
-
-
-}
+@Parcelize
+data class Post(
+    val id: Int,
+    val userId: Int,
+    val title: String,
+    val body: String
+) : Parcelable

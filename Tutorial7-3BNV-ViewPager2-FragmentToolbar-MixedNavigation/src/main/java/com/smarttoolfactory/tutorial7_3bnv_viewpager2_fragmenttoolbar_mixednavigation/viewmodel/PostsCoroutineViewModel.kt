@@ -11,10 +11,15 @@ import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavig
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.data.PostsRepository
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.data.PostsUseCase
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.data.ViewState
+import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.util.Event
 import kotlinx.coroutines.MainCoroutineDispatcher
 import kotlinx.coroutines.launch
 
 class PostsCoroutineViewModel : ViewModel() {
+
+    private val _goToDetailScreen = MutableLiveData<Event<Post>>()
+    val goToDetailScreen: LiveData<Event<Post>>
+        get() = _goToDetailScreen
 
     private val _postViewState = MutableLiveData<ViewState<List<Post>>>()
     val postViewState: LiveData<ViewState<List<Post>>>
@@ -60,12 +65,11 @@ class PostsCoroutineViewModel : ViewModel() {
                         error = result.error
                     )
             }
-
         }
     }
 
     fun onClick(post: Post) {
-
+        _goToDetailScreen.value = Event(post)
     }
 
 

@@ -10,14 +10,31 @@
         android:name="com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.main.MainFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_main">
+
         <action
-            android:id="@+id/action_mainFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            android:id="@+id/action_mainFragment_to_notificationDetailFragment"
+            app:destination="@id/notificationDetailFragment" />
+
+        <action
+            android:id="@+id/action_mainFragment_to_postDetailFragment"
+            app:destination="@id/postDetailFragment" />
     </fragment>
 
+    <!-- Notification Detail -->
     <fragment
-        android:id="@+id/detailFragment"
+        android:id="@+id/notificationDetailFragment"
         android:name="com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.blankfragment.NotificationDetailFragment"
-        android:label="DetailFragment"
+        android:label="Notification Detail Fragment"
         tools:layout="@layout/fragment_notification_detail" />
+
+    <fragment
+        android:id="@+id/postDetailFragment"
+        android:name="com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.blankfragment.PostDetailFragment"
+        android:label="PostDetailFragment"
+        tools:layout="@layout/fragment_post_detail">
+
+        <argument android:name="post"
+            app:argType="com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.api.Post"/>
+
+    </fragment>
 </navigation>

@@ -7,12 +7,13 @@
 
     <fragment
         android:id="@+id/postGridFragment"
-        android:name="com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.blankfragment.PostGridFragment"
-        android:label="Grid Post Fragment"
+        android:name="com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.blankfragment.PostStaggeredFragment"
+        android:label="Staggered Post Fragment"
         tools:layout="@layout/fragment_post_list_grid">
         <action
             android:id="@+id/action_postGridFragment_to_postDetailFragment"
             app:destination="@id/postDetailFragment" />
     </fragment>
+
 
 </navigation>

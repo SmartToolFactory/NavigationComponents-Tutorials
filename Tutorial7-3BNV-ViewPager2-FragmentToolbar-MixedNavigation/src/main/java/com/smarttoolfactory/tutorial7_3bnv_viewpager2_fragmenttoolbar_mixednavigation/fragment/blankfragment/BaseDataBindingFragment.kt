@@ -36,18 +36,18 @@ abstract class BaseDataBindingFragment<ViewBinding : ViewDataBinding> : Fragment
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-//        println("🔥 ${this.javaClass.simpleName} #${this.hashCode()}  onActivityCreated()")
+        println("🔥 ${this.javaClass.simpleName} #${this.hashCode()}  onActivityCreated()")
 
     }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-//        println("🥰 BaseDataBindingFragment onAttach()")
+//        println("🥰 ${this.javaClass.simpleName} #${this.hashCode()}   onAttach()")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        println("😀 ${this.javaClass.simpleName} #${this.hashCode()}  onCreate()")
+        println("😀 ${this.javaClass.simpleName} #${this.hashCode()}  onCreate()")
     }
 
     override fun onCreateView(
@@ -55,7 +55,7 @@ abstract class BaseDataBindingFragment<ViewBinding : ViewDataBinding> : Fragment
         savedInstanceState: Bundle?
     ): View? {
 
-//        println("🤣 ${this.javaClass.simpleName} #${this.hashCode()} onCreateView()")
+        println("🤣 ${this.javaClass.simpleName} #${this.hashCode()} onCreateView()")
 
         // Inflate the layout for this fragment
         dataBinding = DataBindingUtil.inflate(inflater, getLayoutRes(), container, false)
@@ -75,12 +75,12 @@ abstract class BaseDataBindingFragment<ViewBinding : ViewDataBinding> : Fragment
 
     override fun onDestroyView() {
         super.onDestroyView()
-//        println("🥵 ${this.javaClass.simpleName} #${this.hashCode()}  onDestroyView()")
+        println("🥵 ${this.javaClass.simpleName} #${this.hashCode()}  onDestroyView()")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-//        println("🥶 ${this.javaClass.simpleName} #${this.hashCode()}  onDestroy()")
+        println("🥶 ${this.javaClass.simpleName} #${this.hashCode()}  onDestroy()")
     }
 
     override fun onDetach() {

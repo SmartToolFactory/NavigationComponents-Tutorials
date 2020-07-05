@@ -53,7 +53,6 @@ class PostListAdapter(
             onItemClicked(getItem(viewHolder.bindingAdapterPosition))
         }
 
-
     }
 
 
@@ -78,7 +77,6 @@ class PostListAdapter(
         }
 
     }
-
 
 }
 
