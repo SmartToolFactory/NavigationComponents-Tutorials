@@ -3,16 +3,18 @@ package com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavi
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.R
-import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.blankfragment.BaseDataBindingFragment
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.databinding.FragmentMainBinding
+import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.blankfragment.BaseDataBindingFragment
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.setupWithNavController
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.util.Event
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.viewmodel.AppbarViewModel
+
 
 class MainFragment : BaseDataBindingFragment<FragmentMainBinding>() {
     override fun getLayoutRes(): Int = R.layout.fragment_main
@@ -35,11 +37,13 @@ class MainFragment : BaseDataBindingFragment<FragmentMainBinding>() {
         // BottomNavigationBar with Navigation
         setupBottomNavigationBar()
     }
+
     /**
      * Called on first creation and when restoring state.
      */
     private fun setupBottomNavigationBar() {
         val bottomNavigationView = dataBinding.bottomNav
+
 
         val navGraphIds = listOf(
             R.navigation.nav_graph_view_pager,
@@ -56,12 +60,22 @@ class MainFragment : BaseDataBindingFragment<FragmentMainBinding>() {
         )
 
         // Whenever the selected controller changes, setup the action bar.
-        controller.observe(viewLifecycleOwner, Observer { navController ->
+        subscribeBottomNavigation(controller)
 
+        subscribeAppbarNavigation()
+
+        addNotificationBadge()
+
+    }
+
+    private fun subscribeBottomNavigation(controller: LiveData<NavController>) {
+        controller.observe(viewLifecycleOwner, Observer { navController ->
             val appBarConfig = AppBarConfiguration(navController.graph)
             dataBinding.toolbar.setupWithNavController(navController, appBarConfig)
         })
+    }
 
+    private fun subscribeAppbarNavigation() {
         appbarViewModel.currentNavController.observe(viewLifecycleOwner, Observer { it ->
 
             it?.let { event: Event<NavController> ->
@@ -71,6 +85,14 @@ class MainFragment : BaseDataBindingFragment<FragmentMainBinding>() {
                 }
             }
         })
+    }
+
+    private fun addNotificationBadge() {
+        // Add badge to bottom navigation
+        val bottomNavigationView = dataBinding.bottomNav
+        val menuItemId = bottomNavigationView.menu.getItem(2).itemId
+        val badge = bottomNavigationView.getOrCreateBadge(menuItemId)
+        badge.number = 2
     }
 }
 

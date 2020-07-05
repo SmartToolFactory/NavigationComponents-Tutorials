@@ -30,7 +30,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_error"
             visibilityBasedOn="@{viewModel.postViewState.shouldShowErrorMessage()}"
             android:layout_width="wrap_content"
