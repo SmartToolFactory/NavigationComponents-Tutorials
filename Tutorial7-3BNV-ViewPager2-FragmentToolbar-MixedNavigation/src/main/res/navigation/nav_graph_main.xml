@@ -27,6 +27,7 @@
         android:label="Notification Detail Fragment"
         tools:layout="@layout/fragment_notification_detail" />
 
+    <!-- Post Detail -->
     <fragment
         android:id="@+id/postDetailFragment"
         android:name="com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.blankfragment.PostDetailFragment"

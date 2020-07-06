@@ -9,22 +9,30 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentFactory
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.R
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.util.Event
-import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.viewmodel.AppbarViewModel
+import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.viewmodel.NavControllerViewModel
+import kotlin.reflect.KProperty
 
-
-class GenericNavHostFragment(
+/**
+ * Fragment created via layout resource that belong to a layout that contains a [NavHostFragment]
+ *
+ * Requires a [FragmentFactory] to be able to create this fragment which does not posses
+ * an empty constructor.
+ *
+ */
+class NavHostContainerFragment(
     @LayoutRes private val layoutRes: Int,
     @IdRes private val navHostFragmentId: Int
 ) : Fragment() {
 
-    private val appbarViewModel by activityViewModels<AppbarViewModel>()
+    private val navControllerViewModel by activityViewModels<NavControllerViewModel>()
 
     private lateinit var navController: NavController
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -60,9 +68,28 @@ class GenericNavHostFragment(
 
         // Set this navController as ViewModel's navController
         navController?.let {
-            appbarViewModel.currentNavController.value = Event(it)
+            navControllerViewModel.currentNavController.value = Event(it)
         }
     }
 
 }
 
+var NavHostFragment.viewModel: NavControllerViewModel by FieldProperty {
+    NavControllerViewModel()
+}
+
+
+
+class FieldProperty<R, T : Any>(
+    val initializer: (R) -> T = { throw IllegalStateException("Not initialized.") }
+) {
+    private val map = HashMap<R, T>()
+
+    operator fun getValue(thisRef: R, property: KProperty<*>): T =
+        map[thisRef] ?: setValue(thisRef, property, initializer(thisRef))
+
+    operator fun setValue(thisRef: R, property: KProperty<*>, value: T): T {
+        map[thisRef] = value
+        return value
+    }
+}

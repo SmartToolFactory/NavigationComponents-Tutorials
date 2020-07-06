@@ -1,10 +1,10 @@
-package com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.factory
+package com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.factory
 
 import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
-import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.navhost.NavHostContainerFragment
+import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.navhost.NavHostContainerFragment
 
 class NavHostFragmentFactory private constructor() : FragmentFactory() {
 

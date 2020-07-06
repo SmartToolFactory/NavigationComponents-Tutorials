@@ -13,13 +13,13 @@ import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavig
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.blankfragment.BaseDataBindingFragment
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.setupWithNavController
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.util.Event
-import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.viewmodel.AppbarViewModel
+import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.viewmodel.NavControllerViewModel
 
 
 class MainFragment : BaseDataBindingFragment<FragmentMainBinding>() {
     override fun getLayoutRes(): Int = R.layout.fragment_main
 
-    private val appbarViewModel by activityViewModels<AppbarViewModel>()
+    private val navControllerViewModel by activityViewModels<NavControllerViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -76,7 +76,7 @@ class MainFragment : BaseDataBindingFragment<FragmentMainBinding>() {
     }
 
     private fun subscribeAppbarNavigation() {
-        appbarViewModel.currentNavController.observe(viewLifecycleOwner, Observer { it ->
+        navControllerViewModel.currentNavController.observe(viewLifecycleOwner, Observer { it ->
 
             it?.let { event: Event<NavController> ->
                 event.getContentIfNotHandled()?.let { navController ->

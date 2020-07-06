@@ -14,6 +14,8 @@
             android:id="@+id/action_horizontalPostFragment_to_postDetailFragment"
             app:destination="@id/postDetailFragment" />
     </fragment>
+
+    <!-- Post Detail -->
     <fragment
         android:id="@+id/postDetailFragment"
         android:name="com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.blankfragment.PostDetailFragment"

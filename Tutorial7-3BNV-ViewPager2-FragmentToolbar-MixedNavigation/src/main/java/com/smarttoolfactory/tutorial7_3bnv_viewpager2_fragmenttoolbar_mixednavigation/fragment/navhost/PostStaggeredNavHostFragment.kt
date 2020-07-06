@@ -9,14 +9,14 @@ import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavig
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.databinding.FragmentNavhostPostStaggeredBinding
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.blankfragment.BaseDataBindingFragment
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.util.Event
-import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.viewmodel.AppbarViewModel
+import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.viewmodel.NavControllerViewModel
 
 
 class PostStaggeredNavHostFragment :
     BaseDataBindingFragment<FragmentNavhostPostStaggeredBinding>() {
     override fun getLayoutRes(): Int = R.layout.fragment_navhost_post_staggered
 
-    private val appbarViewModel by activityViewModels<AppbarViewModel>()
+    private val navControllerViewModel by activityViewModels<NavControllerViewModel>()
 
     private var navController: NavController? = null
 
@@ -37,7 +37,7 @@ class PostStaggeredNavHostFragment :
 
         // Set this navController as ViewModel's navController
         navController?.let {
-            appbarViewModel.currentNavController.value = Event(it)
+            navControllerViewModel.currentNavController.value = Event(it)
         }
     }
 

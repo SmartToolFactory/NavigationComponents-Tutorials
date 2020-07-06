@@ -9,14 +9,21 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentFactory
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.util.Event
 import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.viewmodel.AppbarViewModel
 
-
-class GenericNavHostFragment(
+/**
+ * Fragment created via layout resource that belong to a layout that contains a [NavHostFragment]
+ *
+ * Requires a [FragmentFactory] to be able to create this fragment which does not posses
+ * an empty constructor.
+ *
+ */
+class NavHostContainerFragment(
     @LayoutRes private val layoutRes: Int,
     @IdRes private val navHostFragmentId: Int
 ) : Fragment() {
@@ -24,7 +31,6 @@ class GenericNavHostFragment(
     private val appbarViewModel by activityViewModels<AppbarViewModel>()
 
     private lateinit var navController: NavController
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -63,7 +69,4 @@ class GenericNavHostFragment(
             appbarViewModel.currentNavController.value = Event(it)
         }
     }
-
-
 }
-
