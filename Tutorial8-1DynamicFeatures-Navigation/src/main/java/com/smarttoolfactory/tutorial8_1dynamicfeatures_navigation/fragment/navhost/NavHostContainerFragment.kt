@@ -1,4 +1,4 @@
-package com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.navhost
+package com.smarttoolfactory.tutorial8_1dynamicfeatures_navigation.fragment.navhost
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,9 +13,8 @@ import androidx.fragment.app.FragmentFactory
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.R
-import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.util.Event
-import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.viewmodel.NavControllerViewModel
+import com.smarttoolfactory.tutorial8_1dynamicfeatures_navigation.util.Event
+import com.smarttoolfactory.tutorial8_1dynamicfeatures_navigation.viewmodel.NavControllerViewModel
 import kotlin.reflect.KProperty
 
 /**
@@ -60,8 +59,10 @@ class NavHostContainerFragment(
 
     override fun onResume() {
         super.onResume()
+
         // Set this navController as ViewModel's navController
         navControllerViewModel.currentNavController.value = Event(navController)
+
     }
 
 }

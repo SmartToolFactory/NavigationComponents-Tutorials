@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/homeFragment1"
-        android:name="com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.fragment.blankfragment.HomeFragment1"
+        android:name="com.smarttoolfactory.tutorial8_1dynamicfeatures_navigation.fragment.blankfragment.HomeFragment1"
         android:label="HomeFragment1"
         tools:layout="@layout/fragment_home1">
         <action
@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/homeFragment2"
-        android:name="com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.fragment.blankfragment.HomeFragment2"
+        android:name="com.smarttoolfactory.tutorial8_1dynamicfeatures_navigation.fragment.blankfragment.HomeFragment2"
         android:label="HomeFragment2"
         tools:layout="@layout/fragment_home2">
         <action
@@ -28,7 +28,7 @@
 
     <fragment
         android:id="@+id/homeFragment3"
-        android:name="com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.fragment.blankfragment.HomeFragment3"
+        android:name="com.smarttoolfactory.tutorial8_1dynamicfeatures_navigation.fragment.blankfragment.HomeFragment3"
         android:label="HomeFragment3"
         tools:layout="@layout/fragment_home3" >
         <action

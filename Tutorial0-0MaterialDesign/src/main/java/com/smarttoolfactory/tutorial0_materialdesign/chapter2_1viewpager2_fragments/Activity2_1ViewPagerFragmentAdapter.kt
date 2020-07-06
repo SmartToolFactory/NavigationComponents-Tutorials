@@ -1,6 +1,7 @@
 package com.smarttoolfactory.tutorial0_materialdesign.chapter2_1viewpager2_fragments
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentFactory
@@ -80,9 +81,10 @@ class Activity2_1ViewPagerFragmentAdapter : AppCompatActivity() {
 
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
 
-//            override fun onPageSelected(position: Int) {
-//                println("⏱ ViewPager2.OnPageChangeCallback() onPageSelected() $position")
-//            }
+            override fun onPageSelected(position: Int) {
+                Toast.makeText(applicationContext, "ViewPager onPageSelected() $position", Toast.LENGTH_SHORT).show()
+                println("⏱ ViewPager2.OnPageChangeCallback() onPageSelected() $position")
+            }
 //            override fun onPageScrolled(
 //                position: Int,
 //                positionOffset: Float,

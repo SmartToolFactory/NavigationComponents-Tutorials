@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_favorites"
+    app:moduleName="favorites"
+    app:startDestination="@id/favoritesFragment1">
+
+    <fragment
+        android:id="@+id/favoritesFragment1"
+        android:name="com.smarttoolfactory.favorites.FavoritesFragment1"
+        android:label="FavoritesFragment1"
+        tools:layout="@layout/fragment_favorites1">
+        <action
+            android:id="@+id/action_favoritesFragment1_to_favoritesFragment2"
+            app:destination="@id/favoritesFragment2" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/favoritesFragment2"
+        android:name="com.smarttoolfactory.favorites.FavoritesFragment2"
+        android:label="FavoritesFragment2"
+        tools:layout="@layout/fragment_favorites2"/>
+</navigation>

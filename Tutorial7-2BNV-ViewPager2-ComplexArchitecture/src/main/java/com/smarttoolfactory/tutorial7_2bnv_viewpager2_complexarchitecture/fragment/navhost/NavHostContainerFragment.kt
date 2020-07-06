@@ -1,4 +1,4 @@
-package com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.navhost
+package com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.fragment.navhost
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,10 +13,8 @@ import androidx.fragment.app.FragmentFactory
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.R
-import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.util.Event
-import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.viewmodel.NavControllerViewModel
-import kotlin.reflect.KProperty
+import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.util.Event
+import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.viewmodel.AppbarViewModel
 
 /**
  * Fragment created via layout resource that belong to a layout that contains a [NavHostFragment]
@@ -30,7 +28,7 @@ class NavHostContainerFragment(
     @IdRes private val navHostFragmentId: Int
 ) : Fragment() {
 
-    private val navControllerViewModel by activityViewModels<NavControllerViewModel>()
+    private val appbarViewModel by activityViewModels<AppbarViewModel>()
 
     private lateinit var navController: NavController
 
@@ -44,6 +42,15 @@ class NavHostContainerFragment(
             inflater, layoutRes, container, false
         )
 
+        return dataBinding.run {
+            lifecycleOwner = viewLifecycleOwner
+            root
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         val nestedNavHostFragment =
             childFragmentManager.findFragmentById(navHostFragmentId) as? NavHostFragment
 
@@ -52,35 +59,14 @@ class NavHostContainerFragment(
 
         navController = nestedNavHostFragment.navController
 
-        return dataBinding.run {
-            lifecycleOwner = viewLifecycleOwner
-            root
-        }
     }
 
     override fun onResume() {
         super.onResume()
+
         // Set this navController as ViewModel's navController
-        navControllerViewModel.currentNavController.value = Event(navController)
-    }
-
-}
-
-var NavHostFragment.viewModel: NavControllerViewModel by FieldProperty {
-    NavControllerViewModel()
-}
-
-
-class FieldProperty<R, T : Any>(
-    val initializer: (R) -> T = { throw IllegalStateException("Not initialized.") }
-) {
-    private val map = HashMap<R, T>()
-
-    operator fun getValue(thisRef: R, property: KProperty<*>): T =
-        map[thisRef] ?: setValue(thisRef, property, initializer(thisRef))
-
-    operator fun setValue(thisRef: R, property: KProperty<*>, value: T): T {
-        map[thisRef] = value
-        return value
+        navController?.let {
+            appbarViewModel.currentNavController.value = Event(it)
+        }
     }
 }

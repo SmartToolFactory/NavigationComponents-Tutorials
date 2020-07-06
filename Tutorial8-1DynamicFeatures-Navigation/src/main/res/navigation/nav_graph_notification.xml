@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/notificationFragment1"
-        android:name="com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.fragment.blankfragment.NotificationFragment1"
+        android:name="com.smarttoolfactory.tutorial8_1dynamicfeatures_navigation.fragment.blankfragment.NotificationFragment1"
         android:label="NotificationFragment1"
         tools:layout="@layout/fragment_notification1">
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/notificationFragment2"
-        android:name="com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.fragment.blankfragment.NotificationFragment2"
+        android:name="com.smarttoolfactory.tutorial8_1dynamicfeatures_navigation.fragment.blankfragment.NotificationFragment2"
         android:label="NotificationFragment2"
         tools:layout="@layout/fragment_notification3">
         <action
@@ -27,13 +27,21 @@
 
     <fragment
         android:id="@+id/notificationFragment3"
-        android:name="com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.fragment.blankfragment.NotificationFragment3"
+        android:name="com.smarttoolfactory.tutorial8_1dynamicfeatures_navigation.fragment.blankfragment.NotificationFragment3"
         android:label="NotificationFragment3"
-        tools:layout="@layout/fragment_notification3" >
+        tools:layout="@layout/fragment_notification3">
         <action
             android:id="@+id/action_notificationFragment3_to_notificationFragment1"
             app:destination="@id/notificationFragment1"
             app:popUpTo="@id/notificationFragment1"
             app:popUpToInclusive="true" />
     </fragment>
+
+
+    <!-- favorite dynamic feature module-->
+    <include-dynamic
+        android:id="@+id/nav_graph_favorites"
+        android:name="com.smarttoolfactory.favorites"
+        app:graphResName="nav_graph_favorites"
+        app:moduleName="favorites" />
 </navigation>
