@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@id/nav_graph_gallery"
+    app:moduleName="gallery"
+    app:startDestination="@id/galleryFragment1">
+
+    <fragment
+        android:id="@+id/galleryFragment1"
+        android:name="com.smarttoolfactory.gallery.GalleryFragment1"
+        android:label="GalleryFragment1">
+        <action
+            android:id="@+id/action_galleryFragment1_to_galleryFragment2"
+            app:destination="@id/galleryFragment2" />
+        <action
+            android:id="@+id/action_galleryFragment1_to_nav_graph_favorites"
+            app:destination="@id/nav_graph_favorites" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/galleryFragment2"
+        android:name="com.smarttoolfactory.gallery.GalleryFragment2"
+        android:label="GalleryFragment2" />
+
+
+    <!-- favorite dynamic feature module-->
+    <include-dynamic
+        android:id="@id/nav_graph_favorites"
+        android:name="com.smarttoolfactory.favorites"
+        app:graphResName="nav_graph_favorites"
+        app:moduleName="favorites" >
+        <argument
+            android:name="count"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </include-dynamic>
+</navigation>

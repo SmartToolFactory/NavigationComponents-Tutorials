@@ -10,7 +10,9 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.adapter.FragmentStateAdapter.FragmentTransactionCallback.OnPostEventListener
 import com.smarttoolfactory.tutorial8_1dynamicfeatures_navigation.R
-import com.smarttoolfactory.tutorial8_1dynamicfeatures_navigation.util.Event
+import com.smarttoolfactory.tutorial8_1dynamicfeatures_navigation.fragment.navhost.DashboardNavHostFragment
+import com.smarttoolfactory.tutorial8_1dynamicfeatures_navigation.fragment.navhost.HomeNavHostFragment
+import com.smarttoolfactory.tutorial8_1dynamicfeatures_navigation.fragment.navhost.NotificationHostFragment
 import com.smarttoolfactory.tutorial8_1dynamicfeatures_navigation.viewmodel.NavControllerViewModel
 
 
@@ -33,10 +35,6 @@ class ActivityFragmentStateAdapter(
                 maxLifecycleState: Lifecycle.State
             ) = if (maxLifecycleState == Lifecycle.State.RESUMED) {
 
-                if (fragment is NavHostFragment) {
-                    navControllerViewModel.currentNavController.value =
-                        Event(fragment.navController)
-                }
 
                 // This fragment is becoming the active Fragment - set it to
                 // the primary navigation fragment in the OnPostEventListener
@@ -54,12 +52,22 @@ class ActivityFragmentStateAdapter(
 
     override fun getItemCount(): Int = 3
 
+    // 🔥🔥 TODO This does not work with Dynamic Module Navigation
+//    override fun createFragment(position: Int): Fragment {
+//
+//        return when (position) {
+//            0 -> NavHostFragment.create(R.navigation.nav_graph_home)
+//            1 -> NavHostFragment.create(R.navigation.nav_graph_dashboard)
+//            else -> NavHostFragment.create(R.navigation.nav_graph_notification)
+//        }
+//    }
+
     override fun createFragment(position: Int): Fragment {
 
         return when (position) {
-            0 -> NavHostFragment.create(R.navigation.nav_graph_home)
-            1 -> NavHostFragment.create(R.navigation.nav_graph_dashboard)
-            else -> NavHostFragment.create(R.navigation.nav_graph_notification)
+            0 -> HomeNavHostFragment()
+            1 -> DashboardNavHostFragment()
+            else -> NotificationHostFragment()
         }
     }
 }
