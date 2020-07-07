@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.viewmodel.PostsCoroutineViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F5F5F5">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="16dp"
+            app:items="@{viewModel.postViewState.data}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_error"
+            visibilityBasedOn="@{viewModel.postViewState.shouldShowErrorMessage()}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{`⚠️ ` + viewModel.postViewState.errorMessage}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/recycler_view" />
+
+
+        <ProgressBar
+
+            android:id="@+id/progress_bar"
+            visibilityBasedOn="@{viewModel.postViewState.loading}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/recycler_view" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

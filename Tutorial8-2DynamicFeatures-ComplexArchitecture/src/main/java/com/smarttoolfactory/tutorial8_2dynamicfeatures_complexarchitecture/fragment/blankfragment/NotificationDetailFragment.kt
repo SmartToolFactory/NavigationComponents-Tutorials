@@ -1,0 +1,8 @@
+package com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.blankfragment
+
+import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.R
+import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.databinding.FragmentNotificationDetailBinding
+
+class NotificationDetailFragment : BaseDataBindingFragment<FragmentNotificationDetailBinding>() {
+    override fun getLayoutRes(): Int = R.layout.fragment_notification_detail
+}

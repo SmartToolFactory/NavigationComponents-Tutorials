@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_post_horizontal"
+    app:startDestination="@id/horizontalPostFragment">
+
+    <fragment
+        android:id="@+id/horizontalPostFragment"
+        android:name="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.blankfragment.PostHorizontalFragment"
+        android:label="Horizontal Post Fragment"
+        tools:layout="@layout/fragment_post_list_horizontal">
+        <action
+            android:id="@+id/action_horizontalPostFragment_to_postDetailFragment"
+            app:destination="@id/postDetailFragment" />
+    </fragment>
+
+    <!-- Post Detail -->
+    <fragment
+        android:id="@+id/postDetailFragment"
+        android:name="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.blankfragment.PostDetailFragment"
+        android:label="PostDetailFragment"
+        tools:layout="@layout/fragment_post_detail">
+
+        <argument android:name="post"
+            app:argType="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.api.Post"/>
+
+    </fragment>
+
+</navigation>

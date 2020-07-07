@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_view_pager"
+    app:startDestination="@id/view_pager_dest">
+
+    <!-- ViewPagerContainer -->
+    <fragment
+        android:id="@+id/view_pager_dest"
+        android:name="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.viewpagerfragment.ViewPagerContainerFragment"
+        android:label="ViewPagerFragment"
+        tools:layout="@layout/fragment_viewpager_container">
+
+        <!-- Login -->
+        <action
+            android:id="@+id/action_view_pager_dest_to_loginFragment2"
+            app:destination="@id/loginFragment2" />
+        <action
+            android:id="@+id/action_view_pager_dest_to_postDetailFragment"
+            app:destination="@id/postDetailFragment" />
+    </fragment>
+
+    <!-- Login -->
+    <fragment
+        android:id="@+id/loginFragment2"
+        android:name="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.blankfragment.LoginFragment2"
+        android:label="LoginFragment2"
+        tools:layout="@layout/fragment_login2"/>
+
+    <!-- Post Detail -->
+    <fragment
+        android:id="@+id/postDetailFragment"
+        android:name="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.blankfragment.PostDetailFragment"
+        android:label="PostDetailFragment"
+        tools:layout="@layout/fragment_post_detail">
+
+        <argument android:name="post"
+            app:argType="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.api.Post"/>
+
+    </fragment>
+
+</navigation>

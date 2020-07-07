@@ -1,3 +1,4 @@
+include ':Tutorial8-2DynamicFeatures-ComplexArchitecture'
 include ':features:gallery'
 include ':features:favorites'
 

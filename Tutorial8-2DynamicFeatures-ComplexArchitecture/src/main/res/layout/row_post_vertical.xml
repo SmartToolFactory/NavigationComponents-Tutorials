@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.api.Post" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="2dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivAvatar"
+                imageSrc="@{item.userId}"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/avatar_1_raster"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@{item.title}"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivAvatar"
+                app:layout_constraintStart_toEndOf="@+id/ivAvatar"
+                app:layout_constraintTop_toTopOf="@+id/ivAvatar"
+                tools:text="Sample Title" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

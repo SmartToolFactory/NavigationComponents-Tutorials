@@ -1,0 +1,82 @@
+package com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.blankfragment
+
+import android.os.Bundle
+import android.view.View
+import androidx.core.os.bundleOf
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.R
+import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.adapter.PostListAdapter
+import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.databinding.FragmentPostListStaggeredBinding
+import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.viewmodel.PostsCoroutineViewModel
+
+class PostStaggeredFragment : BaseDataBindingFragment<FragmentPostListStaggeredBinding>() {
+
+
+    override fun getLayoutRes(): Int = R.layout.fragment_post_list_staggered
+
+    private val viewModel by viewModels<PostsCoroutineViewModel>()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        viewModel.getPosts()
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        bindViews()
+    }
+
+    private fun bindViews() {
+
+        // 🔥 Set lifecycle for data binding
+        dataBinding.lifecycleOwner = viewLifecycleOwner
+
+        dataBinding.viewModel = viewModel
+
+        dataBinding.recyclerView.apply {
+
+            // Set Layout manager
+            this.layoutManager =
+                StaggeredGridLayoutManager(3, LinearLayoutManager.VERTICAL)
+
+            // Set RecyclerViewAdapter
+            this.adapter =
+                PostListAdapter(R.layout.row_post_staggered, viewModel::onClick)
+        }
+
+        subscribeGoToDetailScreen()
+
+
+    }
+
+    private fun subscribeGoToDetailScreen() {
+
+        viewModel.goToDetailScreen.observe(viewLifecycleOwner, Observer {
+
+            it.getContentIfNotHandled()?.let { post ->
+                val bundle = bundleOf("post" to post)
+
+                /*
+         🔥 This is navController we get from findNavController not the one required
+         for navigating nested fragments
+      */
+                requireActivity().findNavController(R.id.main_nav_host_fragment)
+                    .navigate(R.id.action_mainFragment_to_postDetailFragment, bundle)
+
+//                val mainNavController =
+//                    Navigation.findNavController(requireActivity(), R.id.main_nav_host_fragment)
+//                mainNavController.navigate(R.id.action_mainFragment_to_postDetailFragment, bundle)
+            }
+        })
+
+    }
+
+
+}
