@@ -6,6 +6,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
 import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.navhost.NavHostContainerFragment
 
+/**
+ * Factory for creating fragments that contain NavHostFragment or DynamicNavHostFragment in
+ * xml file for that layout.
+ *
+ * layoutRes is  R.layout.layoutRes of the fragment
+ * navHostFragment is id of NavHostFragment or DynamicNavHostFragment in layout R.layout.layoutRes
+ */
 class NavHostFragmentFactory private constructor() : FragmentFactory() {
 
     @LayoutRes
@@ -47,6 +54,7 @@ class NavHostFragmentFactory private constructor() : FragmentFactory() {
     companion object {
 
         private val navHostFragmentFactory: NavHostFragmentFactory by lazy {
+            println("NAVHOSTFRAGMENT FACTORY !!")
             NavHostFragmentFactory()
         }
 
@@ -55,6 +63,7 @@ class NavHostFragmentFactory private constructor() : FragmentFactory() {
 
         @JvmStatic
         fun create(): NavHostFragmentFactory {
+            println("🏰 NavHostFragmentFactory navHostFragmentFactory: $navHostFragmentFactory")
             return navHostFragmentFactory
         }
 

@@ -10,11 +10,13 @@
             type="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.api.Post" />
     </data>
 
-    <androidx.cardview.widget.CardView
-        android:layout_margin="2dp"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="2dp">
+        android:layout_margin="2dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="1dp"
+        app:cardUseCompatPadding="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -45,6 +47,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 </layout>

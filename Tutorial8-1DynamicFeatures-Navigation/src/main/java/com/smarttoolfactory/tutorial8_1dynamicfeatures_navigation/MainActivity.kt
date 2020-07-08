@@ -10,16 +10,28 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.smarttoolfactory.tutorial8_1dynamicfeatures_navigation.adapter.ActivityFragmentStateAdapter
 import com.smarttoolfactory.tutorial8_1dynamicfeatures_navigation.databinding.ActivityMainBinding
+import com.smarttoolfactory.tutorial8_1dynamicfeatures_navigation.fragment.blankfragment.HomeFragment1
+import com.smarttoolfactory.tutorial8_1dynamicfeatures_navigation.fragment.blankfragment.HomeFragment2
 import com.smarttoolfactory.tutorial8_1dynamicfeatures_navigation.util.Event
 import com.smarttoolfactory.tutorial8_1dynamicfeatures_navigation.viewmodel.NavControllerViewModel
 
-class MainActivity : AppCompatActivity() {
 
+/**
+ * Tutorial to navigate to dynamic feature module from App, navigate from dynamic feature module
+ * gallery to favorites.
+ *
+ * * [HomeFragment1] listen savedStateHandle with `findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Int>`
+ *  [HomeFragment2] and GalleryFragment sets result with `findNavController().previousBackStackEntry?.savedStateHandle?.set("count", count)`
+ *
+ *  * Also used setFragmentResultListener, and setFragmentResult but not working
+ */
+class MainActivity : AppCompatActivity() {
 
     private val navControllerViewModel: NavControllerViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
 
         val dataBinding: ActivityMainBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_main)

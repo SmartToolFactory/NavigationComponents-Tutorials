@@ -37,4 +37,16 @@
             app:popUpToInclusive="true" />
     </fragment>
 
+    <!-- gallery dynamic feature module-->
+    <include-dynamic
+        android:id="@+id/nav_graph_gallery"
+        android:name="com.smarttoolfactory.gallery"
+        app:graphResName="nav_graph_gallery"
+        app:moduleName="gallery">
+        <argument
+            android:name="count"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </include-dynamic>
+
 </navigation>

@@ -29,9 +29,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
+            android:text="Count 0"
             android:textColor="#fff"
             android:textSize="18sp"
-            android:text="Count 0"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
@@ -59,7 +59,7 @@
 
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnFavorites"
+            android:id="@+id/btnGallery"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

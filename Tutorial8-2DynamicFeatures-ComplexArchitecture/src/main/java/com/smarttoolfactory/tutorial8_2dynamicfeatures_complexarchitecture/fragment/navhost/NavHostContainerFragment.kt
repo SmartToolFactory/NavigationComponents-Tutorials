@@ -13,7 +13,6 @@ import androidx.fragment.app.FragmentFactory
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.R
 import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.util.Event
 import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.viewmodel.NavControllerViewModel
 import kotlin.reflect.KProperty

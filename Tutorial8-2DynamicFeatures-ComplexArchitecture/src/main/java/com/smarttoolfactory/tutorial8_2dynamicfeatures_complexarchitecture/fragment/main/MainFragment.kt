@@ -19,7 +19,6 @@ import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.viewm
 class MainFragment : BaseDataBindingFragment<FragmentMainBinding>() {
     override fun getLayoutRes(): Int = R.layout.fragment_main
 
-    private val navControllerViewModel by activityViewModels<NavControllerViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

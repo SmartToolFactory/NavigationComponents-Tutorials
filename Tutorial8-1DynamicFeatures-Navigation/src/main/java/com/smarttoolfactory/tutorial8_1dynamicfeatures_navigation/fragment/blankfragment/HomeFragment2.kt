@@ -3,30 +3,40 @@ package com.smarttoolfactory.tutorial8_1dynamicfeatures_navigation.fragment.blan
 import android.os.Bundle
 import android.view.View
 import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
 import com.smarttoolfactory.tutorial8_1dynamicfeatures_navigation.R
 import com.smarttoolfactory.tutorial8_1dynamicfeatures_navigation.databinding.FragmentHome2Binding
 
 class HomeFragment2 : BaseDataBindingFragment<FragmentHome2Binding>() {
 
-    private var count = 0
+    private var count:Int = 0
 
     override fun getLayoutRes(): Int = R.layout.fragment_home2
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        count = arguments?.get("count") as Int
+
         dataBinding.tvCount.text = "Count: $count"
 
         dataBinding.btnIncrease.setOnClickListener {
             dataBinding.tvCount.text = "Count: ${++count}"
+
+            // 🔥 Put value to savedStateHandle
+            findNavController().previousBackStackEntry?.savedStateHandle?.set("count", count)
+
+            // TODO Not Working
+//            setFragmentResult("count", bundleOf("count" to count))
+
         }
 
         dataBinding.btnNextPage.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment2_to_homeFragment3)
         }
 
-        dataBinding.btnFavorites.setOnClickListener {
+        dataBinding.btnGallery.setOnClickListener {
             val bundle = bundleOf("count" to count)
 
             findNavController().navigate(
@@ -35,6 +45,11 @@ class HomeFragment2 : BaseDataBindingFragment<FragmentHome2Binding>() {
             )
         }
 
+    }
+
+    override fun onDestroyView() {
+        findNavController().previousBackStackEntry?.savedStateHandle?.set("count", count)
+        super.onDestroyView()
     }
 
 }
