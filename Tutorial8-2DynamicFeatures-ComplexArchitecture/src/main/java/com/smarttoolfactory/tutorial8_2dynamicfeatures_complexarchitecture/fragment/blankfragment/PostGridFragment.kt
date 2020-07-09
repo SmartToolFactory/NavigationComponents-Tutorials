@@ -24,6 +24,11 @@ class PostGridFragment : BaseDataBindingFragment<FragmentPostListGridBinding>() 
 
         viewModel.getPosts()
 
+        println("🔥 PostGridFragment navController: ${findNavController()}")
+        println("🔥 PostGridFragment parentFragment navController: ${parentFragment?.findNavController()}")
+        println("🔥 PostGridFragment parent parentFragment navController: ${parentFragment?.parentFragment?.findNavController()}")
+
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -64,8 +69,13 @@ class PostGridFragment : BaseDataBindingFragment<FragmentPostListGridBinding>() 
                 /**
                  * This is the navController belong to ViewPagerContainerFragment
                  */
-                parentFragment?.parentFragment?.findNavController()
-                    ?.navigate(R.id.action_view_pager_dest_to_postDetailFragment, bundle)
+                try {
+
+                    parentFragment?.parentFragment?.findNavController()
+                        ?.navigate(R.id.action_view_pager_dest_to_postDetailFragment, bundle)
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
 
             }
         })

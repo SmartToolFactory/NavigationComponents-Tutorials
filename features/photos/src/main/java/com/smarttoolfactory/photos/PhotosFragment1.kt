@@ -35,10 +35,10 @@ class PhotosFragment1 : BaseDataBindingFragment<FragmentPhotos1Binding>() {
         dataBinding.btnCamera.setOnClickListener {
             val bundle = bundleOf("count" to count)
 
-//            findNavController().navigate(
-//                R.id.action_photosFragment1_to_nav_graph_camera,
-//                bundle
-//            )
+            findNavController().navigate(
+                R.id.action_photosFragment1_to_nav_graph_camera,
+                bundle
+            )
         }
     }
 

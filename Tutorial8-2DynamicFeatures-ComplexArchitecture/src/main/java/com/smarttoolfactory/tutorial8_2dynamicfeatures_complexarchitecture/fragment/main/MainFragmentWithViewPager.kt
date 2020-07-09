@@ -1,7 +1,9 @@
 package com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.main
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.R
 import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.adapter.BottomNavigationStateAdapter
 import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.databinding.FragmentMainWithViewpagerBinding
@@ -15,6 +17,9 @@ class MainFragmentWithViewPager : BaseDataBindingFragment<FragmentMainWithViewpa
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        println("🔥 MainFragmentWithViewPager navController: ${findNavController()}")
+
 
         val viewPager2 = dataBinding.viewPager
         val bottomNavigationView = dataBinding.bottomNav

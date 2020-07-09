@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/camera_dest"
+        android:id="@+id/nav_graph_camera"
         android:icon="@drawable/ic_camera"
         android:title="Camera"
         app:showAsAction="always" />

@@ -1,11 +1,15 @@
 package com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.viewpagerfragment
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.tabs.TabLayoutMediator
 import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.R
@@ -18,11 +22,23 @@ import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.viewm
 
 class ViewPagerContainerFragment : BaseDataBindingFragment<FragmentViewpagerContainerBinding>() {
 
+    override fun getLayoutRes(): Int = R.layout.fragment_viewpager_container
+
     private val navControllerViewModel by activityViewModels<NavControllerViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        println("🔥 ViewPagerContainerFragment navController: ${findNavController()}")
+
+        setUpViewPager2AndTabLayout()
+
+        setUpToolbar()
+
+        subscribeAppbarNavigation()
+    }
+
+    private fun setUpViewPager2AndTabLayout() {
         // ViewPager2
         val viewPager = dataBinding.viewPager
 
@@ -46,11 +62,15 @@ class ViewPagerContainerFragment : BaseDataBindingFragment<FragmentViewpagerCont
                 else -> tab.text = "Login"
             }
         }.attach()
+    }
 
-
+    private fun setUpToolbar() {
+        // Set toolbar menu and item click listener
         dataBinding.toolbar.inflateMenu(R.menu.menu_main)
 
-        subscribeAppbarNavigation()
+        dataBinding.toolbar.setOnMenuItemClickListener {
+            onOptionsItemSelected(it)
+        }
     }
 
     private fun subscribeAppbarNavigation() {
@@ -65,5 +85,25 @@ class ViewPagerContainerFragment : BaseDataBindingFragment<FragmentViewpagerCont
         })
     }
 
-    override fun getLayoutRes(): Int = R.layout.fragment_viewpager_container
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        /*
+            🔥 This is the main nav controller of Activity so Camera Fragment covers the screen
+             nav_graph_main's  <include-dynamic android:id="@+id/nav_graph_camera"
+            is called, and whole screen is covered
+         */
+//        val navController = requireActivity().findNavController(R.id.main_nav_host_fragment)
+
+        /*
+            🔥 This is the nav controller of NavHostFragment of parent of this fragment
+            nav_graph_view_pager's     <include-dynamic  android:id="@+id/nav_graph_camera"
+            is called and only ViewPager2 area is covered
+        */
+        val navController = findNavController()
+
+        // Navigates to destination which is both has the same id in menu.xml and nav_graph.xml.
+        return item.onNavDestinationSelected(navController)
+                || super.onOptionsItemSelected(item)
+    }
 }

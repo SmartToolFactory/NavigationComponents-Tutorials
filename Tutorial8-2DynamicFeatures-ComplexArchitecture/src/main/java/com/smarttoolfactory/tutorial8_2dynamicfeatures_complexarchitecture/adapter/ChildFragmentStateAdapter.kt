@@ -3,55 +3,101 @@ package com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.adap
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commitNow
 import androidx.lifecycle.Lifecycle
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.adapter.FragmentStateAdapter.FragmentTransactionCallback.OnPostEventListener
 import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.R
 import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.blankfragment.LoginFragment1
 import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.factory.NavHostFragmentFactory
 import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.navhost.*
-import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.viewpagerfragment.NotificationHostFragment
 
 
 class ChildFragmentStateAdapter(private val fragment: Fragment) :
     FragmentStateAdapter(fragment) {
 
-    private val navHostFragmentFactory = NavHostFragmentFactory.create()
+
+    private val fragmentTransactionCallback = object : FragmentTransactionCallback() {
+
+        override fun onFragmentMaxLifecyclePreUpdated(
+            fragment: Fragment,
+            maxLifecycleState: Lifecycle.State
+        ) = if (maxLifecycleState == Lifecycle.State.RESUMED) {
+
+            // This fragment is becoming the active Fragment - set it to
+            // the primary navigation fragment in the OnPostEventListener
+            OnPostEventListener {
+                fragment.parentFragmentManager.commitNow {
+                    setPrimaryNavigationFragment(fragment)
+                }
+            }
+
+        } else {
+            super.onFragmentMaxLifecyclePreUpdated(fragment, maxLifecycleState)
+        }
+    }
 
     init {
 
         // Add a FragmentTransactionCallback to handle changing
         // the primary navigation fragment
-        registerFragmentTransactionCallback(object : FragmentTransactionCallback() {
+        registerFragmentTransactionCallback(fragmentTransactionCallback)
+    }
 
-            override fun onFragmentMaxLifecyclePreUpdated(
-                fragment: Fragment,
-                maxLifecycleState: Lifecycle.State
-            ) = if (maxLifecycleState == Lifecycle.State.RESUMED) {
 
-                // This fragment is becoming the active Fragment - set it to
-                // the primary navigation fragment in the OnPostEventListener
-                OnPostEventListener {
-                    fragment.parentFragmentManager.commitNow {
-                        setPrimaryNavigationFragment(fragment)
-                    }
-                }
 
-            } else {
-                super.onFragmentMaxLifecyclePreUpdated(fragment, maxLifecycleState)
-            }
-        })
+    override fun onDetachedFromRecyclerView(recyclerView: RecyclerView) {
+        super.onDetachedFromRecyclerView(recyclerView)
+
+        unregisterFragmentTransactionCallback(fragmentTransactionCallback)
     }
 
     override fun getItemCount(): Int = 6
 
-    override fun createFragment(position: Int): Fragment {
+//    override fun createFragment(position: Int): Fragment {
+//
+//        return when (position) {
+//            0 -> PostVerticalNavHostFragment()
+//            1 -> PostHorizontalNavHostFragment()
+//            2 -> PostGridNavHostFragment()
+//            3 -> PostStaggeredNavHostFragment()
+//            4 -> NotificationHostFragment()
+//            else -> LoginFragment1()
+//
+//        }
+//    }
 
+    override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> PostVerticalNavHostFragment()
-            1 -> PostHorizontalNavHostFragment()
-            2 -> PostGridNavHostFragment()
-            3 -> PostStaggeredNavHostFragment()
-            4 -> NotificationHostFragment()
+
+            // Vertical NavHost Post Fragment Container
+            0 -> NavHostContainerFragment.newInstance(
+                R.layout.fragment_navhost_post_vertical,
+                R.id.nested_nav_host_fragment_post_vertical
+            )
+
+            // Horizontal NavHost Post Fragment Container
+            1 -> NavHostContainerFragment.newInstance(
+                R.layout.fragment_navhost_post_horizontal,
+                R.id.nested_nav_host_fragment_post_horizontal
+            )
+
+            // Grid Post NavHost Fragment Container
+            2 -> NavHostContainerFragment.newInstance(
+                R.layout.fragment_navhost_post_grid,
+                R.id.nested_nav_host_fragment_post_grid
+            )
+
+            // Staggered Post NavHost Fragment Container
+            3 -> NavHostContainerFragment.newInstance(
+                R.layout.fragment_navhost_post_staggered,
+                R.id.nested_nav_host_fragment_post_staggered
+            )
+
+            // Notification NavHost Fragment Container
+            4 -> NavHostContainerFragment.newInstance(
+                R.layout.fragment_navhost_notification,
+                R.id.nested_nav_host_fragment_notification
+            )
             else -> LoginFragment1()
 
         }

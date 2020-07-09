@@ -29,6 +29,17 @@ class DashboardFragment1 : BaseDataBindingFragment<FragmentDashboard1Binding>() 
             findNavController().navigate(R.id.action_dashboardFragment1_to_dashboardFragment2)
         }
 
+        // 🔥 Listen savedStateHandle liveData,any type can be put in a Bundle is supported
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Int>("count")
+            ?.observe(
+                viewLifecycleOwner, Observer { result: Int ->
+                    // Do something with the result.
+                    count = result
+                    dataBinding.tvCount.text = "Count: $count"
+
+                }
+            )
+
         dataBinding.btnPhotos.setOnClickListener {
 
             val bundle = bundleOf("count" to count)
@@ -38,16 +49,6 @@ class DashboardFragment1 : BaseDataBindingFragment<FragmentDashboard1Binding>() 
                 bundle
             )
         }
-
-        // 🔥 Listen savedStateHandle liveData,any type can be put in a Bundle is supported
-        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Int>("count")
-            ?.observe(
-                viewLifecycleOwner, Observer { result: Int ->
-                    // Do something with the result.
-                    count = result
-                    dataBinding.tvCount.text = "Count: $count"
-
-                })
 
     }
 

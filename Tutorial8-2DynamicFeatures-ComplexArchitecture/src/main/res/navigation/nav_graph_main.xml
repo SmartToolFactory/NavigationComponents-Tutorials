@@ -5,7 +5,8 @@
     android:id="@+id/nav_graph_main"
     app:startDestination="@id/mainFragment">
 
-    <!--        android:name="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.main.MainFragment"-->
+<!--    android:name="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.main.MainFragment"-->
+<!--    android:name="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.main.MainFragmentWithViewPager"-->
 
     <fragment
         android:id="@+id/mainFragment"
@@ -41,4 +42,18 @@
             app:argType="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.api.Post" />
 
     </fragment>
+
+
+    <!-- camera dynamic feature module-->
+    <include-dynamic
+        android:id="@+id/nav_graph_camera"
+        android:name="com.smarttoolfactory.camera"
+        app:graphResName="nav_graph_camera"
+        app:moduleName="camera">
+        <argument
+            android:name="count"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </include-dynamic>
+
 </navigation>

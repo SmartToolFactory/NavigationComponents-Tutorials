@@ -14,9 +14,9 @@
         <action
             android:id="@+id/action_photosFragment1_to_photosFragment2"
             app:destination="@id/photosFragment2" />
-<!--        <action-->
-<!--            android:id="@+id/action_photosFragment1_to_nav_graph_camera"-->
-<!--            app:destination="@id/nav_graph_camera" />-->
+        <action
+            android:id="@+id/action_photosFragment1_to_nav_graph_camera"
+            app:destination="@id/nav_graph_camera" />
     </fragment>
 
     <fragment
@@ -26,14 +26,14 @@
         tools:layout="@layout/fragment_photos2" />
 
     <!-- favorite dynamic feature module-->
-<!--    <include-dynamic-->
-<!--        android:id="@id/nav_graph_camera"-->
-<!--        android:name="com.smarttoolfactory.camera"-->
-<!--        app:graphResName="nav_graph_camera"-->
-<!--        app:moduleName="camera" >-->
-<!--        <argument-->
-<!--            android:name="count"-->
-<!--            app:argType="integer"-->
-<!--            android:defaultValue="0" />-->
-<!--    </include-dynamic>-->
+    <include-dynamic
+        android:id="@id/nav_graph_camera"
+        android:name="com.smarttoolfactory.camera"
+        app:graphResName="nav_graph_camera"
+        app:moduleName="camera" >
+        <argument
+            android:name="count"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </include-dynamic>
 </navigation>

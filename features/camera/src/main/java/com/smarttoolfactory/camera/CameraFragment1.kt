@@ -13,7 +13,7 @@ class CameraFragment1 : BaseDataBindingFragment<FragmentCamera1Binding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val count = arguments?.get("count") as Int
+        val count = (arguments?.get("count") as? Int) ?: 0
 
         dataBinding.tvInfo.text = "${dataBinding.tvInfo.text}\n Count: $count"
 

@@ -12,7 +12,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
+import androidx.navigation.dynamicfeatures.fragment.DynamicNavHostFragment
 import androidx.navigation.fragment.NavHostFragment
+import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.factory.NavHostFragmentFactory
 import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.util.Event
 import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.viewmodel.NavControllerViewModel
 import kotlin.reflect.KProperty
@@ -24,10 +26,26 @@ import kotlin.reflect.KProperty
  * an empty constructor.
  *
  */
-class NavHostContainerFragment(
-    @LayoutRes private val layoutRes: Int,
-    @IdRes private val navHostFragmentId: Int
-) : Fragment() {
+class NavHostContainerFragment() : Fragment() {
+
+    /**
+     * Layout of fragment that contains [NavHostFragment] or DynamicNavHostFragment
+     */
+    private var layoutRes: Int = -1
+
+    /**
+     * Id of [NavHostFragment] or [DynamicNavHostFragment]
+     */
+    private var navHostFragmentId: Int = -1
+
+    /**
+     * Secondary Constructor to use with  [NavHostFragmentFactory]
+     * to create fragment with parameters in constructor
+     */
+    constructor(@LayoutRes layoutRes: Int, @IdRes navHostFragmentId: Int) : this() {
+        this.layoutRes = layoutRes
+        this.navHostFragmentId = navHostFragmentId
+    }
 
     private val navControllerViewModel by activityViewModels<NavControllerViewModel>()
 
@@ -38,6 +56,14 @@ class NavHostContainerFragment(
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        (arguments?.get(KEY_RES_ID) as? Int)?.let {
+            layoutRes = it
+        }
+
+        (arguments?.get(KEY_NAV_HOST_ID) as? Int)?.let {
+            navHostFragmentId = it
+        }
 
         val dataBinding: ViewDataBinding = DataBindingUtil.inflate(
             inflater, layoutRes, container, false
@@ -57,10 +83,34 @@ class NavHostContainerFragment(
         }
     }
 
+
     override fun onResume() {
         super.onResume()
         // Set this navController as ViewModel's navController
         navControllerViewModel.currentNavController.value = Event(navController)
+    }
+
+
+    companion object {
+        const val KEY_RES_ID = "key-res-id"
+        const val KEY_NAV_HOST_ID = "key-nav-host-id"
+
+        @JvmStatic
+        fun newInstance(
+            @LayoutRes layoutRes: Int,
+            @IdRes navHostFragmentId: Int,
+            fragmentTag: String? = null
+        ): NavHostContainerFragment {
+
+            return NavHostContainerFragment().apply {
+
+                arguments = Bundle().apply {
+                    putInt(KEY_RES_ID, layoutRes)
+                    putInt(KEY_NAV_HOST_ID, navHostFragmentId)
+                }
+
+            }
+        }
     }
 
 }

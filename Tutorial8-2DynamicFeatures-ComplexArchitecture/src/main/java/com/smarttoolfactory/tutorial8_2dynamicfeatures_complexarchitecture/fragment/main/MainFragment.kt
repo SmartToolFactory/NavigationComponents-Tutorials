@@ -1,11 +1,13 @@
 package com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.main
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.R
@@ -22,6 +24,8 @@ class MainFragment : BaseDataBindingFragment<FragmentMainBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        println("🔥 MainFragment navController: ${findNavController()}")
 
         if (savedInstanceState == null) {
             setupBottomNavigationBar()

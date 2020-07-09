@@ -40,4 +40,16 @@
 
     </fragment>
 
+    <include-dynamic
+        android:id="@+id/nav_graph_camera"
+        android:name="com.smarttoolfactory.camera"
+        app:graphResName="nav_graph_camera"
+        app:moduleName="camera">
+        <argument
+            android:name="count"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </include-dynamic>
+
+
 </navigation>
