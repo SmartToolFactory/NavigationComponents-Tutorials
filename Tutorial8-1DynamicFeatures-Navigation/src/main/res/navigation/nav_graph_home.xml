@@ -21,13 +21,13 @@
         android:name="com.smarttoolfactory.tutorial8_1dynamicfeatures_navigation.fragment.blankfragment.HomeFragment2"
         android:label="HomeFragment2"
         tools:layout="@layout/fragment_home2">
-        <action
-            android:id="@+id/action_homeFragment2_to_homeFragment3"
-            app:destination="@id/homeFragment3" />
         <argument
             android:name="count"
             android:defaultValue="0"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_homeFragment2_to_homeFragment3"
+            app:destination="@id/homeFragment3" />
     </fragment>
 
     <fragment

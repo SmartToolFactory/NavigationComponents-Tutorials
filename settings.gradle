@@ -1,6 +1,10 @@
-include ':Tutorial8-2DynamicFeatures-ComplexArchitecture'
 include ':features:gallery'
 include ':features:favorites'
+
+include ':features:photos'
+include ':features:camera'
+include ':features:post_search'
+include ':features:post_detail'
 
 include ':External-Tutorial-Navigation-Codelab'
 include ':External-Tutorial-NavigationBasicSample'
@@ -27,3 +31,4 @@ include ':Tutorial7-1BNV-ViewPager2-NestedNavigation'
 include ':Tutorial7-2BNV-ViewPager2-ComplexArchitecture'
 include ':Tutorial7-3BNV-ViewPager2-FragmentToolbar-MixedNavigation'
 include ':Tutorial8-1DynamicFeatures-Navigation'
+include ':Tutorial8-2DynamicFeatures-ComplexArchitecture'

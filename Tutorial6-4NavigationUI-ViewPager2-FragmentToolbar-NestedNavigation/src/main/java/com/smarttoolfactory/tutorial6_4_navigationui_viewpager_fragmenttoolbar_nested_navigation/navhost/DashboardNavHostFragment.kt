@@ -1,22 +1,26 @@
-package com.smarttoolfactory.tutorial6_6navigationui_viewpager2_appbar_mixednavigation_viewmodel.navhost
+package com.smarttoolfactory.tutorial6_4_navigationui_viewpager_fragmenttoolbar_nested_navigation.navhost
 
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
-import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.MutableLiveData
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.smarttoolfactory.tutorial6_6navigationui_viewpager2_appbar_mixednavigation_viewmodel.R
-import com.smarttoolfactory.tutorial6_6navigationui_viewpager2_appbar_mixednavigation_viewmodel.blankfragment.BaseDataBindingFragment
-import com.smarttoolfactory.tutorial6_6navigationui_viewpager2_appbar_mixednavigation_viewmodel.databinding.FragmentNavhostDashboardBinding
-import com.smarttoolfactory.tutorial6_6navigationui_viewpager2_appbar_mixednavigation_viewmodel.viewmodel.AppbarViewModel
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.smarttoolfactory.tutorial6_4_navigationui_viewpager_fragmenttoolbar.R
+import com.smarttoolfactory.tutorial6_4_navigationui_viewpager_fragmenttoolbar.databinding.FragmentNavhostDashboardBinding
+import com.smarttoolfactory.tutorial6_4_navigationui_viewpager_fragmenttoolbar_nested_navigation.blankfragment.BaseDataBindingFragment
 
 
-class DashBoardNavHostFragment : BaseDataBindingFragment<FragmentNavhostDashboardBinding>() {
+/**
+ * Using [FragmentStateAdapter.registerFragmentTransactionCallback] with [FragmentStateAdapter] solves back navigation instead of using [OnBackPressedCallback.handleOnBackPressed] in every [NavHostFragment]
+ * ### Should set app:defaultNavHost="true" for [NavHostFragment] for this to work
+ */
+class DashboardNavHostFragment : BaseDataBindingFragment<FragmentNavhostDashboardBinding>() {
     override fun getLayoutRes(): Int = R.layout.fragment_navhost_dashboard
-
-    private val appbarViewModel by activityViewModels<AppbarViewModel>()
 
     private var navController: NavController? = null
 
@@ -30,27 +34,33 @@ class DashBoardNavHostFragment : BaseDataBindingFragment<FragmentNavhostDashboar
             childFragmentManager.findFragmentById(nestedNavHostFragmentId) as? NavHostFragment
         navController = nestedNavHostFragment?.navController
 
+
+
+        val appBarConfig = AppBarConfiguration(navController!!.graph)
+        dataBinding.toolbar.setupWithNavController(navController!!, appBarConfig)
+
         // Listen on back press
 //        listenOnBackPressed()
 
     }
 
+
+
 //    private fun listenOnBackPressed() {
 //        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
 //    }
-
-    override fun onResume() {
-        super.onResume()
+//
+//    override fun onResume() {
+//        super.onResume()
+//        println("🏂 ${this.javaClass.simpleName} onResume()")
 //        callback.isEnabled = true
-
-        // Set this navController as ViewModel's navController
-        appbarViewModel.currentNavController.value = navController
-    }
-
-    override fun onPause() {
-        super.onPause()
+//    }
+//
+//    override fun onPause() {
+//        super.onPause()
+//        println("🏂 ${this.javaClass.simpleName} onPause()")
 //        callback.isEnabled = false
-    }
+//    }
 
     /**
      * This callback should be created with Disabled because on rotation ViewPager creates

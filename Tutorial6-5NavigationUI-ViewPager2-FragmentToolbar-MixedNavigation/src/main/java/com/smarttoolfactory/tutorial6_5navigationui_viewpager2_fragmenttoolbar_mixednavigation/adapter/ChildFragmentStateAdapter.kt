@@ -5,7 +5,7 @@ import androidx.fragment.app.commitNow
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.smarttoolfactory.tutorial6_5navigationui_viewpager2_fragmenttoolbar_mixednavigation.blankfragment.LoginFragment1
-import com.smarttoolfactory.tutorial6_5navigationui_viewpager2_fragmenttoolbar_mixednavigation.navhost.DashBoardNavHostFragment
+import com.smarttoolfactory.tutorial6_5navigationui_viewpager2_fragmenttoolbar_mixednavigation.navhost.DashboardNavHostFragment
 import com.smarttoolfactory.tutorial6_5navigationui_viewpager2_fragmenttoolbar_mixednavigation.navhost.HomeNavHostFragment
 import com.smarttoolfactory.tutorial6_5navigationui_viewpager2_fragmenttoolbar_mixednavigation.navhost.NotificationHostFragment
 
@@ -44,7 +44,7 @@ class ChildFragmentStateAdapter(fragment: Fragment) :
 
         return when (position) {
             0 -> HomeNavHostFragment()
-            1 -> DashBoardNavHostFragment()
+            1 -> DashboardNavHostFragment()
             2 -> NotificationHostFragment()
             else -> LoginFragment1()
         }

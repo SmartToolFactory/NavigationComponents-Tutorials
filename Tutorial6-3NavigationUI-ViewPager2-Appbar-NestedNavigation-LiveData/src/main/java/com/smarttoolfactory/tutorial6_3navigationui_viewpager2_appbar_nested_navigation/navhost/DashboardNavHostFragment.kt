@@ -11,7 +11,7 @@ import com.smarttoolfactory.tutorial6_3navigationui_viewpager2_appbar.R
 import com.smarttoolfactory.tutorial6_3navigationui_viewpager2_appbar.databinding.FragmentNavhostDashboardBinding
 import com.smarttoolfactory.tutorial6_3navigationui_viewpager2_appbar_nested_navigation.blankfragment.BaseDataBindingFragment
 
-class DashBoardNavHostFragment : BaseDataBindingFragment<FragmentNavhostDashboardBinding>() {
+class DashboardNavHostFragment : BaseDataBindingFragment<FragmentNavhostDashboardBinding>() {
     override fun getLayoutRes(): Int = R.layout.fragment_navhost_dashboard
 
     var dashboardNavController = MutableLiveData<NavController>()

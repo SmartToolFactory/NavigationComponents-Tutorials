@@ -12,7 +12,7 @@ import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.util.E
 import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.viewmodel.AppbarViewModel
 
 
-class DashBoardNavHostFragment : BaseDataBindingFragment<FragmentNavhostDashboardBinding>() {
+class DashboardNavHostFragment : BaseDataBindingFragment<FragmentNavhostDashboardBinding>() {
     override fun getLayoutRes(): Int = R.layout.fragment_navhost_dashboard
 
     private val appbarViewModel by activityViewModels<AppbarViewModel>()

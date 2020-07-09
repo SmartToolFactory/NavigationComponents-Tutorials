@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/dashboard_dest"
-        android:name="com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.navhost.DashBoardNavHostFragment"
+        android:name="com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.navhost.DashboardNavHostFragment"
         android:label="DashboardHost"
         tools:layout="@layout/fragment_navhost_dashboard" />
 

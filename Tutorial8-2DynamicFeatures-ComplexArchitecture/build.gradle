@@ -37,6 +37,12 @@ android {
         enabled = true
     }
 
+    dynamicFeatures = [':features:camera',
+                       ':features:photos'
+//                       ,
+//                       ':features:post_search',
+//                       ':features:post_detail'
+    ]
 }
 
 dependencies {

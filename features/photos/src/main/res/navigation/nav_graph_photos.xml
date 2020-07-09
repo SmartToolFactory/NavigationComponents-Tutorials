@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@id/nav_graph_photos"
+    app:moduleName="photos"
+    app:startDestination="@id/photosFragment1">
+
+    <fragment
+        android:id="@+id/photosFragment1"
+        android:name="com.smarttoolfactory.photos.PhotosFragment1"
+        android:label="PhotosFragment1"
+        tools:layout="@layout/fragment_photos1" >
+        <action
+            android:id="@+id/action_photosFragment1_to_photosFragment2"
+            app:destination="@id/photosFragment2" />
+<!--        <action-->
+<!--            android:id="@+id/action_photosFragment1_to_nav_graph_camera"-->
+<!--            app:destination="@id/nav_graph_camera" />-->
+    </fragment>
+
+    <fragment
+        android:id="@+id/photosFragment2"
+        android:name="com.smarttoolfactory.photos.PhotosFragment2"
+        android:label="PhotosFragment2"
+        tools:layout="@layout/fragment_photos2" />
+
+    <!-- favorite dynamic feature module-->
+<!--    <include-dynamic-->
+<!--        android:id="@id/nav_graph_camera"-->
+<!--        android:name="com.smarttoolfactory.camera"-->
+<!--        app:graphResName="nav_graph_camera"-->
+<!--        app:moduleName="camera" >-->
+<!--        <argument-->
+<!--            android:name="count"-->
+<!--            app:argType="integer"-->
+<!--            android:defaultValue="0" />-->
+<!--    </include-dynamic>-->
+</navigation>

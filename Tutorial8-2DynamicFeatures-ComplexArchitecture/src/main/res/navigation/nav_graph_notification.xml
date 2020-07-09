@@ -29,11 +29,24 @@
         android:id="@+id/notificationFragment3"
         android:name="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.blankfragment.NotificationFragment3"
         android:label="NotificationFragment3"
-        tools:layout="@layout/fragment_notification3" >
+        tools:layout="@layout/fragment_notification3">
         <action
             android:id="@+id/action_notificationFragment3_to_notificationFragment1"
             app:destination="@id/notificationFragment1"
             app:popUpTo="@id/notificationFragment1"
             app:popUpToInclusive="true" />
     </fragment>
+
+    <!-- camera dynamic feature module-->
+    <include-dynamic
+        android:id="@+id/nav_graph_camera"
+        android:name="com.smarttoolfactory.camera"
+        app:graphResName="nav_graph_camera"
+        app:moduleName="camera">
+        <argument
+            android:name="count"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </include-dynamic>
+
 </navigation>

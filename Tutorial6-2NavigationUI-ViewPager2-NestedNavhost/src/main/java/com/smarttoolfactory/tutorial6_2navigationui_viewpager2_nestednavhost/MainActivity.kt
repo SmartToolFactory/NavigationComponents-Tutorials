@@ -14,7 +14,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.smarttoolfactory.tutorial6_2naigationui_viewpager2_nestednavhost.R
 import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.blankfragment.LoginFragment1
 import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.viewpagerfragment.ViewPagerContainerFragment
-import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.navhost.DashBoardNavHostFragment
+import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.navhost.DashboardNavHostFragment
 import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.navhost.HomeNavHostFragment
 
 
@@ -49,7 +49,7 @@ import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.nav
  * and can navigate in them
  *
  * * [HomeNavHostFragment] uses graph with fragment that is displayed
- * * [DashBoardNavHostFragment] uses graph with itself as start destination so it should
+ * * [DashboardNavHostFragment] uses graph with itself as start destination so it should
  * check for the [NavController.getCurrentDestination] to navigate to it when device rotated
  *
  * * [LoginFragment1] is added to main graph, because of that appbar back navigation only works

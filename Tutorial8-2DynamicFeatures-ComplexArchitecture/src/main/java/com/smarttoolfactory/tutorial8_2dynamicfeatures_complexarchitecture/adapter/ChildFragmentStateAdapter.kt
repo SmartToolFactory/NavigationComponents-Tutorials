@@ -8,7 +8,8 @@ import androidx.viewpager2.adapter.FragmentStateAdapter.FragmentTransactionCallb
 import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.R
 import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.blankfragment.LoginFragment1
 import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.factory.NavHostFragmentFactory
-import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.navhost.NavHostContainerFragment
+import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.navhost.*
+import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.viewpagerfragment.NotificationHostFragment
 
 
 class ChildFragmentStateAdapter(private val fragment: Fragment) :
@@ -43,57 +44,72 @@ class ChildFragmentStateAdapter(private val fragment: Fragment) :
 
     override fun getItemCount(): Int = 6
 
-//    override fun createFragment(position: Int): Fragment {
-//
-//        return when (position) {
-//            0 -> PostVerticalNavHostFragment()
-//            1 -> PostHorizontalNavHostFragment()
-//            2 -> PostGridNavHostFragment()
-//            3 -> PostStaggeredNavHostFragment()
-//            4 -> NotificationHostFragment()
-//            else -> LoginFragment1()
-//
-//        }
-//    }
-
     override fun createFragment(position: Int): Fragment {
 
-        val classLoader = fragment.requireActivity().classLoader
-
         return when (position) {
-            0 -> navHostFragmentFactory.createNavHostFragment(
-                classLoader,
-                NavHostContainerFragment::class.java.name,
-                R.layout.fragment_navhost_post_vertical,
-                R.id.nested_nav_host_fragment_post_vertical
-            )
-            1 -> navHostFragmentFactory.createNavHostFragment(
-                classLoader,
-                NavHostContainerFragment::class.java.name,
-                R.layout.fragment_navhost_post_horizontal,
-                R.id.nested_nav_host_fragment_post_horizontal
-            )
-            2 -> navHostFragmentFactory.createNavHostFragment(
-                classLoader,
-                NavHostContainerFragment::class.java.name,
-                R.layout.fragment_navhost_post_grid,
-                R.id.nested_nav_host_fragment_post_grid
-            )
-            3 -> navHostFragmentFactory.createNavHostFragment(
-                classLoader,
-                NavHostContainerFragment::class.java.name,
-                R.layout.fragment_navhost_post_staggered,
-                R.id.nested_nav_host_fragment_post_staggered
-            )
-            4 -> navHostFragmentFactory.createNavHostFragment(
-                classLoader,
-                NavHostContainerFragment::class.java.name,
-                R.layout.fragment_navhost_notification,
-                R.id.nested_nav_host_fragment_notification
-            )
+            0 -> PostVerticalNavHostFragment()
+            1 -> PostHorizontalNavHostFragment()
+            2 -> PostGridNavHostFragment()
+            3 -> PostStaggeredNavHostFragment()
+            4 -> NotificationHostFragment()
             else -> LoginFragment1()
 
         }
     }
+
+    // FIXME There is an issue with ViewPager2 and FragmentFactory when app is rotated
+    /*
+        🔥🔥🔥 It creates the last created fragment created prior to rotation, it's expected
+        but a bug, fix it.
+
+        ViewPager2 creates fragments after rotation which should not be created and destroys them
+        after 10 seconds if you don't swipe.
+
+     */
+
+//    override fun createFragment(position: Int): Fragment {
+//
+//        val classLoader = fragment.requireActivity().classLoader
+//
+//        return when (position) {
+//            0 -> navHostFragmentFactory.createNavHostFragment(
+//                classLoader,
+//                NavHostContainerFragment::class.java.name,
+//                R.layout.fragment_navhost_post_vertical,
+//                R.id.nested_nav_host_fragment_post_vertical,
+//                "Post Vertical"
+//            )
+//            1 -> navHostFragmentFactory.createNavHostFragment(
+//                classLoader,
+//                NavHostContainerFragment::class.java.name,
+//                R.layout.fragment_navhost_post_horizontal,
+//                R.id.nested_nav_host_fragment_post_horizontal,
+//                "Post Horizontal"
+//            )
+//            2 -> navHostFragmentFactory.createNavHostFragment(
+//                classLoader,
+//                NavHostContainerFragment::class.java.name,
+//                R.layout.fragment_navhost_post_grid,
+//                R.id.nested_nav_host_fragment_post_grid,
+//                "Post Grid"
+//            )
+//            3 -> navHostFragmentFactory.createNavHostFragment(
+//                classLoader,
+//                NavHostContainerFragment::class.java.name,
+//                R.layout.fragment_navhost_post_staggered,
+//                R.id.nested_nav_host_fragment_post_staggered,
+//                "Post Staggered"
+//            )
+//            4 -> navHostFragmentFactory.createNavHostFragment(
+//                classLoader,
+//                NavHostContainerFragment::class.java.name,
+//                R.layout.fragment_navhost_notification,
+//                R.id.nested_nav_host_fragment_notification,
+//                "Notification"
+//            )
+//            else -> LoginFragment1()
+//
+//        }
+//    }
 
 }

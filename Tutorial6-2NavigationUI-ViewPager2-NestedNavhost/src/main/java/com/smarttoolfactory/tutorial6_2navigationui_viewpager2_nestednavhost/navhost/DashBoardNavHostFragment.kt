@@ -1,9 +1,7 @@
 package com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.navhost
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
@@ -22,10 +20,10 @@ import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.bla
  * * [findNavController] returns the main navController, not the one required for navigating
  * nested [Fragment]s. That navController is retrieved from [NavHostFragment] of this fragment.
  *
- * * [DashBoardNavHostFragment] graph uses [DashBoardNavHostFragment] as start destination
+ * * [DashboardNavHostFragment] graph uses [DashboardNavHostFragment] as start destination
  * so it should **navigate to next destination** to not get stuck.
  */
-class DashBoardNavHostFragment : BaseDataBindingFragment<FragmentNavhostDashboardBinding>() {
+class DashboardNavHostFragment : BaseDataBindingFragment<FragmentNavhostDashboardBinding>() {
     override fun getLayoutRes(): Int = R.layout.fragment_navhost_dashboard
 
     var navController: NavController? = null
@@ -147,7 +145,7 @@ class DashBoardNavHostFragment : BaseDataBindingFragment<FragmentNavhostDashboar
 
         override fun handleOnBackPressed() {
 
-            println("🏂 ${this@DashBoardNavHostFragment.javaClass.simpleName} #${this@DashBoardNavHostFragment.hashCode()} handleOnBackPressed()")
+            println("🏂 ${this@DashboardNavHostFragment.javaClass.simpleName} #${this@DashboardNavHostFragment.hashCode()} handleOnBackPressed()")
 
             // Get NavHostFragment
             val navHostFragment =

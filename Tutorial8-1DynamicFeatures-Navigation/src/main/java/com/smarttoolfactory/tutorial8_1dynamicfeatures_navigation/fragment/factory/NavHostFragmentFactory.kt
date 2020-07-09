@@ -24,7 +24,7 @@ class NavHostFragmentFactory private constructor() : FragmentFactory() {
         this.layoutRes = layoutRes
         this.navHostFragmentId = navHostFragmentId
 
-//        println("🔥🔥 NavHostFragment creteNavHostFragment() layoutRes: ${this.layoutRes}, navHostFragmentId: ${this.navHostFragmentId}")
+        println("🔥🔥 NavHostFragment creteNavHostFragment() layoutRes: ${this.layoutRes}, navHostFragmentId: ${this.navHostFragmentId}")
 
         return instantiate(classLoader, className)
     }
@@ -32,7 +32,7 @@ class NavHostFragmentFactory private constructor() : FragmentFactory() {
 
     override fun instantiate(classLoader: ClassLoader, className: String): Fragment {
 
-//        println("⚠️😱 NavHostFragment instantiate() layoutRes: ${this.layoutRes}, navHostFragmentId: ${this.navHostFragmentId}")
+        println("⚠️😱 NavHostFragment instantiate() layoutRes: ${this.layoutRes}, navHostFragmentId: ${this.navHostFragmentId}")
 
         return when (className) {
             NavHostContainerFragment::class.java.name -> NavHostContainerFragment(

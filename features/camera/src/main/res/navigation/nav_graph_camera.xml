@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@id/nav_graph_camera"
+    app:moduleName="camera"
+    app:startDestination="@id/cameraFragment1">
+
+    <fragment
+        android:id="@+id/cameraFragment1"
+        android:name="com.smarttoolfactory.camera.CameraFragment1"
+        android:label="CameraFragment1"
+        tools:layout="@layout/fragment_camera1">
+        <action
+            android:id="@+id/action_cameraFragment1_to_cameraFragment2"
+            app:destination="@id/cameraFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/cameraFragment2"
+        android:name="com.smarttoolfactory.camera.CameraFragment2"
+        android:label="CameraFragment2"
+        tools:layout="@layout/fragment_camera2" />
+</navigation>

@@ -21,6 +21,10 @@
         android:name="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.blankfragment.DashboardFragment2"
         android:label="DashboardFragment2"
         tools:layout="@layout/fragment_dashboard2">
+        <argument
+            android:name="count"
+            android:defaultValue="0"
+            app:argType="integer" />
         <action
             android:id="@+id/action_dashboardFragment2_to_dashboardFragment3"
             app:destination="@id/dashboardFragment3" />
@@ -36,5 +40,17 @@
             app:popUpTo="@id/dashboardFragment1"
             app:popUpToInclusive="true" />
     </fragment>
+
+    <!-- photos dynamic feature module-->
+    <include-dynamic
+        android:id="@+id/nav_graph_photos"
+        android:name="com.smarttoolfactory.photos"
+        app:graphResName="nav_graph_photos"
+        app:moduleName="photos">
+        <argument
+            android:name="count"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </include-dynamic>
 
 </navigation>

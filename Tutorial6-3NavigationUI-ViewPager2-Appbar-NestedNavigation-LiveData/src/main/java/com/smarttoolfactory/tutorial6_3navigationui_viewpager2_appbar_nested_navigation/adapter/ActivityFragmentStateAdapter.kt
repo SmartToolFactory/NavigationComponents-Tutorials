@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.LiveData
 import androidx.navigation.NavController
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.smarttoolfactory.tutorial6_3navigationui_viewpager2_appbar_nested_navigation.navhost.DashBoardNavHostFragment
+import com.smarttoolfactory.tutorial6_3navigationui_viewpager2_appbar_nested_navigation.navhost.DashboardNavHostFragment
 import com.smarttoolfactory.tutorial6_3navigationui_viewpager2_appbar_nested_navigation.navhost.HomeNavHostFragment
 import com.smarttoolfactory.tutorial6_3navigationui_viewpager2_appbar_nested_navigation.navhost.NotificationHostFragment
 
@@ -27,7 +27,7 @@ class ActivityFragmentStateAdapter(fragmentActivity: FragmentActivity) :
             0 -> HomeNavHostFragment().apply {
                 navControllerMap[position] = homeNavController
             }
-            1 -> DashBoardNavHostFragment().apply {
+            1 -> DashboardNavHostFragment().apply {
                 navControllerMap[position] = dashboardNavController
             }
             else -> NotificationHostFragment().apply {

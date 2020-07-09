@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Tutorial8-2DynamicFeatures-ComplexArchitecture</string>
+    <string name="title_camera">Camera</string>
+    <string name="title_post_search">Post Search</string>
+    <string name="title_post_detail">Post Detail</string>
+    <string name="title_photos">Photos</string>
+    <string name="title_favorites">Favorites</string>
+    <string name="title_gallery">Gallery</string>
 </resources>

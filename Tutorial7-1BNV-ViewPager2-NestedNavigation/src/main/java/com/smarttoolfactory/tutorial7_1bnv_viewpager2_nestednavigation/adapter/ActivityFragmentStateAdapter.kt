@@ -7,7 +7,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LiveData
 import androidx.navigation.NavController
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.smarttoolfactory.tutorial7_1bnv_viewpager2_nestednavigation.navhost.DashBoardNavHostFragment
+import com.smarttoolfactory.tutorial7_1bnv_viewpager2_nestednavigation.navhost.DashboardNavHostFragment
 import com.smarttoolfactory.tutorial7_1bnv_viewpager2_nestednavigation.navhost.HomeNavHostFragment
 import com.smarttoolfactory.tutorial7_1bnv_viewpager2_nestednavigation.navhost.NotificationHostFragment
 
@@ -48,7 +48,7 @@ class ActivityFragmentStateAdapter(fragmentActivity: FragmentActivity) :
 
         return when (position) {
             0 -> HomeNavHostFragment()
-            1 -> DashBoardNavHostFragment()
+            1 -> DashboardNavHostFragment()
             else -> NotificationHostFragment()
         }
     }

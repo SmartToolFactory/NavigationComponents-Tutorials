@@ -5,11 +5,13 @@
     android:id="@+id/nav_graph_main"
     app:startDestination="@id/mainFragment">
 
+    <!--        android:name="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.main.MainFragment"-->
+
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.main.MainFragment"
+        android:name="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.main.MainFragmentWithViewPager"
         android:label="MainFragment"
-        tools:layout="@layout/fragment_main">
+        tools:layout="@layout/fragment_main_with_viewpager">
 
         <action
             android:id="@+id/action_mainFragment_to_notificationDetailFragment"
@@ -34,8 +36,9 @@
         android:label="PostDetailFragment"
         tools:layout="@layout/fragment_post_detail">
 
-        <argument android:name="post"
-            app:argType="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.api.Post"/>
+        <argument
+            android:name="post"
+            app:argType="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.api.Post" />
 
     </fragment>
 </navigation>

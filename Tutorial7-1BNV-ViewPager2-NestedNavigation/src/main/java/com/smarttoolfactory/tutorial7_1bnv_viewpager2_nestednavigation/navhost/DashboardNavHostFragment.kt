@@ -1,45 +1,46 @@
-package com.smarttoolfactory.tutorial6_5navigationui_viewpager2_fragmenttoolbar_mixednavigation.navhost
+package com.smarttoolfactory.tutorial7_1bnv_viewpager2_nestednavigation.navhost
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupWithNavController
-import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.smarttoolfactory.tutorial6_5navigationui_viewpager2_fragmenttoolbar_mixednavigation.R
-import com.smarttoolfactory.tutorial6_5navigationui_viewpager2_fragmenttoolbar_mixednavigation.databinding.FragmentNavhostDashboardBinding
-import com.smarttoolfactory.tutorial6_5navigationui_viewpager2_fragmenttoolbar_mixednavigation.blankfragment.BaseDataBindingFragment
+import com.smarttoolfactory.tutorial7_1bnv_viewpager2_nestednavigation.R
+import com.smarttoolfactory.tutorial7_1bnv_viewpager2_nestednavigation.blankfragment.BaseDataBindingFragment
+import com.smarttoolfactory.tutorial7_1bnv_viewpager2_nestednavigation.databinding.FragmentNavhostDashboardBinding
+import com.smarttoolfactory.tutorial7_1bnv_viewpager2_nestednavigation.viewmodel.AppbarViewModel
+import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.util.Event
 
-/**
- * Using [FragmentStateAdapter.registerFragmentTransactionCallback] with [FragmentStateAdapter] solves back navigation instead of using [OnBackPressedCallback.handleOnBackPressed] in every [NavHostFragment]
- * ### Should set app:defaultNavHost="true" for [NavHostFragment] for this to work
- */
-class DashBoardNavHostFragment : BaseDataBindingFragment<FragmentNavhostDashboardBinding>() {
+
+class DashboardNavHostFragment : BaseDataBindingFragment<FragmentNavhostDashboardBinding>() {
     override fun getLayoutRes(): Int = R.layout.fragment_navhost_dashboard
+
+    private val appbarViewModel by activityViewModels<AppbarViewModel>()
 
     private var navController: NavController? = null
 
     private val nestedNavHostFragmentId = R.id.nested_nav_host_fragment_dashboard
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        println("🏂 ${this.javaClass.simpleName}#${this.hashCode()} onCreate()")
+
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        println("🏂 ${this.javaClass.simpleName}#${this.hashCode()}  onViewCreated()")
 
         val nestedNavHostFragment =
             childFragmentManager.findFragmentById(nestedNavHostFragmentId) as? NavHostFragment
         navController = nestedNavHostFragment?.navController
 
-        val appBarConfig = AppBarConfiguration(navController!!.graph)
-        dataBinding.toolbar.setupWithNavController(navController!!, appBarConfig)
-
         // Listen on back press
-//        listenOnBackPressed()
+        listenOnBackPressed()
 
     }
-
 
 
     private fun listenOnBackPressed() {
@@ -48,14 +49,29 @@ class DashBoardNavHostFragment : BaseDataBindingFragment<FragmentNavhostDashboar
 
     override fun onResume() {
         super.onResume()
-        println("🏂 ${this.javaClass.simpleName} onResume()")
+        println("🏂 ${this.javaClass.simpleName} #${this.hashCode()}  onResume()")
 //        callback.isEnabled = true
+
+        // Set this navController as ViewModel's navController
+        navController?.let {
+            appbarViewModel.currentNavController.value = Event(it)
+        }
     }
 
     override fun onPause() {
         super.onPause()
-        println("🏂 ${this.javaClass.simpleName} onPause()")
+        println("🏂 ${this.javaClass.simpleName} #${this.hashCode()}  onPause()")
 //        callback.isEnabled = false
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        println("🏂 ${this.javaClass.simpleName} #${this.hashCode()}  onDestroyView()")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        println("🏂 ${this.javaClass.simpleName} #${this.hashCode()}  onDestroy()")
     }
 
     /**
@@ -68,6 +84,8 @@ class DashBoardNavHostFragment : BaseDataBindingFragment<FragmentNavhostDashboar
 //    val callback = object : OnBackPressedCallback(false) {
 //
 //        override fun handleOnBackPressed() {
+//
+//            println("🏂 ${this@DashBoardNavHostFragment.javaClass.simpleName} #${this@DashBoardNavHostFragment.hashCode()} handleOnBackPressed()")
 //
 //            // Check if it's the root of nested fragments in this navhosts
 //            if (navController?.currentDestination?.id == navController?.graph?.startDestination) {
@@ -89,7 +107,6 @@ class DashBoardNavHostFragment : BaseDataBindingFragment<FragmentNavhostDashboar
 //
 //        }
 //    }
-
 
 
 }

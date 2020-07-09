@@ -23,7 +23,9 @@ class GalleryFragment1 : BaseDataBindingFragment<FragmentGallery1Binding>() {
         dataBinding.btnIncrease.setOnClickListener {
             dataBinding.tvCount.text = "Count: ${++count}"
 
+            // 🔥 SetFragmentResult
 //            setFragmentResult("count", bundleOf("count" to count))
+            // 🔥 Set result for savedStateHandle
             findNavController().previousBackStackEntry?.savedStateHandle?.set("count", count)
         }
 

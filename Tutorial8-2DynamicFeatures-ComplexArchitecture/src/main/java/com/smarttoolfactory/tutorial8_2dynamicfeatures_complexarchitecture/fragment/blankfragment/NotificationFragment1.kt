@@ -26,13 +26,13 @@ class NotificationFragment1 : BaseDataBindingFragment<FragmentNotification1Bindi
             findNavController().navigate(R.id.action_notificationFragment1_to_notificationFragment2)
         }
 
-        dataBinding.btnFavorites.setOnClickListener {
+        dataBinding.btnCamera.setOnClickListener {
             val bundle = bundleOf("count" to count)
 
-//            findNavController().navigate(
-//                R.id.action_notificationFragment1_to_nav_graph_favorites,
-//                bundle
-//            )
+            findNavController().navigate(
+                R.id.nav_graph_camera,
+                bundle
+            )
         }
 
     }
