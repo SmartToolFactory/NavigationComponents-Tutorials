@@ -123,6 +123,9 @@ dependencies {
     // RxAndroid
     implementation 'io.reactivex.rxjava2:rxandroid:' + rootProject.rxandroidVersion
 
+    // Leak Canary
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.4'
+
 
     // "androidx.fragment:fragment-testing" must be scoped to all sourcesets.
 //    implementation deps.support.fragment_testing

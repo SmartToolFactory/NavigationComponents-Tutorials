@@ -27,11 +27,11 @@ class MainActivity : AppCompatActivity() {
             val fragmentCount = fragments.size
 
 
-            Toast.makeText(
-                this,
-                "MainActivity backStackEntryCount: $backStackEntryCount, fragmentCount: $fragmentCount, fragments: $fragments",
-                Toast.LENGTH_SHORT
-            ).show()
+//            Toast.makeText(
+//                this,
+//                "MainActivity backStackEntryCount: $backStackEntryCount, fragmentCount: $fragmentCount, fragments: $fragments",
+//                Toast.LENGTH_SHORT
+//            ).show()
         }
 
 

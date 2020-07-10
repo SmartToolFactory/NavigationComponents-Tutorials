@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         // Handles arrow back button
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        listenBackStackChange()
+//        listenBackStackChange()
     }
 
 

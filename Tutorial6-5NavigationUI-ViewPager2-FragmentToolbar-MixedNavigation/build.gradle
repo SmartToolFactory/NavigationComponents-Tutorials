@@ -41,6 +41,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlinVersion"
 
@@ -53,11 +54,11 @@ dependencies {
     // ConstraintLayout
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
 
-    // Material
-    implementation "com.google.android.material:material:$rootProject.materialVersion"
-
     // ViewPager2
     implementation "androidx.viewpager2:viewpager2:$rootProject.viewPager2Version"
+
+    // Material
+    implementation "com.google.android.material:material:$rootProject.materialVersion"
 
     //RecyclerView
     implementation "androidx.recyclerview:recyclerview:$rootProject.recyclerViewVersion"

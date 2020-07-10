@@ -29,7 +29,7 @@ import androidx.fragment.app.Fragment
  */
 abstract class BaseDataBindingFragment<ViewBinding : ViewDataBinding> : Fragment() {
 
-    lateinit var dataBinding: ViewBinding
+     var dataBinding: ViewBinding? = null
 
     @LayoutRes
     abstract fun getLayoutRes(): Int
@@ -52,7 +52,8 @@ abstract class BaseDataBindingFragment<ViewBinding : ViewDataBinding> : Fragment
         println("🤣 BaseDataBindingFragment onCreateView() ${this.javaClass.simpleName} #${this.hashCode()}")
         // Inflate the layout for this fragment
         dataBinding = DataBindingUtil.inflate(inflater, getLayoutRes(), container, false)
-        return dataBinding.root
+        dataBinding?.lifecycleOwner = viewLifecycleOwner
+        return dataBinding!!.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -69,6 +70,7 @@ abstract class BaseDataBindingFragment<ViewBinding : ViewDataBinding> : Fragment
     override fun onDestroyView() {
         super.onDestroyView()
 //        println("🥵 BaseDataBindingFragment onDestroyView() $this")
+        dataBinding = null
     }
 
     override fun onDestroy() {

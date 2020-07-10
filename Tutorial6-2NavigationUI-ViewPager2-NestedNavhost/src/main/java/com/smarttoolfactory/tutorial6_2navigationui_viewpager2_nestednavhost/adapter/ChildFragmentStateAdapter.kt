@@ -16,7 +16,7 @@ class ChildFragmentStateAdapter(fragment: Fragment) :
     override fun getItemCount(): Int = 4
 
     override fun createFragment(position: Int): Fragment {
-x3
+
         println("ChildFragmentStateAdapter createFragment() position: $position")
 
         return when (position) {

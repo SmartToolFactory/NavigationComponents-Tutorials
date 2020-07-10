@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorPrimaryDark">#b71c1c</color>
+    <color name="colorPrimary">#d32f2f</color>
+    <color name="colorSecondary">#FF4081</color>
+    <color name="colorSecondaryVariant">#FF4081</color>
+    <color name="icons">#212121</color>
+    <color name="divider">#BDBDBD</color>
+
+    <!-- Home Fragments -->
+    <color name="colorHome1">#E64A19</color>
+    <color name="colorHome2">#FF5722</color>
+    <color name="colorHome3">#FF8A65</color>
+
+    <!-- Dashboard Fragments -->
+    <color name="colorDashboard1">#1976D2</color>
+    <color name="colorDashboard2">#2196F3</color>
+    <color name="colorDashboard3">#64B5F6</color>
+
+    <!-- Notification Fragments -->
+    <color name="colorNotification1">#388E3C</color>
+    <color name="colorNotification2">#4CAF50</color>
+    <color name="colorNotification3">#81C784</color>
+
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>

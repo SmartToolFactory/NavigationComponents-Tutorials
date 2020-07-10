@@ -15,11 +15,11 @@ class HomeFragment3 : BaseDataBindingFragment<FragmentHome3Binding>() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        dataBinding.btnIncrease.setOnClickListener {
-            dataBinding.tvTitle.text = "Count: ${count++}"
+        dataBinding!!.btnIncrease.setOnClickListener {
+            dataBinding!!.tvTitle.text = "Count: ${count++}"
         }
 
-        dataBinding.btnGoToStart.setOnClickListener {
+        dataBinding!!.btnGoToStart.setOnClickListener {
             findNavController().navigate(R.id.action_global_start)
         }
     }

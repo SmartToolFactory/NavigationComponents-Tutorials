@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/start_dest">
+
+    <fragment
+        android:id="@+id/start_dest"
+        android:name="com.smarttoolfactory.tutorial6_0navigationui_viewpager2.viewpagerfragment.ViewPagerContainerFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_viewpager_container">
+        <action
+            android:id="@+id/action_mainFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
+        <action
+            android:id="@+id/action_mainFragment_to_dashboardFragment2"
+            app:destination="@id/dashboardFragment2" />
+        <action
+            android:id="@+id/action_main_fragment_to_notificationFragment2"
+            app:destination="@id/notificationFragment2" />
+    </fragment>
+
+
+    <!-- Home -->
+
+    <fragment
+        android:id="@+id/homeFragment2"
+        android:name="com.smarttoolfactory.tutorial6_0navigationui_viewpager2.blankfragment.HomeFragment2"
+        android:label="HomeFragment2"
+        tools:layout="@layout/fragment_home2">
+        <action
+            android:id="@+id/action_homeFragment2_to_homeFragment3"
+            app:destination="@id/homeFragment3" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment3"
+        android:name="com.smarttoolfactory.tutorial6_0navigationui_viewpager2.blankfragment.HomeFragment3"
+        android:label="HomeFragment3"
+        tools:layout="@layout/fragment_home3" />
+
+    <!-- Dashboard -->
+    <fragment
+        android:id="@+id/dashboardFragment2"
+        android:name="com.smarttoolfactory.tutorial6_0navigationui_viewpager2.blankfragment.DashboardFragment2"
+        android:label="DashboardFragment2"
+        tools:layout="@layout/fragment_dashboard2">
+        <action
+            android:id="@+id/action_dashboardFragment2_to_dashboardFragment3"
+            app:destination="@id/dashboardFragment3" />
+    </fragment>
+    <fragment
+        android:id="@+id/dashboardFragment3"
+        android:name="com.smarttoolfactory.tutorial6_0navigationui_viewpager2.blankfragment.DashboardFragment3"
+        android:label="DashboardFragment3"
+        tools:layout="@layout/fragment_dashboard3" />
+
+
+    <fragment
+        android:id="@+id/notificationFragment2"
+        android:name="com.smarttoolfactory.tutorial6_0navigationui_viewpager2.blankfragment.NotificationFragment2"
+        android:label="NotificationFragment2"
+        tools:layout="@layout/fragment_notification2">
+        <action
+            android:id="@+id/action_notificationFragment2_to_notificationFragment3"
+            app:destination="@id/notificationFragment3" />
+    </fragment>
+    <fragment
+        android:id="@+id/notificationFragment3"
+        android:name="com.smarttoolfactory.tutorial6_0navigationui_viewpager2.blankfragment.NotificationFragment3"
+        android:label="NotificationFragment3"
+        tools:layout="@layout/fragment_notification3" />
+
+    <!-- Global Action Start -->
+    <action
+        android:id="@+id/action_global_start"
+        app:destination="@id/start_dest"
+        app:popUpTo="@id/start_dest"
+        app:popUpToInclusive="true" />
+
+</navigation>

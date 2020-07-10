@@ -15,11 +15,11 @@ class DashboardFragment3 : BaseDataBindingFragment<FragmentDashboard3Binding>() 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        dataBinding.btnIncrease.setOnClickListener {
-            dataBinding.tvTitle.text = "Count: ${count++}"
+        dataBinding!!.btnIncrease.setOnClickListener {
+            dataBinding!!.tvTitle.text = "Count: ${count++}"
         }
 
-        dataBinding.btnGoToStart.setOnClickListener {
+        dataBinding!!.btnGoToStart.setOnClickListener {
             findNavController().navigate(R.id.action_global_start)
         }
 

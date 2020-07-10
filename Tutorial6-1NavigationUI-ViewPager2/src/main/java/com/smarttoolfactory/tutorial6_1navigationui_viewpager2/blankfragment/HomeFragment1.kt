@@ -15,11 +15,11 @@ class HomeFragment1 : BaseDataBindingFragment<FragmentHome1Binding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        dataBinding.btnIncrease.setOnClickListener {
-            dataBinding.tvTitle.text = "Count: ${count++}"
+        dataBinding!!.btnIncrease.setOnClickListener {
+            dataBinding!!.tvTitle.text = "Count: ${count++}"
         }
 
-        dataBinding.btnNextPage.setOnClickListener {
+        dataBinding!!.btnNextPage.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_homeFragment2)
         }
 
