@@ -41,14 +41,14 @@ class ParentNavHostFragment : BaseDataBindingFragment<FragmentNavhostParentBindi
 //        listenBackStack()
 
         val appBarConfig = AppBarConfiguration(navController!!.graph)
-        dataBinding.toolbar.setupWithNavController(navController!!, appBarConfig)
+        dataBinding!!.toolbar.setupWithNavController(navController!!, appBarConfig)
 
 
         appbarViewModel.currentNavController.observe(viewLifecycleOwner, Observer { navController ->
             navController?.let {
 
                 val appBarConfig = AppBarConfiguration(it.graph)
-                dataBinding.toolbar.setupWithNavController(it, appBarConfig)
+                dataBinding!!.toolbar.setupWithNavController(it, appBarConfig)
             }
         })
 

@@ -6,13 +6,14 @@
         android:id="@+id/fragment_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#81C784">
+        android:background="@color/colorNotification3"
+        android:padding="8dp">
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dashboard Fragment1"
+            android:text="Notification Fragment3"
             android:textColor="#fff"
             android:textSize="32sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -22,25 +23,15 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.3" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnIncrease"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="Count++"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
-
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnGoToStart"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Go to Start"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnIncrease" />
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

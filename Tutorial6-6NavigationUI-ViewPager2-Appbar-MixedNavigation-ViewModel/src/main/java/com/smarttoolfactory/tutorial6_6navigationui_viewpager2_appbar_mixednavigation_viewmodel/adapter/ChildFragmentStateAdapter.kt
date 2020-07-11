@@ -41,8 +41,6 @@ class ChildFragmentStateAdapter(fragment: Fragment) :
 
     override fun createFragment(position: Int): Fragment {
 
-        println("ChildFragmentStateAdapter createFragment() position: $position")
-
         return when (position) {
             0 -> HomeNavHostFragment()
             1 -> DashboardNavHostFragment()

@@ -15,6 +15,6 @@ class PostDetailFragment : BaseDataBindingFragment<FragmentPostDetailBinding>() 
         // Get RepoListItem from navigation component arguments
         val post = arguments?.get("post") as Post?
 
-        dataBinding.item = post
+        dataBinding!!.item = post
     }
 }

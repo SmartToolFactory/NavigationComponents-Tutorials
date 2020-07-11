@@ -56,7 +56,7 @@
         android:label="DashboardFragment3"
         tools:layout="@layout/fragment_dashboard3" />
 
-
+    <!-- Notification -->
     <fragment
         android:id="@+id/notificationFragment2"
         android:name="com.smarttoolfactory.tutorial6_0navigationui_viewpager2.blankfragment.NotificationFragment2"

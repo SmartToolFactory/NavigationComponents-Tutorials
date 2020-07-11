@@ -8,18 +8,18 @@
     <color name="divider">#BDBDBD</color>
 
     <!-- Home Fragments -->
-    <color name="colorHome1">#E64A19</color>
-    <color name="colorHome2">#FF5722</color>
-    <color name="colorHome3">#FF8A65</color>
+    <color name="colorHome1">#FFB300</color>
+    <color name="colorHome2">#FFCA28</color>
+    <color name="colorHome3">#FFD54F</color>
 
     <!-- Dashboard Fragments -->
-    <color name="colorDashboard1">#1976D2</color>
-    <color name="colorDashboard2">#2196F3</color>
-    <color name="colorDashboard3">#64B5F6</color>
+    <color name="colorDashboard1">#039BE5</color>
+    <color name="colorDashboard2">#29B6F6</color>
+    <color name="colorDashboard3">#4FC3F7</color>
 
     <!-- Notification Fragments -->
-    <color name="colorNotification1">#388E3C</color>
-    <color name="colorNotification2">#4CAF50</color>
+    <color name="colorNotification1">#43A047</color>
+    <color name="colorNotification2">#66BB6A</color>
     <color name="colorNotification3">#81C784</color>
 
     <color name="purple_200">#FFBB86FC</color>

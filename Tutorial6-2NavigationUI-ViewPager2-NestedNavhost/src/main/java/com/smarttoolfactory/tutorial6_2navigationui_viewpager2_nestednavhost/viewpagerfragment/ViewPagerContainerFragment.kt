@@ -16,9 +16,9 @@ class ViewPagerContainerFragment : BaseDataBindingFragment<FragmentViewpagerCont
         super.onViewCreated(view, savedInstanceState)
 
         // TabLayout
-        val tabLayout = dataBinding.tabLayout
+        val tabLayout = dataBinding!!.tabLayout
         // ViewPager2
-        val viewPager = dataBinding.viewPager
+        val viewPager = dataBinding!!.viewPager
 
         /*
             🔥 Set Adapter for ViewPager inside this fragment using this Fragment,

@@ -46,14 +46,14 @@ class ParentNavHostFragment : BaseDataBindingFragment<FragmentNavhostParentBindi
         listenBackStack()
 
         val appBarConfig = AppBarConfiguration(navController!!.graph)
-        dataBinding.toolbar.setupWithNavController(navController!!, appBarConfig)
+        dataBinding!!.toolbar.setupWithNavController(navController!!, appBarConfig)
 
 
         appbarViewModel.appbarParentVisibility.observe(viewLifecycleOwner, Observer { visible ->
             if (visible) {
-                dataBinding.appbar.visibility = View.VISIBLE
+                dataBinding!!.appbar.visibility = View.VISIBLE
             } else {
-                dataBinding.appbar.visibility = View.GONE
+                dataBinding!!.appbar.visibility = View.GONE
             }
         })
 

@@ -24,7 +24,7 @@ class LoginFragment1 : BaseDataBindingFragment<FragmentLogin1Binding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        dataBinding.buttonLogin.setOnClickListener {
+        dataBinding!!.buttonLogin.setOnClickListener {
             findNavController().navigate(R.id.action_view_pager_dest_to_loginFragment2)
         }
 

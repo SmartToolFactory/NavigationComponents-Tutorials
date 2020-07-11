@@ -9,16 +9,11 @@ import com.smarttoolfactory.tutorial6_6navigationui_viewpager2_appbar_mixednavig
 class NotificationFragment3 : BaseDataBindingFragment<FragmentNotification3Binding>() {
     override fun getLayoutRes(): Int = R.layout.fragment_notification3
 
-    var count = 0
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        dataBinding.btnIncrease.setOnClickListener {
-            dataBinding.tvTitle.text = "Count: ${count++}"
-        }
-
-        dataBinding.btnGoToStart.setOnClickListener {
+        dataBinding!!.btnGoToStart.setOnClickListener {
             findNavController().navigate(R.id.action_notificationFragment3_to_notificationFragment1)
         }
     }

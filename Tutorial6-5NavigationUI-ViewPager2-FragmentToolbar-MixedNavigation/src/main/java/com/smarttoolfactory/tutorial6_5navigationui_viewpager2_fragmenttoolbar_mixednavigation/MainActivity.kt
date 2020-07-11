@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.smarttoolfactory.tutorial6_5navigationui_viewpager2_fragmenttoolbar_mixednavigation.blankfragment.LoginFragment2
 import com.smarttoolfactory.tutorial6_5navigationui_viewpager2_fragmenttoolbar_mixednavigation.navhost.ParentNavHostFragment
@@ -59,8 +60,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         listenBackStackChange()
-    }
 
+    }
 
     private fun listenBackStackChange() {
         // Get NavHostFragment

@@ -35,7 +35,7 @@ class NotificationHostFragment : BaseDataBindingFragment<FragmentNavhostNotifica
 
 
         val appBarConfig = AppBarConfiguration(navController!!.graph)
-        dataBinding.toolbar.setupWithNavController(navController!!, appBarConfig)
+        dataBinding!!.toolbar.setupWithNavController(navController!!, appBarConfig)
 
         // Listen on back press
 //        listenOnBackPressed()

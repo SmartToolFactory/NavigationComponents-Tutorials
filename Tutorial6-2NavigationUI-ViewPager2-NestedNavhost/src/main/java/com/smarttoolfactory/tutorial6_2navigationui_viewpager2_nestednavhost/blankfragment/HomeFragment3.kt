@@ -9,18 +9,11 @@ import com.smarttoolfactory.tutorial6_2naigationui_viewpager2_nestednavhost.data
 class HomeFragment3 : BaseDataBindingFragment<FragmentHome3Binding>() {
     override fun getLayoutRes(): Int = R.layout.fragment_home3
 
-    var count = 0
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        dataBinding.btnIncrease.setOnClickListener {
-            dataBinding.tvTitle.text = "Count: ${count++}"
-        }
-
-        dataBinding.btnGoToStart.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment3_to_homeFragment1)
+        dataBinding!!.btnGoToStart.setOnClickListener {
+            findNavController().navigate(R.id.action_global_start)
         }
     }
 }

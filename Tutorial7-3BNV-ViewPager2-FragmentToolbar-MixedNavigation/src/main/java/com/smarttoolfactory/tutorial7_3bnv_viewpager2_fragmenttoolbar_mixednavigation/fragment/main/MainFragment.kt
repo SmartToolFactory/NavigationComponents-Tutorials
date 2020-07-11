@@ -42,7 +42,8 @@ class MainFragment : BaseDataBindingFragment<FragmentMainBinding>() {
      * Called on first creation and when restoring state.
      */
     private fun setupBottomNavigationBar() {
-        val bottomNavigationView = dataBinding.bottomNav
+
+        val bottomNavigationView = dataBinding!!.bottomNav
 
 
         val navGraphIds = listOf(
@@ -71,7 +72,7 @@ class MainFragment : BaseDataBindingFragment<FragmentMainBinding>() {
     private fun subscribeBottomNavigation(controller: LiveData<NavController>) {
         controller.observe(viewLifecycleOwner, Observer { navController ->
             val appBarConfig = AppBarConfiguration(navController.graph)
-            dataBinding.toolbar.setupWithNavController(navController, appBarConfig)
+            dataBinding!!.toolbar.setupWithNavController(navController, appBarConfig)
         })
     }
 
@@ -81,7 +82,7 @@ class MainFragment : BaseDataBindingFragment<FragmentMainBinding>() {
             it?.let { event: Event<NavController> ->
                 event.getContentIfNotHandled()?.let { navController ->
                     val appBarConfig = AppBarConfiguration(navController.graph)
-                    dataBinding.toolbar.setupWithNavController(navController, appBarConfig)
+                    dataBinding!!.toolbar.setupWithNavController(navController, appBarConfig)
                 }
             }
         })
@@ -89,7 +90,7 @@ class MainFragment : BaseDataBindingFragment<FragmentMainBinding>() {
 
     private fun addNotificationBadge() {
         // Add badge to bottom navigation
-        val bottomNavigationView = dataBinding.bottomNav
+        val bottomNavigationView = dataBinding!!.bottomNav
         val menuItemId = bottomNavigationView.menu.getItem(2).itemId
         val badge = bottomNavigationView.getOrCreateBadge(menuItemId)
         badge.number = 2

@@ -27,6 +27,8 @@ import androidx.viewpager2.widget.ViewPager2
  *
  * * In this example navigation is done between main NavHost and main back stack,
  * every page/fragment in [ViewPager2] added main back stack.
+ *
+ * ## This example is same as Tutorial 6-0, but uses data binding which might be causing MEMORY LEAK, at least Leak Canary says so
  */
 class MainActivity : AppCompatActivity() {
 

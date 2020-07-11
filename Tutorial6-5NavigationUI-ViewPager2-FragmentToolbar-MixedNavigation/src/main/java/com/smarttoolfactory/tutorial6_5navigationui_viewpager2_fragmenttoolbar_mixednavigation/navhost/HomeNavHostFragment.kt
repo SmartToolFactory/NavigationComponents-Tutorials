@@ -34,7 +34,7 @@ class HomeNavHostFragment : BaseDataBindingFragment<FragmentNavhostHomeBinding>(
         navController = nestedNavHostFragment?.navController
 
         val appBarConfig = AppBarConfiguration(navController!!.graph)
-        dataBinding.toolbar.setupWithNavController(navController!!, appBarConfig)
+        dataBinding!!.toolbar.setupWithNavController(navController!!, appBarConfig)
 
         // Listen on back press
 //        listenOnBackPressed()

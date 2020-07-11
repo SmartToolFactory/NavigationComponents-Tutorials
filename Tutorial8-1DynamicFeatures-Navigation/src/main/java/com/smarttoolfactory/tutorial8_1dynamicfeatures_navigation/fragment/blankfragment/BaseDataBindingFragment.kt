@@ -34,11 +34,6 @@ abstract class BaseDataBindingFragment<ViewBinding : ViewDataBinding> : Fragment
     @LayoutRes
     abstract fun getLayoutRes(): Int
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        println("🔥 ${this.javaClass.simpleName} #${this.hashCode()}  onActivityCreated()")
-
-    }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -64,14 +59,9 @@ abstract class BaseDataBindingFragment<ViewBinding : ViewDataBinding> : Fragment
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        println("🤩 BaseDataBindingFragment onViewCreated() view: $view")
+//        println("🤩 ${this.javaClass.simpleName} #${this.hashCode()}  onViewCreated() view: $view")
     }
 
-
-    override fun onAttachFragment(childFragment: Fragment) {
-        super.onAttachFragment(childFragment)
-//        println("😱✅ ${this.javaClass.simpleName} #${this.hashCode()}  onAttachFragment(), CHILD: $childFragment")
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()

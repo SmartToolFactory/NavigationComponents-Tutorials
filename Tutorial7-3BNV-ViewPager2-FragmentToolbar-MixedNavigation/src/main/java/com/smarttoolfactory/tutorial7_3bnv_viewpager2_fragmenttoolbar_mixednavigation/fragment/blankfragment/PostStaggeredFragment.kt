@@ -5,7 +5,6 @@ import android.view.View
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -35,12 +34,14 @@ class PostStaggeredFragment : BaseDataBindingFragment<FragmentPostListStaggeredB
 
     private fun bindViews() {
 
+        val binding = dataBinding!!
+
         // 🔥 Set lifecycle for data binding
-        dataBinding.lifecycleOwner = viewLifecycleOwner
+        binding.lifecycleOwner = viewLifecycleOwner
 
-        dataBinding.viewModel = viewModel
+        binding.viewModel = viewModel
 
-        dataBinding.recyclerView.apply {
+        binding.recyclerView.apply {
 
             // Set Layout manager
             this.layoutManager =
