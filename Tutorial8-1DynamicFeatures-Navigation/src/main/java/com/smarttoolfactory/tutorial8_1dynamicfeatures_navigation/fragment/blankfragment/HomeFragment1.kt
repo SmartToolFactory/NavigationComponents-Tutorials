@@ -18,18 +18,20 @@ class HomeFragment1 : BaseDataBindingFragment<FragmentHome1Binding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        dataBinding.tvCount.text = "Count: $count"
+        val binding = dataBinding!!
 
-        dataBinding.btnIncrease.setOnClickListener {
-            dataBinding.tvCount.text = "Count: ${++count}"
+        binding.tvCount.text = "Count: $count"
+
+        binding.btnIncrease.setOnClickListener {
+            binding.tvCount.text = "Count: ${++count}"
         }
 
-        dataBinding.btnNextPage.setOnClickListener {
+        binding.btnNextPage.setOnClickListener {
             val bundle = bundleOf("count" to count)
             findNavController().navigate(R.id.action_homeFragment1_to_homeFragment2, bundle)
         }
 
-        dataBinding.btnGallery.setOnClickListener {
+        binding.btnGallery.setOnClickListener {
             val bundle = bundleOf("count" to count)
 
             findNavController().navigate(
@@ -38,13 +40,13 @@ class HomeFragment1 : BaseDataBindingFragment<FragmentHome1Binding>() {
             )
         }
 
-        // 🔥 Listen savedStateHandle liveData,any type can be put in a Bundle is supported
+        // 🔥 Listen savedStateHandle liveData, any type can be put in a Bundle is supported
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Int>("count")
             ?.observe(
                 viewLifecycleOwner, Observer { result: Int ->
                     // Do something with the result.
                     count = result
-                    dataBinding.tvCount.text = "Count: $count"
+                    binding.tvCount.text = "Count: $count"
 
                 })
 

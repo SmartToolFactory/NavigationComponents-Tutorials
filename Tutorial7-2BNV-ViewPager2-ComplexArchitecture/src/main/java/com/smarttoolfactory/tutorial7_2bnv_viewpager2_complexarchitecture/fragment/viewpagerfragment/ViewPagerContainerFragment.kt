@@ -2,18 +2,16 @@ package com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.fragm
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.activityViewModels
 import com.google.android.material.tabs.TabLayoutMediator
 import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.R
 import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.adapter.ChildFragmentStateAdapter
-import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.fragment.blankfragment.BaseDataBindingFragment
 import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.databinding.FragmentViewpagerContainerBinding
-import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.viewmodel.AppbarViewModel
+import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.fragment.blankfragment.BaseDataBindingFragment
 
 
 class ViewPagerContainerFragment : BaseDataBindingFragment<FragmentViewpagerContainerBinding>() {
 
-    val appbarViewModel by activityViewModels<AppbarViewModel>()
+    override fun getLayoutRes(): Int = R.layout.fragment_viewpager_container
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -40,16 +38,22 @@ class ViewPagerContainerFragment : BaseDataBindingFragment<FragmentViewpagerCont
             }
         }.attach()
 
-//        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-//
-//            override fun onPageSelected(position: Int) {
-//                super.onPageSelected(position)
-//                appbarViewModel.currentNavController.value =
-//                    appbarViewModel.currentNavController.value
-//            }
-//        })
 
     }
 
-    override fun getLayoutRes(): Int = R.layout.fragment_viewpager_container
+    override fun onDestroyView() {
+
+        val viewPager2 = dataBinding?.viewPager
+
+        /*
+            Without setting ViewPager2 Adapter it causes memory leak
+
+            https://stackoverflow.com/questions/62851425/viewpager2-inside-a-fragment-leaks-after-replacing-the-fragment-its-in-by-navig
+         */
+        viewPager2?.let {
+            it.adapter = null
+        }
+
+        super.onDestroyView()
+    }
 }

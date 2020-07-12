@@ -15,9 +15,11 @@ class CameraFragment1 : BaseDataBindingFragment<FragmentCamera1Binding>() {
 
         val count = (arguments?.get("count") as? Int) ?: 0
 
-        dataBinding.tvInfo.text = "${dataBinding.tvInfo.text}\n Count: $count"
+        val binding = dataBinding!!
 
-        dataBinding.btnNextPage.setOnClickListener {
+        binding.tvInfo.text = "${binding.tvInfo.text}\n Count: $count"
+
+        binding.btnNextPage.setOnClickListener {
             findNavController().navigate(R.id.action_cameraFragment1_to_cameraFragment2)
         }
     }

@@ -39,8 +39,11 @@ class ViewPagerContainerFragment : BaseDataBindingFragment<FragmentViewpagerCont
     }
 
     private fun setUpViewPager2AndTabLayout() {
+
+        val binding = dataBinding!!
+
         // ViewPager2
-        val viewPager = dataBinding.viewPager
+        val viewPager = binding.viewPager
 
         /*
             Set Adapter for ViewPager inside this fragment using this Fragment,
@@ -49,7 +52,7 @@ class ViewPagerContainerFragment : BaseDataBindingFragment<FragmentViewpagerCont
         viewPager.adapter = ChildFragmentStateAdapter(this)
 
         // TabLayout
-        val tabLayout = dataBinding.tabLayout
+        val tabLayout = binding.tabLayout
 
         // Bind tabs and viewpager
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
@@ -65,10 +68,13 @@ class ViewPagerContainerFragment : BaseDataBindingFragment<FragmentViewpagerCont
     }
 
     private fun setUpToolbar() {
-        // Set toolbar menu and item click listener
-        dataBinding.toolbar.inflateMenu(R.menu.menu_main)
 
-        dataBinding.toolbar.setOnMenuItemClickListener {
+        val binding = dataBinding!!
+
+        // Set toolbar menu and item click listener
+        binding.toolbar.inflateMenu(R.menu.menu_main)
+
+        binding.toolbar.setOnMenuItemClickListener {
             onOptionsItemSelected(it)
         }
     }
@@ -79,7 +85,7 @@ class ViewPagerContainerFragment : BaseDataBindingFragment<FragmentViewpagerCont
             it?.let { event: Event<NavController> ->
                 event.getContentIfNotHandled()?.let { navController ->
                     val appBarConfig = AppBarConfiguration(navController.graph)
-                    dataBinding.toolbar.setupWithNavController(navController, appBarConfig)
+                    dataBinding?.toolbar?.setupWithNavController(navController, appBarConfig)
                 }
             }
         })
@@ -105,5 +111,21 @@ class ViewPagerContainerFragment : BaseDataBindingFragment<FragmentViewpagerCont
         // Navigates to destination which is both has the same id in menu.xml and nav_graph.xml.
         return item.onNavDestinationSelected(navController)
                 || super.onOptionsItemSelected(item)
+    }
+
+    override fun onDestroyView() {
+
+        val viewPager2 = dataBinding?.viewPager
+
+        /*
+            Without setting ViewPager2 Adapter it causes memory leak
+
+            https://stackoverflow.com/questions/62851425/viewpager2-inside-a-fragment-leaks-after-replacing-the-fragment-its-in-by-navig
+         */
+        viewPager2?.let {
+            it.adapter = null
+        }
+
+        super.onDestroyView()
     }
 }

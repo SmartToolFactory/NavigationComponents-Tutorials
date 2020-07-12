@@ -1,21 +1,14 @@
 package com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.main
 
 import android.os.Bundle
-import android.view.MenuItem
 import android.view.View
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupWithNavController
 import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.R
 import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.databinding.FragmentMainBinding
 import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.blankfragment.BaseDataBindingFragment
 import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.setupWithNavController
-import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.util.Event
-import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.viewmodel.NavControllerViewModel
 
 
 class MainFragment : BaseDataBindingFragment<FragmentMainBinding>() {
@@ -42,10 +35,13 @@ class MainFragment : BaseDataBindingFragment<FragmentMainBinding>() {
     }
 
     /**
-     * Called on first creation and when restoring state.
+     * Called on create and when restoring state.
      */
     private fun setupBottomNavigationBar() {
-        val bottomNavigationView = dataBinding.bottomNav
+
+        val binding = dataBinding!!
+
+        val bottomNavigationView = binding.bottomNav
 
 
         val navGraphIds = listOf(
@@ -91,8 +87,11 @@ class MainFragment : BaseDataBindingFragment<FragmentMainBinding>() {
     }
 
     private fun addNotificationBadge() {
+
+        val binding = dataBinding!!
+
         // Add badge to bottom navigation
-        val bottomNavigationView = dataBinding.bottomNav
+        val bottomNavigationView = binding.bottomNav
         val menuItemId = bottomNavigationView.menu.getItem(2).itemId
         val badge = bottomNavigationView.getOrCreateBadge(menuItemId)
         badge.number = 2

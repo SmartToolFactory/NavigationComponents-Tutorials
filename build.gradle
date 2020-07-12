@@ -53,8 +53,14 @@ ext {
 
     // ConstraintLayout
     constraintLayoutVersion = '1.1.3'
-    recyclerViewVersion = '1.1.0'
+
+    // RecyclerView
+    recyclerViewVersion = '1.2.0-alpha04'
+
+    // CardView
     cardVersion = '1.0.0'
+
+    // ViewPager2
     viewPager2Version = '1.1.0-alpha01'
 
     // Architecture MVVM & LiveData

@@ -6,8 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
 import androidx.fragment.app.activityViewModels
@@ -65,9 +63,11 @@ class NavHostContainerFragment() : Fragment() {
             navHostFragmentId = it
         }
 
-        val dataBinding: ViewDataBinding = DataBindingUtil.inflate(
-            inflater, layoutRes, container, false
-        )
+//        val dataBinding: ViewDataBinding = DataBindingUtil.inflate(
+//            inflater, layoutRes, container, false
+//        )
+
+        val view = inflater.inflate(layoutRes, container, false)
 
         val nestedNavHostFragment =
             childFragmentManager.findFragmentById(navHostFragmentId) as? NavHostFragment
@@ -77,10 +77,12 @@ class NavHostContainerFragment() : Fragment() {
 
         navController = nestedNavHostFragment.navController
 
-        return dataBinding.run {
-            lifecycleOwner = viewLifecycleOwner
-            root
-        }
+//        return dataBinding.run {
+//            lifecycleOwner = viewLifecycleOwner
+//            root
+//        }
+
+        return view
     }
 
 
@@ -90,6 +92,11 @@ class NavHostContainerFragment() : Fragment() {
         navControllerViewModel.currentNavController.value = Event(navController)
     }
 
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+    }
 
     companion object {
         const val KEY_RES_ID = "key-res-id"

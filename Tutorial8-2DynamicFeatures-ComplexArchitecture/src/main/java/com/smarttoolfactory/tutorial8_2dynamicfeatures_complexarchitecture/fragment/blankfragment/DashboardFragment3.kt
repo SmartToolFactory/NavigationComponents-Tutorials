@@ -14,7 +14,9 @@ class DashboardFragment3 : BaseDataBindingFragment<FragmentDashboard3Binding>() 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        dataBinding.btnGoToStart.setOnClickListener {
+        val binding = dataBinding!!
+
+        binding.btnGoToStart.setOnClickListener {
             findNavController().navigate(R.id.action_dashboardFragment3_to_dashboardFragment1)
         }
 

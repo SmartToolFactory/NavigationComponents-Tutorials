@@ -32,6 +32,8 @@ class ChildFragmentStateAdapter(private val fragment: Fragment) :
                     }
                 }
 
+
+
             } else {
                 super.onFragmentMaxLifecyclePreUpdated(fragment, maxLifecycleState)
             }
@@ -41,8 +43,6 @@ class ChildFragmentStateAdapter(private val fragment: Fragment) :
     override fun getItemCount(): Int = 4
 
     override fun createFragment(position: Int): Fragment {
-
-        println("✅ ChildFragmentStateAdapter createFragment() position: $position")
 
         return when (position) {
             0 -> HomeNavHostFragment()

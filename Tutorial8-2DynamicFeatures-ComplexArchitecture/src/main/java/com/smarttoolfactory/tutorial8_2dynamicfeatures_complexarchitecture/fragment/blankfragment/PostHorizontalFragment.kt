@@ -22,22 +22,23 @@ class PostHorizontalFragment : BaseDataBindingFragment<FragmentPostListHorizonta
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        dataBinding.recyclerView1.apply {
-            layoutManager = LinearLayoutManager(requireContext())
-        }
-
-
         bindViews()
     }
 
     private fun bindViews() {
 
+        val binding = dataBinding!!
+
+        binding.recyclerView1.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+        }
+
         // 🔥 Set lifecycle for data binding
-        dataBinding.lifecycleOwner = viewLifecycleOwner
+        binding.lifecycleOwner = viewLifecycleOwner
 
-        dataBinding.viewModel = viewModel
+        binding.viewModel = viewModel
 
-        dataBinding.recyclerView1.apply {
+        binding.recyclerView1.apply {
 
             // Set Layout manager
             this.layoutManager =
@@ -49,7 +50,7 @@ class PostHorizontalFragment : BaseDataBindingFragment<FragmentPostListHorizonta
         }
 
 
-        dataBinding.recyclerView2.apply {
+        binding.recyclerView2.apply {
 
             // Set Layout manager
             this.layoutManager =

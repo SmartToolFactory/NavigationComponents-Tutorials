@@ -15,9 +15,11 @@ class FavoritesFragment1 : BaseDataBindingFragment<FragmentFavorites1Binding>() 
 
         val count = arguments?.get("count") as Int
 
-        dataBinding.tvInfo.text = "${dataBinding.tvInfo.text}\n Count: $count"
+        val binding = dataBinding!!
 
-        dataBinding.btnNextPage.setOnClickListener {
+        binding.tvInfo.text = "${binding.tvInfo.text}\n Count: $count"
+
+        binding.btnNextPage.setOnClickListener {
             findNavController().navigate(R.id.action_favoritesFragment1_to_favoritesFragment2)
         }
     }

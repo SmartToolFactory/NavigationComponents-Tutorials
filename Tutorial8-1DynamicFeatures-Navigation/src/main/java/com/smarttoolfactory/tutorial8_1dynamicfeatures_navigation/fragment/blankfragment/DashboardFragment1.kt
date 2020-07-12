@@ -17,18 +17,21 @@ class DashboardFragment1 : BaseDataBindingFragment<FragmentDashboard1Binding>() 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        dataBinding.tvCount.text = "Count: $count"
+        val binding = dataBinding!!
 
-        dataBinding.btnIncrease.setOnClickListener {
-            dataBinding.tvCount.text = "Count: ${++count}"
+
+        binding.tvCount.text = "Count: $count"
+
+        binding.btnIncrease.setOnClickListener {
+            binding.tvCount.text = "Count: ${++count}"
         }
 
 
-        dataBinding.btnNextPage.setOnClickListener {
+        binding.btnNextPage.setOnClickListener {
             findNavController().navigate(R.id.action_dashboardFragment1_to_dashboardFragment2)
         }
 
-        dataBinding.btnGallery.setOnClickListener {
+        binding.btnGallery.setOnClickListener {
             val bundle = bundleOf("count" to count)
 
             findNavController().navigate(

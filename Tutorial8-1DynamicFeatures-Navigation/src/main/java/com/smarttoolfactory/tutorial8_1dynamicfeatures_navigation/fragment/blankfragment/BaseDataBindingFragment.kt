@@ -29,11 +29,18 @@ import androidx.fragment.app.Fragment
  */
 abstract class BaseDataBindingFragment<ViewBinding : ViewDataBinding> : Fragment() {
 
-    lateinit var dataBinding: ViewBinding
+    /**
+     * * 🔥️ Data binding that is not null(or non-nullable) after [Fragment.onDestroyView]
+     * causing leak canary to show data binding related **MEMORY LEAK**
+     * for this fragment when used in [ViewPager2]
+     *
+     * * Even with null data binding [ViewPager2] still leaks with FragmentMaxLifecycleEnforcer
+     * or it's false positive, not confirmed
+     */
+    var dataBinding: ViewBinding? = null
 
     @LayoutRes
     abstract fun getLayoutRes(): Int
-
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -51,10 +58,11 @@ abstract class BaseDataBindingFragment<ViewBinding : ViewDataBinding> : Fragment
     ): View? {
 
         println("🤣 ${this.javaClass.simpleName} #${this.hashCode()} onCreateView()")
-
         // Inflate the layout for this fragment
         dataBinding = DataBindingUtil.inflate(inflater, getLayoutRes(), container, false)
-        return dataBinding.root
+        dataBinding!!.lifecycleOwner = viewLifecycleOwner
+
+        return dataBinding!!.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -66,6 +74,11 @@ abstract class BaseDataBindingFragment<ViewBinding : ViewDataBinding> : Fragment
     override fun onDestroyView() {
         super.onDestroyView()
         println("🥵 ${this.javaClass.simpleName} #${this.hashCode()}  onDestroyView()")
+
+        /*
+            🔥 Without nullifying dataBinding ViewPager2 gets data binding related MEMORY LEAKS
+         */
+        dataBinding = null
     }
 
     override fun onDestroy() {

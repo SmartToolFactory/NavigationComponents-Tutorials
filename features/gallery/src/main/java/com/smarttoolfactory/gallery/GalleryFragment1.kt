@@ -18,10 +18,12 @@ class GalleryFragment1 : BaseDataBindingFragment<FragmentGallery1Binding>() {
 
         count = arguments?.get("count") as Int
 
-        dataBinding.tvCount.text = "Count: $count"
+        val binding = dataBinding!!
 
-        dataBinding.btnIncrease.setOnClickListener {
-            dataBinding.tvCount.text = "Count: ${++count}"
+        binding.tvCount.text = "Count: $count"
+
+        binding.btnIncrease.setOnClickListener {
+            binding.tvCount.text = "Count: ${++count}"
 
             // 🔥 SetFragmentResult
 //            setFragmentResult("count", bundleOf("count" to count))
@@ -29,11 +31,11 @@ class GalleryFragment1 : BaseDataBindingFragment<FragmentGallery1Binding>() {
             findNavController().previousBackStackEntry?.savedStateHandle?.set("count", count)
         }
 
-        dataBinding.btnNextPage.setOnClickListener {
+        binding.btnNextPage.setOnClickListener {
             findNavController().navigate(R.id.action_galleryFragment1_to_galleryFragment2)
         }
 
-        dataBinding.btnFavorites.setOnClickListener {
+        binding.btnFavorites.setOnClickListener {
             val bundle = bundleOf("count" to count)
 
             findNavController().navigate(

@@ -12,7 +12,9 @@ class HomeFragment3 : BaseDataBindingFragment<FragmentHome3Binding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        dataBinding.btnGoToStart.setOnClickListener {
+        val binding = dataBinding!!
+
+        binding.btnGoToStart.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment3_to_homeFragment1)
         }
     }

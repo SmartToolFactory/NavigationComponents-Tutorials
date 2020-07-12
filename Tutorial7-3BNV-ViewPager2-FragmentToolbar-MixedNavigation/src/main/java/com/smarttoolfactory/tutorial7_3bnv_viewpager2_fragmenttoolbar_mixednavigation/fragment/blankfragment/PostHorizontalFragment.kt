@@ -22,11 +22,6 @@ class PostHorizontalFragment : BaseDataBindingFragment<FragmentPostListHorizonta
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        dataBinding!!.recyclerView1.apply {
-            layoutManager = LinearLayoutManager(requireContext())
-        }
-
-
         bindViews()
     }
 

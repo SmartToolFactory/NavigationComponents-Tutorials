@@ -13,7 +13,7 @@ import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavig
 
 class ViewPagerContainerFragment : BaseDataBindingFragment<FragmentViewpagerContainerBinding>() {
 
-
+    override fun getLayoutRes(): Int = R.layout.fragment_viewpager_container
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -45,5 +45,19 @@ class ViewPagerContainerFragment : BaseDataBindingFragment<FragmentViewpagerCont
 
     }
 
-    override fun getLayoutRes(): Int = R.layout.fragment_viewpager_container
+    override fun onDestroyView() {
+
+        val viewPager2 = dataBinding?.viewPager
+
+        /*
+            Without setting ViewPager2 Adapter it causes memory leak
+
+            https://stackoverflow.com/questions/62851425/viewpager2-inside-a-fragment-leaks-after-replacing-the-fragment-its-in-by-navig
+         */
+        viewPager2?.let {
+            it.adapter = null
+        }
+
+        super.onDestroyView()
+    }
 }

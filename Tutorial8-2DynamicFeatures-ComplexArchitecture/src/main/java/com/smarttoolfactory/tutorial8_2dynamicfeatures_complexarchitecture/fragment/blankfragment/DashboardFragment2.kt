@@ -19,20 +19,22 @@ class DashboardFragment2 : BaseDataBindingFragment<FragmentDashboard2Binding>() 
 
         count = arguments?.get("count") as Int
 
-        dataBinding.tvCount.text = "Count: $count"
+        val binding = dataBinding!!
 
-        dataBinding.btnIncrease.setOnClickListener {
-            dataBinding.tvCount.text = "Count: ${++count}"
+        binding.tvCount.text = "Count: $count"
+
+        binding.btnIncrease.setOnClickListener {
+            binding.tvCount.text = "Count: ${++count}"
 
             // 🔥 Put value to savedStateHandle
             findNavController().previousBackStackEntry?.savedStateHandle?.set("count", count)
         }
 
-        dataBinding.btnNextPage.setOnClickListener {
+        binding.btnNextPage.setOnClickListener {
             findNavController().navigate(R.id.action_dashboardFragment2_to_dashboardFragment3)
         }
 
-        dataBinding.btnPhotos.setOnClickListener {
+        binding.btnPhotos.setOnClickListener {
             val bundle = bundleOf("count" to count)
 
             findNavController().navigate(

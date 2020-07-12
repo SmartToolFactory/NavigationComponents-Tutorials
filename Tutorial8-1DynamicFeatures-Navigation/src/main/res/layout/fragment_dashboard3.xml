@@ -6,7 +6,7 @@
         android:id="@+id/fragment_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#64B5F6"
+        android:background="@color/colorDashboard3"
         android:padding="8dp">
 
         <com.google.android.material.textview.MaterialTextView

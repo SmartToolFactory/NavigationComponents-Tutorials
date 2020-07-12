@@ -16,17 +16,19 @@ class NotificationFragment1 : BaseDataBindingFragment<FragmentNotification1Bindi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        dataBinding.tvCount.text = "Count: $count"
+        val binding = dataBinding!!
 
-        dataBinding.btnIncrease.setOnClickListener {
-            dataBinding.tvCount.text = "Count: ${++count}"
+        binding.tvCount.text = "Count: $count"
+
+        binding.btnIncrease.setOnClickListener {
+            binding.tvCount.text = "Count: ${++count}"
         }
 
-        dataBinding.btnNextPage.setOnClickListener {
+        binding.btnNextPage.setOnClickListener {
             findNavController().navigate(R.id.action_notificationFragment1_to_notificationFragment2)
         }
 
-        dataBinding.btnCamera.setOnClickListener {
+        binding.btnCamera.setOnClickListener {
             val bundle = bundleOf("count" to count)
 
             findNavController().navigate(

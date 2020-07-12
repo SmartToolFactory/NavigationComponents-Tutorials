@@ -20,9 +20,10 @@ class MainFragmentWithViewPager : BaseDataBindingFragment<FragmentMainWithViewpa
 
         println("🔥 MainFragmentWithViewPager navController: ${findNavController()}")
 
+        val binding = dataBinding!!
 
-        val viewPager2 = dataBinding.viewPager
-        val bottomNavigationView = dataBinding.bottomNav
+        val viewPager2 = binding.viewPager
+        val bottomNavigationView = binding.bottomNav
 
         // Cancel ViewPager swipe
         viewPager2.isUserInputEnabled = false
@@ -53,5 +54,21 @@ class MainFragmentWithViewPager : BaseDataBindingFragment<FragmentMainWithViewpa
 
         }
 
+    }
+
+    override fun onDestroyView() {
+
+        val viewPager2 = dataBinding?.viewPager
+
+        /*
+            Without setting ViewPager2 Adapter it causes memory leak
+
+            https://stackoverflow.com/questions/62851425/viewpager2-inside-a-fragment-leaks-after-replacing-the-fragment-its-in-by-navig
+         */
+        viewPager2?.let {
+            it.adapter = null
+        }
+
+        super.onDestroyView()
     }
 }

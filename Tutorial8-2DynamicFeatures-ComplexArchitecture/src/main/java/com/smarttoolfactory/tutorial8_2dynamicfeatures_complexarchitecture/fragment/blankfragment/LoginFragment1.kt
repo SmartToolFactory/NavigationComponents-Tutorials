@@ -26,8 +26,9 @@ class LoginFragment1 : BaseDataBindingFragment<FragmentLogin1Binding>() {
 
         println("🔥 LoginFragment1 navController: ${findNavController()}")
 
+        val binding = dataBinding!!
 
-        dataBinding.buttonLogin.setOnClickListener {
+        binding.buttonLogin.setOnClickListener {
             findNavController().navigate(R.id.action_view_pager_dest_to_loginFragment2)
         }
 

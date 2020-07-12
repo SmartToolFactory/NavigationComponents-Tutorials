@@ -47,4 +47,17 @@ class ViewPagerContainerFragment : Fragment() {
             }
         }.attach()
     }
+
+    override fun onDestroyView() {
+
+        val viewPager2 = view?.findViewById<ViewPager2>(R.id.viewPager)
+
+        viewPager2?.let {
+            it.adapter = null
+        }
+
+        super.onDestroyView()
+
+    }
+
 }

@@ -17,10 +17,12 @@ class PhotosFragment1 : BaseDataBindingFragment<FragmentPhotos1Binding>() {
 
         count = arguments?.get("count") as Int
 
-        dataBinding.tvCount.text = "Count: $count"
+        val binding = dataBinding!!
 
-        dataBinding.btnIncrease.setOnClickListener {
-            dataBinding.tvCount.text = "Count: ${++count}"
+        binding.tvCount.text = "Count: $count"
+
+        binding.btnIncrease.setOnClickListener {
+            binding.tvCount.text = "Count: ${++count}"
 
             // 🔥 SetFragmentResult
 //            setFragmentResult("count", bundleOf("count" to count))
@@ -28,11 +30,11 @@ class PhotosFragment1 : BaseDataBindingFragment<FragmentPhotos1Binding>() {
             findNavController().previousBackStackEntry?.savedStateHandle?.set("count", count)
         }
 
-        dataBinding.btnNextPage.setOnClickListener {
+        binding.btnNextPage.setOnClickListener {
             findNavController().navigate(R.id.action_photosFragment1_to_photosFragment2)
         }
 
-        dataBinding.btnCamera.setOnClickListener {
+        binding.btnCamera.setOnClickListener {
             val bundle = bundleOf("count" to count)
 
             findNavController().navigate(

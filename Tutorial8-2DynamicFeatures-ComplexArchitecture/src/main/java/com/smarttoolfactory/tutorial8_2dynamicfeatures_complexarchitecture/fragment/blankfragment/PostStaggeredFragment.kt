@@ -35,12 +35,15 @@ class PostStaggeredFragment : BaseDataBindingFragment<FragmentPostListStaggeredB
 
     private fun bindViews() {
 
+        val binding = dataBinding!!
+
+
         // 🔥 Set lifecycle for data binding
-        dataBinding.lifecycleOwner = viewLifecycleOwner
+        binding.lifecycleOwner = viewLifecycleOwner
 
-        dataBinding.viewModel = viewModel
+        binding.viewModel = viewModel
 
-        dataBinding.recyclerView.apply {
+        binding.recyclerView.apply {
 
             // Set Layout manager
             this.layoutManager =

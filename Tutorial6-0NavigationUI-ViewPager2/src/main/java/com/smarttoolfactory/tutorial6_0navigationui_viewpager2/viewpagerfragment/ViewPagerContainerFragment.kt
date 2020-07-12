@@ -48,4 +48,20 @@ class ViewPagerContainerFragment : Fragment() {
 
     }
 
+    override fun onDestroyView() {
+
+        val viewPager2 = dataBinding?.viewPager
+
+        /*
+            Without setting ViewPager2 Adapter it causes memory leak
+
+            https://stackoverflow.com/questions/62851425/viewpager2-inside-a-fragment-leaks-after-replacing-the-fragment-its-in-by-navig
+         */
+        viewPager2?.let {
+            it.adapter = null
+        }
+
+        super.onDestroyView()
+    }
+
 }

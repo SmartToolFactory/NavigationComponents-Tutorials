@@ -13,7 +13,9 @@ class NotificationFragment3 : BaseDataBindingFragment<FragmentNotification3Bindi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        dataBinding.btnGoToStart.setOnClickListener {
+        val binding = dataBinding!!
+
+        binding.btnGoToStart.setOnClickListener {
             findNavController().navigate(R.id.action_notificationFragment3_to_notificationFragment1)
         }
     }
