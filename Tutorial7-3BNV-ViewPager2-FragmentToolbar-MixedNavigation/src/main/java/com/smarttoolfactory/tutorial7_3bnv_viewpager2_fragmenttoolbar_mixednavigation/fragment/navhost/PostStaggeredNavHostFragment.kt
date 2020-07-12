@@ -28,7 +28,7 @@ class PostStaggeredNavHostFragment :
 
         val nestedNavHostFragment =
             childFragmentManager.findFragmentById(nestedNavHostFragmentId) as? NavHostFragment
-        navController = nestedNavHostFragment?.navController
+//        navController = nestedNavHostFragment?.navController
 
     }
 
@@ -39,6 +39,11 @@ class PostStaggeredNavHostFragment :
         navController?.let {
             navControllerViewModel.currentNavController.value = Event(it)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        navController = null
     }
 
 }

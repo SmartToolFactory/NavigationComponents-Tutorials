@@ -13,10 +13,8 @@ import androidx.fragment.app.FragmentFactory
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.R
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.util.Event
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.viewmodel.NavControllerViewModel
-import kotlin.reflect.KProperty
 
 /**
  * Fragment created via layout resource that belong to a layout that contains a [NavHostFragment]
@@ -32,7 +30,7 @@ class NavHostContainerFragment(
 
     private val navControllerViewModel by activityViewModels<NavControllerViewModel>()
 
-    private lateinit var navController: NavController
+    private var navController: NavController? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -60,27 +58,35 @@ class NavHostContainerFragment(
 
     override fun onResume() {
         super.onResume()
+
         // Set this navController as ViewModel's navController
-        navControllerViewModel.currentNavController.value = Event(navController)
+        navController?.let {
+            navControllerViewModel.currentNavController.value = Event(it)
+        }
+    }
+
+    override fun onDestroyView() {
+        navController = null
+        super.onDestroyView()
     }
 
 }
 
-var NavHostFragment.viewModel: NavControllerViewModel by FieldProperty {
-    NavControllerViewModel()
-}
-
-
-class FieldProperty<R, T : Any>(
-    val initializer: (R) -> T = { throw IllegalStateException("Not initialized.") }
-) {
-    private val map = HashMap<R, T>()
-
-    operator fun getValue(thisRef: R, property: KProperty<*>): T =
-        map[thisRef] ?: setValue(thisRef, property, initializer(thisRef))
-
-    operator fun setValue(thisRef: R, property: KProperty<*>, value: T): T {
-        map[thisRef] = value
-        return value
-    }
-}
+//var NavHostFragment.viewModel: NavControllerViewModel by FieldProperty {
+//    NavControllerViewModel()
+//}
+//
+//
+//class FieldProperty<R, T : Any>(
+//    val initializer: (R) -> T = { throw IllegalStateException("Not initialized.") }
+//) {
+//    private val map = HashMap<R, T>()
+//
+//    operator fun getValue(thisRef: R, property: KProperty<*>): T =
+//        map[thisRef] ?: setValue(thisRef, property, initializer(thisRef))
+//
+//    operator fun setValue(thisRef: R, property: KProperty<*>, value: T): T {
+//        map[thisRef] = value
+//        return value
+//    }
+//}

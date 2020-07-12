@@ -1,16 +1,23 @@
 package com.smarttoolfactory.tutorial6_1navigationui_viewpager2.adapter
 
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.smarttoolfactory.tutorial6_1navigationui_viewpager2.blankfragment.DashboardFragment1
 import com.smarttoolfactory.tutorial6_1navigationui_viewpager2.blankfragment.HomeFragment1
 import com.smarttoolfactory.tutorial6_1navigationui_viewpager2.blankfragment.NotificationFragment1
 
 /**
- *  Passing [Fragment] as parameter let's this adapter to use childFragmentManager
+ * FragmentStateAdapter to contain ViewPager2 fragments inside another fragment.
+ *
+ * * 🔥 Create FragmentStateAdapter with viewLifeCycleOwner instead of Fragment to make sure
+ * that it lives between [Fragment.onCreateView] and [Fragment.onDestroyView] while [View] is alive
+ *
+ * * https://stackoverflow.com/questions/61779776/leak-canary-detects-memory-leaks-for-tablayout-with-viewpager2
  */
-class ChildFragmentStateAdapter(fragment: Fragment) :
-    FragmentStateAdapter(fragment) {
+class ChildFragmentStateAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
+    FragmentStateAdapter(fragmentManager, lifecycle) {
 
     override fun getItemCount(): Int = 3
 

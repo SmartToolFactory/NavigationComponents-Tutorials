@@ -79,7 +79,7 @@ class MainFragment : BaseDataBindingFragment<FragmentMainBinding>() {
     private fun subscribeAppbarNavigation() {
         navControllerViewModel.currentNavController.observe(viewLifecycleOwner, Observer { it ->
 
-            it?.let { event: Event<NavController> ->
+            it?.let { event: Event<NavController?> ->
                 event.getContentIfNotHandled()?.let { navController ->
                     val appBarConfig = AppBarConfiguration(navController.graph)
                     dataBinding!!.toolbar.setupWithNavController(navController, appBarConfig)

@@ -24,7 +24,8 @@ class ViewPagerContainerFragment : BaseDataBindingFragment<FragmentViewpagerCont
             🔥 Set Adapter for ViewPager inside this fragment using this Fragment,
             more specifically childFragmentManager as param
          */
-        viewPager.adapter = ChildFragmentStateAdapter(this)
+        viewPager.adapter =
+            ChildFragmentStateAdapter(childFragmentManager, viewLifecycleOwner.lifecycle)
 
         // Bind tabs and viewpager
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->

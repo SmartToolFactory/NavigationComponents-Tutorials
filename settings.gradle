@@ -1,3 +1,4 @@
+include ':Tutorial5-4NavigationUI-MemoryLeakCheck'
 include ':features:gallery'
 include ':features:favorites'
 

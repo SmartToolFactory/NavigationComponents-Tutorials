@@ -9,7 +9,6 @@ import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavig
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.databinding.FragmentLogin1Binding
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.viewpagerfragment.ViewPagerContainerFragment
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.util.Event
-import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.viewmodel.NavControllerViewModel
 
 /**
  * This fragment is added to graph via [ViewPagerContainerFragment]'s  [NavHostFragment]
@@ -18,7 +17,7 @@ class LoginFragment1 : BaseDataBindingFragment<FragmentLogin1Binding>() {
 
     override fun getLayoutRes(): Int = R.layout.fragment_login1
 
-    private val navControllerViewModel by activityViewModels<NavControllerViewModel>()
+//    private val navControllerViewModel by activityViewModels<NavControllerViewModel>()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -32,11 +31,11 @@ class LoginFragment1 : BaseDataBindingFragment<FragmentLogin1Binding>() {
 
     }
 
-    override fun onResume() {
-        super.onResume()
-        // Set this navController as ViewModel's navController
-        navControllerViewModel.currentNavController.value = Event(findNavController())
-    }
+//    override fun onResume() {
+//        super.onResume()
+//        // Set this navController as ViewModel's navController
+//        navControllerViewModel.currentNavController.value = Event(findNavController())
+//    }
 
 }
 

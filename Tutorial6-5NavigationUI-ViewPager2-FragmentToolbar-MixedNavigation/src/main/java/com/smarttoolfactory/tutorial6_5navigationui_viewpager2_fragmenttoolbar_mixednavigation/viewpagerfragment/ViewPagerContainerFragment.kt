@@ -46,7 +46,7 @@ class ViewPagerContainerFragment : BaseDataBindingFragment<FragmentViewpagerCont
             🔥 Set Adapter for ViewPager inside this fragment using this Fragment,
             more specifically childFragmentManager as param
          */
-        val adapter = ChildFragmentStateAdapter(this)
+        val adapter = ChildFragmentStateAdapter(childFragmentManager, viewLifecycleOwner.lifecycle)
         viewPager.adapter = adapter
 
         val itemCount = adapter.itemCount

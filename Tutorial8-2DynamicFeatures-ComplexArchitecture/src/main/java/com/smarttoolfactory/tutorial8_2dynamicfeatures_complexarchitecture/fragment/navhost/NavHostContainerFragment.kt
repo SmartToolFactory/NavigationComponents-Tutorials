@@ -47,7 +47,7 @@ class NavHostContainerFragment() : Fragment() {
 
     private val navControllerViewModel by activityViewModels<NavControllerViewModel>()
 
-    private lateinit var navController: NavController
+    private var navController: NavController? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -92,10 +92,10 @@ class NavHostContainerFragment() : Fragment() {
         navControllerViewModel.currentNavController.value = Event(navController)
     }
 
-
-    override fun onDestroy() {
-        super.onDestroy()
-
+    override fun onDestroyView() {
+        navController = null
+        navControllerViewModel.currentNavController.value = Event(null)
+        super.onDestroyView()
     }
 
     companion object {

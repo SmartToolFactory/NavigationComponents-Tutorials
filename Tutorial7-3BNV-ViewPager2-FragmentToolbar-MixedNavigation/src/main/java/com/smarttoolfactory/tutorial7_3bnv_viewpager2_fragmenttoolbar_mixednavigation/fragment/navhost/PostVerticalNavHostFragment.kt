@@ -12,6 +12,9 @@ import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavig
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.viewmodel.NavControllerViewModel
 
 
+/**
+ * NavHost
+ */
 class PostVerticalNavHostFragment : BaseDataBindingFragment<FragmentNavhostPostVerticalBinding>() {
     override fun getLayoutRes(): Int = R.layout.fragment_navhost_post_vertical
 
@@ -33,10 +36,13 @@ class PostVerticalNavHostFragment : BaseDataBindingFragment<FragmentNavhostPostV
 
     override fun onResume() {
         super.onResume()
-
         // Set this navController as ViewModel's navController
-        navController?.let {
-            navControllerViewModel.currentNavController.value = Event(it)
-        }
+        navControllerViewModel.currentNavController.value = Event(navController)
+    }
+
+    override fun onDestroyView() {
+        navController = null
+        navControllerViewModel.currentNavController.value = Event(null)
+        super.onDestroyView()
     }
 }

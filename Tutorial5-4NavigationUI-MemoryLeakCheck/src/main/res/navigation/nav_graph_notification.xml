@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_notification"
+    app:startDestination="@id/notificationFragment1">
+
+    <fragment
+        android:id="@+id/notificationFragment1"
+        android:name="com.smarttoolfactory.tutorial5_4navigationui_memoryleakcheck.fragment.blankfragment.NotificationFragment1"
+        android:label="NotificationFragment1"
+        tools:layout="@layout/fragment_notification1">
+        <action
+            android:id="@+id/action_notificationFragment1_to_notificationFragment2"
+            app:destination="@id/notificationFragment2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/notificationFragment2"
+        android:name="com.smarttoolfactory.tutorial5_4navigationui_memoryleakcheck.fragment.blankfragment.NotificationFragment2"
+        android:label="NotificationFragment2"
+        tools:layout="@layout/fragment_notification3">
+        <action
+            android:id="@+id/action_notificationFragment2_to_notificationFragment3"
+            app:destination="@id/notificationFragment3" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/notificationFragment3"
+        android:name="com.smarttoolfactory.tutorial5_4navigationui_memoryleakcheck.fragment.blankfragment.NotificationFragment3"
+        android:label="NotificationFragment3"
+        tools:layout="@layout/fragment_notification3" >
+        <action
+            android:id="@+id/action_notificationFragment3_to_notificationFragment1"
+            app:destination="@id/notificationFragment1"
+            app:popUpTo="@id/notificationFragment1"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_login"
+    app:startDestination="@id/loginFragment1">
+
+    <fragment
+        android:id="@+id/loginFragment1"
+        android:name="com.smarttoolfactory.tutorial5_4navigationui_memoryleakcheck.fragment.blankfragment.LoginFragment1"
+        android:label="LoginFragment1"
+        tools:layout="@layout/fragment_login1">
+        <action
+            android:id="@+id/action_loginFragment1_to_loginFragment2"
+            app:destination="@id/loginFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment2"
+        android:name="com.smarttoolfactory.tutorial5_4navigationui_memoryleakcheck.fragment.blankfragment.LoginFragment2"
+        android:label="LoginFragment2"
+        tools:layout="@layout/fragment_login2" />
+</navigation>

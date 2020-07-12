@@ -29,14 +29,30 @@ class NotificationHostFragment : BaseDataBindingFragment<FragmentNavhostNotifica
 
     }
 
-
     override fun onResume() {
         super.onResume()
-
         // Set this navController as ViewModel's navController
-        navController?.let {
-            navControllerViewModel.currentNavController.value = Event(it)
-        }
+        navControllerViewModel.currentNavController.value = Event(navController)
     }
+
+    override fun onDestroyView() {
+        navController = null
+        navControllerViewModel.currentNavController.value = Event(null)
+        super.onDestroyView()
+    }
+
+//    override fun onResume() {
+//        super.onResume()
+//
+//        // Set this navController as ViewModel's navController
+//        navController?.let {
+//            navControllerViewModel.currentNavController.value = Event(it)
+//        }
+//    }
+//
+//    override fun onDestroyView() {
+//        navController = null
+//        super.onDestroyView()
+//    }
 
 }

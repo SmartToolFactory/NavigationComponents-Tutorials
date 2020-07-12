@@ -2,13 +2,11 @@ package com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavi
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.activityViewModels
 import com.google.android.material.tabs.TabLayoutMediator
-import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.adapter.ChildFragmentStateAdapter
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.R
-import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.blankfragment.BaseDataBindingFragment
+import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.adapter.ChildFragmentStateAdapter
 import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.databinding.FragmentViewpagerContainerBinding
-import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.viewmodel.NavControllerViewModel
+import com.smarttoolfactory.tutorial7_3bnv_viewpager2_fragmenttoolbar_mixednavigation.fragment.blankfragment.BaseDataBindingFragment
 
 
 class ViewPagerContainerFragment : BaseDataBindingFragment<FragmentViewpagerContainerBinding>() {
@@ -21,14 +19,19 @@ class ViewPagerContainerFragment : BaseDataBindingFragment<FragmentViewpagerCont
         // ViewPager2
         val viewPager = dataBinding!!.viewPager
 
+        // TabLayout
+        val tabLayout = dataBinding!!.tabLayout
+
         /*
             Set Adapter for ViewPager inside this fragment using this Fragment,
             more specifically childFragmentManager as param
-         */
-        viewPager.adapter = ChildFragmentStateAdapter(this)
 
-        // TabLayout
-        val tabLayout = dataBinding!!.tabLayout
+            🔥 Create FragmentStateAdapter with viewLifeCycleOwner
+            https://stackoverflow.com/questions/61779776/leak-canary-detects-memory-leaks-for-tablayout-with-viewpager2
+         */
+        viewPager.adapter =
+            ChildFragmentStateAdapter(childFragmentManager, viewLifecycleOwner.lifecycle)
+
 
         // Bind tabs and viewpager
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
@@ -37,7 +40,7 @@ class ViewPagerContainerFragment : BaseDataBindingFragment<FragmentViewpagerCont
                 1 -> tab.text = "Horizontal"
                 2 -> tab.text = "Grid"
                 3 -> tab.text = "Staggered"
-                4-> tab.text = "Notification"
+                4 -> tab.text = "Notification"
                 else -> tab.text = "Login"
             }
         }.attach()
@@ -47,11 +50,20 @@ class ViewPagerContainerFragment : BaseDataBindingFragment<FragmentViewpagerCont
 
     override fun onDestroyView() {
 
-        val viewPager2 = dataBinding?.viewPager
+
+        // ViewPager2
+        val viewPager2 = dataBinding!!.viewPager
+        // TabLayout
+        val tabLayout = dataBinding!!.tabLayout
 
         /*
-            Without setting ViewPager2 Adapter it causes memory leak
+              🔥 Detach TabLayoutMediator since it causing memory leaks when it's in a fragment
+              https://stackoverflow.com/questions/61779776/leak-canary-detects-memory-leaks-for-tablayout-with-viewpager2
+           */
+        TabLayoutMediator(tabLayout, viewPager2, tabConfigurationStrategy).detach()
 
+        /*
+            🔥 Without setting ViewPager2 Adapter to null it causes memory leak
             https://stackoverflow.com/questions/62851425/viewpager2-inside-a-fragment-leaks-after-replacing-the-fragment-its-in-by-navig
          */
         viewPager2?.let {
@@ -59,5 +71,18 @@ class ViewPagerContainerFragment : BaseDataBindingFragment<FragmentViewpagerCont
         }
 
         super.onDestroyView()
+
     }
+
+    private val tabConfigurationStrategy =
+        TabLayoutMediator.TabConfigurationStrategy { tab, position ->
+            when (position) {
+                0 -> tab.text = "Vertical"
+                1 -> tab.text = "Horizontal"
+                2 -> tab.text = "Grid"
+                3 -> tab.text = "Staggered"
+                4 -> tab.text = "Notification"
+                else -> tab.text = "Login"
+            }
+        }
 }

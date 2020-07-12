@@ -13,7 +13,7 @@
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dashboard Fragment1"
+            android:text="Dashboard Fragment2"
             android:textColor="#fff"
             android:textSize="32sp"
             app:layout_constraintBottom_toBottomOf="parent"
