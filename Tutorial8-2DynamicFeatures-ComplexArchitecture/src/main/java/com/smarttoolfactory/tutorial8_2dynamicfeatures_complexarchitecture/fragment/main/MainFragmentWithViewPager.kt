@@ -1,7 +1,6 @@
 package com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.main
 
 import android.os.Bundle
-import android.view.MenuItem
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.R
@@ -29,7 +28,8 @@ class MainFragmentWithViewPager : BaseDataBindingFragment<FragmentMainWithViewpa
         viewPager2.isUserInputEnabled = false
 
         // Set viewpager adapter
-        viewPager2.adapter = BottomNavigationStateAdapter(this)
+        viewPager2.adapter =
+            BottomNavigationStateAdapter(childFragmentManager, viewLifecycleOwner.lifecycle)
 
         // Listen bottom navigation tabs change
         bottomNavigationView.setOnNavigationItemSelectedListener {

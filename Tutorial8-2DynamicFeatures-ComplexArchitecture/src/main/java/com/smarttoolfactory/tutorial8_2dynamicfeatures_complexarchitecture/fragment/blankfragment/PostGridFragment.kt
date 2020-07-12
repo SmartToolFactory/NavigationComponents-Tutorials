@@ -24,16 +24,16 @@ class PostGridFragment : BaseDataBindingFragment<FragmentPostListGridBinding>() 
 
         viewModel.getPosts()
 
-        println("🔥 PostGridFragment navController: ${findNavController()}")
-        println("🔥 PostGridFragment parentFragment navController: ${parentFragment?.findNavController()}")
-        println("🔥 PostGridFragment parent parentFragment navController: ${parentFragment?.parentFragment?.findNavController()}")
-
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bindViews()
+
+        println("🔥🔥 PostGridFragment navController: ${findNavController()}")
+        println("🔥🔥 PostGridFragment parentFragment navController: ${parentFragment?.findNavController()}")
+        println("🔥🔥 PostGridFragment parent parentFragment navController: ${parentFragment?.parentFragment?.findNavController()}")
+
     }
 
     private fun bindViews() {

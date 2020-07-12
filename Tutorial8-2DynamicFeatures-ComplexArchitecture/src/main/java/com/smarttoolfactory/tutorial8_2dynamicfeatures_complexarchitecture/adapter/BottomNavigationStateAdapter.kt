@@ -1,6 +1,7 @@
 package com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.adapter
 
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.commitNow
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.dynamicfeatures.fragment.DynamicNavHostFragment
@@ -20,8 +21,8 @@ import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragm
  *  [DynamicNavHostFragment] since [NavHostFragment.create] returns [NavHostFragment]
  * instead of type T:[NavHostFragment]`
  */
-class BottomNavigationStateAdapter(private val fragment: Fragment) :
-    FragmentStateAdapter(fragment) {
+class BottomNavigationStateAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
+    FragmentStateAdapter(fragmentManager, lifecycle) {
 
 
     init {

@@ -62,6 +62,7 @@ class ViewPagerContainerFragment : BaseDataBindingFragment<FragmentViewpagerCont
         // Bind tabs and viewpager
         TabLayoutMediator(tabLayout, viewPager, tabConfigurationStrategy).attach()
 
+        subscribeAppbarNavigation()
 
     }
 
