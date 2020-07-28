@@ -51,7 +51,7 @@ import com.smarttoolfactory.tutorial6_5navigationui_viewpager2_fragmenttoolbar_m
  *  * Visibility of [ParentNavHostFragment] is changed via liveData of [AppbarViewModel]
  *
  *  * However, there is an issue with setting visibility and dimensions of [ViewPager2] when
- *  visibility of Appbar
+ *  visibility of Appbar of parent changes
  *
  */
 class MainActivity : AppCompatActivity() {

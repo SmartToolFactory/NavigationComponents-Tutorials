@@ -144,8 +144,6 @@ if (navController!!.currentDestination == null || navController!!.currentDestina
 
 ### [Tutorial6-0NavigationUI-ViewPager](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial1-3Navigation-NestedNavHost)
 
-Covers how to create a ```ViewPager2```with navigation in main back stack, in this example ```ViewPager2```pages do not have their own back stack. It's covered in tutorials Tutorial6-2.
-
 **Navigation Architecture**
 
 ```
@@ -156,6 +154,12 @@ MainActivity (Appbar + Toolbar)
         |- HomeFragment1 -> HomeFragment2 -> HomeFragment3
         |- DashboardFragment1 -> DashboardFragment2 -> DashboardFragment3
 ```
+
+Covers how to create a ```ViewPager2```with navigation in main back stack, in this example ```ViewPager2```pages do not have their own back stack. It's covered in tutorials Tutorial6-2.
+
+**Navigation Architecture**
+
+
 
 <p align="center">
   <img src="./screenshots/Tutorial6-0.gif"/>
@@ -172,14 +176,7 @@ Data binding that is not null(or non-nullable) after ```Fragment.onDestroyView``
 
 **Navigation Architecture**
 
-Covers ```ViewPager2``` each with it's own back stack using fragments that have their own nested
-
 ```
-NavHostFragments to have their own back stack, back/forth navigation.
-```
-
-```
-**Navigation Architecture**
 
  MainActivity (Appbar + Toolbar)
     |- MainNavHost
@@ -197,6 +194,12 @@ NavHostFragments to have their own back stack, back/forth navigation.
        |   |-LoginFragment1
        |
        |- LoginFragment1 -> LoginFragment2
+```
+
+Covers ```ViewPager2``` each with it's own back stack using fragments that have their own nested
+
+```
+NavHostFragments to have their own back stack, back/forth navigation.
 ```
 
 <p align="center">
@@ -239,17 +242,9 @@ This tutorial has very important aspects for ```ViewPager2``` navigation
      ```
 ### [Tutorial6-3NavigationUI-ViewPager2-Appbar-NestedNavigation-LiveData](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial6-3NavigationUI-ViewPager2-Appbar-NestedNavigation-LiveData)
 
-In this tutorial  MainActivity has it's appbar that navigation is controlled using the [NavController] retrieved from [NavHostFragment] via [LiveData]
-
-### Note
-
-Issue with rotation, when device rotated [ActivityFragmentStateAdapter.createFragment] method is not called and it's not possible to access [NavController] of newly created fragments. If you do not wish to have a rotatable app
-you can use live data or ViewModel to get current ```NavController``` to change appbar title and get other
-properties of ```NavController```. LiveData is observed in ```MainActivity``` to set appbar title
-
+**Navigation Architecture**
 
 ```
-**Navigation Architecture**
 
  MainActivity(Appbar + Toolbar + TabLayout + ViewPager2)
    |
@@ -263,3 +258,113 @@ properties of ```NavController```. LiveData is observed in ```MainActivity``` to
       |- NF1 -> NF2 -> NF3
 ```
 
+In this tutorial  MainActivity has it's appbar that navigation is controlled using the [NavController] retrieved from [NavHostFragment] via [LiveData]
+
+<p align="center">
+  <img src="./screenshots/Tutorial6-3.gif"/>
+</p>
+
+### Note
+
+Issue with rotation, when device rotated [ActivityFragmentStateAdapter.createFragment] method is not called and it's not possible to access [NavController] of newly created fragments. If you do not wish to have a rotatable app
+you can use live data or ViewModel to get current ```NavController``` to change appbar title and get other
+properties of ```NavController```. LiveData is observed in ```MainActivity``` to set appbar title
+
+
+### [Tutorial6-4NavigationUI-ViewPager2-FragmentToolbar-NestedNavigation](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial6-4NavigationUI-ViewPager2-FragmentToolbar-NestedNavigation)
+
+ **Navigation Architecture**
+
+ ```
+  MainActivity
+     |- MainNavHost
+        |
+        |- ViewPagerContainerFragment(ViewPager)
+            |
+            |- HomeNavHostFragment(Appbar + Toolbar)
+            |  |- HF1 -> HF2 -> HF3
+            |
+            |- DashboardNavHostFragment(Appbar Toolbar)
+            |  |- DF1 -> DF2 -> DF3
+            |
+            |- NotificationHostFragment(Appbar Toolbar)
+               |- NF1 -> NF2 -> NF3
+
+ ```
+
+In this tutorial each ```NavHostFragment``` has it's own toolbar
+ They can navigate back with back arrow when navigated to an inner fragment of ViewPager
+
+<p align="center">
+  <img src="./screenshots/Tutorial6-4.gif"/>
+</p>
+
+ Using ```FragmentStateAdapter.registerFragmentTransactionCallback``` with ```FragmentStateAdapter``` solves back navigation instead of using ```OnBackPressedCallback.handleOnBackPressed``` in every ```NavHostFragment``` as answered [here](https://stackoverflow.com/questions/61779776/leak-canary-detects-memory-leaks-for-tablayout-with-viewpager2)
+
+ ```
+ init {
+     // Add a FragmentTransactionCallback to handle changing
+     // the primary navigation fragment
+     registerFragmentTransactionCallback(object : FragmentTransactionCallback() {
+         override fun onFragmentMaxLifecyclePreUpdated(
+             fragment: Fragment,
+             maxLifecycleState: Lifecycle.State
+         ) = if (maxLifecycleState == Lifecycle.State.RESUMED) {
+
+             // This fragment is becoming the active Fragment - set it to
+             // the primary navigation fragment in the OnPostEventListener
+             OnPostEventListener {
+                 fragment.parentFragmentManager.commitNow {
+                     setPrimaryNavigationFragment(fragment)
+                 }
+             }
+
+         } else {
+             super.onFragmentMaxLifecyclePreUpdated(fragment, maxLifecycleState)
+         }
+     })
+ }
+```
+
+Should set ```app:defaultNavHost="true"``` for [NavHostFragment] for this to work
+
+### [Tutorial6-5NavigationUI-ViewPager2-FragmentToolbar-MixedNavigation](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial6-5NavigationUI-ViewPager2-FragmentToolbar-MixedNavigation)
+
+ **Navigation Architecture**
+
+ ```
+ MainActivity
+    |- MainNavHost
+       |
+       |- ParenNavHost((Appbar + Toolbar)
+           |
+           |- ViewPagerContainerFragment(ViewPager2)
+           |   |
+           |   |- HomeNavHostFragment(Appbar + Toolbar)
+           |   |  |- HF1 -> HF2 -> HF3
+           |   |
+           |   |- DashboardNavHostFragment(Appbar + Toolbar)
+           |   |  |- DF1 -> DF2 -> DF3
+           |   |
+           |   |- NotificationHostFragment(Appbar + Toolbar)
+           |   |  |- NF1 -> NF2 -> NF3
+           |   |
+           |   |-LoginFragment1
+           |
+           |- LoginFragment1 -> LoginFragment2
+
+ ```
+
+In this tutorial each ```NavHostFragment``` has it's own toolbar, also ```ParentNavHostFragment``` has it's own toolbar.
+
+LoginFragment2 in this example is added to  back stack of ParentNavHostFragment because of that it does not have any association with toolbar in  ```ViewPagerContainerFragment```
+
+ParentNavHostFragment's role is to have it's own Appbar to contain login fragments and navigate through them using Appbar. Without ```ParentNavHostFragment``` we navigate to ```LoginFragment2``` that has no Appbar.
+
+Visibility of ```ParentNavHostFragment``` is changed via liveData of ```AppbarViewModel```
+
+ However, there is an issue with setting visibility and dimensions of ```ViewPager2```  when  visibility of Appbar parent toolbar changes
+
+ <p align="center">
+   <img src="./screenshots/Tutorial6-5.gif"/>
+ </p>

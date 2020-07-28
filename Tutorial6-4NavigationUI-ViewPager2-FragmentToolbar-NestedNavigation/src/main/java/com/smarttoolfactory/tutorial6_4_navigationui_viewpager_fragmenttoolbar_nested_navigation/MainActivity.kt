@@ -15,19 +15,19 @@ import com.smarttoolfactory.tutorial6_4_navigationui_viewpager_fragmenttoolbar_n
 /*
    *** Navigation Architecture ***
 
-     MainActivity
-        |- MainNavHost
+ MainActivity
+    |- MainNavHost
+       |
+       |- ViewPagerContainerFragment(ViewPager)
            |
-           |- ViewPagerContainerFragment(ViewPager)
-               |
-               |- HomeNavHostFragment(Appbar + Toolbar)
-               |  |- HF1 -> HF2 -> HF3
-               |
-               |- DashboardNavHostFragment(Appbar Toolbar)
-               |  |- DF1 -> DF2 -> DF3
-               |
-               |- NotificationHostFragment(Appbar Toolbar)
-                  |- NF1 -> NF2 -> NF3
+           |- HomeNavHostFragment(Appbar + Toolbar)
+           |  |- HF1 -> HF2 -> HF3
+           |
+           |- DashboardNavHostFragment(Appbar Toolbar)
+           |  |- DF1 -> DF2 -> DF3
+           |
+           |- NotificationHostFragment(Appbar Toolbar)
+              |- NF1 -> NF2 -> NF3
 
  */
 
