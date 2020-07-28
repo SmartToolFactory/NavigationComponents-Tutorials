@@ -162,7 +162,7 @@ Covers how to create a ```ViewPager2```with navigation in main back stack, in th
 
 
 <p align="center">
-  <img src="./screenshots/Tutorial6-0.gif"/>
+    <img src="./screenshots/Tutorial6-0.gif"/>
 </p>
 
 ### [Tutorial6-1NavigationUI-ViewPager](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial6-1NavigationUI-ViewPager2)
@@ -203,7 +203,7 @@ NavHostFragments to have their own back stack, back/forth navigation.
 ```
 
 <p align="center">
-  <img src="./screenshots/Tutorial6-2.gif"/>
+    <img src="./screenshots/Tutorial6-2.gif"/>
 </p>
 
 ### Note
@@ -261,7 +261,7 @@ This tutorial has very important aspects for ```ViewPager2``` navigation
 In this tutorial  MainActivity has it's appbar that navigation is controlled using the [NavController] retrieved from [NavHostFragment] via [LiveData]
 
 <p align="center">
-  <img src="./screenshots/Tutorial6-3.gif"/>
+    <img src="./screenshots/Tutorial6-3.gif"/>
 </p>
 
 ### Note
@@ -296,7 +296,7 @@ In this tutorial each ```NavHostFragment``` has it's own toolbar
  They can navigate back with back arrow when navigated to an inner fragment of ViewPager
 
 <p align="center">
-  <img src="./screenshots/Tutorial6-4.gif"/>
+    <img src="./screenshots/Tutorial6-4.gif"/>
 </p>
 
  Using ```FragmentStateAdapter.registerFragmentTransactionCallback``` with ```FragmentStateAdapter``` solves back navigation instead of using ```OnBackPressedCallback.handleOnBackPressed``` in every ```NavHostFragment``` as answered [here](https://stackoverflow.com/questions/61779776/leak-canary-detects-memory-leaks-for-tablayout-with-viewpager2)
@@ -365,6 +365,46 @@ Visibility of ```ParentNavHostFragment``` is changed via liveData of ```AppbarVi
 
  However, there is an issue with setting visibility and dimensions of ```ViewPager2```  when  visibility of Appbar parent toolbar changes
 
- <p align="center">
-   <img src="./screenshots/Tutorial6-5.gif"/>
- </p>
+<p align="center">
+    <img src="./screenshots/Tutorial6-5.gif"/>
+</p>
+
+ ### [Tutorial6-5NavigationUI-ViewPager2-FragmentToolbar-MixedNavigation](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial6-5NavigationUI-ViewPager2-FragmentToolbar-MixedNavigation)
+
+  **Navigation Architecture**
+
+  ```
+ MainActivity
+    |- MainNavHost
+       |
+       |- ParenNavHost(Appbar + Toolbar) Here because we wish to have toolbar inside Fragment
+           |
+           |- ViewPagerContainerFragment(TabLayout + ViewPager2)
+           |   |
+           |   |- HomeNavHostFragment
+           |   |  |- HF1 -> HF2 -> HF3
+           |   |
+           |   |- DashboardNavHostFragment
+           |   |  |- DF1 -> DF2 -> DF3
+           |   |
+           |   |- NotificationHostFragment
+           |   |  |- NF1 -> NF2 -> NF3
+           |   |
+           |   |-LoginFragment1
+           |
+           |- LoginFragment1 -> LoginFragment2
+
+  ```
+
+In this tutorial only ```ParentNavHostFragment``` has Appbar and Toolbar, navigation of individual
+NavHostFragments is done via ```AppbarViewModel.currentNavController``` liveData which
+returns the visible [NavController] of current [NavHostFragment] due to setting it in [NavHostFragment.onResume]
+
+```ParentNavHostFragment```'s role is to have it's own Appbar to contain login fragments and navigate through them using Appbar. Without ParentNavHostFragment we navigate to ```LoginFragment2``` that has no Appbar if it's inside ```ViewPagerContainerFragment```.
+
+It can be done by putting Appbar to ```MainActivity``` but purpose here is to put
+ Appbar + Toolbar inside a fragment to be able to use with [BottomNavigationView] for instance
+
+<p align="center">
+    <img src="./screenshots/Tutorial6-6.gif"/>
+</p>
