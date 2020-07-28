@@ -15,12 +15,12 @@ import com.google.android.material.tabs.TabLayoutMediator
 /*
    *** Navigation Architecture ***
 
-     MainActivity (Appbar + Toolbar)
-        |- MainNavHost
-            |
-            | FragmentViewPagerContainer(ViewPager2 + TabLayout)
-                |- HomeFragment1 -> HomeFragment2 -> HomeFragment3
-                |- DashboardFragment1 -> DashboardFragment2 -> DashboardFragment3
+ MainActivity (Appbar + Toolbar)
+    |- MainNavHost
+        |
+        | FragmentViewPagerContainer(ViewPager2 + TabLayout)
+            |- HomeFragment1 -> HomeFragment2 -> HomeFragment3
+            |- DashboardFragment1 -> DashboardFragment2 -> DashboardFragment3
  */
 
 /**

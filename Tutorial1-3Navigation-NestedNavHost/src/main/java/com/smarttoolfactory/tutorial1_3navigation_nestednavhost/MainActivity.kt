@@ -8,7 +8,7 @@ import com.smarttoolfactory.tutorial1_3navigation_nestednavhost.navhost.HomeNavH
 
 
 /**
- * Example that displays how nested graphs with their own back stack or [NavHostFragment] work.
+ * Example that covers how nested graphs with their own back stack or [NavHostFragment] work.
  *
  * **Notes:**
  * * Main graph back stack is controlled by [NavHostFragment.getChildFragmentManager]
@@ -21,6 +21,9 @@ import com.smarttoolfactory.tutorial1_3navigation_nestednavhost.navhost.HomeNavH
  *
  * ### [HomeNavHostFragment] should be created, in this tutorial we create it by setting it by
  * initial destination
+ *
+ * ### Note back navigation does NOT work when you are at first fragment in [HomeNavHostFragment],
+ * to fix it change start destination inside **nav_graph_home** to fragment1
  *
  */
 class MainActivity : AppCompatActivity() {

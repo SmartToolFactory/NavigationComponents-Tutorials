@@ -14,7 +14,7 @@ class NotificationFragment1 : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<Button>(R.id.btnNextPage).setOnClickListener {
-            findNavController().navigate(R.id.action_global_start)
+            findNavController().navigate(R.id.action_main_fragment_to_notificationFragment2)
         }
     }
 }
