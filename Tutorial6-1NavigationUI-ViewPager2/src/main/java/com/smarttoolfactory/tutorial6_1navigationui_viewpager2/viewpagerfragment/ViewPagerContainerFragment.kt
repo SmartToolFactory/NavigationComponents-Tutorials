@@ -46,7 +46,7 @@ class ViewPagerContainerFragment : BaseDataBindingFragment<FragmentViewpagerCont
 //        val viewPager2 = dataBinding?.viewPager
 //
 //        /*
-//            Without setting ViewPager2 Adapter it causes memory leak
+//           🔥 Without setting ViewPager2 Adapter it causes memory leak if ViewPager2 is inside a Fragment
 //
 //            https://stackoverflow.com/questions/62851425/viewpager2-inside-a-fragment-leaks-after-replacing-the-fragment-its-in-by-navig
 //         */
