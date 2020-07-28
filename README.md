@@ -197,6 +197,10 @@ NavHostFragments``` to have their own back stack, back/forth navigation.
        |- LoginFragment1 -> LoginFragment2
 ```
 
+<p align="center">
+  <img src="./screenshots/Tutorial6-2.gif"/>
+</p>
+
 ### Note
 This tutorial has very important aspects for ```ViewPager2``` navigation
 
@@ -256,6 +260,3 @@ properties of ```NavController```. LiveData is observed in ```MainActivity``` to
       |- NF1 -> NF2 -> NF3
 ```
 
-<p align="center">
-  <img src="./screenshots/Tutorial6-2.gif"/>
-</p>
