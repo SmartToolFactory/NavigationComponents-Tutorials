@@ -163,8 +163,99 @@ MainActivity (Appbar + Toolbar)
 
 ### [Tutorial6-1NavigationUI-ViewPager](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial6-1NavigationUI-ViewPager2)
 
-Same as previous tutorial with only difference  ```data binding```
+Same as previous tutorial with only one difference  ```data binding``` is used in layouts.
 
 ### Note
-Data binding that is not null(or non-nullable) after ```Fragment.onDestroyView``` when ```ViewPager2```is inside a fragment causing leak canary to show data binding related **MEMORY LEAK** for this fragment when used in ```ViewPager2``. Also you need to set adapter of ViewPager2 either to prevent memory leaks, and another one is due to TabLayouts which is covered in later sections. Check out [stackoverflow question](https://stackoverflow.com/questions/62851425/viewpager2-inside-a-fragment-leaks-after-replacing-the-fragment-its-in-by-navig) for more details.
+Data binding that is not null(or non-nullable) after ```Fragment.onDestroyView``` when ```ViewPager2```is inside a fragment causing leak canary to show data binding related **MEMORY LEAK** for this fragment when used in ```ViewPager2``. Also you need to set adapter of ViewPager2 either to prevent memory leaks, and another one is due to TabLayouts which is covered in later sections. Check out this [stackoverflow question](https://stackoverflow.com/questions/62851425/viewpager2-inside-a-fragment-leaks-after-replacing-the-fragment-its-in-by-navig) for more details.
 
+### [Tutorial6-2NavigationUI-NestedNavHost](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial6-2NavigationUI-NestedNavHost)
+
+**Navigation Architecture**
+
+Covers ```ViewPager2``` each with it's own back stack using fragments that have their own nested
+
+```
+NavHostFragments``` to have their own back stack, back/forth navigation.
+```
+**Navigation Architecture**
+
+ MainActivity (Appbar + Toolbar)
+    |- MainNavHost
+       |
+       |- ViewPagerContainerFragment(ViewPager2 + TabLayout)
+       |   |- HomeNavHostFragment
+       |   |  |- HF1 -> HF2 -> HF3
+       |   |
+       |   |- DashboardNavHostFragment
+       |   |  |- DF1 -> DF2 -> DF3
+       |   |
+       |   |- NotificationHostFragment
+       |   |  |- NF1 -> NF2 -> NF3
+       |   |
+       |   |-LoginFragment1
+       |
+       |- LoginFragment1 -> LoginFragment2
+```
+
+### Note
+This tutorial has very important aspects for ```ViewPager2``` navigation
+
+1. Creating ```NavHostFragment``` for each page and can navigate inside them, each page has
+    it's own nav graph.
+
+    in each layout file ```NavHostFragment``` inside is retrieved using
+    ``
+            val nestedNavHostFragment =
+                childFragmentManager.findFragmentById(nestedNavHostFragmentId) as? NavHostFragment
+            navController = nestedNavHostFragment?.navController`
+    ``
+
+    ```HomeNavHostFragment``` uses the first fragment that is displayed on screen **HomeFragment1 while   ```DashboardNavHostFragment``` uses graph with itself as start destination so it should check for the ```NavController.getCurrentDestination()``` to navigate to it when device rotated
+
+    ```LoginFragment1``` is added to main graph, because of that appbar back navigation only works with the ```ViewPagerContainerFragment```'s ```NavController```
+
+2. How to use back navigation with ```OnBackPressedCallback```, there is an alternative and more simple way
+    to handle back navigation for ```ViewPager2``` but this also a way to keep in mind if more customization is required.
+    If you do not handle back navigation Activity's back press gets called and application starts from onCreate.
+
+3. Checking out memory leaks with data binding, ViewPager2 adapter and lifecylce.
+     * You should set **data binding** to **null** or you will get memory leaks for this ViewPager2 which is itself also inside a fragment
+
+     * You should set ViePager2's adapter to null in ```onDestroyView```
+
+     * 🔥 You should use ```ChildFragmentStateAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle)```, not
+     the one that takes ```Fragment``` as parameter.
+     And use **view's lifecycle** instead of setting Fragment's lifecycle.
+
+     ```
+     viewPager.adapter =
+                        ChildFragmentStateAdapter(childFragmentManager, viewLifecycleOwner.lifecycle)
+     ```
+### [Tutorial6-3NavigationUI-ViewPager2-Appbar-NestedNavigation-LiveData](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial6-3NavigationUI-ViewPager2-Appbar-NestedNavigation-LiveData)
+
+In this tutorial  MainActivity has it's appbar that navigation is controlled using the [NavController] retrieved from [NavHostFragment] via [LiveData]
+
+### Note
+Issue with rotation, when device rotated [ActivityFragmentStateAdapter.createFragment] method is not called and it's not possible to access [NavController] of newly created fragments. If you do not wish to have a rotatable app
+you can use live data or ViewModel to get current ```NavController``` to change appbar title and get other
+properties of ```NavController```. LiveData is observed in ```MainActivity``` to set appbar title
+
+
+```
+**Navigation Architecture**
+
+ MainActivity(Appbar + Toolbar + TabLayout + ViewPager2)
+   |
+   |- HomeNavHostFragment
+   |  |- HF1 -> HF2 -> HF3
+   |
+   |- DashboardNavHostFragment
+   |  |- DF1 -> DF2 -> DF3
+   |
+   |- NotificationHostFragment
+      |- NF1 -> NF2 -> NF3
+```
+
+<p align="center">
+  <img src="./screenshots/Tutorial6-2.gif"/>
+</p>

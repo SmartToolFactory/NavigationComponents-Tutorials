@@ -45,7 +45,7 @@ import com.smarttoolfactory.tutorial6_2navigationui_viewpager2_nestednavhost.nav
  * Example that uses [ViewPager2] with tabs and each page with it's own back stack
  * and navigation.
  *
- * * [NavHostFragment] containers like [HomeNavHostFragment] creates their child fragments
+ * * [NavHostFragment] fragment such as [HomeNavHostFragment] create their child fragments
  * and can navigate in them
  *
  * * [HomeNavHostFragment] uses graph with fragment that is displayed
