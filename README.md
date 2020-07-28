@@ -175,7 +175,9 @@ Data binding that is not null(or non-nullable) after ```Fragment.onDestroyView``
 Covers ```ViewPager2``` each with it's own back stack using fragments that have their own nested
 
 ```
-NavHostFragments``` to have their own back stack, back/forth navigation.
+NavHostFragments to have their own back stack, back/forth navigation.
+```
+
 ```
 **Navigation Architecture**
 
@@ -240,6 +242,7 @@ This tutorial has very important aspects for ```ViewPager2``` navigation
 In this tutorial  MainActivity has it's appbar that navigation is controlled using the [NavController] retrieved from [NavHostFragment] via [LiveData]
 
 ### Note
+
 Issue with rotation, when device rotated [ActivityFragmentStateAdapter.createFragment] method is not called and it's not possible to access [NavController] of newly created fragments. If you do not wish to have a rotatable app
 you can use live data or ViewModel to get current ```NavController``` to change appbar title and get other
 properties of ```NavController```. LiveData is observed in ```MainActivity``` to set appbar title
