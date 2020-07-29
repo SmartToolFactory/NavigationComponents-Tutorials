@@ -20,7 +20,7 @@ class PostGridNavHostFragment :
 
     private var navController: NavController? = null
 
-    private val nestedNavHostFragmentId = R.id.nested_nav_host_fragment_post_grid
+    private val nestedNavHostFragmentId = R.id.nestedPostGridNavHostFragment
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

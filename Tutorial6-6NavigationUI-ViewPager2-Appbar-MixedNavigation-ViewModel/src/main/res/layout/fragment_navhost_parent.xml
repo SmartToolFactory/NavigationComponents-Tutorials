@@ -25,7 +25,7 @@
 
 
         <fragment
-            android:id="@+id/nested_nav_host_fragment_main"
+            android:id="@+id/nestedParentNavHostFragment"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"

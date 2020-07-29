@@ -18,7 +18,7 @@ import com.smarttoolfactory.tutorial6_5navigationui_viewpager2_fragmenttoolbar_m
      MainActivity
         |- MainNavHost
            |
-           |- ParenNavHost((Appbar + Toolbar)
+           |- ParenNavHost(Appbar + Toolbar)
                |
                |- ViewPagerContainerFragment(ViewPager2)
                |   |

@@ -2,7 +2,6 @@ package com.smarttoolfactory.tutorial6_6navigationui_viewpager2_appbar_mixednavi
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
@@ -21,7 +20,7 @@ class ParentNavHostFragment : BaseDataBindingFragment<FragmentNavhostParentBindi
 
     private var navController: NavController? = null
 
-    private val nestedNavHostFragmentId = R.id.nested_nav_host_fragment_main
+    private val nestedNavHostFragmentId = R.id.nestedParentNavHostFragment
 
     private val appbarViewModel by activityViewModels<AppbarViewModel>()
 

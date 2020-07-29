@@ -2,7 +2,6 @@ package com.smarttoolfactory.tutorial6_6navigationui_viewpager2_appbar_mixednavi
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
@@ -20,7 +19,7 @@ class DashboardNavHostFragment : BaseDataBindingFragment<FragmentNavhostDashboar
 
     private var navController: NavController? = null
 
-    private val nestedNavHostFragmentId = R.id.nested_nav_host_fragment_dashboard
+    private val nestedNavHostFragmentId = R.id.nestedDashboardNavHostFragment
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

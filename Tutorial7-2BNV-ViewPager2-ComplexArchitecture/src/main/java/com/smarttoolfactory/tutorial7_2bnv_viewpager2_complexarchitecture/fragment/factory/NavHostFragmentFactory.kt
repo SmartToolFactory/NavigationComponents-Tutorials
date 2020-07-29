@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
 import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.fragment.navhost.NavHostContainerFragment
 
+// TODO This class is not working with ViewPager2
 class NavHostFragmentFactory private constructor() : FragmentFactory() {
 
     @LayoutRes

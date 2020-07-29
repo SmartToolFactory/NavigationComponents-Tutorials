@@ -22,7 +22,7 @@ class PostVerticalNavHostFragment : BaseDataBindingFragment<FragmentNavhostPostV
 
     private var navController: NavController? = null
 
-    private val nestedNavHostFragmentId = R.id.nested_nav_host_fragment_post_vertical
+    private val nestedNavHostFragmentId = R.id.nestedPostVerticalNavHostFragment
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

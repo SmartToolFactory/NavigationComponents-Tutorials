@@ -33,7 +33,7 @@ import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.viewmo
         |      |- NotificationHostFragment
         |      |  |- NF1 -> NF2 -> NF3
         |      |
-        |      |-LoginFragment1
+        |      |-LoginFragment1 -> LoginFragment
         |
         |- DashboardNavHostFragment
         |   |- DF1 -> DF2 -> DF3

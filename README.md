@@ -199,7 +199,7 @@ Data binding that is not null(or non-nullable) after ```Fragment.onDestroyView``
 Covers ```ViewPager2``` and it's pages each with it's own back stack or navigation graphs.
 
 ```
-NavHostFragment use ```NavController```to navigate back/forth in any page.
+NavHostFragment use NavController to navigate back/forth in any page.
 ```
 
 <p align="center">
@@ -245,7 +245,6 @@ This tutorial has very important aspects for ```ViewPager2``` navigation
 **Navigation Architecture**
 
 ```
-
  MainActivity(Appbar + Toolbar + TabLayout + ViewPager2)
    |
    |- HomeNavHostFragment
@@ -258,7 +257,7 @@ This tutorial has very important aspects for ```ViewPager2``` navigation
       |- NF1 -> NF2 -> NF3
 ```
 
-In this tutorial  MainActivity has it's appbar that navigation is controlled using the ``NavController``` retrieved from `` NavHostFragment``  via `` LiveData``
+In this tutorial  MainActivity has it's appbar that navigation is controlled using the ``NavController``` retrieved from ```NavHostFragment```  via  ```LiveData```
 
 <p align="center">
     <img src="./screenshots/Tutorial6-3.gif"/>
@@ -379,9 +378,9 @@ Visibility of ```ParentNavHostFragment``` is changed via liveData of ```AppbarVi
 
   ```
  MainActivity
-    |- MainNavHost
+    |- MainNavHostFragment
        |
-       |- ParenNavHost(Appbar + Toolbar) Here because we wish to have toolbar inside Fragment
+       |- ParenNavHostFragment(Appbar + Toolbar) Here because we wish to have toolbar inside Fragment
            |
            |- ViewPagerContainerFragment(TabLayout + ViewPager2)
            |   |
@@ -433,7 +432,7 @@ It can be done by putting Appbar to ```MainActivity``` but purpose here is to pu
 
   ```
 
-In this example ```BottomNavigationView``` selects which page of [ViewPager2] should be opened using
+In this example ```BottomNavigationView``` selects which page of ```ViewPager2``` should be opened using
 ```BottomNavigationView.setOnNavigationItemSelectedListener```
 
 <p align="center">
@@ -494,3 +493,52 @@ This example is combination of Tutorial6-6 and Tutorial 7-1
 </p>
 
  First tab of the ```BottomNavigationView``` is ```ViewPagerContainerFragment``` which has a ```ViewPager2``` that has it's own pages with each it's own back stack setting ```NavController``` is done both using ```AppbarViewModel``` and ```BottomNavigationView.setupWithNavController``` in the NavigationExtensions code for setting BottomNavigationView back stack.
+
+
+  ### [Tutorial7-3BNV-ViewPager2-FragmentToolbar-MixedNavigation](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial7-3BNV-ViewPager2-FragmentToolbar-MixedNavigation)
+
+   **Navigation Architecture**
+
+  ```
+    MainActivity
+      |- MainNavHostFragment
+           |
+           |- ContainerNavHostFragment(BottomNavigationView  Appbar + Toolbar)
+           |    |
+           |    |- ViewPagerContainerFragment(ViewPager2 + TabLayout)
+           |    |      |
+           |    |      |- PostVerticalNavHost
+           |    |      |  |- PostVerticalFragment -> PostDetailFragment
+           |    |      |
+           |    |      |- PostHorizontalNavHost
+           |    |      |  |- PostHorizontalFragment -> PostDetailFragment
+           |    |      |
+           |    |      |- PostGridNavHostFragment
+           |    |      |  |- PostGridFragment
+           |    |      |
+           |    |      |- PostStaggerNavHostFragment
+           |    |      |  |- PostStaggeredFragment
+           |    |      |
+           |    |      |- NotificationHostFragment
+           |    |      |  |- NF1 -> NF2 -> NF3
+           |    |      |
+           |    |      |- LoginFragment1
+           |    |
+           |    |
+           |    |- DashboardNavHostFragment
+           |    |   |- DF1 -> DF2 -> DF3
+           |    |
+           |    |- NotificationHostFragment
+           |    |  |- NF1 -> NF2 -> NF3
+           |    |
+           |    |- &PostGridFragment -> PostDetailFragment
+           |    |
+           |    |- &LoginFragment1 -> LoginFragment2
+           |
+           |
+           |- &PostStaggeredFragment -> PostDetailFragment
+  ```
+
+  <p align="center">
+      <img src="./screenshots/Tutorial7-3.gif"/>
+  </p>

@@ -20,7 +20,7 @@ class PostHorizontalNavHostFragment :
 
     private var navController: NavController? = null
 
-    private val nestedNavHostFragmentId = R.id.nested_nav_host_fragment_post_horizontal
+    private val nestedNavHostFragmentId = R.id.nestedPostHorizontalNavHostFragment
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

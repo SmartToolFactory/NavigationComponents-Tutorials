@@ -22,7 +22,7 @@ class NotificationHostFragment : BaseDataBindingFragment<FragmentNavhostNotifica
 
     private var navController: NavController? = null
 
-    private val nestedNavHostFragmentId = R.id.nested_nav_host_fragment_notification
+    private val nestedNavHostFragmentId = R.id.nestedNotificationNavHostFragment
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

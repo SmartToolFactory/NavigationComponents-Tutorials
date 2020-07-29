@@ -20,7 +20,7 @@ class PostStaggeredNavHostFragment :
 
     private var navController: NavController? = null
 
-    private val nestedNavHostFragmentId = R.id.nested_nav_host_fragment_post_staggered
+    private val nestedNavHostFragmentId = R.id.nestedPostStaggeredNavHostFragment
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

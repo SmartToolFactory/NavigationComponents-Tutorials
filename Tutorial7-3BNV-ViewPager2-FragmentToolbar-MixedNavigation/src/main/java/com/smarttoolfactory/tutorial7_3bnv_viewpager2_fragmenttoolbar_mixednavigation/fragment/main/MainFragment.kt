@@ -56,7 +56,7 @@ class MainFragment : BaseDataBindingFragment<FragmentMainBinding>() {
         val controller = bottomNavigationView.setupWithNavController(
             navGraphIds = navGraphIds,
             fragmentManager = childFragmentManager,
-            containerId = R.id.nav_host_container,
+            containerId = R.id.containerNavHostFragment,
             intent = requireActivity().intent
         )
 

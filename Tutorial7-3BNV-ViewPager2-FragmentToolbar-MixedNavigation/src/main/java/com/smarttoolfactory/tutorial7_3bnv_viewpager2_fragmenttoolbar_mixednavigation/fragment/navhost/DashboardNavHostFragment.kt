@@ -19,7 +19,7 @@ class DashboardNavHostFragment : BaseDataBindingFragment<FragmentNavhostNotifica
 
     private var navController: NavController? = null
 
-    private val nestedNavHostFragmentId = R.id.nested_nav_host_fragment_dashboard
+    private val nestedNavHostFragmentId = R.id.nestedDashboardNavHostFragment
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

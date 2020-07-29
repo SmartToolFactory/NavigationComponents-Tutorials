@@ -68,7 +68,7 @@ class PostStaggeredFragment : BaseDataBindingFragment<FragmentPostListStaggeredB
          🔥 This is navController we get from findNavController not the one required
          for navigating nested fragments
       */
-                requireActivity().findNavController(R.id.main_nav_host_fragment)
+                requireActivity().findNavController(R.id.mainNavHostFragment)
                     .navigate(R.id.action_mainFragment_to_postDetailFragment, bundle)
 
 //                val mainNavController =
