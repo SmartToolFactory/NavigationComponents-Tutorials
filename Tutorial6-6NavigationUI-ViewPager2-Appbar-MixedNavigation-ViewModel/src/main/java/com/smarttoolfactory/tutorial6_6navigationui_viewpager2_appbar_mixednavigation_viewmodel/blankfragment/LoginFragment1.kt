@@ -16,7 +16,6 @@ class LoginFragment1 : BaseDataBindingFragment<FragmentLogin1Binding>() {
 
     private val appbarViewModel by activityViewModels<AppbarViewModel>()
 
-
     override fun getLayoutRes(): Int = R.layout.fragment_login1
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

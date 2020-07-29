@@ -9,17 +9,56 @@ import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.databinding.ActivityMainBinding
+import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.fragment.viewpagerfragment.ViewPagerContainerFragment
 import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.util.Event
 import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.viewmodel.AppbarViewModel
 
+
+/*
+   *** Navigation Architecture ***
+
+     MainActivity(BottomNavigationView + ViewPager2 + Appbar + Toolbar)
+        |
+        |- ViewPagerContainerFragment(TabLayout + ViewPager2)
+        |      |
+        |      |- HomeNavHostFragment
+        |      |  |- HF1 -> HF2 -> HF3
+        |      |
+        |      |- DashboardNavHostFragment
+        |      |  |- DF1 -> DF2 -> DF3
+        |      |
+        |      |- NotificationHostFragment
+        |      |  |- NF1 -> NF2 -> NF3
+        |      |
+        |      |-LoginFragment1
+        |
+        |- DashboardNavHostFragment
+        |   |- DF1 -> DF2 -> DF3
+        |
+        |- NotificationHostFragment
+        |   |- NF1 -> NF2 -> NF3
+ */
+
+
+
+/**
+ * This example is combination of Tutorial6-6 and Tutorial 7-1
+ *
+ * * First tab of the [BottomNavigationView] is [ViewPagerContainerFragment] which has
+ * a [ViewPager2] that has it's own pages with each it's own back stack
+ *
+ * * Setting [NavController] is done both using [AppbarViewModel]
+ * and [BottomNavigationView.setupWithNavController]
+ * in the NavigationExtensions code for setting BottomNavigationView back stack
+ */
 class MainActivity : AppCompatActivity() {
 
     private val appbarViewModel by viewModels<AppbarViewModel>()
 
     private lateinit var dataBinding: ActivityMainBinding
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
 

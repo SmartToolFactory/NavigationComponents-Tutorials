@@ -421,7 +421,7 @@ It can be done by putting Appbar to ```MainActivity``` but purpose here is to pu
   **Navigation Architecture**
 
   ```
-   MainActivity(BottomNavigationView + + ViewPager2 + Appbar + Toolbar)
+   MainActivity(BottomNavigationView + ViewPager2 + Appbar + Toolbar)
          |- HomeNavHostFragment
          |   |- HF1 -> HF2 -> HF3
          |
@@ -462,3 +462,35 @@ appbarViewModel.currentNavController.observe(this, Observer { it ->
  ### [Tutorial7-2BNV-ViewPager2-ComplexArchitecture](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial7-2BNV-ViewPager2-ComplexArchitecture)
 
   **Navigation Architecture**
+
+  ```
+       MainActivity(BottomNavigationView + ViewPager2 + Appbar + Toolbar)
+          |
+          |- ViewPagerContainerFragment(TabLayout + ViewPager2)
+          |      |
+          |      |- HomeNavHostFragment
+          |      |  |- HF1 -> HF2 -> HF3
+          |      |
+          |      |- DashboardNavHostFragment
+          |      |  |- DF1 -> DF2 -> DF3
+          |      |
+          |      |- NotificationHostFragment
+          |      |  |- NF1 -> NF2 -> NF3
+          |      |
+          |      |-LoginFragment1
+          |
+          |- DashboardNavHostFragment
+          |   |- DF1 -> DF2 -> DF3
+          |
+          |- NotificationHostFragment
+          |   |- NF1 -> NF2 -> NF3
+  ```
+
+This example is combination of Tutorial6-6 and Tutorial 7-1
+
+
+<p align="center">
+    <img src="./screenshots/Tutorial7-2.gif"/>
+</p>
+
+ First tab of the ```BottomNavigationView``` is ```ViewPagerContainerFragment``` which has a ```ViewPager2``` that has it's own pages with each it's own back stack setting ```NavController``` is done both using ```AppbarViewModel``` and ```BottomNavigationView.setupWithNavController``` in the NavigationExtensions code for setting BottomNavigationView back stack.

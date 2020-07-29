@@ -20,7 +20,6 @@ class LoginFragment1 : BaseDataBindingFragment<FragmentLogin1Binding>() {
 
     private val appbarViewModel by activityViewModels<AppbarViewModel>()
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         dataBinding!!.buttonLogin.setOnClickListener {

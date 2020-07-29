@@ -19,7 +19,7 @@ import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.util.E
 /*
    *** Navigation Architecture ***
 
-     MainActivity(BottomNavigationView ++ ViewPager2 + Appbar + Toolbar)
+     MainActivity(BottomNavigationView + ViewPager2 + Appbar + Toolbar)
            |- HomeNavHostFragment
            |   |- HF1 -> HF2 -> HF3
            |
