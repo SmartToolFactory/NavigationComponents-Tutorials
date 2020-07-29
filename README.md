@@ -577,11 +577,11 @@ Steps to create dynamic navigation from app to dynamic feature modules, or from 
     app:navGraph="@navigation/nav_graph_dashboard"/>
 ```
 
-2. Add dynamic navigation with ```<include>, ```<activity> or as framgnet to any navigation graph
-    * You don't have to use an id, but if you do, same id defined here must be used in dynamic feature module, or will get a compile error.
-    * Add nav graph name
+2. Add dynamic navigation with ```<include>```, ```<activity>``` or as fragmentt to any navigation graph
+    * You don't have to use an id, but if you do, same id defined here must be used in dynamic feature module, or will get an error.
     * Add package name of dynamic feature module
-    * Add module nae
+    * Add nav graph name in navigation folder of dynamic feature module
+    * Add module name which is also in app's build.gradle file
     * Optionally add arguments to pass to dynamic feature module fragments
 
  ```
@@ -598,8 +598,8 @@ Steps to create dynamic navigation from app to dynamic feature modules, or from 
  </include-dynamic>
  ```
 
-3. In dynamic feature module navigation creata navigation graph to navigate in feature module fragmnent or navigate to other dynamic feature modueles.
-    * id in dynamic feature module should not have **+**, because you are using the same id resource defined in app or the snippet above
+3. In dynamic feature module navigation creata navigation graph to navigate in feature module fragmnent or navigate to other dynamic feature modueles, and passing arguments and getting the result from a fragment with ```savedStateHandle``.
+    * id in dynamic feature module should not contain **+**, because you are using the same id resource defined in app or the snippet above. If you do you will have the error i got [here](https://stackoverflow.com/questions/62704720/dynamic-feature-module-navigation-illegalstateexception-the-included-navigatio)
 
  ```
  <?xml version="1.0" encoding="utf-8"?>
@@ -636,5 +636,84 @@ Steps to create dynamic navigation from app to dynamic feature modules, or from 
 
  ```
 
-```HomeFragment1``` listen savedStateHandle with ```findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Int>```
+```HomeFragment1``` listen ```savedStateHandle``` with ```findNavController().currentBackStackEntry?.savedStateHandle.getLiveData<Int>```
+
 ```HomeFragment2``` and GalleryFragment sets result with ```findNavController().previousBackStackEntry?.savedStateHandle?.set("count", count)```
+
+### [Tutorial8-2DynamicFeatures-ComplexArchitecture](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial8-2DynamicFeatures-ComplexArchitecture)
+
+**Navigation Architecture**
+
+  ```
+    MainActivity
+      |- MainNavHostFragment
+           |
+           |- ContainerNavHostFragment(BottomNavigationView  Appbar + Toolbar)
+           |    |
+           |    |- ViewPagerContainerFragment(ViewPager2 + TabLayout)
+           |    |      |
+           |    |      |- PostVerticalNavHost
+           |    |      |  |- PostVerticalFragment -> PostDetailFragment
+           |    |      |
+           |    |      |- PostHorizontalNavHost
+           |    |      |  |- PostHorizontalFragment -> PostDetailFragment
+           |    |      |
+           |    |      |- PostGridNavHostFragment
+           |    |      |  |- PostGridFragment
+           |    |      |
+           |    |      |- PostStaggerNavHostFragment
+           |    |      |  |- PostStaggeredFragment
+           |    |      |
+           |    |      |- NotificationHostFragment
+           |    |      |  |- NF1 -> NF2 -> NF3
+           |    |      |
+           |    |      |- LoginFragment1
+           |    |
+           |    |
+           |    |- DashboardNavHostFragment
+           |    |   |- DF1 -> DF2 -> DF3
+           |    |
+           |    |- NotificationHostFragment
+           |    |  |- NF1 -> NF2 -> NF3
+           |    |
+           |    |- &PostGridFragment -> PostDetailFragment
+           |    |
+           |    |- &LoginFragment1 -> LoginFragment2
+           |    |
+           |    |- NF1 | 2F2 -> Camera Dynamic Feature
+           |
+           |
+           |- DF1 | 2F2 -> Photo Dynamic Feature
+           |
+           |- NF1 | 2F2 -> Camera Dynamic Feature
+           |
+           |- &PostStaggeredFragment -> PostDetailFragment
+
+           // Photos Dynamic feature navigate to Camera Dynamic feature
+           |- Photos Dynamic Feature -> Camera Dynamic Feature
+  ```
+
+In this tutorial same as Tutorial 7-3 navigation layered, and navigation from app module to dynamic features, or navigation from ```Photos``` dynamic feature module
+to ```Camera``` dynamic feature module is available.
+
+<p align="center">
+  <img src="./screenshots/Tutorial8-2.gif"/>
+</p>
+
+There are two versions of main fragment.
+
+ One with ```MainFragment``` which uses ```BottomNavigationView``` extension, and ```MainFragmentWithViewPager``` uses ```ViewPager2``` to create back stack of ```BottomNavigationView```.
+
+### Note
+
+🔥 Since ```DynamicNavHostFragment``` used instead of ```NavHostFragment``` another extension should be written that creates fragments that have [DynamicNavHostFragment] in fragments.
+
+If  ```BottomNavigationView``` extension is used with ```DynamicNavHostFragment``` it returns the error below
+>       Caused by: java.lang.IllegalStateException: Could not find Navigator with name "include-dynamic". You must call NavController.addNavigator() for each navigation type.
+>          at androidx.navigation.NavigatorProvider.getNavigator(NavigatorProvider.java:98)
+>          at androidx.navigation.NavInflater.inflate(NavInflater.java:107)
+>          at androidx.navigation.NavInflater.inflate(NavInflater.java:141)
+>          at androidx.navigation.NavInflater.inflate(NavInflater.java:88)
+
+Also, since extension is not used, you can observe that we don't get the **MEMORY LEAK** we got in Tutorial7-3
+

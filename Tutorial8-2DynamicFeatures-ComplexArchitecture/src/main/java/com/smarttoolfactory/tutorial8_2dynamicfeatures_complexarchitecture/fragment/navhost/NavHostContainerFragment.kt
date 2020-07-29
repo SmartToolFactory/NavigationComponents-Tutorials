@@ -73,7 +73,7 @@ class NavHostContainerFragment() : Fragment() {
             childFragmentManager.findFragmentById(navHostFragmentId) as? NavHostFragment
 
         if (nestedNavHostFragment?.navController == null)
-            throw RuntimeException("This fragment should have nav host with NavController")
+            throw RuntimeException("This fragment should have a NavHostFragment with NavController")
 
         navController = nestedNavHostFragment.navController
 
