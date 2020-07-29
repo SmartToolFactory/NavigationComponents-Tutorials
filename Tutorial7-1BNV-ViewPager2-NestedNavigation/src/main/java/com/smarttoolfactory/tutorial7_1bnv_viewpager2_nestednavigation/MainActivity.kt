@@ -19,7 +19,7 @@ import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.util.E
 /*
    *** Navigation Architecture ***
 
-     MainActivity(BottomNavigationView + + ViewPager2 + Appbar + Toolbar)
+     MainActivity(BottomNavigationView ++ ViewPager2 + Appbar + Toolbar)
            |- HomeNavHostFragment
            |   |- HF1 -> HF2 -> HF3
            |
@@ -37,8 +37,6 @@ import com.smarttoolfactory.tutorial7_2bnv_viewpager2_complexarchitecture.util.E
  * Appbar title is changed using  [AppbarViewModel.currentNavController] of visible [NavHostFragment]  on screen of ViePager2 page
  */
 class MainActivity : AppCompatActivity() {
-
-//    private val appbarViewModel by viewModels<AppbarViewModel>()<AppbarViewModel>()
 
     private val appbarViewModel: AppbarViewModel by viewModels()
 

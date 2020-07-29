@@ -1,6 +1,12 @@
-# NavigationComponents-Tutorials
-Tutorials for learning Navigation Components starting with simple set up, and adding top menus, passing arguments via navigation graphs and combining them with different Material Design widgets such as ```BottomNavigationView```, ```Toolbar```, ```ViewPager2```, ```TabLayout``` and **dynamic feature module** navigation with ```DynamicNavHostFragment```.
+# Navigation Components Tutorials
+Tutorials for learning Navigation Components starting with simple set up, continues with adding top menus, passing arguments via navigation graphs and combining them with different Material Design widgets such as ```BottomNavigationView```, ```Toolbar```, ```ViewPager2```, ```TabLayout``` and **dynamic feature module** navigation with ```DynamicNavHostFragment```.
 
+## Overview
+* Add, navigation graph and navigate to fragments with actions and animations
+    * [Tutorial1-Navigation-NavGraph](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial1-1Navigation-NavGraph)
+
+* Nested navigation graphs, NavHostFragment and navigation
+    * [Tutorial1-2Navigation-NestedNavGraph](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial1-3Navigation-NestedNavHost)
 
 
 ## Tutorial Coverage
@@ -58,17 +64,17 @@ Uses seperate and nested fragments with each it's own navigation graph.
 ```nav_graph``` is the main graph for navigation has navigation to **CameraFragment** or other graphs such as ```nav_graph_dashboard``` or ```nav_graph_home```
 Nested graphs are part of the same ```navHostFragment?.childFragmentManager```
 
-[Tutorial1-3Navigation-NestedNavHost](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial1-3Navigation-NestedNavHost)
+### [Tutorial1-3Navigation-NestedNavHost](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial1-3Navigation-NestedNavHost)
 
 Covers how nested graphs with their own back stack or ```NavHostFragment``` work. You can check out both main and home childFragmentManager back stack entry and fragment count by examining Toast or log messages.
 
 ### Note
- Main graph back stack is controlled by ```NavHostFragment.getChildFragmentManager```
+Main graph back stack is controlled by ```NavHostFragment.getChildFragmentManager```
 
- When a nested navigation graph or ```NavHostFragment``` is added it's back stack is retrieved
- using a childFragmentManager.
+When a nested navigation graph or ```NavHostFragment``` is added it's back stack is retrieved
+using a childFragmentManager.
 
-WHen a fragment is from a nested navigation graph is on screen when you navigate back or forth it's current position
+When a fragment is from a nested navigation graph is on screen when you navigate back or forth it's current position
 changes only for the current NavHostFragment, main back stack does not change.
 
  ```
@@ -102,8 +108,8 @@ changes only for the current NavHostFragment, main back stack does not change.
 
  ```
 
-  #### Note
- Back navigation does NOT work for the first fragment in back stack of ```HomeNavHostFragment``` for this example, because
+### Note
+Back navigation does NOT work for the first fragment in back stack of ```HomeNavHostFragment``` for this example, because
 
  ```
 if (navController!!.currentDestination == null || navController!!.currentDestination!!.id == navController!!.graph.startDestination) {
@@ -111,9 +117,9 @@ if (navController!!.currentDestination == null || navController!!.currentDestina
 }
  ```
 
- and start destination is ```HomeNavHostFragment```itself , but  last fragment, currentDestination on graph is  ```HomeFragment1``` when back button is pressed while ```HomeFragment2``` is on screen.
+and start destination is ```HomeNavHostFragment```itself , but  last fragment, currentDestination on graph is  ```HomeFragment1``` when back button is pressed while ```HomeFragment2``` is on screen.
 
- Change ```app:startDestination="@id/home_dest"``` to ```app:startDestination="@id/homeFragment1"```  to solve back press issue for ```HomeNavHostFragment```, it's just set to demonstrate how start destination change back press.
+Change ```app:startDestination="@id/home_dest"``` to ```app:startDestination="@id/homeFragment1"```  to solve back press issue for ```HomeNavHostFragment```, it's just set to demonstrate how start destination change back press.
 
   ```
  <navigation xmlns:android="http://schemas.android.com/apk/res/android"
@@ -139,7 +145,7 @@ if (navController!!.currentDestination == null || navController!!.currentDestina
 </navigation>
  ```
 
-### [Tutorial6-0NavigationUI-ViewPager](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial1-3Navigation-NestedNavHost)
+### [Tutorial6-0NavigationUI-ViewPager](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial6-0NavigationUI-ViewPager)
 
 **Navigation Architecture**
 
@@ -260,7 +266,7 @@ In this tutorial  MainActivity has it's appbar that navigation is controlled usi
 
 ### Note
 
-There is an issue with rotation, when device rotated `` ActivityFragmentStateAdapter.createFragment``  method is not called and it's not possible to access [NavController] of newly created fragments. If you do not wish to have a rotatable app
+There is an issue with rotation, when device rotated `` ActivityFragmentStateAdapter.createFragment``  method is not called and it's not possible to access ```NavController``` of newly created fragments. If you do not wish to have a rotatable app
 you can use live data or ViewModel to get current ```NavController``` to change appbar title and get other
 properties of ```NavController```. LiveData is observed in ```MainActivity``` to set appbar title
 
@@ -294,6 +300,8 @@ In this tutorial each ```NavHostFragment``` has it's own toolbar
 </p>
 
  Using ```FragmentStateAdapter.registerFragmentTransactionCallback``` with ```FragmentStateAdapter``` solves back navigation instead of using ```OnBackPressedCallback.handleOnBackPressed``` in every ```NavHostFragment``` as answered [here](https://stackoverflow.com/questions/61779776/leak-canary-detects-memory-leaks-for-tablayout-with-viewpager2)
+
+
 
  ```
  init {
@@ -392,9 +400,9 @@ Visibility of ```ParentNavHostFragment``` is changed via liveData of ```AppbarVi
 
   ```
 
-In this tutorial only ```ParentNavHostFragment``` has Appbar and Toolbar. Navigation of individual
+In this tutorial, only ```ParentNavHostFragment``` has Appbar and Toolbar. Navigation of individual
 NavHostFragments is done via LiveData belong to ```AppbarViewModel.currentNavController``` which
-returns ```NavController``` of current [NavHostFragment] on screen due. Current ```NavController``` is set ```onResume`` to make sure to
+returns ```NavController``` of current ```NavHostFragment``` on screen due. Current ```NavController``` is set ```onResume``` to make sure to
 set it only when the current fragment is visible, it's instead of checking if fragment is on screen and visible.
 
 <p align="center">
@@ -404,7 +412,7 @@ set it only when the current fragment is visible, it's instead of checking if fr
 ```ParentNavHostFragment```'s role is to have it's own Appbar to contain login fragments and navigate through them using Appbar. Without ParentNavHostFragment we navigate to ```LoginFragment2``` that has no Appbar if it's inside ```ViewPagerContainerFragment```.
 
 It can be done by putting Appbar to ```MainActivity``` but purpose here is to put
- Appbar + Toolbar inside a fragment to be able to use with [BottomNavigationView] for instance
+ Appbar + Toolbar inside a fragment to be able to use with ```BottomNavigationView``` for instance
 
 
 
@@ -412,6 +420,7 @@ It can be done by putting Appbar to ```MainActivity``` but purpose here is to pu
 
   **Navigation Architecture**
 
+  ```
    MainActivity(BottomNavigationView + + ViewPager2 + Appbar + Toolbar)
          |- HomeNavHostFragment
          |   |- HF1 -> HF2 -> HF3
@@ -428,38 +437,15 @@ In this example ```BottomNavigationView``` selects which page of [ViewPager2] sh
 ```BottomNavigationView.setOnNavigationItemSelectedListener```
 
 <p align="center">
-    <img src="./screenshots/Tutorial6-6.gif"/>
+    <img src="./screenshots/Tutorial7-1.gif"/>
 </p>
 
 Appbar title is changed using  LiveData ```AppbarViewModel.currentNavController``` of visible ```NavHostFragment```  on screen of ViePager2 page
 
-Set page of ViewPager2 using BottomNavigationView
 
-```
-bottomNavigationView.setOnNavigationItemSelectedListener {
-
-    when (it.itemId) {
-        R.id.nav_graph_home -> {
-            viewPager2.setCurrentItem(0, false)
-            return@setOnNavigationItemSelectedListener true
-
-        }
-        R.id.nav_graph_dashboard -> {
-            viewPager2.setCurrentItem(1, false)
-            return@setOnNavigationItemSelectedListener true
-        }
-        R.id.nav_graph_notification -> {
-            viewPager2.setCurrentItem(2, false)
-            return@setOnNavigationItemSelectedListener true
-        }
-    }
-
-    false
-
-}
-```
 
 Change current nav controller to set appbar title
+
 ```
 appbarViewModel.currentNavController.observe(this, Observer { it ->
 
@@ -470,4 +456,9 @@ appbarViewModel.currentNavController.observe(this, Observer { it ->
         }
     }
 })
+
 ```
+
+ ### [Tutorial7-2BNV-ViewPager2-ComplexArchitecture](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial7-2BNV-ViewPager2-ComplexArchitecture)
+
+  **Navigation Architecture**

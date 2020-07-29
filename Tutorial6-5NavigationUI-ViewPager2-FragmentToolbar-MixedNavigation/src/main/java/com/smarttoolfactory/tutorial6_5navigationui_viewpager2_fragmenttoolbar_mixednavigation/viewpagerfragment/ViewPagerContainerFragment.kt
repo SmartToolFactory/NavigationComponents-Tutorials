@@ -45,6 +45,8 @@ class ViewPagerContainerFragment : BaseDataBindingFragment<FragmentViewpagerCont
         /*
             🔥 Set Adapter for ViewPager inside this fragment using this Fragment,
             more specifically childFragmentManager as param
+
+            https://stackoverflow.com/questions/61779776/leak-canary-detects-memory-leaks-for-tablayout-with-viewpager2
          */
         val adapter = ChildFragmentStateAdapter(childFragmentManager, viewLifecycleOwner.lifecycle)
         viewPager.adapter = adapter
