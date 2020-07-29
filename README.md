@@ -372,9 +372,9 @@ Visibility of ```ParentNavHostFragment``` is changed via liveData of ```AppbarVi
  However, there is an issue whenever Toolbar that is not belong to fragments appear or disappear.
 
 
- ### [Tutorial6-6NavigationUI-ViewPager2-Appbar-MixedNavigation-ViewModel](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial6-6NavigationUI-ViewPager2-Appbar-MixedNavigation-ViewModel)
+### [Tutorial6-6NavigationUI-ViewPager2-Appbar-MixedNavigation-ViewModel](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial6-6NavigationUI-ViewPager2-Appbar-MixedNavigation-ViewModel)
 
-  **Navigation Architecture**
+**Navigation Architecture**
 
   ```
  MainActivity
@@ -415,9 +415,9 @@ It can be done by putting Appbar to ```MainActivity``` but purpose here is to pu
 
 
 
- ### [Tutorial7-1BNV-ViewPager2-NestedNavigation](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial7-1BNV-ViewPager2-NestedNavigation)
+### [Tutorial7-1BNV-ViewPager2-NestedNavigation](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial7-1BNV-ViewPager2-NestedNavigation)
 
-  **Navigation Architecture**
+**Navigation Architecture**
 
   ```
    MainActivity(BottomNavigationView + ViewPager2 + Appbar + Toolbar)
@@ -458,9 +458,9 @@ appbarViewModel.currentNavController.observe(this, Observer { it ->
 
 ```
 
- ### [Tutorial7-2BNV-ViewPager2-ComplexArchitecture](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial7-2BNV-ViewPager2-ComplexArchitecture)
+### [Tutorial7-2BNV-ViewPager2-ComplexArchitecture](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial7-2BNV-ViewPager2-ComplexArchitecture)
 
-  **Navigation Architecture**
+**Navigation Architecture**
 
   ```
        MainActivity(BottomNavigationView + ViewPager2 + Appbar + Toolbar)
@@ -495,9 +495,9 @@ This example is combination of Tutorial6-6 and Tutorial 7-1
  First tab of the ```BottomNavigationView``` is ```ViewPagerContainerFragment``` which has a ```ViewPager2``` that has it's own pages with each it's own back stack setting ```NavController``` is done both using ```AppbarViewModel``` and ```BottomNavigationView.setupWithNavController``` in the NavigationExtensions code for setting BottomNavigationView back stack.
 
 
-  ### [Tutorial7-3BNV-ViewPager2-FragmentToolbar-MixedNavigation](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial7-3BNV-ViewPager2-FragmentToolbar-MixedNavigation)
+### [Tutorial7-3BNV-ViewPager2-FragmentToolbar-MixedNavigation](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial7-3BNV-ViewPager2-FragmentToolbar-MixedNavigation)
 
-   **Navigation Architecture**
+**Navigation Architecture**
 
   ```
     MainActivity
@@ -539,22 +539,102 @@ This example is combination of Tutorial6-6 and Tutorial 7-1
            |- &PostStaggeredFragment -> PostDetailFragment
   ```
 
-In this tutorial [BottomNavigationView] is inside [MainFragment]. [MainActivity] can navigate to a different fragment other than the [MainFragment] using nav_graph main destinations.
+In this tutorial ```BottomNavigationView``` is inside ```MainFragment```. ```MainActivity``` can navigate to a different fragment other than the ```MainFragment``` using nav_graph main destinations.
 
-  <p align="center">
-      <img src="./screenshots/Tutorial7-3.gif"/>
-  </p>
+<p align="center">
+  <img src="./screenshots/Tutorial7-3.gif"/>
+</p>
 
  Navigation is layered, fragments annotated with **&** display that hey navigate at that level, not actually added to that hierarchy.
 
  For instance, ```PostStaggeredFragment``` which is in ```ViewPager2``` calls snippet below to get main ```NavController``` to navigate in main navigation graph
  ```requireActivity().findNavController(R.id.main_nav_host_fragment).navigate(R.id.action_mainFragment_to_postDetailFragment, bundle)```
 
-```PostGridFragment``` which is in ```ViewPager2``` gets [NavController] that belong to ```ViewPagerContainerFragment``` via ```parentFragment?.parentFragment?.findNavController()``` and navigates from ```ViewPagerContainerFragment``` to ```PostDetailFragment```
+```PostGridFragment``` which is in ```ViewPager2``` gets ```PNavController```P that belong to ```ViewPagerContainerFragment``` via ```parentFragment?.parentFragment?.findNavController()``` and navigates from ```ViewPagerContainerFragment``` to ```PostDetailFragment```
 
-### Note
+### 🔥🔥🔥 Important
 
-🔥🔥🔥 If you navigate from ```PostStaggeredFragment``` to ```PostDetailFragment``` fragment you will see that memory leak occurs. It happens
-due to ```Navigationsions``` leaking because of listeners not being unregistered in extension functions.
+If you navigate from ```PostStaggeredFragment``` to ```PostDetailFragment``` fragment you will see that memory leak occurs. It happens due to BottomNavigationView.setupWithNavController``` function in ```NavigationExtensions.kt``` class leaking because of listeners not being unregistered in extension functions in ```onDestroyView``` of fragment.
 
-Look into this issue in Tutorial8-1
+Check out Tutorial8-2 for solution for this issue
+
+### [Tutorial8-1DynamicFeatures-Navigation](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial8-1DynamicFeatures-Navigation)
+
+This tutorial to navigate to dynamic feature module from App, navigate from dynamic feature module  gallery to favorites.
+
+<p align="center">
+  <img src="./screenshots/Tutorial8-1.gif"/>
+</p>
+
+Steps to create dynamic navigation from app to dynamic feature modules, or from one dynamic feature module to another
+
+1. Replace  ```android:name="androidx.navigation.fragment.NavHostFragment"``` with ```android:name="androidx.navigation.dynamicfeatures.fragment.DynamicNavHostFragment"``` for the layouts
+```
+<androidx.fragment.app.FragmentContainerView
+    android:id="@+id/nestedDashboardNavHostFragment"
+    android:name="androidx.navigation.dynamicfeatures.fragment.DynamicNavHostFragment"
+    app:defaultNavHost="true"
+    app:navGraph="@navigation/nav_graph_dashboard"/>
+```
+
+2. Add dynamic navigation with ```<include>, ```<activity> or as framgnet to any navigation graph
+    * You don't have to use an id, but if you do, same id defined here must be used in dynamic feature module, or will get a compile error.
+    * Add nav graph name
+    * Add package name of dynamic feature module
+    * Add module nae
+    * Optionally add arguments to pass to dynamic feature module fragments
+
+ ```
+ <!-- gallery dynamic feature module-->
+ <include-dynamic
+     android:id="@+id/nav_graph_gallery"
+     android:name="com.smarttoolfactory.gallery"
+     app:graphResName="nav_graph_gallery"
+     app:moduleName="gallery">
+     <argument
+         android:name="count"
+         android:defaultValue="0"
+         app:argType="integer" />
+ </include-dynamic>
+ ```
+
+3. In dynamic feature module navigation creata navigation graph to navigate in feature module fragmnent or navigate to other dynamic feature modueles.
+    * id in dynamic feature module should not have **+**, because you are using the same id resource defined in app or the snippet above
+
+ ```
+ <?xml version="1.0" encoding="utf-8"?>
+ <navigation xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     android:id="@id/nav_graph_gallery"
+     app:moduleName="gallery"
+     app:startDestination="@id/galleryFragment1">
+
+     <fragment
+         android:id="@+id/galleryFragment1"
+         android:name="com.smarttoolfactory.gallery.GalleryFragment1"
+         android:label="GalleryFragment1">
+         <action
+             android:id="@+id/action_galleryFragment1_to_galleryFragment2"
+             app:destination="@id/galleryFragment2" />
+         <action
+             android:id="@+id/action_galleryFragment1_to_nav_graph_favorites"
+             app:destination="@id/nav_graph_favorites" />
+     </fragment>
+
+     <!-- favorite dynamic feature module-->
+     <include-dynamic
+         android:id="@id/nav_graph_favorites"
+         android:name="com.smarttoolfactory.favorites"
+         app:graphResName="nav_graph_favorites"
+         app:moduleName="favorites" >
+         <argument
+             android:name="count"
+             app:argType="integer"
+             android:defaultValue="0" />
+     </include-dynamic>
+ </navigation>
+
+ ```
+
+```HomeFragment1``` listen savedStateHandle with ```findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Int>```
+```HomeFragment2``` and GalleryFragment sets result with ```findNavController().previousBackStackEntry?.savedStateHandle?.set("count", count)```

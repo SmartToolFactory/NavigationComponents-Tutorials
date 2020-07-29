@@ -20,7 +20,7 @@ class HomeNavHostFragment : BaseDataBindingFragment<FragmentNavhostHomeBinding>(
 
     private var navController: NavController? = null
 
-    private val nestedNavHostFragmentId = R.id.nested_nav_host_fragment_home
+    private val nestedNavHostFragmentId = R.id.nestedHomeNavHostFragment
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

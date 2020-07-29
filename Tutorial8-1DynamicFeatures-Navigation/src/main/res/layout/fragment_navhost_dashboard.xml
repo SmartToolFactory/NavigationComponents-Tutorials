@@ -7,7 +7,7 @@
         android:layout_height="match_parent">
 
         <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/nested_nav_host_fragment_dashboard"
+            android:id="@+id/nestedDashboardNavHostFragment"
             android:name="androidx.navigation.dynamicfeatures.fragment.DynamicNavHostFragment"
             android:layout_width="0dp"
             android:layout_height="0dp"
