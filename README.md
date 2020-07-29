@@ -539,6 +539,22 @@ This example is combination of Tutorial6-6 and Tutorial 7-1
            |- &PostStaggeredFragment -> PostDetailFragment
   ```
 
+In this tutorial [BottomNavigationView] is inside [MainFragment]. [MainActivity] can navigate to a different fragment other than the [MainFragment] using nav_graph main destinations.
+
   <p align="center">
       <img src="./screenshots/Tutorial7-3.gif"/>
   </p>
+
+ Navigation is layered, fragments annotated with **&** display that hey navigate at that level, not actually added to that hierarchy.
+
+ For instance, ```PostStaggeredFragment``` which is in ```ViewPager2``` calls snippet below to get main ```NavController``` to navigate in main navigation graph
+ ```requireActivity().findNavController(R.id.main_nav_host_fragment).navigate(R.id.action_mainFragment_to_postDetailFragment, bundle)```
+
+```PostGridFragment``` which is in ```ViewPager2``` gets [NavController] that belong to ```ViewPagerContainerFragment``` via ```parentFragment?.parentFragment?.findNavController()``` and navigates from ```ViewPagerContainerFragment``` to ```PostDetailFragment```
+
+### Note
+
+🔥🔥🔥 If you navigate from ```PostStaggeredFragment``` to ```PostDetailFragment``` fragment you will see that memory leak occurs. It happens
+due to ```Navigationsions``` leaking because of listeners not being unregistered in extension functions.
+
+Look into this issue in Tutorial8-1
