@@ -3,11 +3,64 @@ Tutorials for learning Navigation Components starting with simple set up, contin
 
 ## Overview
 * Add, navigation graph and navigate to fragments with actions and animations
-    * [Tutorial1-Navigation-NavGraph](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial1-1Navigation-NavGraph)
+    * [Tutorial1-1Navigation-NavGraph](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial1-1Navigation-NavGraph)
 
 * Nested navigation graphs, NavHostFragment and navigation
     * [Tutorial1-2Navigation-NestedNavGraph](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial1-3Navigation-NestedNavHost)
 
+* Nested navigation with a NavHostFragment and back press handled with OnBackPressedCallback
+    * [Tutorial1-3Navigation-NestedNavHost](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial1-3Navigation-NestedNavHost)
+
+* Set navigation with toolbar, navigationview and use top menu buttons to navigate
+    * [Tutorial4-1NavigationUI-NavigationView](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial4-1NavigationUI-NavigationView)
+
+* BottomNavigationView with simple navigation
+    * [Tutorial5-1NavigationUI-BottomNavigation](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial5-1NavigationUI-BottomNavigation)
+
+* BottomNavigation with extension to create individual NavHostFragments and listen back stack changes
+    * [Tutorial5-3NavigationUI-BottomNavigation-NestedNavigation](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial5-3NavigationUI-BottomNavigation-NestedNavigation)
+
+* Examine memory leaks when extension funstion setupWithNavController for BottomNavigationView is inside a fragment
+    * [Tutorial5-4NavigationUI-MemoryLeakCheck](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial5-4NavigationUI-MemoryLeakCheck)
+
+* ViewPager2 inside a fragment with single navigation graph, navigates from the fragment ViewPager2 is in to next one
+    * [Tutorial6-0NavigationUI-ViewPager2](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial6-0NavigationUI-ViewPager2)
+
+* Same tutorial as the previos one but data binding used this time to examine and solve memory leaks due to data binding
+    * [Tutorial6-1NavigationUI-ViewPager2](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial6-1NavigationUI-ViewPager2)
+
+* ViewPager2 navigation with each page has it's own back stack or fragment that wraps/contains NavHostFragment
+    * [Tutorial6-2NavigationUI-ViewPager2-NestedNavHost](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial6-2NavigationUI-ViewPager2-NestedNavHost)
+
+* ViewPager2 navigation with each page has it's own back stack or fragment that wraps/contains NavHostFragment
+    * [Tutorial6-2NavigationUI-ViewPager2-NestedNavHost](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial6-2NavigationUI-ViewPager2-NestedNavHost)
+
+* ViewPager2 inside an Activity, and topbar title and current NavController is set using a liveData(This does not work after rotation)
+    * [Tutorial6-3NavigationUI-ViewPager2-Appbar-NestedNavigation-LiveData](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial6-3NavigationUI-ViewPager2-Appbar-NestedNavigation-LiveData)
+
+* ViewPager2 and fragments with their own Toolbar, FragmentTransactionCallback is used for navigating ViewPager2 pages back stack properly
+    * [Tutorial6-4NavigationUI-ViewPager2-FragmentToolbar-NestedNavigation](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial6-4NavigationUI-ViewPager2-FragmentToolbar-NestedNavigation)
+
+* ViewPager2 navigation when both it's child fragments and parent fragment have Toolbar of their own, and navigation from differnt layers
+    * [Tutorial6-5NavigationUI-ViewPager2-FragmentToolbar-MixedNavigation](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial6-5NavigationUI-ViewPager2-FragmentToolbar-MixedNavigation)
+
+* ViewPager2 and TabLayout complex navigation with changing navigation in fragments different layers of navigation
+    * [Tutorial6-6NavigationUI-ViewPager2-Appbar-MixedNavigation-ViewModel](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial6-6NavigationUI-ViewPager2-Appbar-MixedNavigation-ViewModel)
+
+* BottomNavigationView using ViewPager2 to have tabs with their own back stack.
+    * [Tutorial7-1BNV-ViewPager2-NestedNavigation](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial7-1BNV-ViewPager2-NestedNavigation)
+
+* BottomNavigationView navigation through it's tabs, and navigating ViewPager2 is inside a tab of BottomNavigationView.
+    * [Tutorial7-2BNV-ViewPager2-ComplexArchitecture](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial7-2BNV-ViewPager2-ComplexArchitecture)
+
+* Using REST api, complex navigation with layers(Total 3 layers of navigation) when ViewPager2 is inside a tab of BottomNavigationView
+    * [Tutorial7-3BNV-ViewPager2-FragmentToolbar-MixedNavigation](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial7-3BNV-ViewPager2-FragmentToolbar-MixedNavigation)
+
+* Implementation of Dynamic Feature Module navigation, passing data and using SavedStateHandle to get data on back press
+    * [Tutorial8-1DynamicFeatures-Navigation](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial8-1DynamicFeatures-Navigation)
+
+*  Using REST api, complex navigation with layers with ViewPager2 in BottomNavigationView and Dynamic Feature Modules.
+    * [Tutorial8-2DynamicFeatures-ComplexArchitecture](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial8-2DynamicFeatures-ComplexArchitecture)
 
 ## Tutorial Coverage
 
@@ -257,7 +310,7 @@ This tutorial has very important aspects for ```ViewPager2``` navigation
       |- NF1 -> NF2 -> NF3
 ```
 
-In this tutorial  MainActivity has it's appbar that navigation is controlled using the ``NavController``` retrieved from ```NavHostFragment```  via  ```LiveData```
+In this tutorial  MainActivity has it's appbar that navigation is controlled using the ```NavController``` retrieved from ```NavHostFragment```  via  ```LiveData```
 
 <p align="center">
     <img src="./screenshots/Tutorial6-3.gif"/>
