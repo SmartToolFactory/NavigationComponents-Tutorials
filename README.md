@@ -20,7 +20,7 @@ Tutorials for learning Navigation Components starting with simple set up, contin
 * BottomNavigation with extension to create individual NavHostFragments and listen back stack changes
     * [Tutorial5-3NavigationUI-BottomNavigation-NestedNavigation](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial5-3NavigationUI-BottomNavigation-NestedNavigation)
 
-* Examine memory leaks when extension funstion setupWithNavController for BottomNavigationView is inside a fragment
+* Examine memory leaks when extension function setupWithNavController for BottomNavigationView is inside a fragment
     * [Tutorial5-4NavigationUI-MemoryLeakCheck](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial5-4NavigationUI-MemoryLeakCheck)
 
 * ViewPager2 inside a fragment with single navigation graph, navigates from the fragment ViewPager2 is in to next one
@@ -223,7 +223,7 @@ Covers how to create a ```ViewPager2```with navigation in main back stack, in th
 Same as previous tutorial except only with one difference,  ```data binding``` is used for binding.
 
 ### Note
-Data binding that is not null(or non-nullable) after ```Fragment.onDestroyView``` when ```ViewPager2```is inside a fragment causing leak canary to show data binding related **MEMORY LEAK** for this fragment when used in ```ViewPager2``. Also you need to set adapter of ViewPager2 either to prevent memory leaks, and another one is due to TabLayouts which is covered in later sections. Check out this [stackoverflow question](https://stackoverflow.com/questions/62851425/viewpager2-inside-a-fragment-leaks-after-replacing-the-fragment-its-in-by-navig) for more details.
+Data binding that is not null(or non-nullable) after ```Fragment.onDestroyView``` when ```ViewPager2```is inside a fragment causing leak canary to show data binding related **MEMORY LEAK** for this fragment when used in ```ViewPager2```. Also you need to set adapter of ViewPager2 either to prevent memory leaks, and another one is due to TabLayouts which is covered in later sections. Check out this [stackoverflow question](https://stackoverflow.com/questions/62851425/viewpager2-inside-a-fragment-leaks-after-replacing-the-fragment-its-in-by-navig) for more details.
 
 ### [Tutorial6-2NavigationUI-NestedNavHost](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial6-2NavigationUI-NestedNavHost)
 
@@ -266,11 +266,11 @@ This tutorial has very important aspects for ```ViewPager2``` navigation
     it's own nav graph.
 
     in each layout file ```NavHostFragment``` inside is retrieved using
-    ``
+    ```
             val nestedNavHostFragment =
                 childFragmentManager.findFragmentById(nestedNavHostFragmentId) as? NavHostFragment
             navController = nestedNavHostFragment?.navController`
-    ``
+    ```
 
     ```HomeNavHostFragment``` uses the first fragment that is displayed on screen **HomeFragment1 while   ```DashboardNavHostFragment``` uses graph with itself as start destination so it should check for the ```NavController.getCurrentDestination()``` to navigate to it when device rotated
 
@@ -293,7 +293,7 @@ This tutorial has very important aspects for ```ViewPager2``` navigation
      viewPager.adapter =
                         ChildFragmentStateAdapter(childFragmentManager, viewLifecycleOwner.lifecycle)
      ```
-     
+
 Refer to this [stackoverflow question](https://stackoverflow.com/questions/61779776/leak-canary-detects-memory-leaks-for-tablayout-with-viewpager2) for more details.
 
 ### [Tutorial6-3NavigationUI-ViewPager2-Appbar-NestedNavigation-LiveData](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial6-3NavigationUI-ViewPager2-Appbar-NestedNavigation-LiveData)
@@ -321,7 +321,7 @@ In this tutorial  MainActivity has it's appbar that navigation is controlled usi
 
 ### Note
 
-There is an issue with rotation, when device rotated `` ActivityFragmentStateAdapter.createFragment``  method is not called and it's not possible to access ```NavController``` of newly created fragments. If you do not wish to have a rotatable app
+There is an issue with rotation, when device rotated ``` ActivityFragmentStateAdapter.createFragment```  method is not called and it's not possible to access ```NavController``` of newly created fragments. If you do not wish to have a rotatable app
 you can use live data or ViewModel to get current ```NavController``` to change appbar title and get other
 properties of ```NavController```. LiveData is observed in ```MainActivity``` to set appbar title
 
@@ -652,7 +652,7 @@ Steps to create dynamic navigation from app to dynamic feature modules, or from 
  </include-dynamic>
  ```
 
-3. In dynamic feature module navigation creata navigation graph to navigate in feature module fragmnent or navigate to other dynamic feature modueles, and passing arguments and getting the result from a fragment with ```savedStateHandle``.
+3. In dynamic feature module navigation creata navigation graph to navigate in feature module fragmnent or navigate to other dynamic feature modueles, and passing arguments and getting the result from a fragment with ```savedStateHandle```.
     * id in dynamic feature module should not contain **+**, because you are using the same id resource defined in app or the snippet above. If you do you will have the error i got [here](https://stackoverflow.com/questions/62704720/dynamic-feature-module-navigation-illegalstateexception-the-included-navigatio)
 
  ```
@@ -771,3 +771,9 @@ If  ```BottomNavigationView``` extension is used with ```DynamicNavHostFragment`
 
 Also, since extension is not used, observe that not getting  **MEMORY LEAK** that was present in Tutorial7-3
 
+### TodDos:
+- [ ] Use nav graph ViewModel by navGraphViewModels, couldn't find it yet
+- [ ] Solve ```setFragmentResultListener``` issue to get result from a framgent on back press, and use instead of savedStateHandle
+- [ ] Use saveStateHandle or save fragment state in Tutorial 8-2 when ViewPager2 moves away from viewPort
+- [ ] There is a performance issue in Tutorial 8-2 when navigate back from StaggerPostListFragment, or navigating back to fragment main
+- [ ] Use BottomNavigationView extension with ```DynamicNavHostFragment```, or create another extension for dynamic feature modules

@@ -18,7 +18,7 @@
             app:destination="@id/loginFragment2" />
         <action
             android:id="@+id/action_view_pager_dest_to_postDetailFragment"
-            app:destination="@id/postDetailFragment" />
+            app:destination="@id/nav_graph_post_detail" />
     </fragment>
 
     <!-- Login -->
@@ -28,17 +28,18 @@
         android:label="LoginFragment2"
         tools:layout="@layout/fragment_login2"/>
 
-    <!-- Post Detail -->
-    <fragment
-        android:id="@+id/postDetailFragment"
-        android:name="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.blankfragment.PostDetailFragment"
-        android:label="PostDetailFragment"
-        tools:layout="@layout/fragment_post_detail">
+    <!-- Post Detail  dynamic feature module -->
+    <include-dynamic
+        android:id="@+id/nav_graph_post_detail"
+        android:name="com.smarttoolfactory.post_detail"
+        app:graphResName="nav_graph_post_detail"
+        app:moduleName="post_detail">
 
-        <argument android:name="post"
-            app:argType="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.api.Post"/>
+        <argument
+            android:name="post"
+            app:argType="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.api.Post" />
 
-    </fragment>
+    </include-dynamic>
 
     <include-dynamic
         android:id="@+id/nav_graph_camera"

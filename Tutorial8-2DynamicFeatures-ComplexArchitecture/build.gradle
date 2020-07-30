@@ -38,10 +38,8 @@ android {
     }
 
     dynamicFeatures = [':features:camera',
-                       ':features:photos'
-//                       ,
-//                       ':features:post_search',
-//                       ':features:post_detail'
+                       ':features:photos',
+                       ':features:post_detail'
     ]
 }
 

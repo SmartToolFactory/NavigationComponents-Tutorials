@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_post_list_grid">
         <action
             android:id="@+id/action_postGridFragment_to_postDetailFragment"
-            app:destination="@id/postDetailFragment" />
+            app:destination="@id/nav_graph_post_detail" />
     </fragment>
 
 </navigation>

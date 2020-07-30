@@ -10,9 +10,6 @@
         android:name="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.blankfragment.PostStaggeredFragment"
         android:label="Staggered Post Fragment"
         tools:layout="@layout/fragment_post_list_grid">
-        <action
-            android:id="@+id/action_postGridFragment_to_postDetailFragment"
-            app:destination="@id/postDetailFragment" />
     </fragment>
 
 

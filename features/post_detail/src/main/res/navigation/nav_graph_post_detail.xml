@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@id/nav_graph_post_detail"
+    app:moduleName="post_detail"
+    app:startDestination="@id/postDetailFragment">
+
+    <fragment
+        android:id="@+id/postDetailFragment"
+        android:name="com.smarttoolfactory.post_detail.PostDetailFragment"
+        android:label="PostDetailFragment">
+    </fragment>
+</navigation>

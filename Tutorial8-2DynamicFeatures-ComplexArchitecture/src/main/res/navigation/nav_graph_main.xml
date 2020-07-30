@@ -5,8 +5,8 @@
     android:id="@+id/nav_graph_main"
     app:startDestination="@id/mainFragment">
 
-<!--    android:name="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.main.MainFragment"-->
-<!--    android:name="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.main.MainFragmentWithViewPager"-->
+    <!--    android:name="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.main.MainFragment"-->
+    <!--    android:name="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.main.MainFragmentWithViewPager"-->
 
     <fragment
         android:id="@+id/mainFragment"
@@ -20,7 +20,7 @@
 
         <action
             android:id="@+id/action_mainFragment_to_postDetailFragment"
-            app:destination="@id/postDetailFragment" />
+            app:destination="@id/nav_graph_post_detail" />
     </fragment>
 
     <!-- Notification Detail -->
@@ -30,19 +30,18 @@
         android:label="Notification Detail Fragment"
         tools:layout="@layout/fragment_notification_detail" />
 
-    <!-- Post Detail to access from PostStaggeredFragment-->
-    <fragment
-        android:id="@+id/postDetailFragment"
-        android:name="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.blankfragment.PostDetailFragment"
-        android:label="PostDetailFragment"
-        tools:layout="@layout/fragment_post_detail">
+    <!-- Post Detail  dynamic feature module to access from PostStaggeredFragment -->
+    <include-dynamic
+        android:id="@+id/nav_graph_post_detail"
+        android:name="com.smarttoolfactory.post_detail"
+        app:graphResName="nav_graph_post_detail"
+        app:moduleName="post_detail">
 
         <argument
             android:name="post"
             app:argType="com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.api.Post" />
 
-    </fragment>
-
+    </include-dynamic>
 
     <!-- camera dynamic feature module-->
     <include-dynamic

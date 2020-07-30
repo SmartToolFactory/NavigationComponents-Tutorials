@@ -4,7 +4,6 @@ include ':features:favorites'
 
 include ':features:photos'
 include ':features:camera'
-include ':features:post_search'
 include ':features:post_detail'
 
 include ':External-Tutorial-Navigation-Codelab'
