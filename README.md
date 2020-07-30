@@ -293,6 +293,9 @@ This tutorial has very important aspects for ```ViewPager2``` navigation
      viewPager.adapter =
                         ChildFragmentStateAdapter(childFragmentManager, viewLifecycleOwner.lifecycle)
      ```
+     
+Refer to this [stackoverflow question](https://stackoverflow.com/questions/61779776/leak-canary-detects-memory-leaks-for-tablayout-with-viewpager2) for more details.
+
 ### [Tutorial6-3NavigationUI-ViewPager2-Appbar-NestedNavigation-LiveData](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial6-3NavigationUI-ViewPager2-Appbar-NestedNavigation-LiveData)
 
 **Navigation Architecture**
@@ -351,9 +354,7 @@ In this tutorial each ```NavHostFragment``` has it's own toolbar
     <img src="./screenshots/Tutorial6-4.gif"/>
 </p>
 
- Using ```FragmentStateAdapter.registerFragmentTransactionCallback``` with ```FragmentStateAdapter``` solves back navigation instead of using ```OnBackPressedCallback.handleOnBackPressed``` in every ```NavHostFragment``` as answered [here](https://stackoverflow.com/questions/61779776/leak-canary-detects-memory-leaks-for-tablayout-with-viewpager2)
-
-
+ Using ```FragmentStateAdapter.registerFragmentTransactionCallback``` with ```FragmentStateAdapter``` solves back navigation instead of using ```OnBackPressedCallback.handleOnBackPressed``` in every ```NavHostFragment``` as answered [here](https://stackoverflow.com/a/62629996/5457853)
 
  ```
  init {
@@ -380,7 +381,7 @@ In this tutorial each ```NavHostFragment``` has it's own toolbar
  }
 ```
 
-If defaultNavHost is not set to true true for any ```NavHostFragments```  by setting  ```app:defaultNavHost="true"`` in xml or programmatically
+If defaultNavHost is not set to true true for any ```NavHostFragments```  by setting  ```app:defaultNavHost="true"``` in xml or programmatically
 snippet above will not work.
 
 ### [Tutorial6-5NavigationUI-ViewPager2-FragmentToolbar-MixedNavigation](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial6-5NavigationUI-ViewPager2-FragmentToolbar-MixedNavigation)
@@ -768,5 +769,5 @@ If  ```BottomNavigationView``` extension is used with ```DynamicNavHostFragment`
 >          at androidx.navigation.NavInflater.inflate(NavInflater.java:141)
 >          at androidx.navigation.NavInflater.inflate(NavInflater.java:88)
 
-Also, since extension is not used, you can observe that we don't get the **MEMORY LEAK** we got in Tutorial7-3
+Also, since extension is not used, observe that not getting  **MEMORY LEAK** that was present in Tutorial7-3
 
