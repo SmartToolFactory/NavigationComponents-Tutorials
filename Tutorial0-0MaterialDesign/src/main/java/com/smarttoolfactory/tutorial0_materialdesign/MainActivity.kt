@@ -81,16 +81,12 @@ class MainActivity : AppCompatActivity(), BaseAdapter.OnRecyclerViewItemClickLis
                 setOnItemClickListener(this@MainActivity)
             }
         }
-
     }
 
     @Override
     override fun onItemClicked(view: View, position: Int) {
-
-
         Intent(this@MainActivity, activityClassModels[position].clazz).also {
             startActivity(it)
         }
-
     }
 }

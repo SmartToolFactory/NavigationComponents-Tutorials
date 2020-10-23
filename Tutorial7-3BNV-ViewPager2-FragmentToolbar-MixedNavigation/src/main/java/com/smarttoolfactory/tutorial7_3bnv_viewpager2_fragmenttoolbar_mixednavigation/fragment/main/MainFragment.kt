@@ -45,7 +45,6 @@ class MainFragment : BaseDataBindingFragment<FragmentMainBinding>() {
 
         val bottomNavigationView = dataBinding!!.bottomNav
 
-
         val navGraphIds = listOf(
             R.navigation.nav_graph_view_pager,
             R.navigation.nav_graph_dashboard,

@@ -11,7 +11,7 @@ Tutorials for learning Navigation Components starting with simple set up, contin
 * Nested navigation with a NavHostFragment and back press handled with OnBackPressedCallback
     * [Tutorial1-3Navigation-NestedNavHost](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial1-3Navigation-NestedNavHost)
 
-* Set navigation with toolbar, navigationview and use top menu buttons to navigate
+* Set navigation with toolbar, NavigationView and use top menu buttons to navigate
     * [Tutorial4-1NavigationUI-NavigationView](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial4-1NavigationUI-NavigationView)
 
 * BottomNavigationView with simple navigation
@@ -26,7 +26,7 @@ Tutorials for learning Navigation Components starting with simple set up, contin
 * ViewPager2 inside a fragment with single navigation graph, navigates from the fragment ViewPager2 is in to next one
     * [Tutorial6-0NavigationUI-ViewPager2](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial6-0NavigationUI-ViewPager2)
 
-* Same tutorial as the previos one but data binding used this time to examine and solve memory leaks due to data binding
+* Same tutorial as the previous one but data binding used this time to examine and solve memory leaks due to data binding
     * [Tutorial6-1NavigationUI-ViewPager2](https://github.com/SmartToolFactory/NavigationComponents-Tutorials/tree/master/Tutorial6-1NavigationUI-ViewPager2)
 
 * ViewPager2 navigation with each page has it's own back stack or fragment that wraps/contains NavHostFragment
@@ -771,7 +771,7 @@ If  ```BottomNavigationView``` extension is used with ```DynamicNavHostFragment`
 
 Also, since extension is not used, observe that not getting  **MEMORY LEAK** that was present in Tutorial7-3
 
-### TodDos:
+### ToDos:
 - [ ] Use nav graph ViewModel by navGraphViewModels, couldn't find it yet
 - [ ] Solve ```setFragmentResultListener``` issue to get result from a framgent on back press, and use instead of savedStateHandle
 - [ ] Use saveStateHandle or save fragment state in Tutorial 8-2 when ViewPager2 moves away from viewPort

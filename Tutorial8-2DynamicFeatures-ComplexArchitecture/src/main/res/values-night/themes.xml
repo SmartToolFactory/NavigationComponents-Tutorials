@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.NavigationComponentsTutorial" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.NavigationComponentsTutorial" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -12,6 +12,11 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">@color/colorPrimaryDark</item>
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="LoginDetailTheme" parent="Theme.NavigationComponentsTutorial">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">true</item>
     </style>
 
 </resources>

@@ -1,4 +1,3 @@
-include ':Tutorial5-4NavigationUI-MemoryLeakCheck'
 include ':features:gallery'
 include ':features:favorites'
 
@@ -21,6 +20,7 @@ include ':Tutorial4-1NavigationUI-NavigationView'
 include ':Tutorial5-1NavigationUI-BottomNavigation'
 include ':Tutorial5-2NavigationUI-BottomNavigation-Advanced'
 include ':Tutorial5-3NavigationUI-BottomNavigation-NestedNavigation'
+include ':Tutorial5-4NavigationUI-MemoryLeakCheck'
 include ':Tutorial6-0NavigationUI-ViewPager2'
 include ':Tutorial6-1NavigationUI-ViewPager2'
 include ':Tutorial6-2NavigationUI-ViewPager2-NestedNavHost'

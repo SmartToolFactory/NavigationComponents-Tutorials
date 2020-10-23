@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
-import androidx.navigation.dynamicfeatures.fragment.DynamicNavHostFragment
 import androidx.navigation.fragment.NavHostFragment
 import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.fragment.factory.NavHostFragmentFactory
 import com.smarttoolfactory.tutorial8_2dynamicfeatures_complexarchitecture.util.Event
@@ -32,7 +31,27 @@ class NavHostContainerFragment() : Fragment() {
     private var layoutRes: Int = -1
 
     /**
-     * Id of [NavHostFragment] or [DynamicNavHostFragment]
+     * Id of [NavHostFragment] inside layout specified with [layoutRes]. A layout
+     * for instance is like the snippet below
+     *
+     * ```
+     * <SomeLayout>
+     *   <androidx.fragment.app.FragmentContainerView
+     *   android:id="@+id/nested_nav_host_fragment"
+     *   android:name="androidx.navigation.dynamicfeatures.fragment.DynamicNavHostFragment"
+     *   app:defaultNavHost="true"
+     *   app:navGraph="@navigation/nav_graph_x"/>
+     *</SomeLayout>
+     * ```
+     *
+     * and instantiate a fragment from this layout
+     * ```
+     *   NavHostContainerFragment.newInstance(
+     *     R.layout.fragment_SOME_FRAGMENT,
+     *     R.id.nested_nav_host_fragment)
+     * ```
+     * name of this layout is [layoutRes], id in layout snippet is [navHostFragmentId]
+     *
      */
     private var navHostFragmentId: Int = -1
 

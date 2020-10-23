@@ -29,7 +29,7 @@
         android:id="@+id/dashboardFragment3"
         android:name="com.smarttoolfactory.tutorial8_1dynamicfeatures_navigation.fragment.blankfragment.DashboardFragment3"
         android:label="DashboardFragment3"
-        tools:layout="@layout/fragment_dashboard3" >
+        tools:layout="@layout/fragment_dashboard3">
         <action
             android:id="@+id/action_dashboardFragment3_to_dashboardFragment1"
             app:destination="@id/dashboardFragment1"

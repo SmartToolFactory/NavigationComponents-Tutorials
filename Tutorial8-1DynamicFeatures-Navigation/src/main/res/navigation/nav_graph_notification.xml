@@ -47,10 +47,10 @@
         android:id="@+id/nav_graph_favorites"
         android:name="com.smarttoolfactory.favorites"
         app:graphResName="nav_graph_favorites"
-        app:moduleName="favorites" >
+        app:moduleName="favorites">
         <argument
             android:name="count"
-            app:argType="integer"
-            android:defaultValue="0" />
+            android:defaultValue="0"
+            app:argType="integer" />
     </include-dynamic>
 </navigation>
