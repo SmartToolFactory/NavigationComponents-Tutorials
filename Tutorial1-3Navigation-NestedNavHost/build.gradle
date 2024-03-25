@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'kotlin-android-extensions'
+
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
@@ -30,6 +30,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    namespace 'com.smarttoolfactory.tutorial1_3navigation_nestednavhost'
 
 }
 

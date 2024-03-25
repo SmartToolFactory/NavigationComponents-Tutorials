@@ -4,14 +4,9 @@ plugins {
 }
 android {
     compileSdkVersion 29
-    buildToolsVersion "30.0.0"
 
     defaultConfig {
-        applicationId "com.smarttoolfactory.camera"
         minSdkVersion 21
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -34,6 +29,7 @@ android {
     dataBinding {
         enabled = true
     }
+    namespace 'com.smarttoolfactory.camera'
 
 }
 

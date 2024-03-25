@@ -82,7 +82,10 @@ class HomeNavHostFragment : BaseDataBindingFragment<FragmentNavhostHomeBinding>(
             is start destination. Set start destination as this fragment so it needs to
             navigate next destination.
          */
-        if (navController!!.currentDestination == null || navController!!.currentDestination!!.id == navController!!.graph.startDestination) {
+        if (
+            navController!!.currentDestination == null ||
+            navController!!.currentDestination!!.id == navController!!.graph.startDestination
+        ) {
             navController?.navigate(R.id.homeFragment1)
         }
 

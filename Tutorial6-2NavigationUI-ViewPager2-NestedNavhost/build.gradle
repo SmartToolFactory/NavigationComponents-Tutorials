@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+
 apply plugin: 'kotlin-kapt'
 
 android {
@@ -36,6 +36,7 @@ android {
     dataBinding {
         enabled = true
     }
+    namespace 'com.smarttoolfactory.tutorial6_2naigationui_viewpager2_nestednavhost'
 
 }
 

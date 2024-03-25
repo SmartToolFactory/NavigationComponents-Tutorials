@@ -9,6 +9,7 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.viewbinding.ViewBinding
 
 /**
  * Base fragment with data binding and prints lifecycle events
@@ -27,9 +28,9 @@ import androidx.fragment.app.Fragment
  * * onDestroy()
  * * onDetach()
  */
-abstract class BaseDataBindingFragment<ViewBinding : ViewDataBinding> : Fragment() {
+abstract class BaseDataBindingFragment<Binding : ViewBinding> : Fragment() {
 
-    lateinit var dataBinding: ViewBinding
+    lateinit var dataBinding: Binding
 
     @LayoutRes
     abstract fun getLayoutRes(): Int

@@ -46,9 +46,6 @@ android {
     productFlavors {
     }
 
-    lintOptions {
-        abortOnError false
-    }
 
     compileOptions {
         sourceCompatibility = 1.8
@@ -57,6 +54,10 @@ android {
 
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+    namespace 'com.example.android.codelabs.navigation'
+    lint {
+        abortOnError false
     }
 
 }

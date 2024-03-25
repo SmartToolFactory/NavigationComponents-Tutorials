@@ -1,11 +1,10 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+
 apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "30.0.0"
 
     defaultConfig {
         applicationId "com.smarttoolfactory.tutorial8_1dynamicfeatures_navigation"
@@ -39,6 +38,7 @@ android {
 
     dynamicFeatures = [':features:favorites',
                        ':features:gallery']
+    namespace 'com.smarttoolfactory.tutorial8_1dynamicfeatures_navigation'
 }
 
 dependencies {
